@@ -3,9 +3,12 @@
 #### 介绍
 IFans miniapp
 
+#### IDE 配置
+
+editorconfig 插件
+
 #### 软件架构
 软件架构说明
-
 
 #### 安装教程
 
