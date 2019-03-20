@@ -4,7 +4,7 @@
     "noImplicitAny": true,
     "module": "CommonJS",
     "target": "ES5",
-    "allowJs": false,
+    "allowJs": true,
     "experimentalDecorators": true,
     "noImplicitThis": true,
     "noImplicitReturns": true,
@@ -13,11 +13,12 @@
     "inlineSources": true,
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "noUnusedParameters": false,
     "strict": true,
     "removeComments": true,
     "pretty": true,
     "strictPropertyInitialization": true,
+    "lib": ["dom", "es2015.promise", "es5"],
     "typeRoots": [
       "typings"
     ]

@@ -1,4 +1,4 @@
-import api from "./api";
+import api from './'
 
 async function test() {
   console.log(await api.getHomeTopicList({}))

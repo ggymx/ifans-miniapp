@@ -1,0 +1,31 @@
+{
+  "extends": "tslint:recommended",
+  "rules": {
+    "max-line-length": {
+      "options": [
+        120
+      ]
+    },
+    "no-console": {
+      "severity": "warning",
+      "options": [ "debug", "info", "log", "time", "timeEnd", "trace" ]
+    },
+    "forin": false,
+    "no-var-requires": false,
+    "semicolon": [true, "never"],
+    "quotemark": [true, "single"]
+  },
+  "jsRules": {
+    "max-line-length": {
+      "options": [
+        120
+      ]
+    },
+    "whitespace": [false],
+    "semicolon": [true, "never"],
+    "quotemark": [true, "single"]
+  },
+  "linterOptions": {
+    "exclude": ["api/fake.zh_CN.js"]
+  }
+}
