@@ -10,6 +10,11 @@ editorconfig 插件
 #### 软件架构
 软件架构说明
 
+appid: 
+wx9cc039bf853da6b0
+secret:
+a8090d07bc847eac6bde700b504efef2
+
 #### 安装教程
 
 1. xxxx

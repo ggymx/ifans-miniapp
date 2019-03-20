@@ -1,0 +1,16 @@
+interface Post extends BaseModel {
+  title: string,
+  viewNum: number,
+  joinNum: number,
+  summary: string,
+  contentType: number,
+  contentLink: string,
+  hotFlag: boolean,
+  creatUser: number,
+  editUser: number,
+  creatTime: Date,
+  editTime: Date,
+  updateTime: Date,
+  delTime: Date,
+  status: Number,  
+}

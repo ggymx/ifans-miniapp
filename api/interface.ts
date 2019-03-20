@@ -1,17 +1,5 @@
 
-//用户
-interface User{                         
-    name:string,                        //用户昵称
-    pic?:string,                        //头像
-    sign?:string,                       //用户签名
-    followStatus:Array<number>,         //关注状态：未关注0，已关注1，互相关注2
-    fansNum:number,                     //粉丝数
-    actiivtyNum:number,                 //动态数    
-    readonly id:string,                 //用户唯一id，编码格式未定
-    readonly creatTime:Date,            //用户生成时间
-}
-
-// 发布信息类共有属性
+// 信息类共有属性
 interface Common{
     readonly id:string,                 //信息唯一ID，不同类型有不同编码，编码格式未定
     text:string,                        //输入的所有信息，除图片
