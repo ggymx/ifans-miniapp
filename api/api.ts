@@ -1,21 +1,16 @@
-async function getUser(): Promise<User> {
-  return {
-    name: 'hello',
-    pic: 'http://xxxxx.png',
-  }
-}
+import { HomeTopicListParams, HomeTopicListResponse, TopicDetailParams, TopicDetailResponse, PostDetailParams, PostDetailResponse } from "./types/http_msg";
 
-async function getTopicList(): Promise<HomePageResult> {
-  let ary: Topic[] = []
-  for (let i = 0; i < 10; i++) {
-    ary.push({
-      id: i,
-      title: 'blabla',
-    })
-  }
-  return ary
-}
+export default {
+  getHomeTopicList: async (params: HomeTopicListParams): Promise<HomeTopicListResponse> => {
+    return {}
+  },
+  getTopic: async (params: TopicDetailParams): Promise<TopicDetailResponse> => {
+    return {}
+  },
+  getPost: async (params: PostDetailParams): Promise<PostDetailResponse> => {
+    return {}
+  },
+  publishPost: async () => {
 
-async test() {
-  console.log(await getTopicList())
+  }
 }
