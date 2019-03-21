@@ -3,8 +3,8 @@
 import { IMyApp } from '../../app'
 
 //调用后台api
-/*import api from '../../api'
-import { ITopicDetailParams } from '../../api/types/http_msg';
+import api from '../../common/api'
+import { ITopicDetailParams } from '../../common/types/http_msg';
 
 async function getTopic(obj:ITopicDetailParams):Promise<any>{
   return await api.getTopic(obj);
@@ -12,7 +12,7 @@ async function getTopic(obj:ITopicDetailParams):Promise<any>{
 
 let topic=getTopic({id:1}).then(top=>top).catch(()=>{console.log('后台正忙')})
 
-console.log(`测试：${topic}`);*/
+console.log(`测试：${topic}`);
 
 const app = getApp<IMyApp>()
 

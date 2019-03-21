@@ -10,7 +10,7 @@
 // }
 
 // test().then().catch(console.log.bind(console))
-import api from './'
+import api from './api'
 import { ITopicDetailParams } from './types/http_msg';
 
 
