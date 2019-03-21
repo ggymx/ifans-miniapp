@@ -1,0 +1,292 @@
+/**app.wxss**/
+/*底层*/
+.underlying{
+  height:auto;
+  width:100%;
+  /*background-color: blue;*/
+  background-color:#fff;
+}
+/*居中容器*/
+.container {
+  height:auto;
+  width:351px;
+  /*background-color: red;*/
+  background-color:#FFF;
+  margin-left:auto;
+  margin-right: auto;
+  
+} 
+.top{
+  width:100%;
+  height:auto;
+
+  background-color: #fff;
+  border-bottom:4px solid #E8E8E8;
+
+  overflow: hidden;
+  position: relative;
+}
+.top-img{
+  width:100%;
+  height: 200px;
+  /*background-color: yellow;*/
+  background-color: #000;
+  background-repeat: no-repeat;
+  /*破坏top-group的margin-top*/
+  overflow: hidden;
+  position: relative;
+
+}
+.top-img>image{
+  width:100%;
+  height:200px;
+  opacity:0.8;
+  background-color: gray;
+}
+
+.top-text{
+  width:177px;
+  height:70px;
+  /*background-color: blue;*/
+  background-color:transparent;
+  margin-top:13px;
+  /*margin-left:21px;*/
+  color:gray;
+  font-size:12px;
+  /*文本对元素内空白的处理：保留空白，类似<pre>*/
+  white-space: pre;
+}
+.top-group{
+  height:14px;
+  width:auto;
+  /*background-color:green;*/
+  background-color: transparent;
+  position: absolute;
+  bottom: 200rpx;
+  right:160rpx;
+}
+.article{
+  width:100%;
+  height:auto;
+}
+
+.article-item{
+  width:351px;
+  height:365px;
+  background-color:gray;
+  border-bottom:1px solid #BBB;
+  margin-bottom: 10px;
+}
+
+.footer{
+ position: fixed;
+ height:54px;
+ width:136px;
+ background-color:transparent;
+ /*rpx可以根据手机分辨率进行自适应转换*/
+ left:260rpx;
+ bottom: 15px;
+}
+  /*悬浮按钮*/
+.fixed-btn{
+  background:#101010;
+  width:54px;
+  height:54px;
+  float: left;
+  border-radius: 50%;
+ /* border: 1px solid #000;*/
+  font-size: 15px;
+  text-align: center;
+  vertical-align: middle;
+  opacity: 0.3;
+  color:#FFF;
+}
+/*使按钮居中*/
+.fixed-btn-view{
+  width:54px;
+  height:27px;
+  margin-top:30rpx
+}
+/*text{
+  display: block;
+  height:30px;
+  width:40px;
+  margin-top: 10px 10px 10px 10px;
+}*/
+.top-group>text{
+    color: #fff;
+    font-size: 10px;
+}
+.tab{
+  width:100%;
+  height:40px;
+  text-align:center;
+  background-color:#FFF;
+  color:gray;
+  font-size:12px;
+  white-space: pre;
+}
+/*动态区的上部区域*/
+.item-top,.item-down{
+width:100%;
+height:63px;
+position: relative;
+background:#fff;
+}
+/*下部*/
+.item-down{
+  /*background: yellow;*/
+  height:302px;
+}
+/*头像*/
+.head-img{
+  height:63px;
+  width:63px;
+  border-radius:50%;
+  background-color:gray;
+}
+/*评论人的姓名*/
+.comment-name{
+  width:48px;
+  height:22px;
+  font-size:13px;
+  display: block;
+  position:absolute;
+  top:15px;
+  left: 70px;
+}
+.comment-time{
+  width:78px;
+  height:14px;
+  font-size:10px;
+  display: block;
+  position:absolute;
+  top:35px;
+  left: 70px;
+  color: #101010;
+}
+/*右侧的小按钮*/
+.right-smlbtn{
+  width:18px;
+  height:18px;
+  position:absolute;
+  right:20px;
+  top:22px;
+  border: none;
+}
+.comment-title{
+  display: block;
+  width: 94px;
+  height:20px;
+  position: absolute;
+  background: #FFF;
+  font-size: 12px;
+  left: 70px;
+}
+.commetn-text{
+  width: 263px;
+  height:70px;
+  position: absolute;
+  background:#FFF;
+  font-size: 12px;
+  /*white-space: pre;*/
+  left:70px;
+  top:30px;
+  text-align: left;
+}
+/*评论区的图片*/
+.content-img{
+  width:145px;
+  height:140px;
+  background-color:gray;
+  position:absolute;
+  top:110px;
+  left:70px;
+}
+.content-content{
+  height:20px;
+  width:auto;
+  font-size: 10px;
+  position: absolute;
+  right:0;
+  bottom: 4px;
+  color:#101010;
+}
+
+.fan-refl{
+  height:30px;
+  /*background:red;*/
+  background:#FFF;
+  /*弹性布局*/
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+/*点赞-分享-评论*/
+.fan-refl>view{
+  font-size:10px;
+  margin-right:80px;
+}
+/*话题人，发布日期等*/
+.publish{
+  height:100%;
+  width:220px;
+  /*background-color:red;*/
+  display:flex;
+  /*空间不够自动换行*/
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+.publish-name,.publish-status{
+  display: block;
+  font-size:13px;
+  height:20px;
+  margin-top: 5px;
+}
+.publish-name{
+  width:auto;
+  margin-right:10px;
+  margin-left:5px;
+}
+.publish-status{
+  width:150px;
+}
+.publish-time{
+  font-size:10px;
+  color:#BBB;
+  height:15px;
+  display: block;
+  margin-left:5px
+}
+/*关注按钮*/
+.focus-btn{
+  width:48px;
+  height:28px;
+  background-color:coral;
+  color:#FFF;
+  font-size:13px;
+  text-align: center;
+  /*消除按钮内边距*/
+  padding: 0 0 0 0;
+  /*行高和按钮一样高，则可以自动居中*/
+  line-height: 28px;
+  margin-top:5px;
+  margin-left:3px;
+  display: inline-block;
+}
+/*关注按钮旁的按钮*/
+.img-btn{
+width:18px;
+height:13px;
+margin-bottom:7px;
+margin-left: 6px;
+}
+
+/*发布者头像*/
+.pusblish-head{
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  background-color: gray;
+}

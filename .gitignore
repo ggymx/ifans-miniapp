@@ -78,3 +78,8 @@ jspm_packages/
 
 # DynamoDB Local files
 .dynamodb/
+
+#My config
+*.jpg
+*.png
+*.svg

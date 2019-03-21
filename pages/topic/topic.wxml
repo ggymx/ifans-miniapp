@@ -1,0 +1,91 @@
+<!--topic.wxml-->
+<!--引用自定义的navibar组件-->
+<!-- <navbar back text="{{navigationBarTitle}}"></navbar> -->
+
+<view class="underlying">
+<view class="container">
+<!--头部-->
+<view class="top">
+<view style="height:90rpx;background-color:#FFF;display:flex;margin-bottom:5px;">
+<image class="pusblish-head" src="../../imgs/imgs.jpg" alt="暂无图片"></image>
+<view class="publish">
+  <text class="publish-name">吴彦祖</text>
+  <text class="publish-status">发布了这个话题</text>
+  <text class="publish-time">1个小时前</text>
+</view>
+<view style="height:100%;width:86px;">
+ <button class="focus-btn">关注</button>
+ <image src="../../imgs/6.png" class="img-btn"></image>
+</view>
+</view>
+<!--图片-->
+<view class="top-img">
+    <image src="../../imgs/5.jpg"></image>
+     <view style="height:100%;width:351px;margin:0 auto;">
+        <view class="top-group">
+           <text>你有每年天朝传统节日穿汉服的习惯吗？</text>
+        </view>
+     </view>
+</view>
+<view class="fan-refl">
+  <view>评论99</view><view>点赞99</view><view style="margin-right:0px;">点赞99</view>
+</view>
+</view>
+
+
+  <!--主体-->
+  <view class="article">
+  <!--要做选项卡-->
+    <view class="tab">
+      最热     最新
+    </view>
+    <!--每一个动态-->
+    <view class="article-item">
+      <!--上部-->
+      <view class="item-top">
+        <image src="../../imgs/2.jpg" class="head-img"></image>
+        <text class="comment-name">游哈哈</text>
+        <text class="comment-time">2019年03月13日</text>
+        <image src="../../imgs/c1.png" class="right-smlbtn"></image>
+      </view>
+      <!--下部-->
+      <view class="item-down">
+        <text class="comment-title">#接触cosplay#</text>
+        <view class="commetn-text">混C圈两年，退圈了。看到这个话题，一时间有点百感交集，最接触cosplay的时候，很欣喜...更多</view>
+        <image class="content-img" src="../../imgs/3.jpg"></image>
+        <view class="content-content">赞99评论99分享</view>
+      </view>
+    </view>
+    
+     <!--每一个动态-->
+    <view class="article-item">
+      <!--上部-->
+      <view class="item-top">
+        <image src="../../imgs/2.jpg" class="head-img"></image>
+        <text class="comment-name">游哈哈</text>
+        <text class="comment-time">2019年03月13日</text>
+        <image src="../../imgs/c1.png" class="right-smlbtn"></image>
+      </view>
+      <!--下部-->
+      <view class="item-down">
+        <text class="comment-title">#接触cosplay#</text>
+        <view class="commetn-text">混C圈两年，退圈了。看到这个话题，一时间有点百感交集，最接触cosplay的时候，很欣喜...更多</view>
+        <image class="content-img" src="../../imgs/4.jpg"></image>
+        <view class="content-content">赞99评论99分享</view>
+      </view>
+    </view>
+
+  </view>
+
+  <view class="footer">
+  <!--悬浮按钮-->
+     <view class="fixed-btn" style="margin-right:28px;">
+       <view class="fixed-btn-view">参与</view>
+     </view>
+     <view class="fixed-btn">
+      <view class="fixed-btn-view">邀请</view>
+     </view>
+  </view>
+  
+ </view>
+</view>
