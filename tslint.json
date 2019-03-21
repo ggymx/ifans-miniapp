@@ -12,6 +12,7 @@
     },
     "forin": false,
     "no-var-requires": false,
+    "only-arrow-functions": false,
     "semicolon": [true, "never"],
     "quotemark": [true, "single"]
   },
