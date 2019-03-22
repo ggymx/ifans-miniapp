@@ -80,6 +80,3 @@ jspm_packages/
 .dynamodb/
 
 #My config
-*.jpg
-*.png
-*.svg

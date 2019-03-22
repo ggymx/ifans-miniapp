@@ -41,9 +41,16 @@
   width:100%;
   height:200px;
   opacity:0.8;
-  background-color: gray;
+  /*background-color: gray;*/
 }
-
+/*热门话题*/
+#hot-topic{
+  width:18px;
+  height:18px;
+  position:absolute;
+  top:10px;
+  left:10px;
+}
 .top-text{
   width:177px;
   height:70px;
@@ -56,15 +63,24 @@
   /*文本对元素内空白的处理：保留空白，类似<pre>*/
   white-space: pre;
 }
-.top-group{
-  height:14px;
-  width:auto;
-  /*background-color:green;*/
-  background-color: transparent;
-  position: absolute;
-  bottom: 200rpx;
-  right:160rpx;
+.topic-text{
+  display:block;
+position:absolute;
+top:50px;
+color:#fff;
+font-size:13px;
+height:auto;
+width:auto;
+left:10px;
 }
+
+/*热门话题标识*/
+/* .no-one{
+  height:18px;
+  width:18px;
+  position:absolute;
+} */
+
 .article{
   width:100%;
   height:auto;
@@ -147,7 +163,7 @@ background:#fff;
 }
 /*评论人的姓名*/
 .comment-name{
-  width:48px;
+  width:auto;
   height:22px;
   font-size:13px;
   display: block;
@@ -167,8 +183,8 @@ background:#fff;
 }
 /*右侧的小按钮*/
 .right-smlbtn{
-  width:18px;
-  height:18px;
+  width:3px;
+  height:16px;
   position:absolute;
   right:20px;
   top:22px;
@@ -204,13 +220,18 @@ background:#fff;
   left:70px;
 }
 .content-content{
-  height:20px;
+  height:16px;
   width:auto;
   font-size: 10px;
   position: absolute;
   right:0;
   bottom: 4px;
   color:#101010;
+  margin-bottom:8px;
+}
+.content-content>view{
+  display: inline-block;
+  margin-right:16px;
 }
 
 .fan-refl{
@@ -223,10 +244,12 @@ background:#fff;
   justify-content: center;
   align-items: center;
 }
-/*点赞-分享-评论*/
+/*点赞-分享-评论的的view*/
 .fan-refl>view{
   font-size:10px;
-  margin-right:80px;
+  width:60px;
+  width:50px;
+  margin-right:70px;
 }
 /*话题人，发布日期等*/
 .publish{
@@ -250,7 +273,7 @@ background:#fff;
   margin-left:5px;
 }
 .publish-status{
-  width:150px;
+  width:130px;
 }
 .publish-time{
   font-size:10px;
@@ -289,4 +312,14 @@ margin-left: 6px;
   height:45px;
   border-radius:50%;
   background-color: gray;
+}
+
+/*点赞-评论-分享图标*/
+.operation-icon{
+  width:15px;
+  height:12px
+}
+.operation-icon+text{
+  display:inline-block;
+  margin-left:5px;
 }

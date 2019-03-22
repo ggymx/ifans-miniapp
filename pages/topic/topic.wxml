@@ -7,11 +7,12 @@
 <!--头部-->
 <view class="top">
 <view style="height:90rpx;background-color:#FFF;display:flex;margin-bottom:5px;">
-<image class="pusblish-head" src="../../imgs/imgs.jpg" alt="暂无图片"></image>
+<!-- <image class="pusblish-head" src="../../imgs/imgs.jpg" alt="暂无图片"></image> -->
+<image class="pusblish-head" src="{{data.topic.user.avatar}}" alt="暂无图片"></image>
 <view class="publish">
-  <text class="publish-name">吴彦祖</text>
+  <text class="publish-name">{{data.topic.user.name}}</text>
   <text class="publish-status">发布了这个话题</text>
-  <text class="publish-time">1个小时前</text>
+  <text class="publish-time">{{creatAt}}</text>
 </view>
 <view style="height:100%;width:86px;">
  <button class="focus-btn">关注</button>
@@ -20,15 +21,23 @@
 </view>
 <!--图片-->
 <view class="top-img">
-    <image src="../../imgs/5.jpg"></image>
-     <view style="height:100%;width:351px;margin:0 auto;">
-        <view class="top-group">
-           <text>你有每年天朝传统节日穿汉服的习惯吗？</text>
-        </view>
-     </view>
+    <image src="{{data.topic.banner}}"></image>
+    <text class="topic-text">{{data.topic.text}}</text>
+    <!--热门话题标识-->
+    <image src="../../imgs/home-icon-huo.png" id="hot-topic" wx:if="{{true}}"></image>
 </view>
 <view class="fan-refl">
-  <view>评论99</view><view>点赞99</view><view style="margin-right:0px;">点赞99</view>
+  <view style="margin-left:30px;">
+    <image src="../../imgs/home-button-Comment.png" class="operation-icon"></image>
+    <text>99</text>
+    </view>
+  <view>
+    <image src="../../imgs/home-button-like.png" class="operation-icon"></image>
+    <text>99</text>
+    </view>
+  <view  style="margin-right:0px;">
+    <image src="../../imgs/home-button-Share.png" class="operation-icon" style="height:15px"></image>
+    </view>
 </view>
 </view>
 
@@ -39,41 +48,39 @@
     <view class="tab">
       最热     最新
     </view>
+    
     <!--每一个动态-->
-    <view class="article-item">
+    <view class="article-item" wx:for="{{data.posts}}">
       <!--上部-->
       <view class="item-top">
-        <image src="../../imgs/2.jpg" class="head-img"></image>
-        <text class="comment-name">游哈哈</text>
+        <image src="{{item.user.avatar}}" class="head-img"></image>
+        <text class="comment-name">{{item.user.name}}</text>
         <text class="comment-time">2019年03月13日</text>
-        <image src="../../imgs/c1.png" class="right-smlbtn"></image>
+        <image src="../../imgs/home-button-gengduo.png" class="right-smlbtn"></image>
       </view>
       <!--下部-->
       <view class="item-down">
-        <text class="comment-title">#接触cosplay#</text>
-        <view class="commetn-text">混C圈两年，退圈了。看到这个话题，一时间有点百感交集，最接触cosplay的时候，很欣喜...更多</view>
-        <image class="content-img" src="../../imgs/3.jpg"></image>
-        <view class="content-content">赞99评论99分享</view>
+        <text class="comment-title">{{item.title}}</text>
+        <view class="commetn-text">{{item.text}}</view>
+        <image class="content-img" src="{{item.banner}}"></image>
+        <view class="content-content">
+           <view>
+             <image src="../../imgs/home-button-Comment.png" class="operation-icon"></image>
+             <text>99</text>
+           </view>
+           <view>
+             <image src="../../imgs/home-button-like.png" class="operation-icon"></image>
+             <text>99</text>
+           </view>
+           <view>
+             <image src="../../imgs/home-button-Share.png" class="operation-icon" style="height:15px;"></image>
+           </view>
+        </view>
       </view>
     </view>
     
      <!--每一个动态-->
-    <view class="article-item">
-      <!--上部-->
-      <view class="item-top">
-        <image src="../../imgs/2.jpg" class="head-img"></image>
-        <text class="comment-name">游哈哈</text>
-        <text class="comment-time">2019年03月13日</text>
-        <image src="../../imgs/c1.png" class="right-smlbtn"></image>
-      </view>
-      <!--下部-->
-      <view class="item-down">
-        <text class="comment-title">#接触cosplay#</text>
-        <view class="commetn-text">混C圈两年，退圈了。看到这个话题，一时间有点百感交集，最接触cosplay的时候，很欣喜...更多</view>
-        <image class="content-img" src="../../imgs/4.jpg"></image>
-        <view class="content-content">赞99评论99分享</view>
-      </view>
-    </view>
+   
 
   </view>
 

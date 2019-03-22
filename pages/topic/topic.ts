@@ -7,19 +7,15 @@ import { IMyApp } from '../../app'
 import api from '../../common/api'
 import { ITopicDetailParams,ITopicDetailResponse} from '../../common/types/http_msg';
 
-var getTopic=async (obj:ITopicDetailParams):Promise<ITopicDetailResponse>=>{
+
+let getTopic=async (obj:ITopicDetailParams):Promise<ITopicDetailResponse>=>{
     return await api.getTopic(obj);
 }
 
-var user;
-getTopic({id:1}).then(function(data){
- console.log(data);
-  user=data.topic.user.name;
-  console.log(user);
-}).catch();
 
-console.log(user);
-// console.log(getTopic({id:1}));
+
+
+
 
 const app = getApp<IMyApp>()
 
@@ -28,8 +24,7 @@ Page({
     motto: '点击 “编译” 以构建',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    user:user
+    canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   //事件处理函数
   bindViewTap() {
@@ -38,6 +33,19 @@ Page({
     })
   },
   onLoad() {
+    getTopic({id:1}).then((data)=>{
+    //  / user=data;
+    //  console.log(user);
+     /*data.topic.creatAt=data.topic.creatAt.toLocaleDateString();*/
+     //日期处理
+     let creatAt=data.topic.creatAt.toLocaleString()
+     //投稿人处理
+     this.setData!({data:data,creatAt:creatAt})
+     console.log(data)
+    }).catch();
+    
+    
+
     if (app.globalData.userInfo) {
       this.setData!({
         userInfo: app.globalData.userInfo,
@@ -65,7 +73,7 @@ Page({
       })
     }
   },
-
+  
   getUserInfo(e: any) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
