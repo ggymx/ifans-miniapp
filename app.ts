@@ -8,8 +8,7 @@ export interface IMyApp {
 
 App<IMyApp>({
   onLaunch() {
-    console.log('hello world')
-    // 展示本地存储能力
+   // 展示本地存储能力
     var logs: number[] = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
