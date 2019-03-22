@@ -4,8 +4,8 @@ import { IMyApp } from '../../app'
 
 //调用后台api
 /*导入index??? */
-import api from '../../api/index'
-import { ITopicDetailParams, ITopicDetailResponse } from '../../api/types/http_msg';
+import api from '../../common/api'
+import { ITopicDetailParams,ITopicDetailResponse} from '../../common/types/http_msg';
 
 var getTopic=async (obj:ITopicDetailParams):Promise<ITopicDetailResponse>=>{
     return await api.getTopic(obj);
@@ -20,9 +20,6 @@ getTopic({id:1}).then(function(data){
 
 console.log(user);
 // console.log(getTopic({id:1}));
-
-
-
 
 const app = getApp<IMyApp>()
 
