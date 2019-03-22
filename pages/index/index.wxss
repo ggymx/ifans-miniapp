@@ -1,21 +1,206 @@
 /**index.wxss**/
-.userinfo {
+.underlying{
+height:auto;
+width:100%;
+background-color: blue;
+}
+.container {
+height:auto;
+width:320pt;
+color:rgb(255,255,255);
+margin:0 12pt;
+}
+/* 第一段 */
+.wrap{
+  margin-top: 3pt;
+	 margin-left:5pt;
+	height: 53pt;
+	width: 309pt;
+	display: flex;
+  border: 1.5pt red solid;
+border-color: rgb(244, 244, 244);
+	box-shadow:0 0 8pt grey ;
+   border-top-left-radius: 8pt;
+   border-top-right-radius: 8pt;
+
+}
+.touxiang{
+  width: 38pt;
+  height: 38pt;
+  background-color: red;
+  border-radius:50%;
+  margin-top: 6pt;
+  margin-left: 6pt;
+}
+
+.wuyanzu{
+  margin-top: 11pt;
+  margin-left: 12pt;
+position:relative;
+font-family: PingFang-SC-Medium;
+color: rgb(18, 18, 18);
+text-align: left;
+font-size: 14pt; 
+display: inline-block;
+}
+
+.fabu{
+  margin-left: 8pt;
+  position:relative;
+font-family: PingFang-SC-Medium;
+color: rgb(18, 18, 18);
+font-size: 13pt;
+text-align: left;
+}
+.shijian{
+font-family: PingFang-SC-Regular;
+color: rgb(122, 122, 122);
+font-size: 11pt;
+margin-left: 16pt;
+text-align: left;
+}
+.anniu{
+	width: 120pt;
+	text-align: right;
+	margin-top: 12pt;
+}
+.guanzhu{
+  width: 44pt;
+  height: 24pt;
+  text-align: center;
+  background-color: orange;
+  padding-top: -5pt;
+font-family: PingFang-SC-Medium;
+color: rgb(255,255,255);
+font-size: 10pt;
+margin-right: 1px;
+
+
+}
+.sangedian{
+	width: 15pt;
+  height: 3pt;
+  margin-left: 8pt;
+  margin-right: 6pt;
+  margin-top: 21pt;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+}
+.dian{
+  height: 3pt;
+    background-color: rgb(217, 216, 216);
+	width: 3pt;
+	border-radius: 50%;
+	margin-right: 3px;
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.topic{
+ width: 320pt;
+ height: 170pt;
+ border-radius: 8pt;
+ background-color: grey;
+  color: rgba(0, 0, 0, 0.5);
+  	box-shadow:0 0 3pt ;
+}
+.index-discribe{
+  text-align: center;
+  display: inline-block;
+  margin-top:70pt;
+  margin-left: 80pt;
+  margin-right: auto;
+  width:150pt;
+  height: 30px;
+  color: rgb(255,255,255);
+  font-size: 14pt;
+  font-family: PingFangSC-regular;
+
+}
+.cosplay{
+  margin-top: 50pt;
+}
+.index-discribe2{
+  height: 30pt;
+  margin-top: 40pt;
 }
 
-.userinfo-nickname {
-  color: #aaa;
+.input1{
+height: 13pt;
+width: 30pt;
+color: rgba(255, 255, 255, 1);
+font-size: 9pt;
+display:inline-block;
+margin-left:10pt;
+font-family: SourceHanSansSC-regular;
 }
+.input2{
+  display:inline-block;
+  margin-left: 10pt;
+width: 28pt;
+height: 13pt;
+color: rgba(255, 255, 255, 1);
+font-size: 9pt;
+font-family: SourceHanSansSC-regular;
+}
+.icon1{
+  display: inline-block;
+  margin-left:150pt;
+ /* margin-left: 80pt;
+ margin-top: 50pt; */
+  
+width: 17pt;
+height: 17pt;
+background-color: blue;
+}
+.icon2{
+width: 17pt;
+height: 17pt;
+background-color: orange;
+display:inline-block;
+margin-left:10pt;
 
-.usermotto {
-  margin-top: 200px;
 }
+.icon3{
+display: inline-block;
+width: 24pt;
+height: 24pt;
+margin-left:10pt;
+background-color: green;
+}
+.icon4{
+
+  height: 20pt;
+  width: 20pt;
+  margin-left: 170pt;
+  background-color: red;
+
+}
+.fengefu{
+  width: 100%;
+border: 1.5pt red solid;
+border-color: rgb(244, 244, 244);
+  margin-top: 10pt;
+  
+  margin-bottom: 10pt;
+}
+/* 底部 */
+/* .logo{
+  width: 100%;
+  position: fixed;
+  bottom:0px;
+  display: flex;
+  background-color: purple;
+  justify-content: center;
+}
+ 
+.logo image{
+  width: 200rpx;
+  height: 200rpx;
+}
+ 
+.logo_ground{
+  position: fixed;
+  width: 100%;
+  height: 50rpx;
+  bottom:0px;
+  background-color: blueviolet;
+  z-index: -1;
+  } */

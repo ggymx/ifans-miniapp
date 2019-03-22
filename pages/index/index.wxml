@@ -1,13 +1,124 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+
+
+
+
+
+<view class='index-first'>
+<view class="wrap">
+    <image class="touxiang" src="../../img/2.jpg"></image>
+    <view class="neirong" >
+    	 <view class="neirong1" >
+    	<text class='wuyanzu' >吴彦祖</text> 
+      <text class='fabu'>发布信息</text>
+      </view>
+       <text class='shijian' >1个小时</text> 
+    </view>
+    <view class="anniu" >
+    	<button class='guanzhu'>关注</button>
+    </view>
+     <view class="sangedian" >
+     <image class='dian'></image>
+     <image class='dian'></image>
+     <image class='dian'></image>
+     </view>
+</view>
+</view>
+<view class="topic">
+<view class='index-discribe'>
+	<text >"享受自己努力的成果"</text>
+</view>
+<view class='index-discribe2'>
+<image  class='icon1'></image>
+<text class="input1">99浏览</text>
+<image  class='icon2'></image>
+ <text class="input2">99参与</text>
+<image  class='icon3'></image>
+</view>
+</view>
+<view class='fengefu'></view>
+
+
+
+<view class='index-first'>
+<view class="wrap">
+    <img class="touxiang" ></img>
+    <view class="neirong" >
+    	 <view class="neirong1" >
+    	<text class='wuyanzu' >吴彦祖</text> 
+      <text class='fabu'>发布信息</text>
+      </view>
+       <text class='shijian' >1个小时</text> 
+    </view>
+    <view class="anniu" >
+    	<button class='guanzhu'>关注</button>
+    </view>
+     <view class="sangedian" >
+     <image class='dian'></image>
+     <image class='dian'></image>
+     <image class='dian'></image>
+     </view>
+</view>
+</view>
+<view class="topic">
+<view class='index-discribe'>
+	<text >"享受自己努力的成果"</text>
+</view>
+<view class='index-discribe2'>
+<image  class='icon1'></image>
+<text class="input1">99浏览</text>
+<image  class='icon2'></image>
+ <text class="input2">99参与</text>
+<image  class='icon3'></image>
+</view>
+</view>
+<view class='fengefu'></view>
+
+
+
+
+<view class='index-first'>
+<view class="wrap">
+    <img class="touxiang" ></img>
+    <view class="neirong" >
+    	 <view class="neirong1" >
+    	<text class='wuyanzu' >吴彦祖</text> 
+      <text class='fabu'>发布信息</text>
+      </view>
+       <text class='shijian' >1个小时</text> 
+    </view>
+    <view class="anniu" >
+    	<button class='guanzhu'>关注</button>
+    </view>
+     <view class="sangedian" >
+     <image class='dian'></image>
+     <image class='dian'></image>
+     <image class='dian'></image>
+     </view>
+</view>
+</view>
+<view class="topic">
+<view class='index-discribe'>
+	<text >"享受自己努力的成果"</text>
+</view>
+<view class='index-discribe2'>
+<image  class='icon1'></image>
+<text class="input1">99浏览</text>
+<image  class='icon2'></image>
+ <text class="input2">99参与</text>
+<image  class='icon3'></image>
+</view>
+</view>
+<view class='fengefu'></view>
+
+
+<!-- 底部 -->
+<!-- <view class='aa'>
+  <view class="logo">
+    <image ></image>
+    <view class="logo_ground"></view>
   </view>
 </view>
+ -->
+ </view>
