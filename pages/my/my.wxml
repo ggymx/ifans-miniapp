@@ -1,0 +1,76 @@
+<!--topic.wxml-->
+<!--引用自定义的navibar组件-->
+<!-- <navbar back text="{{navigationBarTitle}}"></navbar> -->
+
+<view class="underlying">
+ <view class="my-view">
+   <image src="../../imgs/test1.jpg" class="my-img"/>
+ </view>
+<view class="container">
+  <view class="header">
+    <view class="trans-view">
+        <image src="../../imgs/myhome-zf.png" class="publish-btn"/>
+    </view>
+    <view class="my-info">
+      <view class="like-focus-view">
+        <!--阴影效果-->
+        <view class="shadow-bar"></view>
+        <!-- <button class="like-btn">喜欢</button>
+        <button class="focus-btn" style="right:36px;">关注</button> -->
+        <button class="like-btn"><image src="../../imgs/myhome-like@2x.png" style="width:10px;height:10px;margin-right:5px;"/><text>喜欢</text></button>
+        <button class="focus-btn"><image src="../../imgs/myhome-jiahao@2x.png" style="width:10px;height:10px;margin-right:5px;"/><text>关注</text></button>
+      </view>
+      <!--签名等信息-->
+      <view class="info-down">
+        <text style="font-size:16px;color:rgb(51,51,51);position:absolute;top:10px;left:57px;">1234</text>
+        <text style="font-size:16px;color:rgb(51,51,51);position:absolute;top:10px;right:57px;">1234</text>
+        <text style="font-size:12px;color:rgb(153,153,153);position:absolute;top:36px;left:71px;">粉丝</text>
+        <text style="font-size:12px;color:rgb(153,153,153);position:absolute;top:36px;right:71px;">动态</text>
+        <!--粉丝-动态下的小灰条-->
+        <view style="height:2px;width:60px;background-color:rgb(217,216,216);position:absolute;top:58px;left:48px;"></view>
+        <view style="height:2px;width:60px;background-color:rgb(217,216,216);position:absolute;top:58px;right:48px;"></view>
+        <!--姓名-->
+        <text style="font-size:17px;color:rgb(51,51,51);position:absolute;top:32px;left:136px;">游哈哈</text>
+        <text style="font-size:12px;color:rgb(153,153,153);position:absolute;top:65px;left:85px;">签名：听说越努力就越幸运哦！</text>
+      </view>
+      <image src="../../imgs/test1.jpg" style="height:63px;width:63px;border-radius:50%;position:absolute;top:22px;left:130px;"/>
+    </view>
+  </view>
+  <!--主体-->
+  <view class="article">
+    <!--每一个动态-->
+    <view class="my-item">
+      <!--上部-->
+      <view class="item-top">
+        <image src="../../imgs/test1.jpg" class="head-img"></image>
+        <text class="comment-name">吴彦祖</text>
+        <text class="comment-time">2019年03月13日</text>
+        <image src="../../imgs/home-button-gengduo.png" class="right-smlbtn"></image>
+      </view>
+      <!--下部-->
+      <view class="item-down">
+        <text class="comment-title">#你有每年天朝传统节日...#</text>
+        <view class="commetn-text">为什么总是以酒，以餐，以娱乐交际会友？以茶会友也是一种不错的交流方式，是传统文化</view>
+        <image class="content-img" src="../../imgs/test2.jpeg"></image>
+        <view class="content-content">
+           <view>
+             <image src="../../imgs/home-button-Comment.png" class="operation-icon"></image>
+             <text>99</text>
+           </view>
+           <view>
+             <image src="../../imgs/home-button-like.png" class="operation-icon"></image>
+             <text>99</text>
+           </view>
+           <view>
+             <image src="../../imgs/home-button-Share.png" class="operation-icon" style="height:15px;"></image>
+           </view>
+        </view>
+      </view>
+    </view>
+    
+     <!--每一个动态-->
+   
+  </view>
+
+ </view>
+</view>

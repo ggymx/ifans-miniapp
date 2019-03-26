@@ -1,6 +1,3 @@
-<<<<<<< HEAD:api/test.ts
-import api from './'
-=======
 // import api from './'
 
 // async function test() {
@@ -20,7 +17,6 @@ import { ITopicDetailParams } from './types/http_msg';
 async function getTopic(obj:ITopicDetailParams):Promise<any>{
   return await api.getTopic(obj);
 }
->>>>>>> c6b30b0db89f05afea2f6842b1de1fff78cfd8ed:common/test.ts
 
 async function test() {
    console.log(await api.getHomeTopicList({}))
