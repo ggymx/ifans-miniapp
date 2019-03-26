@@ -286,7 +286,7 @@ background:#fff;
 .focus-btn{
   width:48px;
   height:28px;
-  background-color:coral;
+  background-color:yellow;
   color:#FFF;
   font-size:13px;
   text-align: center;

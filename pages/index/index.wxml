@@ -1,124 +1,98 @@
-<!--index.wxml-->
-<view class="container">
+<!-- logs.wxml -->
+<view class="underlying">
+    <view class="container">
+        <!--话题列表项-->
+        <view class="topic-item">
+            <view class="topic-view">
+                <view style="height:90rpx;background-color:#FFF;display:flex;margin-top:9px;">
+                    <!-- <image class="pusblish-head" src="../../imgs/imgs.jpg" alt="暂无图片"></image> -->
+                    <image class="pusblish-head" src="../../imgs/test1.jpg" alt="暂无图片"></image>
+                    <view class="publish">
+                        <text class="publish-name">吴彦祖</text>
+                        <text class="publish-status">发布了这个话题</text>
+                        <text class="publish-time">2019年03月23日</text>
+                    </view>
+                    <view style="height:100%;width:86px;">
+                        <button class="focus-btn">关注</button>
+                        <image src="../../imgs/6.png" class="img-btn"></image>
+                    </view>
+                </view>
+                
+            </view>
+            <view class="card-underlying">
+             <image src="../../imgs/test2.jpeg" class="img-card"/>
+            <text style="font-size:13px;color:#FFF;position:absolute;top:70px;left:100px">"享受自己努力的成果！"</text>
+              <image src="../../imgs/home-button-Comment.png" style="width:21px;height:17px;position:absolute;bottom:8px;left:240px" />
+             <text style="position:absolute;bottom:8px;left:266px;font-size:10px;color:#FFF">99</text>
+              <image src="../../imgs/home-button-like.png" style="width:19px;height:16px;position:absolute;bottom:8px;left:291px" />
+             <text style="position:absolute;bottom:8px;left:315px;font-size:10px;color:#FFF">99</text> 
+              <image src="../../imgs/home-button-Share.png" style="width:18px;height:16px;position:absolute;bottom:8px;left:330px" />
+              <!--第一图标-->
+              <image src="../../imgs/home-icon-No.1@2x.png" style="width:20px;height:20px;position:absolute;top:18px;left:20px;z-index:2"/>
+            </view>
+        </view>
+
+       <view class="topic-item">
+            <view class="topic-view">
+                <view style="height:90rpx;background-color:#FFF;display:flex;margin-top:9px;">
+                    <!-- <image class="pusblish-head" src="../../imgs/imgs.jpg" alt="暂无图片"></image> -->
+                    <image class="pusblish-head" src="../../imgs/test1.jpg" alt="暂无图片"></image>
+                    <view class="publish">
+                        <text class="publish-name">吴彦祖</text>
+                        <text class="publish-status">发布了这个话题</text>
+                        <text class="publish-time">2019年03月23日</text>
+                    </view>
+                    <view style="height:100%;width:86px;">
+                        <button class="focus-btn">关注</button>
+                        <image src="../../imgs/6.png" class="img-btn"></image>
+                    </view>
+                </view>
+                
+            </view>
+            <view class="card-underlying">
+             <image src="../../imgs/test2.jpeg" class="img-card"/>
+            <text style="font-size:13px;color:#FFF;position:absolute;top:70px;left:100px">"享受自己努力的成果！"</text>
+              <image src="../../imgs/home-button-Comment.png" style="width:21px;height:17px;position:absolute;bottom:8px;left:240px" />
+             <text style="position:absolute;bottom:8px;left:266px;font-size:10px;color:#FFF">99</text>
+              <image src="../../imgs/home-button-like.png" style="width:19px;height:16px;position:absolute;bottom:8px;left:291px" />
+             <text style="position:absolute;bottom:8px;left:315px;font-size:10px;color:#FFF">99</text> 
+              <image src="../../imgs/home-button-Share.png" style="width:18px;height:16px;position:absolute;bottom:8px;left:330px" />
+              <!--第一图标-->
+              <image src="../../imgs/home-icon-No.1@2x.png" style="width:20px;height:20px;position:absolute;top:18px;left:20px;z-index:2"/>
+            </view>
+        </view>
+        
+        <view class="topic-item">
+            <view class="topic-view">
+                <view style="height:90rpx;background-color:#FFF;display:flex;margin-top:9px;">
+                    <!-- <image class="pusblish-head" src="../../imgs/imgs.jpg" alt="暂无图片"></image> -->
+                    <image class="pusblish-head" src="../../imgs/test1.jpg" alt="暂无图片"></image>
+                    <view class="publish">
+                        <text class="publish-name">吴彦祖</text>
+                        <text class="publish-status">发布了这个话题</text>
+                        <text class="publish-time">2019年03月23日</text>
+                    </view>
+                    <view style="height:100%;width:86px;">
+                        <button class="focus-btn">关注</button>
+                        <image src="../../imgs/6.png" class="img-btn"></image>
+                    </view>
+                </view>
+                
+            </view>
+            <view class="card-underlying">
+             <image src="../../imgs/test2.jpeg" class="img-card"/>
+            <text style="font-size:13px;color:#FFF;position:absolute;top:70px;left:100px">"享受自己努力的成果！"</text>
+              <image src="../../imgs/home-button-Comment.png" style="width:21px;height:17px;position:absolute;bottom:8px;left:240px" />
+             <text style="position:absolute;bottom:8px;left:266px;font-size:10px;color:#FFF">99</text>
+              <image src="../../imgs/home-button-like.png" style="width:19px;height:16px;position:absolute;bottom:8px;left:291px" />
+             <text style="position:absolute;bottom:8px;left:315px;font-size:10px;color:#FFF">99</text> 
+              <image src="../../imgs/home-button-Share.png" style="width:18px;height:16px;position:absolute;bottom:8px;left:330px" />
+              <!--第一图标-->
+              <image src="../../imgs/home-icon-No.1@2x.png" style="width:20px;height:20px;position:absolute;top:18px;left:20px;z-index:2"/>
+            </view>
+        </view>
 
 
 
-
-
-<view class='index-first'>
-<view class="wrap">
-    <image class="touxiang" src="../../img/2.jpg"></image>
-    <view class="neirong" >
-    	 <view class="neirong1" >
-    	<text class='wuyanzu' >吴彦祖</text> 
-      <text class='fabu'>发布信息</text>
-      </view>
-       <text class='shijian' >1个小时</text> 
     </view>
-    <view class="anniu" >
-    	<button class='guanzhu'>关注</button>
-    </view>
-     <view class="sangedian" >
-     <image class='dian'></image>
-     <image class='dian'></image>
-     <image class='dian'></image>
-     </view>
 </view>
-</view>
-<view class="topic">
-<view class='index-discribe'>
-	<text >"享受自己努力的成果"</text>
-</view>
-<view class='index-discribe2'>
-<image  class='icon1'></image>
-<text class="input1">99浏览</text>
-<image  class='icon2'></image>
- <text class="input2">99参与</text>
-<image  class='icon3'></image>
-</view>
-</view>
-<view class='fengefu'></view>
-
-
-
-<view class='index-first'>
-<view class="wrap">
-    <img class="touxiang" ></img>
-    <view class="neirong" >
-    	 <view class="neirong1" >
-    	<text class='wuyanzu' >吴彦祖</text> 
-      <text class='fabu'>发布信息</text>
-      </view>
-       <text class='shijian' >1个小时</text> 
-    </view>
-    <view class="anniu" >
-    	<button class='guanzhu'>关注</button>
-    </view>
-     <view class="sangedian" >
-     <image class='dian'></image>
-     <image class='dian'></image>
-     <image class='dian'></image>
-     </view>
-</view>
-</view>
-<view class="topic">
-<view class='index-discribe'>
-	<text >"享受自己努力的成果"</text>
-</view>
-<view class='index-discribe2'>
-<image  class='icon1'></image>
-<text class="input1">99浏览</text>
-<image  class='icon2'></image>
- <text class="input2">99参与</text>
-<image  class='icon3'></image>
-</view>
-</view>
-<view class='fengefu'></view>
-
-
-
-
-<view class='index-first'>
-<view class="wrap">
-    <img class="touxiang" ></img>
-    <view class="neirong" >
-    	 <view class="neirong1" >
-    	<text class='wuyanzu' >吴彦祖</text> 
-      <text class='fabu'>发布信息</text>
-      </view>
-       <text class='shijian' >1个小时</text> 
-    </view>
-    <view class="anniu" >
-    	<button class='guanzhu'>关注</button>
-    </view>
-     <view class="sangedian" >
-     <image class='dian'></image>
-     <image class='dian'></image>
-     <image class='dian'></image>
-     </view>
-</view>
-</view>
-<view class="topic">
-<view class='index-discribe'>
-	<text >"享受自己努力的成果"</text>
-</view>
-<view class='index-discribe2'>
-<image  class='icon1'></image>
-<text class="input1">99浏览</text>
-<image  class='icon2'></image>
- <text class="input2">99参与</text>
-<image  class='icon3'></image>
-</view>
-</view>
-<view class='fengefu'></view>
-
-
-<!-- 底部 -->
-<!-- <view class='aa'>
-  <view class="logo">
-    <image ></image>
-    <view class="logo_ground"></view>
-  </view>
-</view>
- -->
- </view>
