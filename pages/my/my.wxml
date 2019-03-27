@@ -59,7 +59,7 @@
       <view class="item-down">
         <text class="comment-title">#你有每年天朝传统节日...#</text>
         <view class="commetn-text">为什么总是以酒，以餐，以娱乐交际会友？以茶会友也是一种不错的交流方式，是传统文化</view>
-        <image class="content-img" src="../../imgs/test2.jpeg"></image>
+        <image class="content-img" src="../../imgs/test2.jpeg" bindtap="bindViewTopicDetail"></image>
         <view class="content-content">
            <view>
              <image src="../../imgs/home-button-Comment.png" class="operation-icon"></image>

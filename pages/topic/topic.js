@@ -70,6 +70,15 @@ Page({
             }
         });
     },
+    //跳转到空间页
+    bindViewMy: function () {
+        wx.navigateTo({
+            url: '../my/my',
+            success: function () {
+                wx.showToast({ title: '正在跳转空间页！' });
+            }
+        });
+    },
     onLoad: function () {
         var _this = this;
         getTopic({ id: 1 }).then(function (data) {

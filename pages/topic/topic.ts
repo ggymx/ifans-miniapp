@@ -41,6 +41,15 @@ Page({
        }
      });
   },
+    //跳转到空间页
+  bindViewMy(){
+      wx.navigateTo({
+        url:'../my/my',
+        success:function(){
+          wx.showToast({title:'正在跳转空间页！'});
+        }
+       });
+  },
   onLoad() {
     getTopic({id:1}).then((data)=>{
     //  / user=data;

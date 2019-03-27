@@ -26,6 +26,14 @@ Page({
       }
      });
   },
+  bindViewTopic(){
+    wx.navigateTo({
+      url:'../topic/topic',
+      success:function(){
+        wx.showToast({title:'跳转到话题页！'})
+      }
+    });
+  },
   onLoad() {
     if (app.globalData.userInfo) {
       this.setData!({

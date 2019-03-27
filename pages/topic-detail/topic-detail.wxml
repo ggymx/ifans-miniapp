@@ -3,7 +3,7 @@
    <view class="container">
      <!--头部-->
        <view class="header">
-           <image src="../../imgs/test1.jpg" class="topic-img"/>
+           <image src="../../imgs/test1.jpg" class="topic-img" bindtap="bindViewTopic"/>
            <view class="topic-view">
              <text id="topic">你有每年穿汉服的习惯吗？</text>
              <text id="topic-status">1999人参与评论</text>
@@ -12,7 +12,7 @@
       <!--主体-->
        <view class="article">
          <view class="release-people">
-          <image src="../../imgs/test2.jpeg" class="header-avatar" />
+          <image src="../../imgs/test2.jpeg" class="header-avatar" bindtap="bindViewMy"/>
            <view class="people-info">
                  <text class="user-name">游哈哈</text>
                  <text id="release-date">2019年03月20日</text>
@@ -45,7 +45,7 @@
       <!--评论区-->
       <view class="comment-item">
         <view class="comment-top">
-           <image src="../../imgs/test2.jpeg" class="header-avatar" style="margin-left:3px;" />
+           <image src="../../imgs/test2.jpeg" class="header-avatar" style="margin-left:3px;" bindtap="bindViewMy" />
            <view class="people-info">
             <text class="user-name">游哈哈</text>
             <text style="display:block;font-size:15px;margin-top:10px;">同喜以茶会友</text> 
@@ -74,7 +74,7 @@
        <!--评论区-->
        <view class="comment-item">
         <view class="comment-top">
-           <image src="../../imgs/test2.jpeg" class="header-avatar" style="margin-left:3px;" />
+           <image src="../../imgs/test2.jpeg" class="header-avatar" style="margin-left:3px;" bindtap="bindViewMy"/>
            <view class="people-info">
             <text class="user-name">游哈哈</text>
             <text style="display:block;font-size:15px;margin-top:10px;">同喜以茶会友</text> 
@@ -86,11 +86,11 @@
         </view>
         <view class="comment-reply" wx:if="{{false}}">
           <view class="reply-content" wx:if="{{false}}">
-            <text bindtap="bindViewMy">吴彦祖：</text>
+            <text>吴彦祖：</text>
             <text class="reply-text">同意</text>
           </view>
           <view class="reply-content" wx:if="{{false}}">
-            <text bindtap="bindViewMy">吴彦祖：</text>
+            <text>吴彦祖：</text>
             <text class="reply-text">同意</text>
           </view>
           <view class="reply-content" style="margin-bottom:17px" wx:if="{{false}}"><a href="#">共99条回复>></a></view>

@@ -23,6 +23,14 @@ Page({
             }
         });
     },
+    bindViewTopic: function () {
+        wx.navigateTo({
+            url: '../topic/topic',
+            success: function () {
+                wx.showToast({ title: '跳转到话题页！' });
+            }
+        });
+    },
     onLoad: function () {
         var _this = this;
         if (app.globalData.userInfo) {
