@@ -28,18 +28,17 @@
 }
 .top-img{
   width:100%;
-  height: 200px;
+  height: 230px;
   /*background-color: yellow;*/
   background-color: #000;
   background-repeat: no-repeat;
   /*破坏top-group的margin-top*/
   overflow: hidden;
   position: relative;
-
 }
 .top-img>image{
   width:100%;
-  height:200px;
+  height:230px;
   opacity:0.8;
   /*background-color: gray;*/
 }
@@ -65,13 +64,14 @@
 }
 .topic-text{
   display:block;
-position:absolute;
-top:50px;
+/* position:absolute; */
+/* top:50px; */
 color:#fff;
 font-size:13px;
 height:auto;
 width:auto;
-left:10px;
+/* left:10px; */
+text-align: center;
 }
 
 /*热门话题标识*/
@@ -145,7 +145,6 @@ left:10px;
 /*动态区的上部区域*/
 .item-top,.item-down{
 width:100%;
-height:63px;
 position: relative;
 background:#fff;
 }
@@ -192,42 +191,55 @@ background:#fff;
 }
 .comment-title{
   display: block;
-  width: 94px;
+  width: auto;
   height:20px;
-  position: absolute;
+  /* position: absolute; */
   background: #FFF;
   font-size: 12px;
-  left: 70px;
+  /* left: 70px; */
+  color:rgb(9,166,220);
 }
-.commetn-text{
-  width: 263px;
-  height:70px;
-  position: absolute;
+.comment-text{
+  width: 270px;
+  height:auto;
+  /* position: absolute; */
   background:#FFF;
   font-size: 12px;
   /*white-space: pre;*/
-  left:70px;
-  top:30px;
+  /* left:70px;
+  top:30px; */
   text-align: left;
+  margin-bottom:14px;
+}
+.comment-text-view{
+  height:250px;
+width:270px;
+background-color:pink;
+position:absolute;
+top:30px;
+/* position:absolute; */
+left:70px;
 }
 /*评论区的图片*/
 .content-img{
   width:145px;
   height:140px;
   background-color:gray;
-  position:absolute;
+  margin-bottom:5px;
+  /* position:absolute;
   top:110px;
-  left:70px;
+  left:70px; */
 }
 .content-content{
   height:16px;
-  width:auto;
+  width:126.5px;
   font-size: 10px;
-  position: absolute;
+  /* position: absolute;
   right:0;
-  bottom: 4px;
+  bottom: 4px; */
   color:#101010;
-  margin-bottom:8px;
+  /* margin-bottom:8px; */
+  margin-left:160px;
 }
 .content-content>view{
   display: inline-block;
@@ -273,7 +285,7 @@ background:#fff;
   margin-left:5px;
 }
 .publish-status{
-  width:130px;
+  width:68px;
 }
 .publish-time{
   font-size:10px;
@@ -306,8 +318,15 @@ margin-bottom:7px;
 margin-left: 6px;
 }
 
+.publish-view{
+  height:45px;
+  background-color:#FFF;
+  display:flex;
+  margin-bottom:5px;
+}
+
 /*发布者头像*/
-.pusblish-head{
+.publish-head{
   width:45px;
   height:45px;
   border-radius:50%;
@@ -322,4 +341,24 @@ margin-left: 6px;
 .operation-icon+text{
   display:inline-block;
   margin-left:5px;
+}
+
+.topic-text-view{
+  position:absolute;
+  width:270px;
+  height:170px;
+  /* background-color:pink; */
+  top:30px;
+  left:38px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.comment-title-view{
+  height:auto;
+width:250px;
+position:absolute;
+top:0px;
+left:70px;
+/* background-color:pink */
 }

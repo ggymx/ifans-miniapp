@@ -1,0 +1,103 @@
+/**News concern.wxss**/
+.underlying{
+height:auto;
+width:100%;
+
+}
+.container {
+height:auto;
+width:351pt;
+color:rgb(255,255,255);
+margin:0 auto;
+}
+.fengefu{
+  width: 100%;
+border: 1.5pt red solid;
+border-color: rgb(244, 244, 244);
+  margin-top: 5pt;
+
+}
+.news-first{
+  width: 100%;
+  height: 110pt;
+  display: flex;
+}
+.news-first2{
+  width: 100%;
+  height: 110pt;
+  display: flex;
+}
+.news-first3{
+  width: 100%;
+  height: 110pt;
+  display: flex;
+}
+.news-first4{
+  width: 100%;
+  height: 110pt;
+  display: flex;
+}
+.big{
+   display: flex;
+  flex-direction: column;
+}
+
+.concern-first-left{
+  display: flex;
+  flex-direction: row;
+}
+.new-portrait{
+  width: 58pt;
+  height: 58pt;
+  border-radius:50%;
+  margin-top: 12pt;
+  margin-left: 12pt;
+}
+.miaoshu{
+  display: flex;
+  flex-direction: column;
+  margin-top: 15pt;
+  margin-left: 9pt;
+  padding: 0pt;
+}
+.name{
+  color: rgb(51, 51, 51);
+  font-family: PingFang-SC-Medium;
+  font-size: 16pt;
+}
+.time{
+  margin-top: 10pt;
+
+  color: rgb(153, 153, 153);
+  font-family: PingFang-SC-Medium;
+  font-size: 12pt;
+  
+}
+.aaa{
+   display: flex;
+  flex-direction: row;
+
+  height: 10pt;
+}
+.a{
+  margin-top: 10pt;
+    margin-left: 12pt;
+  color: rgb(51, 51, 51);
+  font-family: PingFang-SC-Medium;
+  font-size: 12pt;
+}
+.b{
+    margin-left: 8pt;
+    margin-top: 10pt;
+  color: rgb(9, 166, 220);
+  font-family: PingFang-SC-Medium;
+  font-size: 12pt;
+}
+.right-image{
+width: 15pt;
+height: 20pt;
+
+margin-left: 90pt;
+margin-top: 40pt;
+}
+

@@ -32,6 +32,15 @@ Page({
       url: '../logs/logs'
     })
   },
+  //跳转到话题详情页面
+  bindViewTopicDetail(){
+     wx.navigateTo({
+       url:'../topic-detail/topic-detail',
+       success:function(){
+         wx.showToast({title:'正在跳转到详情页！'});
+       }
+     });
+  },
   onLoad() {
     getTopic({id:1}).then((data)=>{
     //  / user=data;

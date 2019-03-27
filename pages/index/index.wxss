@@ -48,10 +48,11 @@ border-color:rgb(244,244,244);
   height:100%;
   width:220px;
   /*background-color:red;*/
-  display:flex;
+  /* display:flex; */
   /*空间不够自动换行*/
   flex-wrap: wrap;
   overflow: hidden;
+  position: relative;
 }
 .publish-name,.publish-status{
   display: block;
@@ -61,18 +62,22 @@ border-color:rgb(244,244,244);
 }
 .publish-name{
   width:auto;
-  margin-right:10px;
-  margin-left:5px;
+  left:10px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 .publish-status{
-  width:130px;
+  width:68px;
+  right: 10px;
 }
 .publish-time{
+  position: absolute;
   font-size:10px;
   color:#BBB;
   height:15px;
   display: block;
-  margin-left:5px
+  top:28px;
+  left:10px;
 }
 /*关注按钮*/
 .focus-btn{
@@ -105,8 +110,67 @@ margin-left: 6px;
   opacity: 0.6;
 }
 .card-underlying{
-  background-color:#000;
+background-color:#000;
 height:160px;
 border-radius:10px;
 position: relative;
+}
+
+.card-title{
+  font-size:13px;
+  color:#FFF;
+  /* position:absolute;
+  top:70px;
+  left:100px */
+  line-height:1.5;
+  text-align: center;
+}
+#browse-img{
+  width:21px;
+  height:12px;
+  position:absolute;
+  bottom:8px;
+  left:180px;
+}
+#comment-img{
+  width:17px;
+  height:12px;
+  position:absolute;
+  bottom:8px;
+  left:256px
+}
+#share-img{
+  width:15px;
+  height:14px;
+  position:absolute;
+  bottom:8px;
+  left:328px
+}
+
+#hot-img{
+  width:20px;
+  height:20px;
+  position:absolute;
+  top:10px;
+  left:10px;
+  z-index:2
+}
+
+#browse-img+text,#comment-img+text{
+  position:absolute;
+  bottom:7px;
+  font-size:10px;
+  color:#FFF
+}
+
+.card-view{
+  /* background-color:pink; */
+  width:250px;
+  height:90px;
+  position:absolute;
+  top:38px;
+  left:53px;
+  display:flex;
+  justify-content:center;
+  align-items:center
 }

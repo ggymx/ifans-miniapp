@@ -189,6 +189,54 @@ background:#fff;
   border-color:rgb(217,216,216);
   box-shadow:1px 3px 20px 1px #BBB
 }
+/*粉丝数和动态数*/
+.status-number{
+  font-size:16px;
+  color:rgb(51,51,51);
+  position:absolute;
+  top:10px;
+}
+.fans-dynamic{
+  font-size:12px;
+  color:rgb(153,153,153);
+  position:absolute;
+  top:36px;
+}
+
+/*动态和关注文字小的小灰条*/
+.smal-graybar{
+  height:2px;
+  width:60px;
+  background-color:rgb(217,216,216);
+  position:absolute;
+  top:58px;
+}
+
+#user-name{
+  font-size:17px;
+  color:rgb(51,51,51);
+  position:absolute;
+  top:32px;
+  left:136px;
+}
+/*用户签名*/
+#user-signature{
+  font-size:12px;
+  color:rgb(153,153,153)
+  ;position:absolute;
+  top:65px;
+  left:85px;
+}
+
+.big-image{
+  height:63px;
+  width:63px;
+  border-radius:50%;
+  position:absolute;
+  top:22px;
+  left:130px;
+}
+
 /*喜欢-关注按钮所在区域*/
 .like-focus-view{
   height:60px;
@@ -219,6 +267,11 @@ background:#fff;
 }
 .focus-btn{
   right:36px;
+}
+.like-btn>image,.focus-btn>image{
+  width:10px;
+  height:10px;
+  margin-right:5px
 }
 
 

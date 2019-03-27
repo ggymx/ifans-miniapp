@@ -1,9 +1,12 @@
 {
   "pages": [
-    "pages/my/my",
-    "pages/index/index",
     "pages/topic/topic",
+    "pages/index/index",
+  
     "pages/topic-detail/topic-detail",
+    "pages/my/my",
+    "pages/news/news",
+    "pages/news-concern/news-concern",
     "pages/logs/logs"
   ],
   "window": {

@@ -14,6 +14,32 @@ Page({
             url: '../logs/logs'
         });
     },
+    //跳转到话题页
+    bindViewTopic: function () {
+        wx.navigateTo({
+            url: '../topic/topic',
+            success: function () {
+                wx.showToast({ title: '正在跳转话题页面！' });
+            }
+        });
+    },
+    //跳转到空间页
+    bindViewMy: function () {
+        wx.navigateTo({
+            url: '../my/my',
+            success: function () {
+                wx.showToast({ title: '正在跳转空间页！' });
+            }
+        });
+    },
+    bindViewNews: function () {
+        wx.navigateTo({
+            url: '../news/news',
+            success: function () {
+                wx.showToast({ title: '跳转到消息页！' });
+            }
+        });
+    },
     onLoad: function () {
         var _this = this;
         if (app.globalData.userInfo) {

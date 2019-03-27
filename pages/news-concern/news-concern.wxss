@@ -1,0 +1,114 @@
+/**News concern.wxss**/
+.underlying{
+height:auto;
+width:100%;
+
+}
+.container {
+height:auto;
+width:351pt;
+color:rgb(255,255,255);
+margin:0 auto;
+}
+.fengefu{
+  width: 100%;
+border: 1.5pt red solid;
+border-color: rgb(244, 244, 244);
+  margin-top: 5pt;
+  margin-bottom: 5pt;
+}
+.concern-first{
+  width: 100%;
+  height: 83pt;
+  display: flex;
+}
+.concern-first-left{
+  display: flex;
+  flex-direction: row;
+}
+.portrait{
+  width: 58pt;
+  height: 58pt;
+  border-radius:50%;
+  margin-top: 12pt;
+  margin-left: 12pt;
+}
+.shuoming{
+  display: flex;
+  flex-direction: column;
+  margin-top: 15pt;
+  margin-left: 9pt;
+  padding: 0pt;
+}
+.biaoti{
+  color: rgb(51, 51, 51);
+  font-family: PingFang-SC-Medium;
+  font-size: 16pt;
+}
+.fabu{
+  margin-top: 10pt;
+  color: rgb(51, 51, 51);
+  font-family: PingFang-SC-Medium;
+  font-size: 14pt;
+  
+}
+.button-first{
+width: 59pt;
+height: 28pt;
+margin-top: 27pt;
+margin-right: 18pt;
+text-align: center;
+color:rgb(255, 212, 19);
+background-color: rgb(255, 255, 255);
+font-family: PingFang-SC-Medium;
+font-size: 14pt;
+border: 1pt solid rgb(255, 212, 19);
+padding-bottom: 25pt;
+border-radius: 14pt;
+line-height: 25pt;
+
+}
+button::after{
+  border: none;
+}
+
+.concern-second{
+  width: 100%;
+  height: 83pt;
+  display: flex;
+}
+.button-second{
+width: 75pt;
+height: 28pt;
+color:rgb(255, 255, 255);
+background-color: rgb(255, 212, 19);
+font-family: PingFang-SC-Medium;
+font-size: 14pt;
+margin-top: 27pt;
+margin-right: 18pt;
+border: 1pt solid rgb(255, 212, 19);
+border-radius: 14pt;
+padding-top: -5pt;
+text-align: center;
+line-height: 25pt;
+}
+.concern-third{
+  width: 100%;
+  height: 83pt;
+  display: flex;
+}
+.button-third{
+width: 90pt;
+height: 28pt;
+color:rgb(255, 255, 255);
+background-color: rgb(255, 212, 19);
+font-family: PingFang-SC-Medium;
+font-size: 14pt;
+margin-top: 27pt;
+margin-right: 18pt;
+border: 1pt solid rgb(255, 212, 19);
+border-radius: 14pt;
+padding-top: -5pt;
+text-align: center;
+line-height: 25pt;
+}

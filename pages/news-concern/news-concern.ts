@@ -17,32 +17,6 @@ Page({
       url: '../logs/logs'
     })
   },
-  //跳转到话题页
-  bindViewTopic(){
-    wx.navigateTo({
-        url:'../topic/topic',
-        success:function(){
-          wx.showToast({title:'正在跳转话题页面！'});
-      }
-    });
-  },
-  //跳转到空间页
-  bindViewMy(){
-    wx.navigateTo({
-      url:'../my/my',
-      success:function(){
-        wx.showToast({title:'正在跳转空间页！'});
-      }
-     });
-  },
-  bindViewNews(){
-    wx.navigateTo({
-      url:'../news/news',
-      success:function(){
-        wx.showToast({title:'跳转到消息页！'});
-      }
-    });
-  },
   onLoad() {
     if (app.globalData.userInfo) {
       this.setData!({

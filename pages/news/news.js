@@ -14,12 +14,11 @@ Page({
             url: '../logs/logs'
         });
     },
-    //跳转到空间页
-    bindViewMy: function () {
+    bindViewNewsConcern: function () {
         wx.navigateTo({
-            url: '../my/my',
+            url: '../news-concern/news-concern',
             success: function () {
-                wx.showToast({ title: '正在跳转空间页！' });
+                wx.showToast({ title: '跳转到详情页！' });
             }
         });
     },

@@ -61,6 +61,15 @@ Page({
             url: '../logs/logs'
         });
     },
+    //跳转到话题详情页面
+    bindViewTopicDetail: function () {
+        wx.navigateTo({
+            url: '../topic-detail/topic-detail',
+            success: function () {
+                wx.showToast({ title: '正在跳转到详情页！' });
+            }
+        });
+    },
     onLoad: function () {
         var _this = this;
         getTopic({ id: 1 }).then(function (data) {

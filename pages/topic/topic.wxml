@@ -6,12 +6,14 @@
 <view class="container">
 <!--头部-->
 <view class="top">
-<view style="height:90rpx;background-color:#FFF;display:flex;margin-bottom:5px;">
+<view class="publish-view">
 <!-- <image class="pusblish-head" src="../../imgs/imgs.jpg" alt="暂无图片"></image> -->
-<image class="pusblish-head" src="{{data.topic.user.avatar}}" alt="暂无图片"></image>
+<image class="publish-head" src="{{data.topic.user.avatar}}" alt="暂无图片"></image>
 <view class="publish">
-  <text class="publish-name">{{data.topic.user.name}}</text>
-  <text class="publish-status">发布了这个话题</text>
+  <view style="height:23px;width:100%;display:flex;">
+    <text class="publish-name">{{data.topic.user.name}}</text>
+    <text class="publish-status">发布了话题</text>
+  </view>
   <text class="publish-time">{{creatAt}}</text>
 </view>
 <view style="height:100%;width:86px;">
@@ -20,9 +22,11 @@
 </view>
 </view>
 <!--图片-->
-<view class="top-img">
+<view class="top-img" bindtap="bindViewTopicDetail">
     <image src="{{data.topic.banner}}"></image>
-    <text class="topic-text">{{data.topic.text}}</text>
+    <view class="topic-text-view">
+       <text class="topic-text">{{data.topic.text}}</text>
+    </view>
     <!--热门话题标识-->
     <image src="../../imgs/home-icon-huo.png" id="hot-topic" wx:if="{{true}}"></image>
 </view>
@@ -31,24 +35,22 @@
     <image src="../../imgs/home-button-Comment.png" class="operation-icon"></image>
     <text>99</text>
     </view>
-  <view>
+   <view>
     <image src="../../imgs/home-button-like.png" class="operation-icon"></image>
     <text>99</text>
-    </view>
+   </view>
   <view  style="margin-right:0px;">
     <image src="../../imgs/home-button-Share.png" class="operation-icon" style="height:15px"></image>
     </view>
 </view>
 </view>
 
-
   <!--主体-->
   <view class="article">
   <!--要做选项卡-->
     <view class="tab">
       最热     最新
-    </view>
-    
+    </view> 
     <!--每一个动态-->
     <view class="article-item" wx:for="{{data.posts}}">
       <!--上部-->
@@ -60,10 +62,18 @@
       </view>
       <!--下部-->
       <view class="item-down">
-        <text class="comment-title">{{item.title}}</text>
-        <view class="commetn-text">{{item.text}}</view>
+        <view class="comment-title-view">
+          <!-- <text class="comment-title">{{item.title}}</text> -->
+          <text class="comment-title">#你有每年天朝传统节日...#</text>
+        </view>
+        <!-- <view class="commetn-text">{{item.text}}</view> -->
+        <view class="comment-text-view">
+         <view class="comment-text">
+           为什么总是以酒，以餐，以娱乐交际会友？以茶会友也是一种不错的交流方式，是传统文化一直...更多
+        </view>
         <image class="content-img" src="{{item.banner}}"></image>
-        <view class="content-content">
+
+         <view class="content-content">
            <view>
              <image src="../../imgs/home-button-Comment.png" class="operation-icon"></image>
              <text>99</text>
@@ -76,12 +86,12 @@
              <image src="../../imgs/home-button-Share.png" class="operation-icon" style="height:15px;"></image>
            </view>
         </view>
+        
+        </view>
+        
       </view>
     </view>
-    
      <!--每一个动态-->
-   
-
   </view>
 
   <view class="footer">
