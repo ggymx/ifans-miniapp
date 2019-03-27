@@ -88,7 +88,8 @@ text-align: center;
 
 .article-item{
   width:351px;
-  height:365px;
+  /* height:365px; */
+  height:auto;
   background-color:gray;
   border-bottom:1px solid #BBB;
   margin-bottom: 10px;
@@ -143,7 +144,7 @@ text-align: center;
   white-space: pre;
 }
 /*动态区的上部区域*/
-.item-top,.item-down{
+.item-top{
 width:100%;
 position: relative;
 background:#fff;
@@ -151,7 +152,10 @@ background:#fff;
 /*下部*/
 .item-down{
   /*background: yellow;*/
-  height:302px;
+  height:318px;
+  width:100%;
+  position: relative;
+  background:#fff;
 }
 /*头像*/
 .head-img{
@@ -202,19 +206,24 @@ background:#fff;
 .comment-text{
   width: 270px;
   height:auto;
-  /* position: absolute; */
   background:#FFF;
   font-size: 12px;
-  /*white-space: pre;*/
-  /* left:70px;
-  top:30px; */
   text-align: left;
   margin-bottom:14px;
+
+  overflow: hidden;
+  /* text-overflow: ellipsis; */
+  text-overflow: "...更多";
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  /* white-space: nowrap; */
 }
 .comment-text-view{
-  height:250px;
+  /* height:250px; */
+  height:auto;
 width:270px;
-background-color:pink;
+/* background-color:pink; */
 position:absolute;
 top:30px;
 /* position:absolute; */
@@ -222,8 +231,8 @@ left:70px;
 }
 /*评论区的图片*/
 .content-img{
-  width:145px;
-  height:140px;
+  width:191px;
+  height:191px;
   background-color:gray;
   margin-bottom:5px;
   /* position:absolute;

@@ -69,7 +69,9 @@
         <!-- <view class="commetn-text">{{item.text}}</view> -->
         <view class="comment-text-view">
          <view class="comment-text">
-           为什么总是以酒，以餐，以娱乐交际会友？以茶会友也是一种不错的交流方式，是传统文化一直...更多
+           为什么总是以酒，以餐，以娱乐交际会友？以茶会友也是一种不错的交流方式，是传统文化一直
+           为什么总是以酒，以餐，以娱乐交际会友？以茶会友也是一种不错的交流方式，是传统文化一直
+           为什么总是以酒，以餐，以娱乐交际会友？以茶会友也是一种不错的交流方式，是传统文化一直
         </view>
         <image class="content-img" src="{{item.banner}}"></image>
 
