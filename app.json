@@ -6,6 +6,8 @@
     "pages/my/my",
     "pages/news/news",
     "pages/news-concern/news-concern",
+    "pages/track/track",
+    "pages/test/test",
     "pages/logs/logs"
   ],
   "window": {

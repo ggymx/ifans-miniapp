@@ -39,7 +39,21 @@ export interface IHomeTopicListResponse {
   // cursor 为0，则到达了尾页，没有更多数据。获取下一页的时候，将
   cursor: number                // 下一页标志，传入cursor。0表示无下一页。
 }
-
+/**
+ * 足迹话题列表参数
+ */
+export interface ITrackTopicListParams {
+  cursor?: number              // 从某个位置开始，默认0，从最上方开始
+  limit?: number                // 最多几条，默认20个
+}
+/**
+ * 足迹话题列表结果
+ */
+export interface ITrackTopicListResponse {
+  posts: IPost[]                // 话题/投稿列表
+  // cursor 为0，则到达了尾页，没有更多数据。获取下一页的时候，将
+  cursor: number                // 下一页标志，传入cursor。0表示无下一页。
+}
 /**
  * 发布话题/投稿参数
  */

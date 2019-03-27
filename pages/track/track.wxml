@@ -1,0 +1,40 @@
+<!--pages/track/track.wxml-->
+
+<text wx:if="{{loading}}">Loading......</text>
+
+<view class="body" wx:else>
+  <view class='content'
+  wx:for="{{data.posts}}" wx:for-item="post" wx:key="id">
+      <view class='picarea'>
+        <image class='pic' src="{{post.banner}}"  mode="scaleToFill" lazy-load="true"></image>
+      </view>
+      <view class='restarea'>
+        <textarea class="title" placeholder='{{post.title}}' disabled='true' placeholder-class="titile_placerholder"></textarea>
+        <view class="topic_join_num">{{post.counter.join || 0}}人参与</view>
+      </view>
+    </view>
+</view>
+
+
+<!--使用模板-->
+<!-- <template name="tracks">
+  <view class='content'>
+    <view class='picarea'>
+      <image class='pic' src="{{banner}}"  mode="scaleToFill" lazy-load="true"></image>
+    </view>
+
+    <view class='restarea'>
+    <textarea class="title" placeholder='{{title}}' disabled='true' placeholder-class="titile_placerholder"></textarea>
+    </view>
+  </view>
+</template>
+
+<text wx:if="{{loading}}">Loading......</text>
+
+<block class="body" wx:else>
+  <view style='width:100%;height:auto;background:grey'>
+    <view style='width:351px;height:100%;background:blue;margin:0 auto;'>
+    <template  wx:for="{{data.posts}}" wx:for-item="post" is="tracks" data="{{...post}}"></template>
+    </view>
+  </view>
+</block> -->
