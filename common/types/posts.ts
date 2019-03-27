@@ -12,9 +12,9 @@ export interface IPost {
   user: IUser,               // 发布者
   // --- statistics 统计信息 ---
   counter?: {
-    view: number,           // 浏览数
-    join: number,           // 话题参与量
-    hot: boolean,           // 是否热门
+    view?: number,           // 浏览数
+    join?: number,           // 话题参与量
+    hot?: boolean,           // 是否热门
   }
   refPost?: IPost,           // 参与的话题（可以扩展为引用他人的文章）
 

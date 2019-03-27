@@ -10,46 +10,118 @@ import {
   ITopicDetailResponse,
   IUserPageParams,
   IUserPageResponse,
+  ITrackTopicListParams,
+  ITrackTopicListResponse,
 } from './types/http_msg'
 
-export default {
+function delay(ms: number) {
+  return new Promise((resolve, reject) => {
+    setTimeout(resolve, ms)
+  })
+}
+
+// export default {
+//   /**
+//    * 获取首页话题列表
+//    */
+//   getHomeTopicList: async (params: IHomeTopicListParams): Promise<IHomeTopicListResponse> => {
+//     await delay(Math.random()*1000)
+//     return {
+//       cursor: Math.random() > 0.3 ? (params.cursor || 0) + 10 : 0,
+//       posts: mock.repeat(10, mock.post),
+//     }
+//   },
+//   /**
+//    * 获取投稿详情
+//    */
+//   getPost: async (params: IPostDetailParams): Promise<IPostDetailResponse> => {
+//     await delay(Math.random()*1000)
+//     return mock.post(params.id)
+//   },
+//   /**
+//    * 获取话题详情
+//    */
+//   getTopic: async (params: ITopicDetailParams): Promise<ITopicDetailResponse> => {
+//     await delay(Math.random()*1000)
+//     return {
+//       hasMore: Math.random() > 0.5,
+//       posts: mock.repeat(10, mock.post),
+//       topic: mock.post(params.id),
+//     }
+//   },
+//   /**
+//    * 获取用户信息
+//    */
+//   getUser: async (params: IUserPageParams): Promise<IUserPageResponse> => {
+//     await delay(Math.random()*1000)
+//     return {
+//       user: mock.user(params.id),
+//     }
+//   },
+//   /**
+//    * 发布话题/投稿
+//    */
+//   publishPost: async (params: IPostPublishParams): Promise<IPostPublishResponse> => {
+//     await delay(Math.random()*1000)
+//     return mock.post()
+//   }
+// }
+
+class Api {
+  async blockUser() {
+
+  }
   /**
    * 获取首页话题列表
    */
-  getHomeTopicList: async (params: IHomeTopicListParams): Promise<IHomeTopicListResponse> => {
+  async getHomeTopicList(params: IHomeTopicListParams): Promise<IHomeTopicListResponse> {
+    await delay(Math.random()*1000)
     return {
       cursor: Math.random() > 0.3 ? (params.cursor || 0) + 10 : 0,
       posts: mock.repeat(10, mock.post),
     }
-  },
+  }
+  async getTrackTopicList(params: ITrackTopicListParams): Promise<ITrackTopicListResponse> {
+    await delay(Math.random()*1000)
+    return {
+      cursor: Math.random() > 0.3 ? (params.cursor || 0) + 10 : 0,
+      posts: mock.repeat(10, mock.post),
+    }
+  }
   /**
    * 获取投稿详情
    */
-  getPost: async (params: IPostDetailParams): Promise<IPostDetailResponse> => {
+  async getPost(params: IPostDetailParams): Promise<IPostDetailResponse> {
+    await delay(Math.random()*1000)
     return mock.post(params.id)
-  },
+  }
   /**
    * 获取话题详情
    */
-  getTopic: async (params: ITopicDetailParams): Promise<ITopicDetailResponse> => {
+  async getTopic(params: ITopicDetailParams): Promise<ITopicDetailResponse> {
+    await delay(Math.random()*1000)
     return {
       hasMore: Math.random() > 0.5,
       posts: mock.repeat(10, mock.post),
       topic: mock.post(params.id),
     }
-  },
+  }
   /**
    * 获取用户信息
    */
-  getUser: async (params: IUserPageParams): Promise<IUserPageResponse> => {
+  async getUser(params: IUserPageParams): Promise<IUserPageResponse> {
+    await delay(Math.random()*1000)
     return {
       user: mock.user(params.id),
     }
-  },
-  /**
+  }
+    /**
    * 发布话题/投稿
    */
-  publishPost: async (params: IPostPublishParams): Promise<IPostPublishResponse> => {
+  async publishPost(params: IPostPublishParams): Promise<IPostPublishResponse> {
+    await delay(Math.random()*1000);
     return mock.post()
-  },
+  }
 }
+
+export default new Api()
