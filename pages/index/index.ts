@@ -1,6 +1,15 @@
 //index.js
 //获取应用实例
 import { IMyApp } from '../../app'
+import api from '../../common/api'
+
+import { IHomeTopicListParams,IHomeTopicListResponse} from '../../common/types/http_msg';
+import { smartDate } from '../../common/helper';
+
+let getHomeTopicList=async (obj:IHomeTopicListParams):Promise<IHomeTopicListResponse>=>{
+  return await api.getHomeTopicList({cursor:0,limit:10});
+}
+
 
 const app = getApp<IMyApp>()
 
@@ -71,6 +80,14 @@ Page({
         }
       })
     }
+
+    getHomeTopicList({cursor:0,limit:10}).then((data)=>{
+      // data.posts.forEach((post) => post.createAtStr = smartDate(post.createAt))
+    // let creatAt=data.posts.createAt.toLocaleString()
+      this.setData!({ data: data,})
+     console.log(data)
+    }).catch();
+
   },
 
   getUserInfo(e: any) {

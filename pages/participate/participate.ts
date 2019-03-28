@@ -46,7 +46,7 @@ Page({
     //  console.log(user);
      /*data.topic.creatAt=data.topic.creatAt.toLocaleDateString();*/
      //日期处理
-     let creatAt=data.topic.creatAt.toLocaleString()
+     let creatAt=data.topic.createAt.toLocaleString()
      //投稿人处理
      this.setData!({data:data,creatAt:creatAt})
      console.log(data)

@@ -15,10 +15,11 @@ export interface IPost {
     view?: number,           // 浏览数
     join?: number,           // 话题参与量
     hot?: boolean,           // 是否热门
-  }
+  },
   refPost?: IPost,           // 参与的话题（可以扩展为引用他人的文章）
+  createAt: Date,            // 创建时间
+  createAtStr: string,       //用于显示的时间
 
-  creatAt: Date,            // 创建时间
   updateAt?: Date,          // 更新时间
   delAt?: Date,             // 删除时间
   status?: EPostStatus,     // 投稿状态，
