@@ -19,7 +19,6 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "轻话题",
     "navigationBarTextStyle": "black",
-    "enablePullDownRefresh": true,
     "navigationStyle": "custom"
   }
 }

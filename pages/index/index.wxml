@@ -44,4 +44,43 @@
      </view>
 
     </view>
+    <!--下拉列表-->
+    <ul class="link-list" style="{{'display: ' + listStatus}}">
+        <li>
+            <view style="width:100%;">
+                <text>我的首页</text>
+             <image style="height:10px;width:10px;margin-left:25px;" src="../../imgs/list.png"/>
+             </view>
+        </li>
+          <li>
+            <view style="width:100%;">
+                <text>消息通知</text>
+             <image style="height:10px;width:10px;margin-left:25px;" src="../../imgs/list.png"/>
+             </view>
+        </li>
+          <li>
+            <view style="width:100%;">
+                <text>我的足迹</text>
+             <image style="height:10px;width:10px;margin-left:25px;" src="../../imgs/list.png"/>
+             </view>
+        </li>
+          <li>
+            <view style="width:100%;">
+                <text>我的关注</text>
+             <image style="height:10px;width:10px;margin-left:25px;" src="../../imgs/list.png"/>
+             </view>
+        </li>
+          <li>
+            <view style="width:100%;">
+                <text>我的首页</text>
+             <image style="height:10px;width:10px;margin-left:25px;" src="../../imgs/list.png"/>
+             </view>
+        </li>
+          <li>
+            <view style="width:100%;">
+                <text>联系客服</text>
+             <image style="height:10px;width:10px;margin-left:25px;" src="../../imgs/list.png"/>
+             </view>
+        </li>
+    </ul>
 </view>

@@ -37,6 +37,9 @@ Component({
       wx.navigateBack({
         delta: 1
       })
+    },
+    backGear:function(){
+      console.log("测试List");
     }
   }
 })

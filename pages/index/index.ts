@@ -21,6 +21,7 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    listStatus:"none"
   },
   //事件处理函数
   bindViewTap() {
@@ -55,6 +56,10 @@ Page({
       }
     });
   },
+  // bindLinkList(){
+  //     console.log("List弹出")
+  //     this.data.listStatus=="none"?"flex":"none";
+  // },
   onLoad() {
     if (app.globalData.userInfo) {
       this.setData!({

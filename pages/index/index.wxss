@@ -198,3 +198,21 @@ position: relative;
    height:27px;
    margin-top:30rpx
  }
+
+ /*页面列表*/
+ .link-list{
+  background-color:rgb(121, 113, 64);
+  position:fixed;
+  width:100px;
+  height:auto;
+  top:50px;
+  left:36px;
+  /*导航栏z-index为4*/
+  z-index:5;  
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+ }
+ .link-list>li{
+    
+ }
