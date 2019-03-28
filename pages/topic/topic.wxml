@@ -99,10 +99,16 @@
   <view class="footer">
   <!--悬浮按钮-->
      <view class="fixed-btn" style="margin-right:28px;">
-       <view class="fixed-btn-view" bindtap="bindViewParticipate">参与</view>
+       <view class="fixed-btn-view" bindtap="bindViewParticipate">
+       <image src='../../imgs/participate.png'></image>
+       <text>参与</text>
+       </view>
      </view>
      <view class="fixed-btn">
-      <view class="fixed-btn-view">邀请</view>
+      <view class="fixed-btn-view">
+       <image src='../../imgs/share.png'></image>
+       <text>分享</text>
+      </view>
      </view>
   </view>
   
