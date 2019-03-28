@@ -32,19 +32,19 @@ Page({
       url: '../logs/logs'
     })
   },
+  bindViewParti(){
+    wx.navigateTo({
+      url:'../participate/participate',
+      success:function(){
+        wx.showToast({title:'参与话题！'});
+      }
+    });
+  },
   bindViewTopicDetail(){
     wx.navigateTo({
       url:'../topic-detail/topic-detail',
       success:function(){
-        wx.showToast({title:'跳转到话题详情页！'});
-      }
-    });
-  },
-  bindViewFans(){
-    wx.navigateTo({
-      url:'../fans/fans',
-      success:function(){
-        wx.showToast({title:'跳转到粉丝页！'});
+        wx.showToast({title:'话题详情！'});
       }
     });
   },

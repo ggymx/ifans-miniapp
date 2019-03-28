@@ -1,0 +1,16 @@
+/**app.wxss**/
+/*底层*/
+.underlying{
+  height:600px;
+  width:100%;
+  /*background-color: blue;*/
+  background-color:red;
+}
+/*居中容器*/
+.container {
+  height:100%;
+  width:351px;
+  margin: 0 auto;
+  background-color: blue;
+} 
+

@@ -61,11 +61,11 @@ Page({
             url: '../logs/logs'
         });
     },
-    bindViewTopicDetail: function () {
+    bindViewPreview: function () {
         wx.navigateTo({
-            url: '../topic-detail/topic-detail',
+            url: '../preview/preview',
             success: function () {
-                wx.showToast({ title: '跳转到话题详情页！' });
+                wx.showToast({ title: '话题预览！' });
             }
         });
     },

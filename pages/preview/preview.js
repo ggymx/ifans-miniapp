@@ -61,19 +61,19 @@ Page({
             url: '../logs/logs'
         });
     },
+    bindViewParti: function () {
+        wx.navigateTo({
+            url: '../participate/participate',
+            success: function () {
+                wx.showToast({ title: '参与话题！' });
+            }
+        });
+    },
     bindViewTopicDetail: function () {
         wx.navigateTo({
             url: '../topic-detail/topic-detail',
             success: function () {
-                wx.showToast({ title: '跳转到话题详情页！' });
-            }
-        });
-    },
-    bindViewIndex: function () {
-        wx.navigateTo({
-            url: '../index/index',
-            success: function () {
-                wx.showToast({ title: '跳转到首页！' });
+                wx.showToast({ title: '话题详情！' });
             }
         });
     },

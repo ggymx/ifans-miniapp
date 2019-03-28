@@ -9,6 +9,8 @@
     "pages/track/track",
     "pages/participate/participate",
     "pages/issue/issue",
+    "page/preview/preview",
+    "pages/fans/fans",
     "pages/logs/logs",
     "pages/test/test"
   ],

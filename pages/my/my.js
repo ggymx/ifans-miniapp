@@ -69,11 +69,11 @@ Page({
             }
         });
     },
-    bindViewNewsConcern: function () {
+    bindViewFans: function () {
         wx.navigateTo({
-            url: '../news-concern/news-concern',
+            url: '../fans/fans',
             success: function () {
-                wx.showToast({ title: '跳转到关注页！' });
+                wx.showToast({ title: '跳转到粉丝页！' });
             }
         });
     },

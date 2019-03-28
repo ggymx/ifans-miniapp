@@ -2,21 +2,6 @@
 //获取应用实例
 import { IMyApp } from '../../app'
 
-//调用后台api
-/*导入index??? */
-import api from '../../common/api'
-import { ITopicDetailParams,ITopicDetailResponse} from '../../common/types/http_msg';
-
-
-let getTopic=async (obj:ITopicDetailParams):Promise<ITopicDetailResponse>=>{
-    return await api.getTopic(obj);
-}
-
-
-
-
-
-
 const app = getApp<IMyApp>()
 
 Page({
@@ -24,7 +9,7 @@ Page({
     motto: '点击 “编译” 以构建',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
   },
   //事件处理函数
   bindViewTap() {
@@ -32,36 +17,7 @@ Page({
       url: '../logs/logs'
     })
   },
-  bindViewTopicDetail(){
-    wx.navigateTo({
-      url:'../topic-detail/topic-detail',
-      success:function(){
-        wx.showToast({title:'跳转到话题详情页！'});
-      }
-    });
-  },
-  bindViewFans(){
-    wx.navigateTo({
-      url:'../fans/fans',
-      success:function(){
-        wx.showToast({title:'跳转到粉丝页！'});
-      }
-    });
-  },
   onLoad() {
-    getTopic({id:1}).then((data)=>{
-    //  / user=data;
-    //  console.log(user);
-     /*data.topic.creatAt=data.topic.creatAt.toLocaleDateString();*/
-     //日期处理
-     let creatAt=data.topic.creatAt.toLocaleString()
-     //投稿人处理
-     this.setData!({data:data,creatAt:creatAt})
-     console.log(data)
-    }).catch();
-    
-    
-
     if (app.globalData.userInfo) {
       this.setData!({
         userInfo: app.globalData.userInfo,
@@ -89,7 +45,7 @@ Page({
       })
     }
   },
-  
+
   getUserInfo(e: any) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo

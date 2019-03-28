@@ -4,7 +4,8 @@
 
 <view class="underlying">
  <view class="container">
-  话题发布页面
-  <button bindtap="bindViewIndex">发表</button>
+  话题预览页面
+  <button bindtap="bindViewParti">返回修改</button>
+  <button bindtap="bindViewTopicDetail">确认发布</button>
  </view>
 </view>

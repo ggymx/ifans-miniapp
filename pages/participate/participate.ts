@@ -32,11 +32,11 @@ Page({
       url: '../logs/logs'
     })
   },
-  bindViewTopicDetail(){
+  bindViewPreview(){
     wx.navigateTo({
-      url:'../topic-detail/topic-detail',
+      url:'../preview/preview',
       success:function(){
-        wx.showToast({title:'跳转到话题详情页！'});
+        wx.showToast({title:'话题预览！'});
       }
     });
   },

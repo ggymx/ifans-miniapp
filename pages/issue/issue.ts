@@ -40,6 +40,14 @@ Page({
       }
     });
   },
+  bindViewIndex(){
+    wx.navigateTo({
+      url:'../index/index',
+      success:function(){
+        wx.showToast({title:'跳转到首页！'});
+      }
+    });
+  },
   onLoad() {
     getTopic({id:1}).then((data)=>{
     //  / user=data;
