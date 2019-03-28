@@ -38,7 +38,7 @@
         </view>
 
     <view class="fixed-btn">
-       <view class="fixed-btn-view" bindtap="bindViewRelease">发布</view>
+       <view class="fixed-btn-view" bindtap="bindViewIssue">发布</view>
      </view>
 
     </view>

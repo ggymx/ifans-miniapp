@@ -36,9 +36,9 @@ Page({
      });
   },
   //发布页面
-  bindViewRelease(){
+  bindViewIssue(){
     wx.navigateTo({
-      url:'../release/release',
+      url:'../issue/issue',
       success:function(){
         wx.showToast({title:'跳转到发布页！'});
       }

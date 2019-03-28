@@ -8,6 +8,7 @@
     "pages/news-concern/news-concern",
     "pages/track/track",
     "pages/participate/participate",
+    "pages/issue/issue",
     "pages/logs/logs",
     "pages/test/test"
   ],

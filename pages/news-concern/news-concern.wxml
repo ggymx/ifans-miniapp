@@ -3,7 +3,7 @@
         <view class='fengefu'></view>
         <view class='concern-first'>
             <view class='concern-first-left'>
-                <image class='portrait' src="../../imgs/11.jpeg"></image>
+                <image class='portrait' src="../../imgs/test1.jpg"></image>
                 <view class='shuoming'>
                     <text class='biaoti'>游哈哈</text>
                     <text class='fabu'>越努力越幸运</text>
@@ -14,7 +14,7 @@
         <view class='fengefu'></view>
         <view class='concern-second'>
             <view class='concern-first-left'>
-                <image class='portrait' src="../../imgs/11.jpeg"></image>
+                <image class='portrait' src="../../imgs/test1.jpg"></image>
                 <view class='shuoming'>
                     <text class='biaoti'>游哈哈</text>
                     <text class='fabu'>越努力越幸运</text>
@@ -25,7 +25,7 @@
         <view class='fengefu'></view>
         <view class='concern-third'>
             <view class='concern-first-left'>
-                <image class='portrait' src="../../imgs/11.jpeg"></image>
+                <image class='portrait' src="../../imgs/test1.jpg"></image>
                 <view class='shuoming'>
                     <text class='biaoti'>游哈哈</text>
                     <text class='fabu'>越努力越幸运</text>

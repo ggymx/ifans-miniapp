@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "发布话题",
+  "navigationBarTitleText":"发布",
   "usingComponents": {
     "navbar":"../../components/navbar/navbar"
   },
