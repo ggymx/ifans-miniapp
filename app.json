@@ -1,17 +1,16 @@
 {
   "pages": [  
-     
     "pages/index/index",
-   "pages/topic/topic",
+    "pages/topic/topic",
     "pages/topic-detail/topic-detail",
     "pages/my/my",
     "pages/news/news",
     "pages/news-concern/news-concern",
-    "pages/track/track",
     "pages/participate/participate",
     "pages/issue/issue",
     "pages/preview/preview",
     "pages/fans/fans",
+    "pages/track/track",
     "pages/logs/logs",
     "pages/test/test"
   ],

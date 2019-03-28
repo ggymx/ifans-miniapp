@@ -1,37 +1,25 @@
 /* pages/track/track.wxss */
-.body{
-  width:100%;
-  height:auto;
-  /* background:grey; */
-}
+
 .content{
   height: 98px;
-  width: 375px;
+  width: 100%;
   display: flex;
   border-top: 1px #F4F4F4 solid;
   margin: 0 auto;
   margin-top: 1px;
 }
-.picarea{
-    /* background-color: #eeeeee; */
-    margin-left: 12px;
-}
+
 .pic{
-  /* background-color: #eeeeee; */
   width: 108px;
   height: 82px;
   margin-top: 8px;
-  margin-left: 12px;
-
 }
 .restarea{
-  /* background-color: #81a79d; */
   width: 242px;
 }
 .title{
   width: auto;
   height: 34px;
-  /* border: 1px #d66969 solid; */
   margin-left: 14px;
   margin-top:17px;
   margin-right: 14px;

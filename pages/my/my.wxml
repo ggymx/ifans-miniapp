@@ -1,8 +1,7 @@
 <!--topic.wxml-->
 <!--引用自定义的navibar组件-->
-<!-- <navbar back text="{{navigationBarTitle}}"></navbar> -->
-
-<view class="underlying">
+<navbar back text="空间"></navbar> 
+<view class="underlying" style="top:64px;position:absolute;">
  <view class="my-view">
    <image src="../../imgs/test1.jpg" class="my-img"/>
  </view>
