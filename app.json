@@ -1,5 +1,5 @@
 {
-  "pages": [ 
+  "pages": [  
     "pages/index/index",
     "pages/topic/topic",
     "pages/topic-detail/topic-detail",
@@ -9,7 +9,7 @@
     "pages/track/track",
     "pages/participate/participate",
     "pages/issue/issue",
-    "page/preview/preview",
+    "pages/preview/preview",
     "pages/fans/fans",
     "pages/logs/logs",
     "pages/test/test"
@@ -19,6 +19,7 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "轻话题",
     "navigationBarTextStyle": "black",
-    "enablePullDownRefresh": true
+    "enablePullDownRefresh": true,
+    "navigationStyle": "custom"
   }
 }

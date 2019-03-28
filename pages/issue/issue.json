@@ -1,7 +1,6 @@
 {
-  "navigationBarTitleText":"发布",
-  "usingComponents": {
-    "navbar":"../../components/navbar/navbar"
-  },
-  "navigationStyle":"custom"
-}
+    "navigationBarTitleText":"发布话题",
+    "usingComponents": {
+      "navbar": "../..//components/navbar/navbar"
+    }
+  }

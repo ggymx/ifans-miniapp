@@ -1,7 +1,6 @@
 {
   "navigationBarTitleText":"参与话题",
   "usingComponents": {
-    "navbar":"../../components/navbar/navbar"
-  },
-  "navigationStyle":"custom"
+    "navbar": "../..//components/navbar/navbar"
+  }
 }

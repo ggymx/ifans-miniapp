@@ -1,4 +1,5 @@
-<view class='underlying'>
+<navbar back text="粉丝"></navbar> 
+<view class='underlying' style="top:64px;position:absolute;">
     <view class="container">
         <view class='fengefu'></view>
         <view class='concern-first'>

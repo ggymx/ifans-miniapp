@@ -1,5 +1,6 @@
 <!--logs.wxml-->
-<view class="underlying">
+<navbar back text="话题详情"></navbar>
+<view class="underlying" style="top:64px;position:absolute;">
    <view class="container">
      <!--头部-->
        <view class="header">

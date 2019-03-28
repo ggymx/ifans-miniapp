@@ -14,6 +14,10 @@ Component({
     home: {
       type: Boolean,
       value: false
+    },
+    gear:{
+      type: Boolean,
+      value: false
     }
   },
 
@@ -25,10 +29,11 @@ Component({
   methods: {
     backHome: function () {
       wx.reLaunch({
-        /*url: '../index/index',*/
+        url: '../index/index',
       })
     },
     back: function () {
+      console.log("测试");
       wx.navigateBack({
         delta: 1
       })

@@ -1,8 +1,8 @@
 <!--topic.wxml-->
 <!--引用自定义的navibar组件-->
-<!-- <navbar back text="{{navigationBarTitle}}"></navbar> -->
+<navbar back text="发布话题"></navbar> 
 
-<view class="underlying">
+<view class="underlying" style="top:64px;position:absolute;">
  <view class="container">
   话题发布页面
   <button bindtap="bindViewIndex">发表</button>

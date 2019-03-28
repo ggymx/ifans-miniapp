@@ -1,6 +1,7 @@
 "use strict";
 exports.__esModule = true;
 var app = getApp();
+//const navigationBarHeight = (getApp().statusBarHeight + 44) + 'px'
 Page({
     data: {
         motto: '点击 “编译” 以构建',

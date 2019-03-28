@@ -2,7 +2,7 @@
 
 <text wx:if="{{loading}}">Loading......</text>
 
-<view class="body" wx:else>
+<view class="body"  wx:else>
   <view class='content'
   wx:for="{{data.posts}}" wx:for-item="post" wx:key="id">
       <view class='picarea'>

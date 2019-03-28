@@ -17,6 +17,8 @@ Page({
       url: '../logs/logs'
     })
   },
+  /*返回上级 */
+  
   onLoad() {
     if (app.globalData.userInfo) {
       this.setData!({

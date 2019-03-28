@@ -1,8 +1,7 @@
 <!--topic.wxml-->
 <!--引用自定义的navibar组件-->
-<!-- <navbar back text="{{navigationBarTitle}}"></navbar> -->
-
-<view class="underlying">
+<navbar back text="参与话题"></navbar>
+<view class="underlying" style="top:64px;position:absolute;">
  <view class="container">
   话题参与页面
   <button bindtap="bindViewPreview">发表</button>

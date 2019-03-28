@@ -1,4 +1,6 @@
-<view class='underlying'>
+<!--自定义导航栏-->
+<navbar back text="关注"></navbar>
+<view class='underlying' style="top:64px;position:absolute;">
     <view class="container">
         <view class='fengefu'></view>
         <view class='concern-first'>

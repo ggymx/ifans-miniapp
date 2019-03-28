@@ -2,7 +2,9 @@
 //获取应用实例
 import { IMyApp } from '../../app'
 
-const app = getApp<IMyApp>()
+const app = getApp<IMyApp>();
+
+//const navigationBarHeight = (getApp().statusBarHeight + 44) + 'px'
 
 Page({
   data: {

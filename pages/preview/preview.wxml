@@ -1,8 +1,7 @@
 <!--topic.wxml-->
 <!--引用自定义的navibar组件-->
-<!-- <navbar back text="{{navigationBarTitle}}"></navbar> -->
-
-<view class="underlying">
+<navbar back text="预览"></navbar>
+<view class="underlying" style="top:64px;position:absolute;">
  <view class="container">
   话题预览页面
   <button bindtap="bindViewParti">返回修改</button>
