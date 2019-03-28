@@ -174,3 +174,27 @@ position: relative;
   justify-content:center;
   align-items:center
 }
+
+   /*悬浮按钮*/
+ .fixed-btn{
+   background:rgb(231, 194, 8);
+   width:54px;
+   height:54px;
+   float: left;
+   border-radius: 50%;
+  /* border: 1px solid #000;*/
+   font-size: 15px;
+   text-align: center;
+   vertical-align: middle;
+   opacity: 0.3;
+   color:#FFF;
+   position:fixed;
+   top:400px;
+   right:15px;
+ }
+ /*使按钮居中*/
+ .fixed-btn-view{
+   width:54px;
+   height:27px;
+   margin-top:30rpx
+ }

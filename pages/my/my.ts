@@ -40,6 +40,14 @@ Page({
       }
     });
   },
+  bindViewNewsConcern(){
+    wx.navigateTo({
+      url:'../news-concern/news-concern',
+      success:function(){
+        wx.showToast({title:'跳转到关注页！'});
+      }
+    });
+  },
   onLoad() {
     getTopic({id:1}).then((data)=>{
     //  / user=data;

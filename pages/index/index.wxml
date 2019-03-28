@@ -16,7 +16,7 @@
                         <text class="publish-time">2019年03月23日</text>
                     </view>
                     <view style="height:100%;width:86px;">
-                        <button class="focus-btn" bindtap="bindViewNews">关注</button>
+                        <button class="focus-btn">关注</button>
                         <image src="../../imgs/6.png" class="img-btn"></image>
                     </view>
                 </view>
@@ -36,6 +36,10 @@
               <image src="../../imgs/home-icon-No.1@2x.png" id="hot-img" />
             </view>
         </view>
+
+    <view class="fixed-btn">
+       <view class="fixed-btn-view" bindtap="bindViewRelease">发布</view>
+     </view>
 
     </view>
 </view>

@@ -1,0 +1,9 @@
+<!--topic.wxml-->
+<!--引用自定义的navibar组件-->
+<!-- <navbar back text="{{navigationBarTitle}}"></navbar> -->
+
+<view class="underlying">
+ <view class="container">
+      发布页面
+ </view>
+</view>

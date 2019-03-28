@@ -7,13 +7,14 @@
     "pages/news/news",
     "pages/news-concern/news-concern",
     "pages/track/track",
-    "pages/test/test",
-    "pages/logs/logs"
+    "pages/participate/participate",
+    "pages/logs/logs",
+    "pages/test/test"
   ],
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "轻话题",
     "navigationBarTextStyle": "black",
     "enablePullDownRefresh": true
   }

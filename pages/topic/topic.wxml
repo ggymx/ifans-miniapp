@@ -99,7 +99,7 @@
   <view class="footer">
   <!--悬浮按钮-->
      <view class="fixed-btn" style="margin-right:28px;">
-       <view class="fixed-btn-view">参与</view>
+       <view class="fixed-btn-view" bindtap="bindViewParticipate">参与</view>
      </view>
      <view class="fixed-btn">
       <view class="fixed-btn-view">邀请</view>

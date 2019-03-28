@@ -50,6 +50,14 @@ Page({
         }
        });
   },
+  bindViewParticipate(){
+      wx.navigateTo({
+        url:'../participate/participate',
+        success:function(){
+          wx.showToast({title:'跳转到参与话题页！'});
+        }
+      });
+  },
   onLoad() {
     getTopic({id:1}).then((data)=>{
     //  / user=data;
