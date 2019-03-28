@@ -1,7 +1,8 @@
 {
   "pages": [  
+     
     "pages/index/index",
-    "pages/topic/topic",
+   "pages/topic/topic",
     "pages/topic-detail/topic-detail",
     "pages/my/my",
     "pages/news/news",

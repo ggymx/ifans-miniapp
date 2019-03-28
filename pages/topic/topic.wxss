@@ -102,28 +102,52 @@ text-align: center;
  background-color:transparent;
  /*rpx可以根据手机分辨率进行自适应转换*/
  left:260rpx;
- bottom: 15px;
+ bottom: 42px;
+ display: flex;
+ flex-direction: row;
 }
   /*悬浮按钮*/
 .fixed-btn{
-  background:#101010;
-  width:54px;
-  height:54px;
+  width:120rpx;
+  height:120rpx;
   float: left;
   border-radius: 50%;
- /* border: 1px solid #000;*/
-  font-size: 15px;
   text-align: center;
-  vertical-align: middle;
-  opacity: 0.3;
-  color:#FFF;
+  background-color:rgba(255, 212,19, 0.5);
+  box-shadow: 2rpx;
+  margin-right: 54rpx;
 }
+
 /*使按钮居中*/
 .fixed-btn-view{
-  width:54px;
-  height:27px;
-  margin-top:30rpx
+  
+  display: flex;
+  flex-direction: column;
+  
 }
+.fixed-btn-view2{
+ 
+  display: flex;
+  flex-direction: column;
+  
+}
+.fixed-btn-view>image{
+margin-top: 15rpx;
+margin-left: 35rpx;
+margin-right: 35rpx;
+height: 55rpx;
+width:55rpx;
+}
+
+.fixed-btn-view>text{
+margin-top: 2rpx;
+
+  font-family: PingFang-SC-Medium;
+  font-size: 25rpx;
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
+
 /*text{
   display: block;
   height:30px;
