@@ -5,16 +5,16 @@ import { IMyApp } from '../../app'
 //调用后台api
 /*导入index??? */
 import api from '../../common/api'
-import { ITopicDetailParams,ITopicDetailResponse} from '../../common/types/http_msg';
+import { ITopicDetailParams,ITopicDetailResponse,ITrackTopicListParams,ITrackTopicListResponse} from '../../common/types/http_msg';
 
 
 let getTopic=async (obj:ITopicDetailParams):Promise<ITopicDetailResponse>=>{
     return await api.getTopic(obj);
 }
 
-
-
-
+let getTrackTopicList=async (obj:ITrackTopicListParams):Promise<ITrackTopicListResponse>=>{
+  return await api.getTrackTopicList(obj);
+}
 
 
 const app = getApp<IMyApp>()
@@ -24,7 +24,9 @@ Page({
     motto: '点击 “编译” 以构建',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    loading: true,
+    topic: null
   },
   //事件处理函数
   bindViewTap() {
@@ -33,6 +35,7 @@ Page({
     })
   },
   onLoad() {
+
     getTopic({id:1}).then((data)=>{
     //  / user=data;
     //  console.log(user);
