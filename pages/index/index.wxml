@@ -40,7 +40,9 @@
         </view>
 
     <view class="fixed-btn">
-       <view class="fixed-btn-view" bindtap="bindViewIssue">发布</view>
+       <view class="fixed-btn-view" bindtap="bindViewIssue">
+       <image src='../../imgs/release.png'></image>
+      </view>
      </view>
 
     </view>
