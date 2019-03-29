@@ -27,6 +27,6 @@
     "quotemark": [true, "single"]
   },
   "linterOptions": {
-    "exclude": ["api/fake.zh_CN.js"]
+    "exclude": ["api/fake.zh_CN.js", "node_modules"]
   }
 }

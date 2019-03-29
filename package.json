@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "tsc": "./node_modules/typescript/bin/tsc",
+    "lint": "tslint -c tslint.json -p tsconfig.json",
     "compile": "tsc"
   },
   "devDependencies": {
