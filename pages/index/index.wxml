@@ -1,15 +1,20 @@
 <!-- logs.wxml -->
-<view class="underlying">
+<!-- <navbar back home text="首页"></navbar>  -->
+<navbar gear text="首页"></navbar> 
+<view class="underlying" style="top:64px;position:absolute;">
     <view class="container">
         <!--话题列表项-->
-        <view class="topic-item">
+        <view class="topic-item" wx:for="{{[1,2,3,4]}}">
             <view class="topic-view">
                 <view style="height:90rpx;background-color:#FFF;display:flex;margin-top:9px;">
                     <!-- <image class="pusblish-head" src="../../imgs/imgs.jpg" alt="暂无图片"></image> -->
-                    <image class="pusblish-head" src="../../imgs/test1.jpg" alt="暂无图片"></image>
+                    <image class="pusblish-head" src="../../imgs/test1.jpg" alt="暂无图片" bindtap="bindViewMy"/>
                     <view class="publish">
-                        <text class="publish-name">吴彦祖</text>
-                        <text class="publish-status">发布了这个话题</text>
+                        <!--姓名和话题-->
+                        <view style="height:23px;width:100%;display:flex;"> 
+                          <text class="publish-name">枫</text>
+                          <text class="publish-status">发布了话题</text>
+                        </view>
                         <text class="publish-time">2019年03月23日</text>
                     </view>
                     <view style="height:100%;width:86px;">
@@ -20,79 +25,62 @@
                 
             </view>
             <view class="card-underlying">
-             <image src="../../imgs/test2.jpeg" class="img-card"/>
-            <text style="font-size:13px;color:#FFF;position:absolute;top:70px;left:100px">"享受自己努力的成果！"</text>
-              <image src="../../imgs/home-button-Comment.png" style="width:21px;height:17px;position:absolute;bottom:8px;left:240px" />
-             <text style="position:absolute;bottom:8px;left:266px;font-size:10px;color:#FFF">99</text>
-              <image src="../../imgs/home-button-like.png" style="width:19px;height:16px;position:absolute;bottom:8px;left:291px" />
-             <text style="position:absolute;bottom:8px;left:315px;font-size:10px;color:#FFF">99</text> 
-              <image src="../../imgs/home-button-Share.png" style="width:18px;height:16px;position:absolute;bottom:8px;left:330px" />
+             <image src="../../imgs/test2.jpeg" class="img-card" bindtap="bindViewTopic"/>
+             <view class="card-view">
+                 <text class="card-title">“话说日本京都的樱花是不是想象的那么美丽”</text>
+             </view>
+             <image src="../../imgs/home-logo-Browse@2x.png" id="browse-img" />
+             <text style="left:208px;">99+浏览</text>
+              <image src="../../imgs/home-logo-participatein@2x.png" id="comment-img" />
+             <text style="left:281px;">99+参与</text> 
+              <image src="../../imgs/home-btn-Share@2x.png" id="share-img" />
               <!--第一图标-->
-              <image src="../../imgs/home-icon-No.1@2x.png" style="width:20px;height:20px;position:absolute;top:18px;left:20px;z-index:2"/>
+              <image src="../../imgs/home-icon-No.1@2x.png" id="hot-img" />
             </view>
         </view>
 
-       <view class="topic-item">
-            <view class="topic-view">
-                <view style="height:90rpx;background-color:#FFF;display:flex;margin-top:9px;">
-                    <!-- <image class="pusblish-head" src="../../imgs/imgs.jpg" alt="暂无图片"></image> -->
-                    <image class="pusblish-head" src="../../imgs/test1.jpg" alt="暂无图片"></image>
-                    <view class="publish">
-                        <text class="publish-name">吴彦祖</text>
-                        <text class="publish-status">发布了这个话题</text>
-                        <text class="publish-time">2019年03月23日</text>
-                    </view>
-                    <view style="height:100%;width:86px;">
-                        <button class="focus-btn">关注</button>
-                        <image src="../../imgs/6.png" class="img-btn"></image>
-                    </view>
-                </view>
-                
-            </view>
-            <view class="card-underlying">
-             <image src="../../imgs/test2.jpeg" class="img-card"/>
-            <text style="font-size:13px;color:#FFF;position:absolute;top:70px;left:100px">"享受自己努力的成果！"</text>
-              <image src="../../imgs/home-button-Comment.png" style="width:21px;height:17px;position:absolute;bottom:8px;left:240px" />
-             <text style="position:absolute;bottom:8px;left:266px;font-size:10px;color:#FFF">99</text>
-              <image src="../../imgs/home-button-like.png" style="width:19px;height:16px;position:absolute;bottom:8px;left:291px" />
-             <text style="position:absolute;bottom:8px;left:315px;font-size:10px;color:#FFF">99</text> 
-              <image src="../../imgs/home-button-Share.png" style="width:18px;height:16px;position:absolute;bottom:8px;left:330px" />
-              <!--第一图标-->
-              <image src="../../imgs/home-icon-No.1@2x.png" style="width:20px;height:20px;position:absolute;top:18px;left:20px;z-index:2"/>
-            </view>
-        </view>
-        
-        <view class="topic-item">
-            <view class="topic-view">
-                <view style="height:90rpx;background-color:#FFF;display:flex;margin-top:9px;">
-                    <!-- <image class="pusblish-head" src="../../imgs/imgs.jpg" alt="暂无图片"></image> -->
-                    <image class="pusblish-head" src="../../imgs/test1.jpg" alt="暂无图片"></image>
-                    <view class="publish">
-                        <text class="publish-name">吴彦祖</text>
-                        <text class="publish-status">发布了这个话题</text>
-                        <text class="publish-time">2019年03月23日</text>
-                    </view>
-                    <view style="height:100%;width:86px;">
-                        <button class="focus-btn">关注</button>
-                        <image src="../../imgs/6.png" class="img-btn"></image>
-                    </view>
-                </view>
-                
-            </view>
-            <view class="card-underlying">
-             <image src="../../imgs/test2.jpeg" class="img-card"/>
-            <text style="font-size:13px;color:#FFF;position:absolute;top:70px;left:100px">"享受自己努力的成果！"</text>
-              <image src="../../imgs/home-button-Comment.png" style="width:21px;height:17px;position:absolute;bottom:8px;left:240px" />
-             <text style="position:absolute;bottom:8px;left:266px;font-size:10px;color:#FFF">99</text>
-              <image src="../../imgs/home-button-like.png" style="width:19px;height:16px;position:absolute;bottom:8px;left:291px" />
-             <text style="position:absolute;bottom:8px;left:315px;font-size:10px;color:#FFF">99</text> 
-              <image src="../../imgs/home-button-Share.png" style="width:18px;height:16px;position:absolute;bottom:8px;left:330px" />
-              <!--第一图标-->
-              <image src="../../imgs/home-icon-No.1@2x.png" style="width:20px;height:20px;position:absolute;top:18px;left:20px;z-index:2"/>
-            </view>
-        </view>
-
-
+    <view class="fixed-btn">
+       <view class="fixed-btn-view" bindtap="bindViewIssue">发布</view>
+     </view>
 
     </view>
+    <!--下拉列表-->
+    <ul class="link-list" style="{{'display: ' + listStatus}}">
+        <li>
+            <view style="width:100%;">
+                <text>我的首页</text>
+             <image style="height:10px;width:10px;margin-left:25px;" src="../../imgs/list.png"/>
+             </view>
+        </li>
+          <li>
+            <view style="width:100%;">
+                <text>消息通知</text>
+             <image style="height:10px;width:10px;margin-left:25px;" src="../../imgs/list.png"/>
+             </view>
+        </li>
+          <li>
+            <view style="width:100%;">
+                <text>我的足迹</text>
+             <image style="height:10px;width:10px;margin-left:25px;" src="../../imgs/list.png"/>
+             </view>
+        </li>
+          <li>
+            <view style="width:100%;">
+                <text>我的关注</text>
+             <image style="height:10px;width:10px;margin-left:25px;" src="../../imgs/list.png"/>
+             </view>
+        </li>
+          <li>
+            <view style="width:100%;">
+                <text>我的首页</text>
+             <image style="height:10px;width:10px;margin-left:25px;" src="../../imgs/list.png"/>
+             </view>
+        </li>
+          <li>
+            <view style="width:100%;">
+                <text>联系客服</text>
+             <image style="height:10px;width:10px;margin-left:25px;" src="../../imgs/list.png"/>
+             </view>
+        </li>
+    </ul>
 </view>

@@ -1,7 +1,6 @@
 {
-  "navigationBarTitleText":"话题详情",
+  "navigationBarTitleText":"我的",
   "usingComponents": {
-    "navbar":"../../components/navbar/navbar"
-  },
-  "navigationStyle":"custom"
+    "navbar": "../..//components/navbar/navbar"
+  }
 }

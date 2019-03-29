@@ -8,3 +8,21 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 }*/ 
+.underlying{
+  height:auto;
+  width:100%;
+  /*background-color: blue;*/
+  background-color:#fff;
+  top:64px;
+  position:absolute;
+}
+/*居中容器*/
+.container {
+  height:auto;
+  width:351px;
+  /*background-color: red;*/
+  background-color:#FFF;
+  margin-left:auto;
+  margin-right: auto;
+  
+} 

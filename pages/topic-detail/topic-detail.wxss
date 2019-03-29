@@ -251,13 +251,18 @@
   margin-top: 15px;
   overflow: hidden;
 }
-/*回复内容*/
+/*回复内容区域*/
 .reply-content{
   width:259px;
   height:20px;
   font-size: 13pt;
   color:rgb(5,183,255);
   margin-top: 15px;
+}
+/*回复内容*/
+.reply-text{
+  margin-left:10px;
+  color:rgb(51,51,51);
 }
 .reply-status{
   height:20px;
@@ -270,8 +275,14 @@
   margin-top: 15px;
   margin-bottom:15px;
 }
+/*右边的三点按钮*/
+.reply-status>image{
+  width:22px;
+  height:5px;
+  margin-left:130px;
+}
 
-/*提示没有更多回复*/
+/*没有更多回复区域*/
 .nomore-reply{
   border-top-style: solid;
   border-top-color: rgb(244,244,244);
@@ -285,6 +296,12 @@
   justify-content: center;
   align-items: center;
 }
+.nomore-reply>text{
+  font-size:14px;
+  color:rgb(153,153,153);
+}
+
+
 /*评论输入框*/
 .input-reply{
   width:221px;
@@ -308,4 +325,32 @@
   width:100%;
   margin-top:7pt;
   position:relative;
+}
+.replay-view>text{
+  position:absolute;
+  top:8px;
+  font-size:10px;
+  color:rgb(102,102,102)
+}
+/*底部按钮*/
+#comment-btn{
+  width:17px;
+  height:14px;
+  position:absolute;
+  top:8px;
+  left:240px
+}
+#like-btn{
+  width:17px;
+  height:14px;
+  position:absolute;
+  top:8px;
+  left:285px
+}
+#share-btn{
+  width:17px;
+  height:14px;
+  position:absolute;
+  top:7px;
+  left:330px
 }

@@ -1,16 +1,24 @@
 {
-  "pages": [
-    "pages/my/my",
+  "pages": [  
     "pages/index/index",
     "pages/topic/topic",
     "pages/topic-detail/topic-detail",
-    "pages/logs/logs"
+    "pages/my/my",
+    "pages/news/news",
+    "pages/news-concern/news-concern",
+    "pages/participate/participate",
+    "pages/issue/issue",
+    "pages/preview/preview",
+    "pages/fans/fans",
+    "pages/track/track",
+    "pages/logs/logs",
+    "pages/test/test"
   ],
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "轻话题",
     "navigationBarTextStyle": "black",
-    "enablePullDownRefresh": true
+    "navigationStyle": "custom"
   }
 }

@@ -1,0 +1,26 @@
+<!--topic.wxml-->
+<!--引用自定义的navibar组件-->
+<navbar back text="预览"></navbar>
+<view class="underlying" style="top:64px;position:absolute;">
+ <view class="container">
+  <view class='container-top'>
+  <image class='image-head' src='../../imgs/test2.jpeg'></image>
+  <view class='explain'>
+ <text class='explain-name'>游哈哈</text>
+   <text class='explain-time'>2019年03月20日</text>
+  </view>
+  </view>
+  <view class='container-body'>
+  <text class='question'>#你每年有穿传统汉服的习惯么？#</text>
+   <text class='content'>为什么总是以酒，以餐，以娱乐会友？以茶会友也是一种不错的交友方式，是传统文化一直流传下来的方式。</text>
+   <image class='image-body' src='../../imgs/test1.jpg'></image>
+  </view>
+   <view class='Separator'></view>
+  <view class='container-bottom'>
+   <button class='btn-back' bindtap="bindViewParti">返回修改</button>
+  <button class='btn-confirm'
+   bindtap="bindViewTopicDetail">确认发布</button></view>
+
+ 
+ </view>
+</view>

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText":"关注",
+  "usingComponents": {
+    "navbar": "../..//components/navbar/navbar"
+  }  
+}

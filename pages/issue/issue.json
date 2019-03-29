@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText":"发布话题",
+    "usingComponents": {
+      "navbar": "../..//components/navbar/navbar"
+    }
+  }

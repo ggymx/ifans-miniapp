@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText":"话题详情",
+  "navigationBarTitleText":"话题",
   "usingComponents": {
     "navbar":"../../components/navbar/navbar"
   }

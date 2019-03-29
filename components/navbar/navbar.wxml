@@ -1,12 +1,18 @@
-<view class="navbar" style="{{'height: ' + navigationBarHeight}}">
+<!-- <view class="navbar" style="{{'height: ' + navigationBarHeight}}"> -->
+<view class="navbar" style="height:64px;">
   <view style="{{'height: ' + statusBarHeight}}"></view>
-  <view class='title-container'>
-    <view class='capsule' wx:if="{{ back || home }}">
+  <view class='title-container' style="height:64px;">
+    <view class='capsule' style="margin-top:20px;" wx:if="{{ back || home || gear }}">
       <view bindtap='back' wx:if="{{back}}">
-        <image src='../../imgs/back.svg'></image>            
+        <!--返回箭头-->
+        <image src='img/back.png'></image>            
       </view>
       <view bindtap='backHome' wx:if="{{home}}">
-        <image src='../../imgs/home.svg'></image>
+        <image src='img/home.svg'></image>
+      </view>
+      <!--齿轮-->
+      <view bindtap='backGear' wx:if="{{gear}}">
+        <image src='img/gear.png'></image>
       </view>
     </view>
     <view class='title'>{{text}}</view>

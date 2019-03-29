@@ -1,0 +1,39 @@
+<navbar back text="粉丝"></navbar> 
+<view class='underlying' style="top:64px;position:absolute;">
+    <view class="container">
+        <view class='fengefu'></view>
+        <view class='concern-first'>
+            <view class='concern-first-left'>
+                <image class='portrait' src="../../imgs/test1.jpg"></image>
+                <view class='shuoming'>
+                    <text class='biaoti'>游哈哈</text>
+                    <text class='fabu'>越努力越幸运</text>
+                </view>
+            </view>
+            <button class='button-first' size='default'>关注</button>
+        </view>
+        <view class='fengefu'></view>
+        <view class='concern-second'>
+            <view class='concern-first-left'>
+                <image class='portrait' src="../../imgs/test1.jpg"></image>
+                <view class='shuoming'>
+                    <text class='biaoti'>游哈哈</text>
+                    <text class='fabu'>越努力越幸运</text>
+                </view>
+            </view>
+            <button class='button-second'>已关注</button>
+        </view>
+        <view class='fengefu'></view>
+        <view class='concern-third'>
+            <view class='concern-first-left'>
+                <image class='portrait' src="../../imgs/test1.jpg"></image>
+                <view class='shuoming'>
+                    <text class='biaoti'>游哈哈</text>
+                    <text class='fabu'>越努力越幸运</text>
+                </view>
+            </view>
+            <button class='button-third'>互相关注</button>
+        </view>
+        <view class='fengefu'></view>
+    </view>
+</view>

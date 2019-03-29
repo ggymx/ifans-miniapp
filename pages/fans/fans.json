@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText":"粉丝",
+  "usingComponents": {
+    "navbar": "../..//components/navbar/navbar"
+  }  
+}

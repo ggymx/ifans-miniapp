@@ -32,13 +32,29 @@ Page({
       url: '../logs/logs'
     })
   },
+  bindViewTopicDetail(){
+    wx.navigateTo({
+      url:'../topic-detail/topic-detail',
+      success:function(){
+        wx.showToast({title:'跳转到话题详情页！'});
+      }
+    });
+  },
+  bindViewFans(){
+    wx.navigateTo({
+      url:'../fans/fans',
+      success:function(){
+        wx.showToast({title:'跳转到粉丝页！'});
+      }
+    });
+  },
   onLoad() {
     getTopic({id:1}).then((data)=>{
     //  / user=data;
     //  console.log(user);
      /*data.topic.creatAt=data.topic.creatAt.toLocaleDateString();*/
      //日期处理
-     let creatAt=data.topic.creatAt.toLocaleString()
+     let creatAt=data.topic.createAt.toLocaleString()
      //投稿人处理
      this.setData!({data:data,creatAt:creatAt})
      console.log(data)
