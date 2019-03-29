@@ -1,14 +1,4 @@
-.underlying{
-  width:100%;
-  height:auto;
-  background-color:#FFF; 
-}
-.container{
-  width:351px;
-  height:auto;
-  /* background-color:blue; */
-  margin:0 auto;
-}
+
 
 .topic-item{
   width:351px;

@@ -28,12 +28,7 @@ Page({
     loading: true,
     topic: null
   },
-  //事件处理函数
-  bindViewTap() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
+
   onLoad() {
 
     getTopic({id:1}).then((data)=>{

@@ -1,15 +1,5 @@
 /**News concern.wxss**/
-.underlying{
-height:auto;
-width:100%;
 
-}
-.container {
-height:auto;
-width:351px;
-color:rgb(255,255,255);
-margin:0 auto;
-}
 .Separator{
   width: 100%;
 border: 1.5px red solid;

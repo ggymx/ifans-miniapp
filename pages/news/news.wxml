@@ -1,6 +1,6 @@
 <!--自定义导航栏-->
 <navbar back text="消息"></navbar> 
-<view class='underlying' style="top:64px;position:absolute;">
+<view class='underlying'>
     <view class="container">
          <view class='Separator'></view>
         <view class='news-first' bindtap="bindViewNewsConcern">

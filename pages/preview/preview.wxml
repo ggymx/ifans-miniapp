@@ -1,7 +1,7 @@
 <!--topic.wxml-->
 <!--引用自定义的navibar组件-->
 <navbar back text="预览"></navbar>
-<view class="underlying" style="top:64px;position:absolute;">
+<view class="underlying" >
  <view class="container">
   <view class='container-top'>
   <image class='image-head' src='../../imgs/test2.jpeg'></image>
