@@ -1,6 +1,5 @@
 {
   "pages": [
- 
     "pages/index/index",
     "pages/topic/topic",
     "pages/topic-detail/topic-detail",
@@ -11,9 +10,7 @@
     "pages/participate/participate",
     "pages/preview/preview",
     "pages/fans/fans",
-    "pages/track/track",
-    "pages/logs/logs",
-    "pages/test/test"
+    "pages/track/track"
   ],
   "window": {
     "backgroundTextStyle": "dark",

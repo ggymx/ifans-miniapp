@@ -3,8 +3,8 @@
 <view class="underlying" >
    <view class="container">
      <!--头部-->
-       <view class="header">
-           <image src="../../imgs/test1.jpg" class="topic-img" bindtap="bindViewTopic"/>
+       <view class="header" bindtap="bindViewTopic">
+           <image src="../../imgs/test1.jpg" class="topic-img"/>
            <view class="topic-view">
              <text id="topic">你有每年穿汉服的习惯吗？</text>
              <text id="topic-status">1999人参与评论</text>

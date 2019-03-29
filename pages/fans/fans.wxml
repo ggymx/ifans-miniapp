@@ -4,7 +4,7 @@
         <view class='fans-follow' wx:for="{{[1,2]}}">
         <view class='concern-first' >
             <view class='concern-left'>
-                <image class='fans-image' src="../../imgs/test1.jpg"></image>
+                <image class='fans-image' src="../../imgs/test1.jpg" catchtap="bindViewMy"></image>
                 <view class='fans-content'>
                     <text class='fans-name'>游哈哈</text>
                     <text class='fans-discribe'>越努力越幸运</text>
@@ -16,7 +16,7 @@
         </view>
        
         <!-- 第二种 -->
-         <view class='fans-together' wx:for="{{[1,2]}}">
+         <view class='fans-together' wx:for="{{[1,2]}}" catchtap="bindViewMy">
         <view class='concern-second' >
             <view class='concern-left'>
                 <image class='fans-image' src="../../imgs/test1.jpg"></image>

@@ -1,7 +1,0 @@
-<!--pages/test/test.wxml-->
-<text wx:if="{{loading}}">Loading......</text>
-<block wx:else>
-<text>pages/test/test.wxml</text>
-<text>{{topic.title}}</text>
-<text>{{topic.text}}</text>
-</block>

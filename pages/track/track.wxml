@@ -2,7 +2,7 @@
 <navbar back text="足迹"></navbar>
 <view class="underlying">
   <view class="container">
-    <view class='content' wx:for="{{data.posts}}" wx:for-item="post" wx:key="id">
+    <view class='content' wx:for="{{data.posts}}" wx:for-item="post" wx:key="id" bindtap="bindViewTopic">
       <view class='picarea'>
         <image class='pic' src="{{post.banner}}" mode="scaleToFill" lazy-load="true"></image>
       </view>
