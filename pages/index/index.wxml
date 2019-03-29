@@ -11,13 +11,13 @@
                     <image class="pusblish-head" src="../../imgs/test1.jpg" alt="暂无图片" catchtap="bindViewMy"/>
                     <view class="publish">
                         <!--姓名和话题-->
-                        <view style="height:23px;width:100%;display:flex;"> 
+                        <view style="height:46rpx;width:100%;display:flex;"> 
                           <text class="publish-name">枫</text>
                           <text class="publish-status">发布了话题</text>
                         </view>
                         <text class="publish-time">2019年03月23日</text>
                     </view>
-                    <view style="height:100%;width:86px;">
+                    <view style="height:100%;width:172rpx;">
                         <button class="focus-btn">关注</button>
                         <image src="../../imgs/6.png" class="img-btn"></image>
                     </view>
@@ -30,20 +30,21 @@
                  <text class="card-title">“话说日本京都的樱花是不是想象的那么美丽”</text>
              </view>
              <image src="../../imgs/home-logo-Browse@2x.png" id="browse-img" />
-             <text style="left:208px;">99+浏览</text>
+             <text style="left:410rpx;">99+浏览</text>
               <image src="../../imgs/home-logo-participatein@2x.png" id="comment-img" />
-             <text style="left:281px;">99+参与</text> 
+             <text style="left:562rpx;">99+参与</text> 
               <image src="../../imgs/home-btn-Share@2x.png" id="share-img" />
               <!--第一图标-->
               <image src="../../imgs/home-icon-No.1@2x.png" id="hot-img" />
             </view>
         </view>
 
-    <view class="fixed-btn">
-       <view class="fixed-btn-view" bindtap="bindViewIssue">
-       <image src='../../imgs/release.png'></image>
-      </view>
-     </view>
+
+  <view class="btn">
+    <image class='btn_image' src="../../imgs/Release.png"></image>
+  </view>
+
+
 
     </view>
     <!--下拉列表-->
@@ -51,37 +52,37 @@
         <li>
             <view style="width:100%;">
                 <text>我的首页</text>
-             <image style="height:10px;width:10px;margin-left:25px;" src="../../imgs/list.png"/>
+             <image style="height:20rpx;width:20rpx;margin-left:50rpx;" src="../../imgs/list.png"/>
              </view>
         </li>
           <li>
             <view style="width:100%;">
                 <text>消息通知</text>
-             <image style="height:10px;width:10px;margin-left:25px;" src="../../imgs/list.png"/>
+             <image style="height:20rpx;width:20rpx;margin-left:50rpx;" src="../../imgs/list.png"/>
              </view>
         </li>
           <li>
             <view style="width:100%;">
                 <text>我的足迹</text>
-             <image style="height:10px;width:10px;margin-left:25px;" src="../../imgs/list.png"/>
+             <image style="height:20rpx;width:20rpx;margin-left:50rpx;" src="../../imgs/list.png"/>
              </view>
         </li>
           <li>
             <view style="width:100%;">
                 <text>我的关注</text>
-             <image style="height:10px;width:10px;margin-left:25px;" src="../../imgs/list.png"/>
+             <image style="height:20rpx;width:20rpx;margin-left:50rpx;"src="../../imgs/list.png"/>
              </view>
         </li>
           <li>
             <view style="width:100%;">
                 <text>我的首页</text>
-             <image style="height:10px;width:10px;margin-left:25px;" src="../../imgs/list.png"/>
+             <image style="height:20rpx;width:20rpx;margin-left:50rpx;" src="../../imgs/list.png"/>
              </view>
         </li>
           <li>
             <view style="width:100%;">
                 <text>联系客服</text>
-             <image style="height:10px;width:10px;margin-left:25px;" src="../../imgs/list.png"/>
+             <image style="height:20rpx;width:20rpx;margin-left:50rpx;" src="../../imgs/list.png"/>
              </view>
         </li>
     </ul>
