@@ -166,6 +166,7 @@ position: relative;
 }
 /* 按钮 */
 
+
 .btn{
   width: 120rpx;
   height: 120rpx;
@@ -175,12 +176,8 @@ position: relative;
   flex-direction: column;
    background-color:rgba(255, 212,19, 0.5);
   /* background-color: red; */
-  border-radius: 50%;
-display:flex;                 
- justify-content: center;
- align-items: center;
 }
- 
+   
 .btn_image{
   width: 58rpx;
   height: 58rpx;

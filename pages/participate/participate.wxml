@@ -3,7 +3,15 @@
 <navbar back text="参与话题"></navbar>
 <view class="underlying" style="top:64px;position:absolute;">
  <view class="container">
-  话题参与页面
-  <button bindtap="bindViewPreview">发表</button>
+  <view class="topic-view">
+      <text>#你有每年中国传统节日...#</text>
+  </view>
+  <view class="textarea-view">
+  <textarea placeholder="请至少输入五个字" style="height:300px;width:351px;padding-left:10px;padding-top:15px;"></textarea>
+  </view>
+  <view style="margin-top:400px;" class="feel-view">
+        <image style="width:20px;height:20px;margin-left:13px;margin-bottom:5px" src="../../imgs/feel.png"/>
+        <button bindtap="bindViewPreview">发表</button>
+  </view>
  </view>
 </view>

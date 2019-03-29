@@ -24,7 +24,11 @@ Page({
     motto: '点击 “编译” 以构建',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    topicText:"快点发布话题讨论吧",
+    richOldLocal:"0px",
+    richNewLocal:"100px",
+    temp:"0px"
   },
   //事件处理函数
   bindViewTap() {
@@ -46,6 +50,30 @@ Page({
       success:function(){
         wx.showToast({title:'跳转到首页！'});
       }
+    });
+  },
+  /*input和文本显示绑定 */
+  bindKeyInput(e:any){
+    if(e.detail.value){
+      this.setData!({
+        topicText:e.detail.value
+      });
+    }else{
+      this.setData!({
+        topicText:"快点发布话题讨论吧"
+      })
+    }
+  },
+  /*设置下方表情框上移动画 */
+  setMoveUp(e:any){
+    console.log(e.detail);
+    this.setData!({
+      temp:this.data.richNewLocal
+    });
+  },
+  setMoveDown(){
+    this.setData!({
+       temp:this.data.richOldLocal
     });
   },
   onLoad() {
@@ -88,6 +116,20 @@ Page({
         }
       })
     }
+     
+    /*初始化富文本的位置*/
+    let richLocation=0;
+    wx.getSystemInfo({
+      success(res){
+        //screenHeight获取手机屏幕的高度，screenHeight-64-200-41-30
+        richLocation=res.screenHeight-335;
+      }
+    })
+    console.log(richLocation);
+    this.setData!({
+      richOldLocal:richLocation+"px",
+      temp:richLocation+"px"
+    })
   },
   
   getUserInfo(e: any) {
