@@ -13,7 +13,7 @@
         auto-height show-confirm-bar="{{false}}" bindblur="setMoveDown" placeholder-class="input-pd"/>
         <view style="margin-top:{{temp}};" class="feel-view">
         <image style="width:20px;height:20px;margin-left:13px;margin-bottom:5px" src="../../imgs/feel.png"/>
-        <button>发送</button>
+        <button bindtap="bindViewIndex">发表</button>
         </view>
         <!-- <button bindtap="bindViewIndex">发表</button> -->
     </view>

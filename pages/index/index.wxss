@@ -173,7 +173,7 @@ position: relative;
    vertical-align: middle;
    opacity: 1;
    position:fixed;
-   top:650px;
+   top:600px;
   right:15px;
   width:90rpx;
   height:90rpx;

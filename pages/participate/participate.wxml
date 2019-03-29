@@ -11,7 +11,7 @@
   </view>
   <view style="margin-top:400px;" class="feel-view">
         <image style="width:20px;height:20px;margin-left:13px;margin-bottom:5px" src="../../imgs/feel.png"/>
-        <button>发送</button>
+        <button bindtap="bindViewPreview">发表</button>
   </view>
  </view>
 </view>
