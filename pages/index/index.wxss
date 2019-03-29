@@ -1,42 +1,42 @@
 
 
 .topic-item{
-  width:351px;
-height:236px;
+  width:702rpx;
+height:472rpx;
 background:#FFF; 
 border-bottom-style:solid;
-border-bottom-width:1px;
+border-bottom-width:2rpx;
 border-bottom-color:rgb(244,244,244);
-margin-bottom:10px;
+margin-bottom:20rpx;
 }
 
 /*发布人的展示区*/
 .topic-view{
-  width:320px;
-  height:66px;
+  width:640rpx;
+  height:132rpx;
   /*background:pink;*/
   margin:0 auto;
   overflow:hidden;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  border-top-left-radius: 10rpx;
+  border-top-right-radius: 10rpx;
   border-style:solid;
-border-width:1px;
+border-width:2rpx;
 border-color:rgb(244,244,244);
 
 }
 
 /*发布者头像*/
 .pusblish-head{
-  width:45px;
-  height:45px;
+  width:90rpx;
+  height:90rpx;
   border-radius:50%;
   background-color:rgb(244,244,244);
-  margin-left:6px;
+  margin-left:12rpx;
 }
 /*话题人，发布日期等*/
 .publish{
   height:100%;
-  width:220px;
+  width:440rpx;
   /*background-color:red;*/
   /* display:flex; */
   /*空间不够自动换行*/
@@ -46,68 +46,68 @@ border-color:rgb(244,244,244);
 }
 .publish-name,.publish-status{
   display: block;
-  font-size:13px;
-  height:20px;
-  margin-top: 5px;
+  font-size:26rpx;
+  height:40rpx;
+  margin-top: 10rpx;
 }
 .publish-name{
   width:auto;
-  left:10px;
-  margin-left: 10px;
-  margin-right: 10px;
+  left:20rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
 }
 .publish-status{
-  width:68px;
-  right: 10px;
+  width:176rpx;
+  right: 20rpx;
 }
 .publish-time{
   position: absolute;
-  font-size:10px;
+  font-size:20rpx;
   color:#BBB;
-  height:15px;
+  height:30rpx;
   display: block;
-  top:28px;
-  left:10px;
+  top:56rpx;
+  left:20rpx;
 }
 /*关注按钮*/
 .focus-btn{
-  width:48px;
-  height:28px;
+  width:96rpx;
+  height:56rpx;
   background-color:yellow;
   color:#FFF;
-  font-size:13px;
+  font-size:26rpx;
   text-align: center;
   /*消除按钮内边距*/
   padding: 0 0 0 0;
   /*行高和按钮一样高，则可以自动居中*/
-  line-height: 28px;
-  margin-top:5px;
-  margin-left:3px;
+  line-height: 56rpx;
+  margin-top:10rpx;
+  margin-left:6rpx;
   display: inline-block;
 }
 /*关注按钮旁的按钮*/
 .img-btn{
-width:18px;
-height:13px;
-margin-bottom:7px;
-margin-left: 6px;
+width:36rpx;
+height:26rpx;
+margin-bottom:14rpx;
+margin-left: 12rpx;
 }
 
 .img-card{
-  height:160px;
+  height:320rpx;
   width:100%;
-  border-radius: 10px;
+  border-radius: 20rpx;
   opacity: 0.6;
 }
 .card-underlying{
 background-color:#000;
-height:160px;
-border-radius:10px;
+height:320rpx;
+border-radius:20rpx;
 position: relative;
 }
 
 .card-title{
-  font-size:13px;
+  font-size:26rpx;
   color:#FFF;
   /* position:absolute;
   top:70px;
@@ -116,86 +116,76 @@ position: relative;
   text-align: center;
 }
 #browse-img{
-  width:21px;
-  height:12px;
+  width:34rpx;
+  height:24rpx;
   position:absolute;
-  bottom:8px;
-  left:180px;
+  bottom:16rpx;
+  left:360rpx;
 }
 #comment-img{
-  width:17px;
-  height:12px;
+  width:34rpx;
+  height:24rpx;
   position:absolute;
-  bottom:8px;
-  left:256px
+  bottom:16rpx;
+  left:512rpx
 }
 #share-img{
-  width:15px;
-  height:14px;
+  width:30rpx;
+  height:28rpx;
   position:absolute;
-  bottom:8px;
-  left:328px
+  bottom:16rpx;
+  left:656rpx
 }
 
 #hot-img{
-  width:20px;
-  height:20px;
+  width:40rpx;
+  height:40rpx;
   position:absolute;
-  top:10px;
-  left:10px;
+  top:20rpx;
+  left:20rpx;
   z-index:2
 }
 
 #browse-img+text,#comment-img+text{
   position:absolute;
-  bottom:7px;
-  font-size:10px;
+  bottom:14rpx;
+  font-size:20rpx;
   color:#FFF
 }
 
 .card-view{
   /* background-color:pink; */
-  width:250px;
-  height:90px;
+  width:500rpx;
+  height:180rpx;
   position:absolute;
-  top:38px;
-  left:53px;
+  top:76rpx;
+  left:106rpx;
   display:flex;
   justify-content:center;
   align-items:center
 }
+/* 按钮 */
 
-   /*悬浮按钮*/
- .fixed-btn{
-
-  /* border: 1px solid #000;*/
-   font-size: 15px;
-   vertical-align: middle;
-   opacity: 1;
-   position:fixed;
-   top:650px;
-  right:15px;
-  width:90rpx;
-  height:90rpx;
-  float: left;
+.btn{
+  width: 120rpx;
+  height: 120rpx;
+  position: fixed;
+  bottom:100rpx;
+  right: 40rpx;
+  flex-direction: column;
+   background-color:rgba(255, 212,19, 0.5);
+  /* background-color: red; */
   border-radius: 50%;
-  text-align: center;
-  background-color:rgba(255, 212,19, 0.5);
-  box-shadow: 2rpx;
-  margin-right: 54rpx;
-  display: flex;
-  
- }
- /*使按钮居中*/
- .fixed-btn-view{
-   margin-top:22rpx
- }
- .fixed-btn-view>image{
-   width: 50rpx;
-   height: 50rpx;
-margin-left: 22rpx;
-opacity: 100%;
- }
+display:flex;                 
+ justify-content: center;
+ align-items: center;
+}
+ 
+.btn_image{
+  width: 58rpx;
+  height: 58rpx;
+  /* background-color: orange; */
+}
 
  /*页面列表*/
  .link-list{
@@ -203,11 +193,11 @@ opacity: 100%;
   position:fixed;
   width:100px;
   height:auto;
-  top:50px;
-  left:36px;
+  top:100rpx;
+  left:72rpx;
   /*导航栏z-index为4*/
   z-index:5;  
-  font-size: 14px;
+  font-size: 28rpx;
   display: flex;
   flex-direction: column;
  }

@@ -13,13 +13,13 @@
   width:100%;
   /*background-color: blue;*/
   background-color:#fff;
-  top:64px;
+  top:128rpx;
   position:absolute;
 }
 /*居中容器*/
 .container {
   height:auto;
-  width:351px;
+  width:702rpx;
   /*background-color: red;*/
   background-color:#FFF;
   margin-left:auto;

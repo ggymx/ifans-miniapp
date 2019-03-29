@@ -1,6 +1,6 @@
 {
   "pages": [
- 
+    
     "pages/index/index",
     "pages/topic/topic",
     "pages/topic-detail/topic-detail",
@@ -11,7 +11,7 @@
     "pages/issue/issue",
     "pages/preview/preview",
     "pages/fans/fans",
-    "pages/track/track",
+ "pages/track/track",
     "pages/logs/logs",
     "pages/test/test"
   ],
