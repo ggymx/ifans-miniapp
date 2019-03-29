@@ -1,0 +1,3 @@
+[submodule "sharelib"]
+	path = sharelib
+	url = git@gitee.com:ifans/ifans-sharelib.git
