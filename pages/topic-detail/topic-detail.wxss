@@ -1,14 +1,4 @@
-.underlying{
-  width:100%;
-  height:auto;
-  /*background-color:red;*/
-}
-.container{
-  width:351px;
-  height:100%;
-  /*background-color:blue;*/
-  margin:0 auto;
-}
+
 /*头部*/
 .header{
   width:100%;

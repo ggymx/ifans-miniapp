@@ -1,14 +1,4 @@
-.underlying{
-  width:100%;
-  height:auto;
-  background-color:#FFF; 
-}
-.container{
-  width:351px;
-  height:auto;
-  /* background-color:blue; */
-  margin:0 auto;
-}
+
 
 .topic-item{
   width:351px;
@@ -177,26 +167,34 @@ position: relative;
 
    /*悬浮按钮*/
  .fixed-btn{
-   background:rgb(231, 194, 8);
-   width:54px;
-   height:54px;
-   float: left;
-   border-radius: 50%;
+
   /* border: 1px solid #000;*/
    font-size: 15px;
-   text-align: center;
    vertical-align: middle;
-   opacity: 0.3;
-   color:#FFF;
+   opacity: 1;
    position:fixed;
-   top:400px;
-   right:15px;
+   top:650px;
+  right:15px;
+  width:90rpx;
+  height:90rpx;
+  float: left;
+  border-radius: 50%;
+  text-align: center;
+  background-color:rgba(255, 212,19, 0.5);
+  box-shadow: 2rpx;
+  margin-right: 54rpx;
+  display: flex;
+  
  }
  /*使按钮居中*/
  .fixed-btn-view{
-   width:54px;
-   height:27px;
-   margin-top:30rpx
+   margin-top:22rpx
+ }
+ .fixed-btn-view>image{
+   width: 50rpx;
+   height: 50rpx;
+margin-left: 22rpx;
+opacity: 100%;
  }
 
  /*页面列表*/

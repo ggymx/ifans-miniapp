@@ -26,12 +26,7 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
-  //事件处理函数
-  bindViewTap() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
+
   bindViewPreview(){
     wx.navigateTo({
       url:'../preview/preview',

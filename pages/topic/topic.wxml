@@ -2,7 +2,7 @@
 <!--引用自定义的navibar组件-->
 
 <navbar back text="话题"></navbar>
-<view class="underlying" style="top:64px;position:absolute;">
+<view class="underlying">
 <view class="container">
 <!--头部-->
 <view class="top">

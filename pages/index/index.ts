@@ -23,12 +23,7 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     listStatus:"none"
   },
-  //事件处理函数
-  bindViewTap() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
+  
   //跳转到话题页
   bindViewTopic(){
     wx.navigateTo({

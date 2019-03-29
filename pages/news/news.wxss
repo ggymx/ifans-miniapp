@@ -1,43 +1,33 @@
 /**News concern.wxss**/
-.underlying{
-height:auto;
-width:100%;
 
-}
-.container {
-height:auto;
-width:351pt;
-color:rgb(255,255,255);
-margin:0 auto;
-}
-.fengefu{
+.Separator{
   width: 100%;
-border: 1.5pt red solid;
+border: 1.5px red solid;
 border-color: rgb(244, 244, 244);
-  margin-top: 5pt;
+  margin-top: 5px;
 
 }
 .news-first{
   width: 100%;
-  height: 110pt;
+  height: 110px;
   display: flex;
 }
 .news-first2{
   width: 100%;
-  height: 110pt;
+  height: 110px;
   display: flex;
 }
 .news-first3{
   width: 100%;
-  height: 110pt;
+  height: 110px;
   display: flex;
 }
 .news-first4{
   width: 100%;
-  height: 110pt;
+  height: 110px;
   display: flex;
 }
-.big{
+.news{
    display: flex;
   flex-direction: column;
 }
@@ -47,57 +37,57 @@ border-color: rgb(244, 244, 244);
   flex-direction: row;
 }
 .new-portrait{
-  width: 58pt;
-  height: 58pt;
+  width: 58px;
+  height: 58px;
   border-radius:50%;
-  margin-top: 12pt;
-  margin-left: 12pt;
+  margin-top: 12px;
+  margin-left: 12px;
 }
-.miaoshu{
+.news-describe{
   display: flex;
   flex-direction: column;
-  margin-top: 15pt;
-  margin-left: 9pt;
-  padding: 0pt;
+  margin-top: 15px;
+  margin-left: 9px;
+  padding: 0px;
 }
-.name{
+.news-describe-name{
   color: rgb(51, 51, 51);
   font-family: PingFang-SC-Medium;
-  font-size: 16pt;
+  font-size: 16px;
 }
-.time{
-  margin-top: 10pt;
+.news-describe-time{
+  margin-top: 10px;
 
   color: rgb(153, 153, 153);
   font-family: PingFang-SC-Medium;
-  font-size: 12pt;
+  font-size: 12px;
   
 }
-.aaa{
+.news-contant{
    display: flex;
   flex-direction: row;
 
-  height: 10pt;
+  height: 10px;
 }
-.a{
-  margin-top: 10pt;
-    margin-left: 12pt;
+.news-contant-left{
+  margin-top: 10px;
+    margin-left: 12px;
   color: rgb(51, 51, 51);
   font-family: PingFang-SC-Medium;
-  font-size: 12pt;
+  font-size: 12px;
 }
-.b{
-    margin-left: 8pt;
-    margin-top: 10pt;
+.news-contant-right{
+    margin-left: 8px;
+    margin-top: 10px;
   color: rgb(9, 166, 220);
   font-family: PingFang-SC-Medium;
-  font-size: 12pt;
+  font-size: 12px;
 }
 .right-image{
-width: 15pt;
-height: 20pt;
+width: 15px;
+height: 20px;
 
-margin-left: 90pt;
-margin-top: 40pt;
+margin-left: 90px;
+margin-top: 40px;
 }
 

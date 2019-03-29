@@ -1,19 +1,8 @@
 /**app.wxss**/
 /*底层*/
-.underlying{
-  height:auto;
-  width:100%;
-  /*background-color: blue;*/
-  background-color:#fff;
-}
+
 /*居中容器*/
 .container {
-  height:auto;
-  width:351px;
-  /*background-color: red;*/
-  /* background-color:#FFF; */
-  margin-left:auto;
-  margin-right: auto;
   margin-top:-240px;
   background-color: transparent;
   position: relative;

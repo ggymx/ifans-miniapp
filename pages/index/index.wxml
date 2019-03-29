@@ -1,7 +1,7 @@
 <!-- logs.wxml -->
 <!-- <navbar back home text="首页"></navbar>  -->
 <navbar gear text="首页"></navbar> 
-<view class="underlying" style="top:64px;position:absolute;">
+<view class="underlying" >
     <view class="container">
         <!--话题列表项-->
         <view class="topic-item" wx:for="{{[1,2,3,4]}}">
@@ -40,7 +40,9 @@
         </view>
 
     <view class="fixed-btn">
-       <view class="fixed-btn-view" bindtap="bindViewIssue">发布</view>
+       <view class="fixed-btn-view" bindtap="bindViewIssue">
+       <image src='../../imgs/release.png'></image>
+      </view>
      </view>
 
     </view>
