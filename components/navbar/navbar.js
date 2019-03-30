@@ -41,7 +41,7 @@ Component({
     backGear: function () {
       // console.log("测试List");
       wx.showActionSheet({
-        itemList: ['我的首页', '消息通知', '我的足迹', '我的关注', '联系客服'],
+        itemList: ['我的空间', '消息通知', '我的足迹', '我的关注', '联系客服'],
         success(res) {
           switch (res.tapIndex) {
             case 0:

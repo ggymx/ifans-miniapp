@@ -84,10 +84,12 @@ border-color: rgb(244, 244, 244);
   font-size: 24rpx;
 }
 .right-image{
-width: 30rpx;
-height: 40rpx;
 
-margin-left: 180rpx;
-margin-top: 80rpx;
+width: 16rpx;
+height: 26rpx;
+
+margin-left: 240rpx;
+margin-top: 92rpx;
+
 }
 

@@ -28,7 +28,14 @@ Page({
     loading: true,
     topic: null
   },
-
+  bindViewTopic(){
+    wx.navigateTo({
+      url:'../topic/topic',
+      success(){
+        wx.showToast({title:"跳转到话题页"});
+      }
+    });
+  },
   onLoad() {
 
     getTopic({id:1}).then((data)=>{

@@ -4,11 +4,11 @@
 <view class="underlying" >
     <view class="container">
         <!--话题列表项-->
-        <view class="topic-item" wx:for="{{[1,2,3,4]}}">
+        <view class="topic-item" wx:for="{{[1,2,3,4]}}"  bindtap="bindViewTopic">
             <view class="topic-view">
                 <view style="height:90rpx;background-color:#FFF;display:flex;margin-top:9px;">
                     <!-- <image class="pusblish-head" src="../../imgs/imgs.jpg" alt="暂无图片"></image> -->
-                    <image class="pusblish-head" src="../../imgs/test1.jpg" alt="暂无图片" bindtap="bindViewMy"/>
+                    <image class="pusblish-head" src="../../imgs/test1.jpg" alt="暂无图片" catchtap="bindViewMy"/>
                     <view class="publish">
                         <!--姓名和话题-->
                         <view style="height:46rpx;width:100%;display:flex;"> 
@@ -25,7 +25,7 @@
                 
             </view>
             <view class="card-underlying">
-             <image src="../../imgs/test2.jpeg" class="img-card" bindtap="bindViewTopic"/>
+             <image src="../../imgs/test2.jpeg" class="img-card"/>
              <view class="card-view">
                  <text class="card-title">“话说日本京都的樱花是不是想象的那么美丽”</text>
              </view>

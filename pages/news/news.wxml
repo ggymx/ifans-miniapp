@@ -1,68 +1,93 @@
-<!--自定义导航栏-->
-<navbar back text="消息"></navbar> 
+<!-- 自定义导航栏 -->
+<navbar back text="消息"></navbar>
 <view class='underlying'>
     <view class="container">
-         <view class='Separator'></view>
-        <view class='news-first' bindtap="bindViewNewsConcern">
-            <view class='news'>
-                <view class='concern-first-left'>
-                    <image class='new-portrait' src="../../imgs/test1.jpg"></image>
-                    <view class='news-describe'>
-                        <text class='news-describe-name'>游哈哈</text>
-                        <text class='news-describe-time'>越努力越幸运</text>
+        <view>
+            <view class='Separator'></view>
+            <view class='news-first'>
+                <view class='news'>
+                    <view class='concern-first-left'>
+                        <image class='new-portrait' src="../../imgs/test1.jpg" catchtap="bindViewMy"></image>
+                        <view class='news-describe'>
+                            <text class='news-describe-name'>游哈哈</text>
+                            <text class='news-describe-time'>越努力越幸运</text>
+                        </view>
+                    </view>
+                    <view class='news-bottom'>
+                        <view class='news-contant'>
+                            <text class='news-contant-left'>赞了你的作品:</text>
+                            <text class='news-contant-right'>#不要放葱花和香菜</text>
+                        </view>
                     </view>
                 </view>
-                <view class='news-bottom'>
-                    <view class='news-contant'>
-                        <text class='news-contant-left'>赞了你的作品:</text>
-                        <text class='news-contant-right'>#不要放葱花和香菜</text>
-                    </view>
-                </view>
+                <image class='right-image' src="../../imgs/dayu.png"></image>
             </view>
-            <image class='right-image' src="../../imgs/dayu.png"></image>
         </view>
-        <!-- 2 -->
-        <view class='Separator'></view>
-        <view class='news-first2'>
-          <view class='news'>
-                <view class='concern-first-left'>
-                    <image class='new-portrait' src="../../imgs/test1.jpg"></image>
-                    <view class='news-describe'>
-                        <text class='news-describe-name'>游哈哈</text>
-                        <text class='news-describe-time'>越努力越幸运</text>
+
+          <view>
+            <view class='Separator'></view>
+            <view class='news-first'>
+                <view class='news'>
+                    <view class='concern-first-left'>
+                        <image class='new-portrait' src="../../imgs/test1.jpg" catchtap="bindViewMy"></image>
+                        <view class='news-describe'>
+                            <text class='news-describe-name'>游哈哈</text>
+                            <text class='news-describe-time'>越努力越幸运</text>
+                        </view>
+                    </view>
+                    <view class='news-bottom'>
+                        <view class='news-contant'>
+                            <text class='news-contant-left'>赞了你的评论:</text>
+                            <text class='news-contant-right'>#不要放葱花和香菜</text>
+                        </view>
                     </view>
                 </view>
-                <view class='news-bottom'>
-                    <view class='news-contant'>
-                        <text class='news-contant-left'>赞了你的作品:</text>
-                        <text class='news-contant-right'>#不要放葱花和香菜</text>
-                    </view>
-                </view>
+                <image class='right-image' src="../../imgs/dayu.png"></image>
             </view>
-            <image class='right-image' src="../../imgs/dayu.png"></image>
         </view>
-        <!-- 3 -->
-        <view class='Separator'></view>
-        <view class='news-first3'>
-           <view class='news'>
-                <view class='concern-first-left'>
-                    <image class='new-portrait' src="../../imgs/test1.jpg"></image>
-                    <view class='news-describe'>
-                        <text class='news-describe-name'>游哈哈</text>
-                        <text class='news-describe-time'>越努力越幸运</text>
+
+          <view>
+            <view class='Separator'></view>
+            <view class='news-first'>
+                <view class='news'>
+                    <view class='concern-first-left'>
+                        <image class='new-portrait' src="../../imgs/test1.jpg" catchtap="bindViewMy"></image>
+                        <view class='news-describe'>
+                            <text class='news-describe-name'>游哈哈</text>
+                            <text class='news-describe-time'>越努力越幸运</text>
+                        </view>
+                    </view>
+                    <view class='news-bottom'>
+                        <view class='news-contant'>
+                            <text class='news-contant-left'>评论你的作品:</text>
+                            <text class='news-contant-right'>#不要放葱花和香菜</text>
+                        </view>
                     </view>
                 </view>
-                <view class='news-bottom'>
-                    <view class='news-contant'>
-                        <text class='news-contant-left'>赞了你的作品:</text>
-                        <text class='news-contant-right'>#不要放葱花和香菜</text>
-                    </view>
-                </view>
+                <image class='right-image' src="../../imgs/dayu.png"></image>
             </view>
-            <image class='right-image' src="../../imgs/dayu.png"></image>
         </view>
-         <view class='Separator'></view>
-        <!-- 4 -->
-        <!-- 5 -->
+
+          <view>
+            <view class='Separator'></view>
+            <view class='news-first'>
+                <view class='news'>
+                    <view class='concern-first-left'>
+                        <image class='new-portrait' src="../../imgs/test1.jpg" catchtap="bindViewMy"></image>
+                        <view class='news-describe'>
+                            <text class='news-describe-name'>游哈哈</text>
+                            <text class='news-describe-time'>越努力越幸运</text>
+                        </view>
+                    </view>
+                    <view class='news-bottom'>
+                        <view class='news-contant'>
+                            <text class='news-contant-left'>回复你的评论:</text>
+                            <text class='news-contant-right'>#不要放葱花和香菜</text>
+                        </view>
+                    </view>
+                </view>
+                <image class='right-image' src="../../imgs/dayu.png"></image>
+            </view>
+        </view>
     </view>
 </view>

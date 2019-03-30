@@ -12,11 +12,11 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
   },
   
-  bindViewNewsConcern(){
+  bindViewMy(){
     wx.navigateTo({
-      url:'../news-concern/news-concern',
+      url:'../my/my',
       success:function(){
-        wx.showToast({title:'跳转到详情页！'});
+        wx.showToast({title:'跳转到空间页！'});
       }
     });
   },
