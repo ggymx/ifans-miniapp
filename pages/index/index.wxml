@@ -40,7 +40,7 @@
         </view>
 
 
-  <view class="btn">
+  <view class="btn" catchtap="bindViewIssue">
     <image class='btn_image' src="../../imgs/Release.png"></image>
   </view>
 

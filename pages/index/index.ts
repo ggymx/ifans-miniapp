@@ -51,10 +51,7 @@ Page({
       }
     });
   },
-  // bindLinkList(){
-  //     console.log("List弹出")
-  //     this.data.listStatus=="none"?"flex":"none";
-  // },
+
   onLoad() {
     if (app.globalData.userInfo) {
       this.setData!({
