@@ -3,7 +3,7 @@
 
 /*居中容器*/
 .container {
-  margin-top:-240px;
+  margin-top:-460rpx;
   background-color: transparent;
   position: relative;
 } 
@@ -15,127 +15,127 @@
 }
 
 .my-item{
-  width:351px;
-  height:365px;
+  width:702rpx;
+  height:730rpx;
   background-color:gray;
-  border-bottom:1px solid #BBB;
-  margin-bottom: 10px;
+  border-bottom:2rpx solid #BBB;
+  margin-bottom: 20rpx;
 }
 
 
 /*动态区的上部区域*/
 .item-top,.item-down{
 width:100%;
-height:63px;
+height:126rpx;
 position: relative;
 background:#fff;
 }
 /*下部*/
 .item-down{
   /*background: yellow;*/
-  height:302px;
+  height:604rpx;
 }
 /*头像*/
 .head-img{
-  height:51px;
-  width:51px;
+  height:102rpx;
+  width:102rpx;
   border-radius:50%;
   background-color:gray;
-  margin-left: 2px;
+  margin-left: 4rpx;
 }
 /*评论人的姓名*/
 .comment-name{
   width:auto;
-  height:22px;
-  font-size:13px;
+  height:44rpx;
+  font-size:26rpx;
   display: block;
   position:absolute;
-  top:5px;
-  left: 70px;
+  top:10rpx;
+  left: 140rpx;
 }
 .comment-time{
-  width:78px;
-  height:14px;
-  font-size:10px;
+  width:156rpx;
+  height:28rpx;
+  font-size:20rpx;
   display: block;
   position:absolute;
-  top:30px;
-  left: 70px;
+  top:60rpx;
+  left: 140rpx;
   color: #101010;
 }
 /*右侧的小按钮*/
 .right-smlbtn{
-  width:3px;
-  height:16px;
+  width:6rpx;
+  height:32rpx;
   position:absolute;
-  right:20px;
-  top:22px;
+  right:40rpx;
+  top:44rpx;
   border: none;
 }
 .comment-title{
   display: block;
-  width: 94px;
-  height:20px;
+  width: 188rpx;
+  height:40rpx;
   position: absolute;
   background: #FFF;
-  font-size: 12px;
-  left: 70px;
+  font-size: 24rpx;
+  left: 140rpx;
 }
 .commetn-text{
-  width: 263px;
-  height:70px;
+  width: 526rpx;
+  height:140rpx;
   position: absolute;
   background:#FFF;
-  font-size: 12px;
+  font-size: 24rpx;
   /*white-space: pre;*/
-  left:70px;
-  top:30px;
+  left:140rpx;
+  top:60rpx;
   text-align: left;
 }
 /*评论区的图片*/
 .content-img{
-  width:145px;
-  height:140px;
+  width:290rpx;
+  height:280rpx;
   background-color:gray;
   position:absolute;
-  top:110px;
-  left:70px;
+  top:220rpx;
+  left:140rpx;
 }
 .content-content{
-  height:16px;
+  height:32rpx;
   width:auto;
-  font-size: 10px;
+  font-size: 20rpx;
   position: absolute;
   right:0;
-  bottom: 4px;
+  bottom: 8rpx;
   color:#101010;
-  margin-bottom:8px;
+  margin-bottom:16rpx;
 }
 .content-content>view{
   display: inline-block;
-  margin-right:16px;
+  margin-right:32rpx;
 }
 
 
 /*点赞-评论-分享图标*/
 .operation-icon{
-  width:15px;
-  height:12px
+  width:30rpx;
+  height:24rpx
 }
 .operation-icon+text{
   display:inline-block;
-  margin-left:5px;
+  margin-left:10rpx;
 }
 /*头顶大图区域*/
 .my-view{
-  height:250px;
+  height:500rpx;
   width:100%;
   background-color:#000;
 }
 /*头顶大图-和头像保持一致*/
 .my-img{
   width: 100%;
-  height:250px;
+  height:500rpx;
   opacity: 0.6;
 }
 
@@ -144,106 +144,106 @@ background:#fff;
   height:auto;
   /*background-color:red;*/
   z-index:2;
-  margin-bottom:20px;
+  margin-bottom:40rpx;
 }
 
 /*发布按钮*/
 .publish-btn{
-  width:19px;
-  height:19px;
+  width:38rpx;
+  height:38rpx;
   position:absolute;
-  top:5px;
-  right:5px;
+  top:10rpx;
+  right:10rpx;
 }
 /*发布按钮所在的透明区域*/
 .trans-view{
- height:138px;
+ height:276rpx;
   /*background-color:pink;*/
   position:relative;
 }
 /*别的账号的主要信息区域*/
 .my-info{
   height:auto;
-  width:335px;
+  width:670rpx;
   /*background-color:blue;*/
   margin:0 auto;
   position: relative;
 }
 .info-down{
-  height:90px;
+  height:180rpx;
   background:white;
   position:relative;
   border-style: solid;
-  border-width:1px;
+  border-width:2rpx;
   border-color:rgb(217,216,216);
-  box-shadow:1px 3px 20px 1px #BBB
+  box-shadow:2rpx 6rpx 40rpx 2rpx #BBB
 }
 /*粉丝数和动态数*/
 .status-number{
-  font-size:16px;
+  font-size:32rpx;
   color:rgb(51,51,51);
   position:absolute;
-  top:10px;
+  top:20rpx;
 }
 .fans-dynamic{
-  font-size:12px;
+  font-size:24rpx;
   color:rgb(153,153,153);
   position:absolute;
-  top:36px;
+  top:72rpx;
 }
 
 /*动态和关注文字小的小灰条*/
 .smal-graybar{
-  height:2px;
-  width:60px;
+  height:4rpx;
+  width:120rpx;
   background-color:rgb(217,216,216);
   position:absolute;
-  top:58px;
+  top:116rpx;
 }
 
 #user-name{
-  font-size:17px;
+  font-size:34rpx;
   color:rgb(51,51,51);
   position:absolute;
-  top:32px;
-  left:136px;
+  top:64rpx;
+  left:272rpx;
 }
 /*用户签名*/
 #user-signature{
-  font-size:12px;
+  font-size:24rpx;
   color:rgb(153,153,153)
   ;position:absolute;
-  top:65px;
-  left:85px;
+  top:130rpx;
+  left:170rpx;
 }
 
 .big-image{
-  height:63px;
-  width:63px;
+  height:126rpx;
+  width:126rpx;
   border-radius:50%;
   position:absolute;
-  top:22px;
-  left:130px;
+  top:44rpx;
+  left:260rpx;
 }
 
 /*喜欢-关注按钮所在区域*/
 .like-focus-view{
-  height:60px;
+  height:120rpx;
   position:relative;
   overflow:hidden;
 }
 
 .like-focus-view>button{
-  height:25px;
-  width:59px;
+  height:50rpx;
+  width:118rpx;
   position:absolute;
-  font-size:12px;
-  top:25px;
-  border-radius:13px;
+  font-size:24rpx;
+  top:50rpx;
+  border-radius:26rpx;
   background-color:transparent;
   color:#FFF;
   border-style: solid;
-  border-width:1px;
+  border-width:2rpx;
   border-color: rgba(255,255,255,0.5);
   padding:0;
   display:inline-flex;
@@ -252,24 +252,24 @@ background:#fff;
 }
 
 .like-btn{
-  left:36px;
+  left:72rpx;
 }
 .focus-btn{
-  right:36px;
+  right:72rpx;
 }
 .like-btn>image,.focus-btn>image{
-  width:10px;
-  height:10px;
-  margin-right:5px
+  width:20rpx;
+  height:20rpx;
+  margin-right:10rpx
 }
 
 
 /*喜欢-关注按钮所在区域-阴影条*/
 .shadow-bar{
-  width:308px;
-  height:6px;
+  width:616rpx;
+  height:12rpx;
   background-color:rgba(255,255,255,0.5);
   margin:0 auto;
-  margin-top:54px;
+  margin-top:108rpx;
 }
 

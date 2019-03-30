@@ -2,14 +2,14 @@
 
 .Separator{
   width: 100%;
-border: 1.5px red solid;
+border: 3rpx red solid;
 border-color: rgb(244, 244, 244);
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
 }
 .concern-first{
   width: 100%;
-  height: 83px;
+  height: 166rpx;
   display: flex;
 }
 .concern-left{
@@ -17,49 +17,49 @@ border-color: rgb(244, 244, 244);
   flex-direction: row;
 }
 .fans-image{
-  width: 58px;
-  height: 58px;
+  width: 116rpx;
+  height: 116rpx;
   border-radius:50%;
-  margin-top: 12px;
-  margin-left: 12px;
+  margin-top: 24rpx;
+  margin-left: 24rpx;
 }
 .fans-content{
   display: flex;
   flex-direction: column;
-  margin-top: 15px;
-  margin-left: 9px;
+  margin-top: 30rpx;
+  margin-left: 18rpx;
   padding: 0px;
 }
 .fans-name{
   color: rgb(51, 51, 51);
   font-family: PingFang-SC-Medium;
-  font-size: 16px;
+  font-size: 32rpx;
 }
 .fans-discribe{
-  margin-top: 10px;
+  margin-top: 20rpx;
   color: rgb(51, 51, 51);
   font-family: PingFang-SC-Medium;
-  font-size: 14px;
-  max-width: 150px;
+  font-size: 28rpx;
+  max-width: 300rpx;
 overflow: hidden;
 text-overflow: ellipsis;
 white-space: nowrap;
   
 }
 .btn-follow{
-width: 59px;
-height: 28px;
-margin-top: 27px;
-margin-right: 12px;
+width: 118rpx;
+height: 56rpx;
+margin-top: 54rpx;
+margin-right: 24rpx;
 text-align: center;
 color:rgb(255, 212, 19);
 background-color: rgb(255, 255, 255);
 font-family: PingFang-SC-Medium;
-font-size: 14px;
-border: 1px solid rgb(255, 212, 19);
-padding-bottom: 25px;
-border-radius: 14px;
-line-height: 25px;
+font-size: 28rpx;
+border: 2rpx solid rgb(255, 212, 19);
+padding-bottom: 50rpx;
+border-radius: 28rpx;
+line-height: 50rpx;
 
 }
 button::after{
@@ -68,21 +68,21 @@ button::after{
 
 .concern-second{
   width: 100%;
-  height: 83px;
+  height: 166rpx;
   display: flex;
 }
 .btn-together{
-width: 85px;
-height: 28px;
+width: 170rpx;
+height: 56rpx;
 color:rgb(255, 255, 255);
 background-color: rgb(255, 212, 19);
 font-family: PingFang-SC-Medium;
-font-size: 13px;
-margin-top: 27px;
-margin-right: 12px;
-border: 1px solid rgb(255, 212, 19);
-border-radius: 14px;
-padding-top: -5px;
+font-size: 26rpx;
+margin-top: 54rpx;
+margin-right: 24rpx;
+border: 1rpx solid rgb(255, 212, 19);
+border-radius: 28rpx;
+padding-top: -10rpx;
 text-align: center;
-line-height: 25px;
+line-height: 50rpx;
 }

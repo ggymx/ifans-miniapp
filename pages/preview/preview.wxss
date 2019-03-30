@@ -4,40 +4,40 @@
 .container-top{
   width: 100%;
   margin: 0 auto;
-  height: 85px;
+  height: 170rpx;
 display: flex;
 flex-direction: row;
 border-bottom-style:solid;
-border-bottom-width:1px;
+border-bottom-width:2rpx;
 border-bottom-color:rgb(244,244,244);
 border-top-style:solid;
-border-top-width:1px;
+border-top-width:2rpx;
 border-top-color:rgb(244,244,244);
 
 }
 .image-head{
-  width: 54px;
-  height: 54px;
+  width: 108rpx;
+  height: 108rpx;
   border-radius:50%;
-  margin-top: 13px;
-  margin-left: 12px;
+  margin-top: 26rpx;
+  margin-left: 24rpx;
 }
 .explain{
-  margin-top: 21px;
-  margin-left: 12px;
+  margin-top: 42rpx;
+  margin-left: 24rpx;
   display: flex;
   flex-direction: column;
 }
 .explain-name{
   font-family:PingFang-SC-Medium;
-  font-size: 17px;
+  font-size: 34rpx;
   color: rgb(51, 51, 51);
   text-align: left;
 }
 .explain-time{
-  margin-top: 14px;
+  margin-top: 28rpx;
   font-family:PingFang-SC-Medium;
-  font-size: 12px;
+  font-size: 24rpx;
   color: rgb(102, 102, 102);
   text-align: left;
 }
@@ -48,32 +48,32 @@ display: flex;
 flex-direction: column;
 }
 .question{
-  margin-top: 12px;
-  margin-left: 12px;
+  margin-top: 24rpx;
+  margin-left: 24rpx;
   font-family:PingFang-SC-Medium;
-  font-size: 14px;
+  font-size: 28rpx;
   color: rgb(9, 166, 220);
 }
 .content{
- margin-top: 16px;
-  margin-left: 12px;
+ margin-top: 32rpx;
+  margin-left: 24rpx;
   font-family:PingFang-SC-Medium;
-  font-size: 15px;
+  font-size: 30rpx;
   color: rgb(51, 51, 51);
 }
 .image-body{
-  height: 320px;
-  width: 331px;
-  margin-top: 20px;
-  margin-left: 12px;
-  margin-bottom: 22px;
+  height: 640rpx;
+  width: 662rpx;
+  margin-top: 40rpx;
+  margin-left: 24rpx;
+  margin-bottom: 44rpx;
 }
 .Separator{
     width: 100%;
-border: 1.5px red solid;
+border: 3rpx red solid;
 border-color: rgb(244, 244, 244);
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
 }
 .container-bottom{
   width: 100%;
@@ -82,29 +82,29 @@ display: flex;
 flex-direction: row;
 }
 .btn-back{
-margin-top: 9px;
-margin-left: 13px;
-height: 38px;
-width: 171px;
+margin-top: 18rpx;
+margin-left: 26rpx;
+height: 76rpx;
+width: 342rpx;
 font-family:PingFang-SC-Medium;
-  font-size: 14px;
+  font-size: 28rpx;
   color: rgb(51, 51, 51);
   text-align: center;
-  border: 1px solid rgb(255, 212, 19);
+  border: 2rpx solid rgb(255, 212, 19);
   background-color: rgb(255,255,255);
 }
 .btn-confirm{
   background-color: rgb(255, 212, 19);
-margin-top: 9px;
-margin-left: 7px;
-margin-right: 13px;
-height: 38px;
-width: 171px;
+margin-top: 18rpx;
+margin-left: 14rpx;
+margin-right: 26rpx;
+height: 76rpx;
+width: 342rpx;
 font-family:PingFang-SC-Medium;
-  font-size: 14px;
+  font-size: 28rpx;
   color: rgb(51, 51, 51);
   text-align: center;
-  border: 1px solid rgb(255, 212, 19);
+  border: 2rpx solid rgb(255, 212, 19);
 }
 
 

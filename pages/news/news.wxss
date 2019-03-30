@@ -2,29 +2,29 @@
 
 .Separator{
   width: 100%;
-border: 1.5px red solid;
+border: 3rpx red solid;
 border-color: rgb(244, 244, 244);
-  margin-top: 5px;
+  margin-top: 10rpx;
 
 }
 .news-first{
   width: 100%;
-  height: 110px;
+  height: 220rpx;
   display: flex;
 }
 .news-first2{
   width: 100%;
-  height: 110px;
+  height: 220rpx;
   display: flex;
 }
 .news-first3{
   width: 100%;
-  height: 110px;
+  height: 220rpx;
   display: flex;
 }
 .news-first4{
   width: 100%;
-  height: 110px;
+  height: 220rpx;
   display: flex;
 }
 .news{
@@ -37,57 +37,57 @@ border-color: rgb(244, 244, 244);
   flex-direction: row;
 }
 .new-portrait{
-  width: 58px;
-  height: 58px;
+  width: 116rpx;
+  height: 116rpx;
   border-radius:50%;
-  margin-top: 12px;
-  margin-left: 12px;
+  margin-top: 24rpx;
+  margin-left: 24rpx;
 }
 .news-describe{
   display: flex;
   flex-direction: column;
-  margin-top: 15px;
-  margin-left: 9px;
+  margin-top: 30rpx;
+  margin-left: 18rpx;
   padding: 0px;
 }
 .news-describe-name{
   color: rgb(51, 51, 51);
   font-family: PingFang-SC-Medium;
-  font-size: 16px;
+  font-size: 32rpx;
 }
 .news-describe-time{
-  margin-top: 10px;
+  margin-top: 20rpx;
 
   color: rgb(153, 153, 153);
   font-family: PingFang-SC-Medium;
-  font-size: 12px;
+  font-size: 24rpx;
   
 }
 .news-contant{
    display: flex;
   flex-direction: row;
 
-  height: 10px;
+  height: 20rpx;
 }
 .news-contant-left{
-  margin-top: 10px;
-    margin-left: 12px;
+  margin-top: 20rpx;
+    margin-left: 24rpx;
   color: rgb(51, 51, 51);
   font-family: PingFang-SC-Medium;
-  font-size: 12px;
+  font-size: 24rpx;
 }
 .news-contant-right{
-    margin-left: 8px;
-    margin-top: 10px;
+    margin-left: 16rpx;
+    margin-top: 20rpx;
   color: rgb(9, 166, 220);
   font-family: PingFang-SC-Medium;
-  font-size: 12px;
+  font-size: 24rpx;
 }
 .right-image{
-width: 15px;
-height: 20px;
+width: 30rpx;
+height: 40rpx;
 
-margin-left: 90px;
-margin-top: 40px;
+margin-left: 180rpx;
+margin-top: 80rpx;
 }
 

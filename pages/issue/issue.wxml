@@ -1,9 +1,9 @@
 <!-- topic.wxml -->
 <!-- 引用自定义的navibar组件 -->
 <navbar back text="发布话题"></navbar>
-<view class="underlying" style="top:64px;position:absolute;">
+<view class="underlying" >
     <view class="container">
-        <view style="width:100%;height:200px;background-color:#000;position:relative">
+        <view style="width:100%;height:400rpx;background-color:#000;position:relative">
             <image src="../../imgs/test1.jpg" style="width:100%;height:100%;opacity:0.5" />
             <view class="topic-view">
                 <text>{{topicText}}</text>
@@ -12,7 +12,7 @@
         <textarea class="topic-input" placeholder="快点发布话题讨论吧" bindinput="bindKeyInput" bindfocus="setMoveUp" 
         auto-height show-confirm-bar="{{false}}" bindblur="setMoveDown" placeholder-class="input-pd"/>
         <view style="margin-top:{{temp}};" class="feel-view">
-        <image style="width:20px;height:20px;margin-left:13px;margin-bottom:5px" src="../../imgs/feel.png"/>
+        <image style="width:40rpx;height:40rpx;margin-left:26rpx;margin-bottom:10rpx" src="../../imgs/feel.png"/>
         <button bindtap="bindViewIndex">发表</button>
         </view>
         <!-- <button bindtap="bindViewIndex">发表</button> -->

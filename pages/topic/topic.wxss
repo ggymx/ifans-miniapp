@@ -6,14 +6,14 @@
   height:auto;
 
   background-color: #fff;
-  border-bottom:4px solid #E8E8E8;
+  border-bottom:8rpx solid #E8E8E8;
 
   overflow: hidden;
   position: relative;
 }
 .top-img{
   width:100%;
-  height: 230px;
+  height: 460rpx;
   /*background-color: yellow;*/
   background-color: #000;
   background-repeat: no-repeat;
@@ -23,27 +23,27 @@
 }
 .top-img>image{
   width:100%;
-  height:230px;
+  height:460rpx;
   opacity:0.8;
   /*background-color: gray;*/
 }
 /*热门话题*/
 #hot-topic{
-  width:18px;
-  height:18px;
+  width:36rpx;
+  height:36rpx;
   position:absolute;
-  top:10px;
-  left:10px;
+  top:20rpx;
+  left:20rpx;
 }
 .top-text{
-  width:177px;
-  height:70px;
+  width:354rpx;
+  height:140rpx;
   /*background-color: blue;*/
   background-color:transparent;
-  margin-top:13px;
+  margin-top:26rpx;
   /*margin-left:21px;*/
   color:gray;
-  font-size:12px;
+  font-size:24rpx;
   /*文本对元素内空白的处理：保留空白，类似<pre>*/
   white-space: pre;
 }
@@ -52,7 +52,7 @@
 /* position:absolute; */
 /* top:50px; */
 color:#fff;
-font-size:13px;
+font-size:26rpx;
 height:auto;
 width:auto;
 /* left:10px; */
@@ -72,22 +72,22 @@ text-align: center;
 }
 
 .article-item{
-  width:351px;
+  width:702rpx;
   /* height:365px; */
   height:auto;
   background-color:gray;
-  border-bottom:1px solid #BBB;
-  margin-bottom: 10px;
+  border-bottom:2rpx solid #BBB;
+  margin-bottom: 20rpx;
 }
 
 .footer{
  position: fixed;
- height:54px;
- width:136px;
+ height:108rpx;
+ width:272rpx;
  background-color:transparent;
  /*rpx可以根据手机分辨率进行自适应转换*/
  left:260rpx;
- bottom: 42px;
+ bottom: 84px;
  display: flex;
  flex-direction: row;
 }
@@ -141,15 +141,15 @@ margin-top: 2rpx;
 }*/
 .top-group>text{
     color: #fff;
-    font-size: 10px;
+    font-size: 20rpx;
 }
 .tab{
   width:100%;
-  height:40px;
+  height:80rpx;
   text-align:center;
   background-color:#FFF;
   color:gray;
-  font-size:12px;
+  font-size:24rpx;
   white-space: pre;
 }
 /*动态区的上部区域*/
@@ -161,64 +161,64 @@ background:#fff;
 /*下部*/
 .item-down{
   /*background: yellow;*/
-  height:318px;
+  height:736rpx;
   width:100%;
   position: relative;
   background:#fff;
 }
 /*头像*/
 .head-img{
-  height:63px;
-  width:63px;
+  height:126rpx;
+  width:126rpx;
   border-radius:50%;
   background-color:gray;
 }
 /*评论人的姓名*/
 .comment-name{
   width:auto;
-  height:22px;
-  font-size:13px;
+  height:44rpx;
+  font-size:26rpx;
   display: block;
   position:absolute;
-  top:15px;
-  left: 70px;
+  top:30rpx;
+  left: 140rpx;
 }
 .comment-time{
-  width:78px;
-  height:14px;
-  font-size:10px;
+  width:156rpx;
+  height:28rpx;
+  font-size:20rpx;
   display: block;
   position:absolute;
-  top:35px;
-  left: 70px;
+  top:70rpx;
+  left: 140rpx;
   color: #101010;
 }
 /*右侧的小按钮*/
 .right-smlbtn{
-  width:3px;
-  height:16px;
+  width:6rpx;
+  height:32rpx;
   position:absolute;
-  right:20px;
-  top:22px;
+  right:40rpx;
+  top:44rpx;
   border: none;
 }
 .comment-title{
   display: block;
   width: auto;
-  height:20px;
+  height:40rpx;
   /* position: absolute; */
   background: #FFF;
-  font-size: 12px;
+  font-size: 24rpx;
   /* left: 70px; */
   color:rgb(9,166,220);
 }
 .comment-text{
-  width: 270px;
+  width: 540rpx;
   height:auto;
   background:#FFF;
-  font-size: 12px;
+  font-size: 24rpx;
   text-align: left;
-  margin-bottom:14px;
+  margin-bottom:28rpx;
 
   overflow: hidden;
   /* text-overflow: ellipsis; */
@@ -231,41 +231,41 @@ background:#fff;
 .comment-text-view{
   /* height:250px; */
   height:auto;
-width:270px;
+width:540rpx;
 /* background-color:pink; */
 position:absolute;
-top:30px;
+top:60rpx;
 /* position:absolute; */
-left:70px;
+left:140rpx;
 }
 /*评论区的图片*/
 .content-img{
-  width:191px;
-  height:191px;
+  width:382rpx;
+  height:382rpx;
   background-color:gray;
-  margin-bottom:5px;
+  margin-bottom:10rpx;
   /* position:absolute;
   top:110px;
   left:70px; */
 }
 .content-content{
-  height:16px;
-  width:126.5px;
-  font-size: 10px;
+  height:32rpx;
+  width:253rpx;
+  font-size: 20rpx;
   /* position: absolute;
   right:0;
   bottom: 4px; */
   color:#101010;
   /* margin-bottom:8px; */
-  margin-left:160px;
+  margin-left:320rpx;
 }
 .content-content>view{
   display: inline-block;
-  margin-right:16px;
+  margin-right:32rpx;
 }
 
 .fan-refl{
-  height:30px;
+  height:60rpx;
   /*background:red;*/
   background:#FFF;
   /*弹性布局*/
@@ -276,15 +276,15 @@ left:70px;
 }
 /*点赞-分享-评论的的view*/
 .fan-refl>view{
-  font-size:10px;
-  width:60px;
-  width:50px;
-  margin-right:70px;
+  font-size:20rpx;
+  width:120rpx;
+  width:100rpx;
+  margin-right:140rpx;
 }
 /*话题人，发布日期等*/
 .publish{
   height:100%;
-  width:220px;
+  width:440rpx;
   /*background-color:red;*/
   display:flex;
   /*空间不够自动换行*/
@@ -293,90 +293,90 @@ left:70px;
 }
 .publish-name,.publish-status{
   display: block;
-  font-size:13px;
-  height:20px;
-  margin-top: 5px;
+  font-size:26rpx;
+  height:40rpx;
+  margin-top: 10rpx;
 }
 .publish-name{
   width:auto;
-  margin-right:10px;
-  margin-left:5px;
+  margin-right:20rpx;
+  margin-left:10rpx;
 }
 .publish-status{
-  width:68px;
+  width:136rpx;
 }
 .publish-time{
-  font-size:10px;
+  font-size:20rpx;
   color:#BBB;
-  height:15px;
+  height:30rpx;
   display: block;
-  margin-left:5px
+  margin-left:10rpx
 }
 /*关注按钮*/
 .focus-btn{
-  width:48px;
-  height:28px;
+  width:96rpx;
+  height:56rpx;
   background-color:yellow;
   color:#FFF;
-  font-size:13px;
+  font-size:26rpx;
   text-align: center;
   /*消除按钮内边距*/
   padding: 0 0 0 0;
   /*行高和按钮一样高，则可以自动居中*/
-  line-height: 28px;
-  margin-top:5px;
-  margin-left:3px;
+  line-height: 56rpx;
+  margin-top:10rpx;
+  margin-left:6rpx;
   display: inline-block;
 }
 /*关注按钮旁的按钮*/
 .img-btn{
-width:18px;
-height:13px;
-margin-bottom:7px;
-margin-left: 6px;
+width:36rpx;
+height:26rpx;
+margin-bottom:14rpx;
+margin-left: 16rpx;
 }
 
 .publish-view{
-  height:45px;
+  height:90rpx;
   background-color:#FFF;
   display:flex;
-  margin-bottom:5px;
+  margin-bottom:10rpx;
 }
 
 /*发布者头像*/
 .publish-head{
-  width:45px;
-  height:45px;
+  width:90rpx;
+  height:90rpx;
   border-radius:50%;
   background-color: gray;
 }
 
 /*点赞-评论-分享图标*/
 .operation-icon{
-  width:15px;
-  height:12px
+  width:30rpx;
+  height:24rpx
 }
 .operation-icon+text{
   display:inline-block;
-  margin-left:5px;
+  margin-left:10rpx;
 }
 
 .topic-text-view{
   position:absolute;
-  width:270px;
-  height:170px;
+  width:540rpx;
+  height:340rpx;
   /* background-color:pink; */
-  top:30px;
-  left:38px;
+  top:60rpx;
+  left:76rpx;
   display:flex;
   justify-content:center;
   align-items:center;
 }
 .comment-title-view{
   height:auto;
-width:250px;
+width:500rpx;
 position:absolute;
-top:0px;
-left:70px;
+top:0rpx;
+left:140rpx;
 /* background-color:pink */
 }

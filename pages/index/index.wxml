@@ -12,7 +12,7 @@
                     <view class="publish">
                         <!--姓名和话题-->
                         <view style="height:46rpx;width:100%;display:flex;"> 
-                          <text class="publish-name">枫</text>
+                          <text class="publish-name">sdasddas枫</text>
                           <text class="publish-status">发布了话题</text>
                         </view>
                         <text class="publish-time">2019年03月23日</text>

@@ -1,40 +1,40 @@
 /* pages/track/track.wxss */
 
 .content{
-  height: 98px;
+  height: 196rpx;
   width: 100%;
   display: flex;
-  border-top: 1px #F4F4F4 solid;
+  border-top: 2rpx #F4F4F4 solid;
   margin: 0 auto;
-  margin-top: 1px;
+  margin-top: 2rpx;
 }
 
 .pic{
-  width: 108px;
-  height: 82px;
-  margin-top: 8px;
+  width: 216rpx;
+  height: 164rpx;
+  margin-top: 16rpx;
 }
 .restarea{
-  width: 242px;
+  width: 484rpx;
 }
 .title{
   width: auto;
-  height: 34px;
-  margin-left: 14px;
-  margin-top:17px;
-  margin-right: 14px;
+  height: 68rpx;
+  margin-left: 28rpx;
+  margin-top:34rpx;
+  margin-right: 28rpx;
   overflow: auto;
   font-family: PingFang-SC-Medium;
-  font-size: 14px;
+  font-size: 28rpx;
 }
 .titile_placerholder{
   color: #333333;
-  font-size: 14px; 
+  font-size: 28rpx; 
 }
 .topic_join_num{
-  margin-left: 14px;
-  margin-top: 16px;
+  margin-left: 28rpx;
+  margin-top: 32rpx;
   font-family: PingFang-SC-Medium;
-  font-size: 12px;
+  font-size: 24rpx;
   color: #999999;
 }

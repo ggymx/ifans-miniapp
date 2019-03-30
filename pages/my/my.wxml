@@ -28,11 +28,11 @@
       <!--签名等信息-->
       <!--动态和关注数字-->
       <view class="info-down">
-        <text class="status-number" style="left:57px;display:block;" bindtap="bindViewFans">1234</text>
-        <text class="status-number" style="right:57px;">1234</text>
+        <text class="status-number" style="left:114rpx;display:block;" bindtap="bindViewFans">1234</text>
+        <text class="status-number" style="right:114rpx;">1234</text>
         <!--粉丝和动态的文字-->
-        <text class="fans-dynamic" style="left:71px;" >粉丝</text>
-        <text class="fans-dynamic" style="right:71px;">动态</text>
+        <text class="fans-dynamic" style="left:142rpx;" >粉丝</text>
+        <text class="fans-dynamic" style="right:142rpx;">动态</text>
         <!--粉丝-动态下的小灰条-->
         <view class="smal-graybar" style="left:48px;"></view>
         <view class="smal-graybar" style="right:48px;"></view>

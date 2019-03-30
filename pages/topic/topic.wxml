@@ -10,13 +10,13 @@
 <!-- <image class="pusblish-head" src="../../imgs/imgs.jpg" alt="暂无图片"></image> -->
 <image class="publish-head" src="{{data.topic.user.avatar}}" alt="暂无图片" bindtap="bindViewMy"></image>
 <view class="publish">
-  <view style="height:23px;width:100%;display:flex;">
+  <view style="height:46rpx;width:100%;display:flex;">
     <text class="publish-name">{{data.topic.user.name}}</text>
     <text class="publish-status">发布了话题</text>
   </view>
   <text class="publish-time">{{creatAt}}</text>
 </view>
-<view style="height:100%;width:86px;">
+<view style="height:100%;width:172rpx;">
  <button class="focus-btn">关注</button>
  <image src="../../imgs/6.png" class="img-btn"></image>
 </view>
@@ -31,7 +31,7 @@
     <image src="../../imgs/home-icon-huo.png" id="hot-topic" wx:if="{{true}}"></image>
 </view>
 <view class="fan-refl">
-  <view style="margin-left:30px;">
+  <view style="margin-left:60rpx;">
     <image src="../../imgs/home-button-Comment.png" class="operation-icon"></image>
     <text>99</text>
     </view>

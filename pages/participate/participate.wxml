@@ -7,10 +7,10 @@
       <text>#你有每年中国传统节日...#</text>
   </view>
   <view class="textarea-view">
-  <textarea placeholder="请至少输入五个字" style="height:300px;width:351px;padding-left:10px;padding-top:15px;"></textarea>
+  <textarea placeholder="请至少输入五个字" style="height:600rpx;width:702rpx;padding-left:20rpx;padding-top:30rpx;"></textarea>
   </view>
-  <view style="margin-top:400px;" class="feel-view">
-        <image style="width:20px;height:20px;margin-left:13px;margin-bottom:5px" src="../../imgs/feel.png"/>
+  <view style="margin-top:800rpx;" class="feel-view">
+        <image style="width:40rpx;height:40rpx;margin-left:26rpx;margin-bottom:10rpx" src="../../imgs/feel.png"/>
         <button bindtap="bindViewPreview">发表</button>
   </view>
  </view>

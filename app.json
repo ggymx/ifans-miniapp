@@ -12,7 +12,7 @@
     "pages/preview/preview",
     "pages/fans/fans",
  "pages/track/track",
-    "pages/logs/logs",
+  
     "pages/test/test"
   ],
   "window": {
