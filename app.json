@@ -1,14 +1,10 @@
 {
   "pages": [
-    "pages/topic-detail/topic-detail",
-    "pages/publisher/publisher",
-    
-   
-    "pages/my/my",
-    "pages/index/index",
-    
-    
     "pages/participate/participate",
+    "pages/my/my",
+    "pages/publisher/publisher",
+    "pages/topic-detail/topic-detail",
+    "pages/index/index",
     "pages/hot/hot"
   ],
   "window": {

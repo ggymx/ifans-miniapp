@@ -18,7 +18,7 @@
 
 .topic-title {
   /* background-color: green; */
-  font-size: 14px;
+  font-size: 28rpx;
   margin-top: 20rpx;
 }
 
@@ -33,7 +33,7 @@
 
 .topic-title,
 .topic-context {
-  width: 335px;
+  width: 670rpx;
 }
 
 .opreate-view {
@@ -49,7 +49,7 @@
   height: 40rpx;
   width: 117px;
   border-left-style: solid;
-  border-width: 1px;
+  border-width: 2rpx;
   border-color: rgb(234, 234, 234);
   /* position: relative; */
   display: flex;
@@ -63,7 +63,7 @@
   height: auto;
   /* background-color: green; */
   border-bottom-style: solid;
-  border-width: 2px;
+  border-width: 4rpx;
   border-color: rgb(250, 250, 250);
   position: relative;
 }
@@ -74,13 +74,13 @@
   margin-bottom: 20rpx;
   border-top-style: solid;
   border-bottom-style: solid;
-  border-width: 2px;
+  border-width: 4rpx;
   border-color: rgb(234, 234, 234);
 }
 
 .avatar {
-  height: 30px;
-  width: 30px;
+  height: 60rpx;
+  width: 60rpx;
   border-radius: 50%;
   background-color: gray;
   position: absolute;
@@ -89,7 +89,7 @@
 }
 
 .username {
-  font-size: 14px;
+  font-size: 28rpx;
   color: rgb(51, 51, 51);
   position: absolute;
   top: 34rpx;
@@ -99,8 +99,8 @@
 
 /*右侧箭头按钮*/
 .arrow-btn {
-  width: 16px;
-  height: 3px;
+  width: 32rpx;
+  height: 6px;
   position: absolute;
   top: 44rpx;
   right: 44rpx;
@@ -127,15 +127,15 @@
 }
 
 .publisher-status {
-  height: 40px;
+  height: 80rpx;
   width: 100%;
   /* background:pink; */
   position: relative;
 }
 
 .clock-icon {
-  width: 14px;
-  height: 14px;
+  width: 28rpx;
+  height: 28rpx;
   position: absolute;
   left: 26rpx;
   top: 10rpx;

@@ -16,7 +16,7 @@
     </view>
 </view>
 
-<view class="underlying" style="bottom:0px;background-color:#FFF">
+<view class="underlying" style="bottom:0rpx;background-color:#FFF">
     <view class="container">
      <view class="expression-view">
          <image style="height:50rpx;width:50rpx;margin-left:56rpx" src="../../imgs/button-bq@2x.png"/>
