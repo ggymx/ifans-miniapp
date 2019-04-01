@@ -1,27 +1,17 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/topic/topic",
     "pages/topic-detail/topic-detail",
+    "pages/index/index",
+   
     "pages/my/my",
-    "pages/news/news",
-    "pages/news-concern/news-concern",
     "pages/issue/issue",
     "pages/participate/participate",
-    "pages/preview/preview",
-    "pages/fans/fans",
-
-  
-
-
-    "pages/track/track"
-
+    "pages/hot/hot"
   ],
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "轻话题",
-    "navigationBarTextStyle": "black",
-    "navigationStyle": "custom"
+    "navigationBarTextStyle": "black"
   }
 }

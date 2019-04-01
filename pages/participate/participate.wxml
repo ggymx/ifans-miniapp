@@ -1,17 +1,2 @@
-<!--topic.wxml-->
-<!--引用自定义的navibar组件-->
-<navbar back text="参与话题"></navbar>
-<view class="underlying" style="top:64px;position:absolute;">
- <view class="container">
-  <view class="topic-view">
-      <text>#你有每年中国传统节日...#</text>
-  </view>
-  <view class="textarea-view">
-  <textarea placeholder="请至少输入五个字" style="height:600rpx;width:702rpx;padding-left:20rpx;padding-top:30rpx;"></textarea>
-  </view>
-  <view style="margin-top:800rpx;" class="feel-view">
-        <image style="width:40rpx;height:40rpx;margin-left:26rpx;margin-bottom:10rpx" src="../../imgs/feel.png"/>
-        <button bindtap="bindViewPreview">发表</button>
-  </view>
- </view>
-</view>
+<!--pages/participate/participate.wxml-->
+<text>pages/participate/participate.wxml</text>

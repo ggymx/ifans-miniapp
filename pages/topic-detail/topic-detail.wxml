@@ -1,118 +1,33 @@
-<!--logs.wxml-->
-<navbar back text="话题详情"></navbar>
-<view class="underlying" >
-   <view class="container">
-     <!--头部-->
-       <view class="header" bindtap="bindViewTopic">
-           <image src="../../imgs/test1.jpg" class="topic-img"/>
-           <view class="topic-view">
-             <text id="topic">你有每年穿汉服的习惯吗？</text>
-             <text id="topic-status">1999人参与评论</text>
-           </view>
-       </view>
-      <!--主体-->
-       <view class="article">
-         <view class="release-people">
-          <image src="../../imgs/test2.jpeg" class="header-avatar" bindtap="bindViewMy"/>
-           <view class="people-info">
-                 <text class="user-name">游哈哈</text>
-                 <text id="release-date">2019年03月20日</text>
-           </view>
-           <image src="../../imgs/home-button-gengduo.png" class="point-btn"/>
+<!-- pages/topic-detail/topic-detail.wxml -->
+<view class="underlying">
+    <view class="container">
+        <view style="width:100%;height:150px;background-color:pink;overflow:hidden">
+            <view class="topic-title">#整蛊大作战#</view>
+            <view class="topic-context">
+                整蛊大行动来了，测试测试测试测试测试测试测试测试
+                整蛊大行动来了，测试测试测试测试测试测试测试测试
+            </view>
         </view>
-
-        <view class="dynamic-view">
-          <text class="dynamic-title">#你有每年天朝传统节日穿汉服的习惯吗？#</text>
-          <text class="dynamic-content">
-            为什么总是以酒、以餐、以娱乐交际会友？
-            以茶会友也是一种不错的交流方式，是传统文化流传下来的交流方式
-          </text>  
-          <image src="../../imgs/test2.jpeg" class="dynamic-img"/>
-          <text class="visitor-count">999浏览</text>  
-          <view class="givelike-view">
-            <!-- <button class="givelike-btn"><text style="line-height:100%">赞</text></button> -->
-            <button class="givelike-btn">赞</button>
-            <text class="givelike-status">已有99人点赞</text>
-          </view>
+    </view>
+    <view style="width:100%;height:50px;">
+    <view class="container">
+    <view class="opreate-view">
+        <view class="opreate-item"></view>
+        <view class="opreate-item"></view>
+        <view class="opreate-item"></view>
+    </view>
+    </view>
+    </view>
+    <view class="container">
+        <view class="parti-item">
+            <view style="height:50px;width:100%;background:pink;"></view>
+            <view style="height:100px;width:100%;background:yellow;"></view>
+            <view style="height:50px;width:100%;background:pink;"></view>
         </view>
-     </view>
-     <!--页脚-->
-     <view class="footer">
-       <view class="comment-logo">
-        <view class="logo-yellowview"></view>
-        <view>评论</view>
+        <view class="parti-item">
+            <view style="height:50px;width:100%;background:pink;"></view>
+            <view style="height:100px;width:100%;background:yellow;"></view>
+            <view style="height:50px;width:100%;background:pink;"></view>
         </view>
-
-      <!--评论区-->
-      <view class="comment-item">
-        <view class="comment-top">
-           <image src="../../imgs/test2.jpeg" class="header-avatar" style="margin-left:6rpx;" bindtap="bindViewMy" />
-           <view class="people-info">
-            <text class="user-name">游哈哈</text>
-            <text style="display:block;font-size:30rpx;margin-top:20rpx;">同喜以茶会友</text> 
-           </view>
-           <view class="heart-view">
-             <image src="../../imgs/home-button-like.png" class="heart-img"/>
-             <text>99</text>
-           </view>
-        </view>
-        <view class="comment-reply">
-          <view class="reply-content" wx:if="{{true}}">
-            <text>吴彦祖：</text>
-            <text style="margin-left:20rpx;color:rgb(51,51,51)">同意</text>
-          </view>
-          <view class="reply-content" wx:if="{{true}}">
-            <text>吴彦祖：</text>
-            <text style="margin-left:20rpx;color:rgb(51,51,51)">同意</text>
-          </view>
-          <view class="reply-content" style="margin-bottom:34rpx" wx:if="{{true}}"><a href="#">共99条回复>></a></view>
-        </view>
-        <view class="reply-status">
-              <text>2019年03月20日</text>
-              <image src="../../imgs/home-button-gengduo-row.png"/>
-        </view>
-      </view>
-       <!--评论区-->
-       <view class="comment-item">
-        <view class="comment-top">
-           <image src="../../imgs/test2.jpeg" class="header-avatar" style="margin-left:6rpx;" bindtap="bindViewMy"/>
-           <view class="people-info">
-            <text class="user-name">游哈哈</text>
-            <text style="display:block;font-size:30rpx;margin-top:20rpx;">同喜以茶会友</text> 
-           </view>
-           <view class="heart-view">
-             <image src="../../imgs/home-button-like.png" class="heart-img"/>
-             <text>99</text>
-           </view>
-        </view>
-        <view class="comment-reply" wx:if="{{false}}">
-          <view class="reply-content" wx:if="{{false}}">
-            <text>吴彦祖：</text>
-            <text class="reply-text">同意</text>
-          </view>
-          <view class="reply-content" wx:if="{{false}}">
-            <text>吴彦祖：</text>
-            <text class="reply-text">同意</text>
-          </view>
-          <view class="reply-content" style="margin-bottom:34rpx" wx:if="{{false}}"><a href="#">共99条回复>></a></view>
-        </view>
-        <view class="reply-status">
-              <text>2019年03月20日</text>
-              <image src="../../imgs/home-button-gengduo-row.png"/>
-        </view>
-      </view>
-
-      <view class="nomore-reply">
-            <text>没有更多回复</text>
-      </view>
-      <view class="replay-view">
-        <input type="text" class="input-reply" placeholder="写点评论吧" placeholder-class="place-style"/>
-        <image src="../../imgs/home-button-Comment.png" id="comment-btn"/>
-        <text style="left:524rpx;">99</text>
-        <image src="../../imgs/home-button-like.png" id="like-btn"/>
-        <text style="left:612rpx;">99</text> 
-        <image src="../../imgs/home-button-Share.png" id="share-btn"/>
-      </view>
-     </view>
-</view>
+    </view>
 </view>

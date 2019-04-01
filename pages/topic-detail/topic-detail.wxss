@@ -1,346 +1,37 @@
+/* pages/topic-detail/topic-detail.wxss */
+.topic-title{
+    background-color:green;
+font-size:14px;
+margin-top:20px;
+width:90px;
+margin-left:10px;
+}
+.topic-context{
+    background-color:red;
+font-size:13px;
+margin-left:10px;
+margin-top:20px;
+width:300px;
 
-/*头部*/
-.header{
-  width:100%;
-  height:107px;
-  /*background-color:yellow;*/
-  border-bottom-style: solid;
-  border-bottom-color: rgb(244,244,244);
-  border-bottom-width: 5px;
 }
-.article{
-  width:100%;
-  height:auto;
-  border-bottom-style:solid;
-  border-bottom-color:rgb(244,244,244);
-  border-bottom-width:1pt;
+.opreate-view{
+    width:100%;
+    height:50px;
+    background-color:yellow;
+    display:flex;
+    align-items:center;
 }
-.footer{
-  width:100%;
-  height:auto;
-  /*background-color:gray;*/
+.opreate-item{
+    height:30px;
+    width:117px;
+    border-style:solid;
+    border-width:1px;
 }
-/*话题区域*/
-.topic-view{
-  width:209px;
-  height:63px;
-  /*background-color:gray;*/
-  display:inline-block;
-  overflow:hidden;
-  margin-left:7px;
-  margin-bottom:10px;
-}
-.topic-view>text{
-  display:block;
-}
-
-#topic{
-  font-size:14px;
-  /*background-color:blue;*/
-  color:rgb(51,51,51);
-}
-#topic-status{
-  font-size:12px;
-  /*background-color:green;*/
-  margin-top:22px;
-  /*color:rgb(51,51,51);*/
-  color:gray;
-}
-
-/*话题配图*/
-.topic-img{
-  background-color:pink;
-  width:113px;
-  height:91px;
-  margin-top:8px;
-}
-
-/*发布人区域*/
-.release-people{
-  width: 100%;
-  height: 85px;
-  /*background-color: green;*/
-}
-
-/*发布人头像*/
-.header-avatar{
-  width:54px;
-  height:54px;
-  background-color:blue;
-  margin-top:13px;
-  border-radius:50%;
-}
-.people-info{
-  width:200px;
-  height:50px;
-  /*background-color:red;*/
-  display:inline-block;
-  overflow:hidden;
-  margin-left:12px;
-}
-/*用户姓名*/
-.user-name{
-  display: block;
-  font-size: 17px;
-  color: rgb(17,17,17);
-}
-/*发布日期*/
-#release-date{
-  display:block;
-  font-size:12px;
-  margin-top:14px;
-  color:rgb(102,102,102);
-}
-/*三点状的按钮*/
-.point-btn{
-  height:22px;
-  width:5px;
-  background-color:white;
-  margin-left:25px;
-  margin-bottom:21px
-}
-/*主要显示区-动态发布*/
-.dynamic-view{
-  height: auto;
-  width: 100%;
-  /*background-color: pink;*/
-  overflow: rgb(9,166,220);
-}
-/*动态的标题*/
-.dynamic-title{
-  display:block;
-  font-size:14px;
-  margin-top:12pt;
-  color:rgb(9,166,220);
-}
-/*动态的内容*/
-.dynamic-content{
-  display:block;
-  font-size:15px;
-  margin-bottom:20px;
-  color:rgb(51,51,51);
-}
-/*动态大图*/
-.dynamic-img{
-  width:351px;
-  height:236px;
-  background-color:gray;  
-}
-/*浏览量*/
-.visitor-count{
-  display:block;
-  font-size:12px;
-  margin-left:5px;
-  margin-top:12px;
-  color:rgb(102,102,102);
-}
-/*点赞区*/
-.givelike-view{
-  height:85px;
-  display:flex;
-  /*background-color:yellow;*/
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-}
-.givelike-btn{
-  display:block;
-  font-size:17px;
-  color:rgb(255,212,19);
-  width: 70px;
-  height:32px;
-  border-radius: 16px;
-  margin-bottom:8pt;
-  border-style: solid;
-  border-color: rbg(255,246,0);
-  border-width: 1px;
-  padding:0;
-  line-height:32px
-}
-.givelike-status{
-  display:block;
-  font-size:14px;
-  width:120px;
-  text-align:center;
-  color:rgb(51,51,51);
-}
-.comment-logo{
-  width:100%;
-  height:35px;
-  background-color:white;
-  font-size:15px;
-  margin-top:9px;
-  margin-bottom:8px;
-  border-bottom-style:solid;
-  border-bottom-width:1px;
-  border-bottom-color:rgb(244,244,244);
-}
-.logo-yellowview{
-  height:26px;
-  width:8px;
-  background-color:rgb(255,212,19);
-  border-radius:2px;
-  float: left;
-}
-.logo-yellowview+view{
-  height:100%;
-  widows: 100px;
-  font-size: 15px;
-  color:rgb(51,51,51);
-  margin-left: 10px;
-  float:left;
-  margin-top:3px;
-  height:20px;
-}
-/*footer中的评论区的上部*/
-.comment-top{
-  width:100%;
-  height:80px;
-  /*background-color:red;*/
-  font-size:15px;
-  margin:0 auto;
-  position:relative;
-  margin-top:19px;
-  margin-bottom:10px;
-}
-
-/*心形按钮区域*/
-.heart-view{
-  width:60px;
-  height:20px;
-  /*background-color:blue;*/
-  position:absolute;
-  top:28px;
-  right:20px;
-}
-.heart-img{
-  width:19px;
-  height:16px;
-}
-.heart-img+text{
-  font-size:13px;
-  color:rgb(102,102,102);
-  margin-left:6px;
-  /*margin-bottom: 5px;*/
-  line-height: 20px;
-}
-/*每一条评论*/
-.comment-item{
-  /*border-top-style: solid;*/
-  border-bottom-style: solid;
-  border-bottom-color: rgb(249,249,249);
-  border-bottom-width: 1px;
-}
-.comment-reply{
-  height:auto;
-  width:275px;
-  background-color:rgb(247,247,247);
-  font-size:15px;
-  margin:0 auto;
-  margin-left:69px;
-  margin-top: 15px;
-  overflow: hidden;
-}
-/*回复内容区域*/
-.reply-content{
-  width:259px;
-  height:20px;
-  font-size: 13pt;
-  color:rgb(5,183,255);
-  margin-top: 15px;
-}
-/*回复内容*/
-.reply-text{
-  margin-left:10px;
-  color:rgb(51,51,51);
-}
-.reply-status{
-  height:20px;
-  width:259px;
-  /*background-color:green;*/
-  font-size:12px;
-  position:relative;
-  color:rgb(102,102,102);
-  margin-left: 69px;
-  margin-top: 15px;
-  margin-bottom:15px;
-}
-/*右边的三点按钮*/
-.reply-status>image{
-  width:22px;
-  height:5px;
-  margin-left:130px;
-}
-
-/*没有更多回复区域*/
-.nomore-reply{
-  border-top-style: solid;
-  border-top-color: rgb(244,244,244);
-  border-top-width: 1px;
-  border-bottom-style: solid;
-  border-bottom-color: rgb(244,244,244);
-  border-bottom-width: 1px;
-  width:100%;
-  height:36px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.nomore-reply>text{
-  font-size:14px;
-  color:rgb(153,153,153);
-}
-
-
-/*评论输入框*/
-.input-reply{
-  width:221px;
-  height:25px;
-  margin-left:3px;
-  border-radius:13px;
-  border-style: solid;
-  border-width: 1px;
-  border-color: rgb(189,189,189);
-  font-size:13px; 
-}
-
- /*修改input的框的placeholder的样式*/   
-.place-style{
-  margin-left: 15px;
-  margin-top: 1px;
-  color:rgb(153,153,153);
-}
-.replay-view{
-  height:25px;
-  width:100%;
-  margin-top:7pt;
-  position:relative;
-}
-.replay-view>text{
-  position:absolute;
-  top:8px;
-  font-size:10px;
-  color:rgb(102,102,102)
-}
-/*底部按钮*/
-#comment-btn{
-  width:17px;
-  height:14px;
-  position:absolute;
-  top:8px;
-  left:240px
-}
-#like-btn{
-  width:17px;
-  height:14px;
-  position:absolute;
-  top:8px;
-  left:285px
-}
-#share-btn{
-  width:17px;
-  height:14px;
-  position:absolute;
-  top:7px;
-  left:330px
+/**/
+.parti-item{
+    width:100%;
+    height:200px;
+    background-color:green;
+    border-style: solid;
+    border-width: 1px;
 }

@@ -1,6 +1,0 @@
-{
-  "navigationBarTitleText":"话题",
-  "usingComponents": {
-    "navbar":"../../components/navbar/navbar"
-  }
-}
