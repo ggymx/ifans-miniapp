@@ -1,4 +1,4 @@
-<!-- pages/topic-detail/topic-detail.wxml -->
+<!--pages/publisher/publisher.wxml-->
 
 <view class="underlying">
     <view class="container">
@@ -31,16 +31,19 @@
     </view>
     </view>
     <view class="container">
-        <view class="publisher-item" wx:for="{{[1,2]}}">
+        <view class="publisher-item">
             <view class="publisher-person">
              <image src="" class="avatar"/>
              <view class="username"><text>游哈哈</text></view>
              <image src="../../imgs/myhome-gd@2x.png" class="arrow-btn" />
             </view>
-            <!-- <view class="publisher-topic">
+            <view class="publisher-topic">
                 <text style="margin-left:26rpx">#整蛊大作战#</text>
-            </view> -->
+            </view>
             <view class="publisher-context">
+              整蛊大行动来了，测试测试测试测试测试测试测试测试
+              整蛊大行动来了，测试测试测试测试测试测试测试测试
+              整蛊大行动来了，测试测试测试测试测试测试测试测试
               整蛊大行动来了，测试测试测试测试测试测试测试测试
               整蛊大行动来了，测试测试测试测试测试测试测试测试
             </view>

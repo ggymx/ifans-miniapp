@@ -1,1 +1,56 @@
 /* pages/participate/participate.wxss */
+.parti-header {
+  height: 116rpx;
+  widows: 100%;
+  /* background-color:pink; */
+  font-size: 34rpx;
+  color: rgb(9, 166, 220);
+  display: flex;
+  align-items: center;
+}
+
+
+.underlying-parti {
+  border-bottom-style: solid;
+  border-width: 2px;
+  border-color: rgb(250, 250, 250);
+  background-color: #FFF;
+}
+
+.underlying {
+  background-color: #FFF;
+}
+
+.container {
+  background-color: #FFF;
+}
+
+.placeholder-set {
+  /*为何不起作用？？？*/
+  /* margin-left: 30px;
+margin-top: 48rpx;  */
+  font-size: 32rpx;
+  color: rgb(153, 153, 153);
+  /* color: red; */
+}
+
+.topic-text {
+    width:600rpx;
+    /* padding-left:34rpx;
+    padding-right:34rpx;
+    padding-top:48rpx; */
+    line-height:48rpx;
+    font-size:30rpx;
+    /* background:red; */
+    margin:auto;
+    margin-top:48rpx;    
+}
+
+/*输入表情和分享的区域*/
+.expression-view {
+  height: 92rpx;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

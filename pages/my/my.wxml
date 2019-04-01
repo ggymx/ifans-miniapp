@@ -1,2 +1,36 @@
 <!--pages/my/my.wxml-->
-<text>pages/my/my.wxml</text>
+
+
+<view class="underlying" style="background-color:rgb(245,245,245)">
+   <view class="my-view">
+       <image src="../../imgs/test2.jpeg" class="big-avatar"/>
+       <text class="big-name">Rian</text>
+       <image src="../../imgs/zhuangfa@2x.png" class="share-ico"/>
+   </view>
+    <view class="container" style="background-color:transparent">
+        <view class="publisher-item item-card" wx:for="{{[1,2]}}">
+            <view class="publisher-person">
+             <image src="" class="avatar"/>
+             <view class="username"><text>游哈哈</text></view>
+             <image src="../../imgs/myhome-gd@2x.png" class="arrow-btn" />
+            </view>
+            <view class="publisher-topic">
+                <text style="margin-left:26rpx">#整蛊大作战#</text>
+            </view>
+            <view class="publisher-context">
+                整蛊大行动来了，测试测试测试测试测试测试测试测试
+              整蛊大行动来了，测试测试测试测试测试测试测试测试
+               整蛊大行动来了，测试测试测试测试测试测试测试测试
+              整蛊大行动来了，测试测试测试测试测试测试测试测试
+            </view> 
+            <view class="publisher-status">
+              <image src="../../imgs/button-time@2x.png" class="clock-icon"/>
+              <text class="publisher-date">2019/03/20</text>
+              <view class="heart-view">
+              <image src="../../imgs/button-like-dj@2x.png" style="width:26rpx;height:22rpx;"/>
+              <text style="margin-left:20rpx;">99</text>
+              </view>
+            </view>
+        </view>
+    </view>
+</view>

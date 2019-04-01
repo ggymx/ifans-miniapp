@@ -1,5 +1,5 @@
-/* pages/my/my.wxss */
-
+/* pages/issue/issue.wxss */
+/* pages/topic-detail/topic-detail.wxss */
 .underlying,
 .container {
   background-color: #FFF
@@ -24,7 +24,7 @@
 
 .topic-context {
   /* background-color: red; */
-  font-size: 13px;
+  font-size:30rpx;
   margin-top: 30rpx;
   line-height: 48rpx;
   margin-bottom: 36rpx;
@@ -38,14 +38,15 @@
 
 .opreate-view {
   width: 100%;
-  height: auto;
+  /* height: auto; */
+  height:72rpx;
   /* background-color: yellow; */
   display: flex;
   align-items: center;
 }
 
 .opreate-item {
-  height: 30px;
+  height: 40rpx;
   width: 117px;
   border-left-style: solid;
   border-width: 1px;
@@ -56,7 +57,7 @@
   align-items: center;
 }
 
-/*每一项*/
+/**/
 .publisher-item {
   width: 702rpx;
   height: auto;
@@ -65,7 +66,6 @@
   border-width: 2px;
   border-color: rgb(250, 250, 250);
   position: relative;
-  background-color: #FFF;
 }
 
 .opreate-underlying {
@@ -174,48 +174,4 @@
   height: 100rpx;
   width: 100%;
   /* background:pink; */
-}
-
-.my-view {
-  height: auto;
-  width: 702rpx;
-  /*background-color: red;*/
-  background-color: transparent;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.big-avatar {
-  height: 182rpx;
-  width: 182rpx;
-  border-radius: 50%;
-  margin-bottom: 36rpx;
-  margin-top: 42rpx;
-}
-
-.big-name {
-  font-size: 58rpx;
-  color: rgb(51, 51, 51);
-  margin-bottom: 38rpx;
-}
-
-.item-card {
-  margin-bottom: 26rpx;
-  border-style: solid;
-  border-width: 1px;
-  /* border-color:#000; */
-  border-radius: 12px;
-}
-
-.share-ico {
-  width: 38rpx;
-  height: 36rpx;
-  position: absolute;
-  top: 26rpx;
-  right: 26rpx;
 }

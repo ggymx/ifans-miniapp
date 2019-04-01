@@ -1,10 +1,13 @@
 {
   "pages": [
     "pages/topic-detail/topic-detail",
-    "pages/index/index",
+    "pages/publisher/publisher",
+    
    
     "pages/my/my",
-    "pages/issue/issue",
+    "pages/index/index",
+    
+    
     "pages/participate/participate",
     "pages/hot/hot"
   ],
