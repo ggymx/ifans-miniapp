@@ -13,7 +13,7 @@
   width:100%;
   /*background-color: blue;*/
   background-color:red;
-  /* top:128rpx; */
+  top:128rpx;
   position:absolute;
 }
 /*居中容器*/

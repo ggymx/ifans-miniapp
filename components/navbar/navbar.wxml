@@ -1,8 +1,8 @@
 <!-- <view class="navbar" style="{{'height: ' + navigationBarHeight}}"> -->
-<view class="navbar" style="height:64px;">
+<view class="navbar" style="height:128rpx;">
   <view style="{{'height: ' + statusBarHeight}}"></view>
-  <view class='title-container' style="height:64px;">
-    <view class='capsule' style="margin-top:20px;" wx:if="{{ back || home || gear }}">
+  <view class='title-container' style="height:128rpx;">
+    <view class='capsule' style="margin-top:40rpx;" wx:if="{{ back || home || gear }}">
       <view bindtap='back' wx:if="{{back}}">
         <!--返回箭头-->
         <image src='img/back.png'></image>            

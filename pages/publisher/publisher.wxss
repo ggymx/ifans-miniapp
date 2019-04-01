@@ -47,7 +47,7 @@
 
 .opreate-item {
   height: 40rpx;
-  width: 117px;
+  width: 234rpx;
   border-left-style: solid;
   border-width: 2rpx;
   border-color: rgb(234, 234, 234);

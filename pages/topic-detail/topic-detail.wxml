@@ -1,5 +1,5 @@
 <!-- pages/topic-detail/topic-detail.wxml -->
-
+<navbar back text="话题详情"></navbar>
 <view class="underlying">
     <view class="container">
         <view class="topic">

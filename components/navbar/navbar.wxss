@@ -7,7 +7,7 @@
 }
 
 .title-container {
-  height: 44px;
+  height: 88rpx;
   display: flex;
   align-items: center;
   position: relative;
@@ -24,23 +24,23 @@
 } */
 
 .capsule {
-  height: 32px;
-  border-radius: 16px;
+  height: 64rpx;
+  border-radius: 32rpx;
   display: flex;
   align-items: center;
   position: absolute;
-  top: 6px;
-  left: 18px;
+  top: 12rpx;
+  left: 36rpx;
 }
 
 .capsule>view {
-  width: 32px;
+  width: 64rpx;
   height: 60%;
   position: relative;
 }
 
 .capsule>view:nth-child(2) {
-  border-left: 1px solid #777;
+  border-left: 2rpx solid #777;
 }
 
 .capsule image {
@@ -65,16 +65,16 @@
 } */
 .title {
   color: white;
-  font-size: 14px;
+  font-size: 28rpx;
   text-align: center;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   color: #000;
   position: absolute;
-  top: 32px;
+  top: 64rpx;
   display: flex;
   justify-content: center;
-  width: 200px;
-  left: 88px;
+  width: 400rpx;
+  left: 176rpx;
 }

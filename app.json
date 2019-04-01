@@ -1,8 +1,8 @@
 {
   "pages": [
-    "pages/participate/participate",
     "pages/my/my",
     "pages/publisher/publisher",
+    "pages/participate/participate",
     "pages/topic-detail/topic-detail",
     "pages/index/index",
     "pages/hot/hot"
@@ -11,6 +11,7 @@
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "轻话题",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "navigationStyle":"custom"
   }
 }

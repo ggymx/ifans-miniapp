@@ -1,5 +1,5 @@
 <!--pages/publisher/publisher.wxml-->
-
+<navbar back text="发布者详情"></navbar>
 <view class="underlying">
     <view class="container">
         <view class="topic">
