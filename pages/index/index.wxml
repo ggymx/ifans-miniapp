@@ -7,58 +7,31 @@
       <text>订阅每日热点</text>
     </view>
   </view>
-  <view class='index-contant'>
-    <view class='index-article' bind:tap="bindViewDetail">
-      <view class='index-article-title'>
-        <image class='img-article-portrait' src='../../imgs/test2.jpeg' catch:tap="bindViewMy"></image>
-        <text>二次元盟主</text>
-        <text>发布了话题</text>
-      </view>
-      <view class='index-article-theme'>
-        <text>#整蛊大行动#</text>
-      </view>
-      <view class='index-article-content'>
-        <text>
-          那诡异而扭曲的天空此时看上去格外可怕灰色是这个世界的主色调灰色的高大建筑，灰色的合金地面，灰色的交通工具，灰色的天空，还有悬挂于天空的那三个无比巨大的灰色球体这是一个已经死亡的金属世界。
-        </text>
-      </view>
-      <view class="index-article-bottom">
-        <view class='bottom-left'>
-          <image class="img-time" src='../../imgs/time.png'></image>
-          <text class='text-time'>3小时前</text>
-        </view>
-        <view class='bottom-right'>
-          <image class="img-browse" src='../../imgs/join.png'></image>
-          <text class='text-browse'>99</text>
-        </view>
-      </view>
-    </view>
+  <!-- 第一组 -->
+    <view class="container" wx:for="{{[1]}}">
+<!--卡片组件-->
+<listing addClass="item-card" showTitle showIssue clock like>
+   <text slot="user" style='font-weight: 500;'>阿凡达</text>
+   <text slot="title" style='font-size: 36rpx;font-weight: bold;color: rgb(51, 51, 51);'>#整蛊大行动#</text>
+   <view slot="context" style='font-weight: 400;'>生活星期天早上和朋友一起聊天，朋友说了一个他们听过的故事：“一尊佛像前有一条铺着石板的路，人们每天都踏着这一阶一阶的石板去膜拜佛像。石阶看着人们踏着自己去膜拜佛像，心里很不舒服。石阶心里想，自己和佛本来就来自同一块石头，为什么自己要成为踏脚石，让人们踩着自去去膜拜它呢！它对佛抱怨说这样太不公平！佛像说：这没有什么不公平，你们成为台阶只需挨了四刀，而我是挨了千刀万剐才成了人们膜拜的佛像。
+   </view>
+   <text slot="date">2019/03/20</text>
+   <text slot="like">99</text>
+</listing>
     <!-- 第二段 -->
-    <view class='index-release' wx:for="{{[1,2]}}" bind:tap="bindViewPublisher">
-      <view class="index-release-top">
-        <image class="img-portrait" src='../../imgs/test2.jpeg' catch:tap="bindViewMy"></image>
-        <text class='index-release-name'>aaa</text>
-        <image class="img-ellipsis" src='../../imgs/aa.png'></image>
-      </view>
-      <view class='index-release-title'>
-        <text>#整蛊大行动#</text>
-      </view>
-      <view class='index-release-content'>
-        <text>
-          那诡异而扭曲的天空此时看上去格外可怕灰色是这个世界的主色调，灰色的高大建筑，灰色的合金地面，灰色的交通工具，灰色的天空，还有悬挂于天空的那三个无比巨大的灰色球体这是一个已经死亡的金属世界。
-        </text>
-      </view>
-      <view class="index-release-bottom">
-        <view class='bottom-left'>
-          <image class="img-time" src='../../imgs/time.png'></image>
-          <text class='text-time'>2019年03月20日</text>
-        </view>
-        <view class='bottom-right'>
-          <image class="img-heart" src='../../imgs/heart.png'></image>
-          <text class='text-heart'>99</text>
-        </view>
-      </view>
-    </view>
+
+   <view class="container" wx:for="{{[1,2,3]}}">
+<!--卡片组件-->
+<listing addClass="item-card" arrowBtn showTitle clock liked>
+   <text slot="user" style='font-size: 28rpx;font-weight: bold; width: 500rpx; color: rgb(51, 51, 51);'>阿凡达</text>
+   <text slot="title"  style='font-weight: 500;'>#整蛊大行动#</text>
+   <view slot="context"  style='font-weight: 300;'>生活星期天早上和朋友一起聊天，朋友说了一个他们听过的故事：“一尊佛像前有一条铺着石板的路，人们每天都踏着这一阶一阶的石板去膜拜佛像。石阶看着人们踏着自己去膜拜佛像，心里很不舒服。石阶心里想，自己和佛本来就来自同一块石头，为什么自己要成为踏脚石，让人们踩着自去去膜拜它呢！它对佛抱怨说这样太不公平！佛像说：这没有什么不公平，你们成为台阶只需挨了四刀，而我是挨了千刀万剐才成了人们膜拜的佛像。
+   </view>
+   <text slot="date">2019/03/20</text>
+   <text slot="like">99</text>
+</listing>
+
     <!-- 第三段 -->
   </view>
+   </view>
 </view>

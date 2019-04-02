@@ -1,5 +1,9 @@
 {
   "usingComponents": {
-    "navbar":"../..//components/navbar/navbar"
+    "navbar":"../..//components/navbar/navbar",
+    "listing": "../..//components/listing/listing"
+    
+
+
   }
 }

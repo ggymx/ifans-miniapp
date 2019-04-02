@@ -1,14 +1,24 @@
-<!--pages/test/test.wxml-->
+<!-- pages/test/test.wxml -->
 <navbar back text="测试"></navbar>
 <view class="underlying">
-<view class="container">
-<!--卡片组件-->
-<listing addClass="item-card" arrowBtn showTitle showIssue>
-   <text slot="user">有明星</text>
-   <text slot="title">逗你玩你害怕不？</text>
-   <view slot="context">
-         逗你玩你害怕不？
-   </view>
-</listing>
-</view>
+      <view class="container">
+            <!-- 卡片组件 -->
+            <block wx:for="{{toplicList}}">
+                  <listing addClass="item-card" arrowBtn showTitle showIssue clock like Id="{{item.tId}}">
+                        <text slot="user">{{item.tName}}</text>
+                        <text slot="title" class="text-weight">{{item.title}}</text>
+                        <view slot="context">{{item.context}}</view>
+                        <text slot="date">{{item.tDate}}</text>
+                        <text slot="like">{{item.tLike}}</text>
+                  </listing>
+                  <block wx:for="{{item.cmtList}}" wx:for-item="cmItem">
+                        <listing addClass="item-card" arrowBtn  clock like Id="{{cmItem.cmtId}}">
+                              <text slot="user">{{cmItem.cmtName}}</text>
+                              <view slot="context">{{cmItem.cmtContext}}</view>
+                              <text slot="date">{{cmItem.cmtDate}}</text>
+                               <text slot="like">{{cmItem.like}}</text>
+                        </listing>
+                  </block>
+            </block>
+      </view>
 </view>

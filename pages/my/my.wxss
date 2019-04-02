@@ -2,7 +2,7 @@
 
 .underlying,
 .container {
-  background-color: #FFF
+  /* background-color: #FFF */
 }
 
 .topic {

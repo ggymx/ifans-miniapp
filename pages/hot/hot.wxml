@@ -9,34 +9,27 @@
             <text class='week'>星期日</text>
         </view>
     </view>
-    <view class='hot-contant'>
-        <view class='hot-article' wx:for="{{[1,2]}}">
-            <view class='hot-article-title'>
-                <image class='img-article-portrait' src='../../imgs/test2.jpeg'></image>
-                <text>十里春风</text>
-            </view>
-            <view class='hot-article-theme'>
-                <text>#整蛊大行动#</text>
-            </view>
-            <view class='hot-article-content'>
-                <text>
-                    那诡异而扭曲的天空此时看上去格外可怕灰色是这个世界的主色调，灰色的高大建筑，灰色的合金地面，灰色的交通工具，灰色的天空，还有悬挂于天空的那三个无比巨大的灰色球体。这是一个已经死亡的金属世界。
-                </text>
-            </view>
-            <view class="hot-article-bottom">
-                <view class='bottom-left'>
-                    <image class="img-time" src='../../imgs/time.png'></image>
-                    <text class='text-time'>2019/03/20</text>
-                </view>
-                <view class='bottom-right'>
-                    <image class="img-browse" src='../../imgs/heart.png'></image>
-                    <text class='text-browse'>99</text>
-                </view>
-            </view>
-        </view>
+  <!-- 第一条 -->
+<view class="container" wx:for="{{[1,2,3]}}">
+<!--卡片组件-->
+<listing addClass="item-card" arrowBtn showTitle clock like>
+  <text slot="user" style='font-size: 28rpx;font-weight: bold; width: 500rpx; color: rgb(51, 51, 51);'>阿凡达</text>
+   <text slot="title" style='font-weight: 500;'>#整蛊大行动#</text>
+   <view slot="context"  style='font-weight: 400;'> 时光流逝，枉然一梦，不知不觉中，虚度了六十个春秋，回首凝望走过的路，那是一条单行道，一路上无论是风和日丽还是暴风骤雨，风景无数，无论是怎样的风景，都成为过往，但是篆刻心中的那些记忆，依然会在岁月的河床里，撩拨着阵阵涟漪，逝去的是青春年华，不再回头，过往与梦幻依然滞留心间，希望永恒，岁月也许无情，但我心依旧，感觉，逝去的光阴，在岁月的深处，依旧活色生香，靓丽多彩！
+
+　　 光阴似箭，日子在不知不觉中度过，岁月的季风，将青丝漂染成霜，洗白了年华，洗深了额头上的沟壑，走着走着老了，记得有朋友说过念旧、回忆是变老的象征，偶感，自己与这些词真的有染。
+
+　　 有时想想，还是很怀念过去，怀念那些旧的时光，怀念那些泛黄的记忆，怀念那些粗茶淡饭的味道，怀念那山那水……记得同学四十年聚会时，我尽往返三千多公里，回到了我儿时生活过的地方，并在现代化的城市中，不被人们注意的角落里，找寻着过去的蛛丝马迹，尤其是那些，以斑驳形式保留完整的残骸。
+   </view>
+   <text slot="date">2019/03/20</text>
+   <text slot="like">99</text>
+</listing>
+</view>
+
+  <!-- 底部 -->
         <view class='view-bottom'>
             <button class='btn-share' bind:tap="" open-type="share">分享给朋友</button>
             <button class='btn-subscribe' bind:tap="subscribe">已订阅</button>
         </view>
-    </view>
+
 </view>

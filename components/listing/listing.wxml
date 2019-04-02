@@ -1,5 +1,5 @@
 <!--components/listing/listing.wxml-->
- <view class="publisher-item {{addClass}}">
+ <view class="publisher-item {{addClass}}" bind:tap="bindRouter" data-postId="{{Id}}">
             <view class="publisher-person">
              <image src="" class="avatar"/>
              <view class="user-view">
@@ -21,12 +21,20 @@
              <!--插入评论话题的内容-->
               <slot name="context"></slot>
             </view> 
-            <view class="publisher-status">
-              <image src="../../imgs/button-time@2x.png" class="clock-icon"/>
-              <text class="publisher-date">2019/03/20</text>
+            <view class="publisher-status" wx:if="{{clock||like||liked}}">
+              <image src="../../imgs/button-time@2x.png" class="clock-icon" wx:if="{{clock}}"/>
+              <view class="publisher-date">
+                  <!-- <text>2019/03/20</text> -->
+                  <slot name="date"></slot>
+             </view>
               <view class="heart-view">
-              <image src="../../imgs/button-like-dj@2x.png" style="width:26rpx;height:22rpx;"/>
-              <text style="margin-left:20rpx;">99</text>
+                             <image src="../../imgs/home-button-like@2x.png" style="width:26rpx;height:22rpx;" wx:if="{{like}}"/>
+              <image src="../../imgs/button-like-dj@2x.png" style="width:26rpx;height:22rpx;" wx:elif="{{liked}}"/>
+
+              <view style="margin-left:20rpx;display:inline-block">
+                  <!-- <text >99</text> -->
+                  <slot name="like"></slot>
+              </view>
               </view>
             </view>
         </view>

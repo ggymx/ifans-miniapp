@@ -23,6 +23,22 @@ Component({
     showIssue:{
       type:Boolean,
       value:false
+    },
+    Id:{
+      type:Number,
+      value:0
+    },
+    clock:{
+      type:Boolean,
+      value:false
+    },
+    like:{
+      type:Boolean,
+      value:false
+    },
+    liked:{
+      type:Boolean,
+      value:false
     }
   },
 
@@ -37,9 +53,28 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    /*跳转页面 */
+    bindRouter:function(event){
+      console.log(event);
+      console.log(this.properties.showIssue)
+      if(this.properties.showIssue){
+      wx.navigateTo({
+        url:'../topic-detail/topic-detail',
+        success:function(){
+          wx.showToast({title:'话题详情'});
+        }
+      });
+    }else{
+      wx.navigateTo({
+        url:'../publisher/publisher',
+        success:function(){
+          wx.showToast({title:'发布者详情'});
+        }
+      });
+    }
+  }
   },
   options: {
     multipleSlots: true // 在组件定义时的选项中启用多slot支持
-  },
+  }
 })

@@ -1,1 +1,5 @@
 /* pages/test/test.wxss */
+.text-weight{
+   font-weight:bold;
+   color: red;
+}

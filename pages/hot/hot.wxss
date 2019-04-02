@@ -1,12 +1,12 @@
 /* pages/hot/hot.wxss */
 .hot-contant{
-  background-color: rgb(245,245,245);
+  /* background-color: rgb(245,245,245); */
   padding-bottom: 50rpx;
 }
 .hot-subscribe{
 display: flex;
 flex-direction: row;
-  background-color: rgb(245,245,245);
+  /* background-color: rgb(245,245,245); */
 }
 .hot-subscribe-time{
   width: 50%;

@@ -1,5 +1,9 @@
 /* components/listing/listing.wxss */
 /*每一项*/
+view , text{
+  font-family:"Roboto","Noto Sans","San Francisco","PingFang","Microsof";
+  
+}
 .publisher-item {
     width: 702rpx;
     height: auto;
@@ -9,6 +13,8 @@
     border-color: rgb(250, 250, 250);
     position: relative;
     background-color: #FFF;
+    /* box-shadow: rgba(6, 0, 1, 0.03) 0rpx 0rpx 20rpx 9rpx ; */
+
   }
   .publisher-person {
     height: 100rpx;
@@ -26,16 +32,19 @@
   }
   .user-view {
     font-size: 28rpx;
-    color: rgb(51, 51, 51);
+    color: rgb(153, 153, 153);
     position: absolute;
     top: 34rpx;
     left: 102rpx;
+    font-weight: 500;
     width: 500rpx;
   }
   /*用户名文本*/
   .username{
     margin-right:14rpx;
     display: inline-block;
+
+
   }
 /*右侧箭头按钮*/
 .arrow-btn {
@@ -56,14 +65,25 @@
   }
 
   .publisher-context {
+  letter-spacing:3rpx;
+  line-height: 56rpx;
+  white-space: pre-line;
+ display: -webkit-box;        
+word-break: break-all;
+text-overflow: ellipsis;         
+-webkit-box-orient: vertical;    
+-webkit-line-clamp: 5; 
+
   height: auto;
   font-size: 30rpx;
   color: rgb(51, 51, 51);
-  line-height: 48rpx;
   padding-left: 26rpx;
   padding-right: 26rpx;
   overflow: hidden;
-  margin-bottom: 24rpx;
+  /* margin-bottom: 24rpx; */
+  margin-bottom: 14rpx;
+  margin-top: -10rpx;
+
 }
 .publisher-status {
     height: 80rpx;
