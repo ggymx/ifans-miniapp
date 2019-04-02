@@ -1,2 +1,42 @@
-<!--pages/hot/hot.wxml-->
-<text>pages/hot/hot.wxml</text>
+<!-- pages/hot/hot.wxml -->
+<navbar gear text="每日热点" class="navbar"></navbar>
+<!-- pages/hot/hot.wxml -->
+<view class="underlying">
+    <view class='hot-subscribe'>
+        <view class='hot'>每日热点</view>
+        <view class='hot-subscribe-time'>
+            <text class='year'>2019.03.31</text>
+            <text class='week'>星期日</text>
+        </view>
+    </view>
+    <view class='hot-contant'>
+        <view class='hot-article' wx:for="{{[1,2]}}">
+            <view class='hot-article-title'>
+                <image class='img-article-portrait' src='../../imgs/test2.jpeg'></image>
+                <text>十里春风</text>
+            </view>
+            <view class='hot-article-theme'>
+                <text>#整蛊大行动#</text>
+            </view>
+            <view class='hot-article-content'>
+                <text>
+                    那诡异而扭曲的天空此时看上去格外可怕灰色是这个世界的主色调，灰色的高大建筑，灰色的合金地面，灰色的交通工具，灰色的天空，还有悬挂于天空的那三个无比巨大的灰色球体。这是一个已经死亡的金属世界。
+                </text>
+            </view>
+            <view class="hot-article-bottom">
+                <view class='bottom-left'>
+                    <image class="img-time" src='../../imgs/time.png'></image>
+                    <text class='text-time'>2019/03/20</text>
+                </view>
+                <view class='bottom-right'>
+                    <image class="img-browse" src='../../imgs/heart.png'></image>
+                    <text class='text-browse'>99</text>
+                </view>
+            </view>
+        </view>
+        <view class='view-bottom'>
+            <button class='btn-share' bind:tap="" open-type="share">分享给朋友</button>
+            <button class='btn-subscribe' bind:tap="subscribe">已订阅</button>
+        </view>
+    </view>
+</view>

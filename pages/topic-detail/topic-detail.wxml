@@ -19,7 +19,7 @@
             <image src="../../imgs/canyu@2x.png" style="width:36rpx;height:29rpx;margin-right:16rpx;"/>
             <text style="font-size:24rpx;color:rgb(102,102,102);">99参与</text>
         </view>
-       <view class="opreate-item">
+       <view class="opreate-item" bind:tap="bindViewParti">
             <image src="../../imgs/fabu@2x.png" style="width:27rpx;height:27rpx;margin-right:16rpx;"/>
             <text style="font-size:24rpx;color:rgb(102,102,102);">参与</text>
         </view>
@@ -33,14 +33,14 @@
     <view class="container">
         <view class="publisher-item" wx:for="{{[1,2]}}">
             <view class="publisher-person">
-             <image src="" class="avatar"/>
+             <image src="" class="avatar" bind:tap="bindViewMy"/>
              <view class="username"><text>游哈哈</text></view>
              <image src="../../imgs/myhome-gd@2x.png" class="arrow-btn" />
             </view>
             <!-- <view class="publisher-topic">
                 <text style="margin-left:26rpx">#整蛊大作战#</text>
             </view> -->
-            <view class="publisher-context">
+            <view class="publisher-context" bind:tap="bindViewPublisher">
               整蛊大行动来了，测试测试测试测试测试测试测试测试
               整蛊大行动来了，测试测试测试测试测试测试测试测试
             </view>

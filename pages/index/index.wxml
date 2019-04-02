@@ -1,2 +1,64 @@
-<!--pages/index/index.wxml-->
-<text>pages/index/index.wxml</text>
+<!-- pages/index/index.wxml -->
+<navbar gear text="首页"></navbar>
+<view class="underlying">
+  <view class='index-subscribe'>
+    <view style="width:240rpx;float:right;" bind:tap="bindViewHot">
+      <image class="img-subcribe" src='../../imgs/add.png'></image>
+      <text>订阅每日热点</text>
+    </view>
+  </view>
+  <view class='index-contant'>
+    <view class='index-article' bind:tap="bindViewDetail">
+      <view class='index-article-title'>
+        <image class='img-article-portrait' src='../../imgs/test2.jpeg' catch:tap="bindViewMy"></image>
+        <text>二次元盟主</text>
+        <text>发布了话题</text>
+      </view>
+      <view class='index-article-theme'>
+        <text>#整蛊大行动#</text>
+      </view>
+      <view class='index-article-content'>
+        <text>
+          那诡异而扭曲的天空此时看上去格外可怕灰色是这个世界的主色调灰色的高大建筑，灰色的合金地面，灰色的交通工具，灰色的天空，还有悬挂于天空的那三个无比巨大的灰色球体这是一个已经死亡的金属世界。
+        </text>
+      </view>
+      <view class="index-article-bottom">
+        <view class='bottom-left'>
+          <image class="img-time" src='../../imgs/time.png'></image>
+          <text class='text-time'>3小时前</text>
+        </view>
+        <view class='bottom-right'>
+          <image class="img-browse" src='../../imgs/join.png'></image>
+          <text class='text-browse'>99</text>
+        </view>
+      </view>
+    </view>
+    <!-- 第二段 -->
+    <view class='index-release' wx:for="{{[1,2]}}" bind:tap="bindViewPublisher">
+      <view class="index-release-top">
+        <image class="img-portrait" src='../../imgs/test2.jpeg' catch:tap="bindViewMy"></image>
+        <text class='index-release-name'>aaa</text>
+        <image class="img-ellipsis" src='../../imgs/aa.png'></image>
+      </view>
+      <view class='index-release-title'>
+        <text>#整蛊大行动#</text>
+      </view>
+      <view class='index-release-content'>
+        <text>
+          那诡异而扭曲的天空此时看上去格外可怕灰色是这个世界的主色调，灰色的高大建筑，灰色的合金地面，灰色的交通工具，灰色的天空，还有悬挂于天空的那三个无比巨大的灰色球体这是一个已经死亡的金属世界。
+        </text>
+      </view>
+      <view class="index-release-bottom">
+        <view class='bottom-left'>
+          <image class="img-time" src='../../imgs/time.png'></image>
+          <text class='text-time'>2019年03月20日</text>
+        </view>
+        <view class='bottom-right'>
+          <image class="img-heart" src='../../imgs/heart.png'></image>
+          <text class='text-heart'>99</text>
+        </view>
+      </view>
+    </view>
+    <!-- 第三段 -->
+  </view>
+</view>

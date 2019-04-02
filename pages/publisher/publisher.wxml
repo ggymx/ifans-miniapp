@@ -19,12 +19,15 @@
             <image src="../../imgs/canyu@2x.png" style="width:36rpx;height:29rpx;margin-right:16rpx;"/>
             <text style="font-size:24rpx;color:rgb(102,102,102);">99参与</text>
         </view>
-       <view class="opreate-item">
+       <view class="opreate-item" bind:tap="bindViewParti">
             <image src="../../imgs/fabu@2x.png" style="width:27rpx;height:27rpx;margin-right:16rpx;"/>
             <text style="font-size:24rpx;color:rgb(102,102,102);">参与</text>
         </view>
         <view class="opreate-item">
             <image src="../../imgs/zhuangfa@2x.png" style="width:29rpx;height:27rpx;margin-right:16rpx;"/>
+            <!-- <button
+            style="width:29rpx;height:27rpx;margin-right:16rpx; background-image: url(../../imgs/zhuangfa@2x.png);background-size: 29rpx 27rpx" 
+            plain="{{plain}}"></button> -->
             <text style="font-size:24rpx;color:rgb(102,102,102);">分享话题</text>
         </view>
     </view>
@@ -33,7 +36,7 @@
     <view class="container">
         <view class="publisher-item">
             <view class="publisher-person">
-             <image src="" class="avatar"/>
+             <image src="" class="avatar" bind:tap="bindViewMy"/>
              <view class="username"><text>游哈哈</text></view>
              <image src="../../imgs/myhome-gd@2x.png" class="arrow-btn" />
             </view>
