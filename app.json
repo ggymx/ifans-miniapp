@@ -1,12 +1,13 @@
 {
   "pages": [
+    "pages/test/test",
+    "pages/topic-detail/topic-detail",
+   
     "pages/my/my",
     "pages/index/index",
-  
     "pages/hot/hot",
-    
     "pages/publisher/publisher",
-    "pages/topic-detail/topic-detail",
+    
     "pages/participate/participate"
   ],
   "window": {
@@ -14,6 +15,6 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "轻话题",
     "navigationBarTextStyle": "black",
-    "navigationStyle":"custom"
+    "navigationStyle": "custom"
   }
 }

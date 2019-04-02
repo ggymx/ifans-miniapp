@@ -1,0 +1,32 @@
+<!--components/listing/listing.wxml-->
+ <view class="publisher-item {{addClass}}">
+            <view class="publisher-person">
+             <image src="" class="avatar"/>
+             <view class="user-view">
+                 <view class="username">
+                     <!--插入姓名-->
+                     <slot name="user"></slot>
+                </view>
+                 <text wx:if="{{showIssue}}">发布了话题</text>
+            </view>
+             <image src="../../imgs/myhome-gd@2x.png" class="arrow-btn" wx:if="{{arrowBtn}}"/>
+            </view>
+            <view class="publisher-topic" wx:if="{{showTitle}}">
+                <view style="margin-left:26rpx;display:inline-block">
+                    <!--插入话题标题-->
+                    <slot name="title"></slot>
+                </view>
+            </view>
+            <view class="publisher-context">
+             <!--插入评论话题的内容-->
+              <slot name="context"></slot>
+            </view> 
+            <view class="publisher-status">
+              <image src="../../imgs/button-time@2x.png" class="clock-icon"/>
+              <text class="publisher-date">2019/03/20</text>
+              <view class="heart-view">
+              <image src="../../imgs/button-like-dj@2x.png" style="width:26rpx;height:22rpx;"/>
+              <text style="margin-left:20rpx;">99</text>
+              </view>
+            </view>
+        </view>

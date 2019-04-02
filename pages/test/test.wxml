@@ -1,0 +1,14 @@
+<!--pages/test/test.wxml-->
+<navbar back text="测试"></navbar>
+<view class="underlying">
+<view class="container">
+<!--卡片组件-->
+<listing addClass="item-card" arrowBtn showTitle showIssue>
+   <text slot="user">有明星</text>
+   <text slot="title">逗你玩你害怕不？</text>
+   <view slot="context">
+         逗你玩你害怕不？
+   </view>
+</listing>
+</view>
+</view>
