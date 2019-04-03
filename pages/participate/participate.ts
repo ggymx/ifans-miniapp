@@ -5,8 +5,8 @@ import { IMyApp } from '../../app'
 //调用后台api
 /*导入index??? */
 import api from '../../common/api'
-import { ITopicDetailParams,ITopicDetailResponse} from '../../common/types/http_msg';
-
+import { ITopicDetailParams, ITopicDetailResponse } from '../../common/types/http_msg';
+import { TestApi } from '../../testApi/TestApi';
 
 // let getTopic=async (obj:ITopicDetailParams):Promise<ITopicDetailResponse>=>{
 //     return await api.getTopic(obj);
@@ -21,19 +21,18 @@ Page({
     motto: '点击 “编译” 以构建',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
-  },
-
-  bindViewHot(){
-    wx.navigateTo({
-      url:'../hot/hot',
-      success:function(){
-        wx.showToast({title:'每日热点'});
-      }
-    });
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    toplicList: [],
+    toplic: {},
+    comment: {}
   },
 
   onLoad() {
+    console.log(this.data.toplicList);
+    this.setData!({
+      toplicList: TestApi.getTopList(),
+      toplic: TestApi.getTopic(3)
+    });
     // getTopic({id:1}).then((data)=>{
 
     //  let creatAt=data.topic.createAt.toLocaleString()
@@ -41,15 +40,15 @@ Page({
     //  this.setData!({data:data,creatAt:creatAt})
     //  console.log(data)
     // }).catch();
-    
-    
+
+
 
     if (app.globalData.userInfo) {
       this.setData!({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true,
       })
-    } else if (this.data.canIUse){
+    } else if (this.data.canIUse) {
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
       app.userInfoReadyCallback = (res) => {
@@ -71,7 +70,7 @@ Page({
       })
     }
   },
-  
+
   getUserInfo(e: any) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo

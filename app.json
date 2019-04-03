@@ -1,11 +1,12 @@
 {
   "pages": [
+      
     "pages/index/index",
     "pages/test/test",
     "pages/participate/participate",
     "pages/my/my",
     "pages/publisher/publisher",
-    "pages/topic-detail/topic-detail",
+  "pages/topic-detail/topic-detail",
     "pages/hot/hot"
     
   ],

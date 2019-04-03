@@ -1,3 +1,4 @@
+
 /* pages/topic-detail/topic-detail.wxss */
 .underlying,
 .container {
@@ -212,3 +213,27 @@ overflow: hidden;
 -webkit-box-orient: vertical;    
 -webkit-line-clamp: 15;  
 }
+
+/* 修改 */
+.item-name{
+  font-size: 28rpx;
+  font-weight: bold;
+   width: 500rpx;
+    color: rgb(51, 51, 51);
+}
+.item-title{
+ font-weight: 500;
+}
+.item-context{
+  font-weight: 300;
+   white-space: pre-line;
+ display: -webkit-box;        
+word-break: break-all;
+text-overflow: ellipsis; 
+padding-left: 20px;
+padding-right: 10px;
+overflow: hidden;           
+-webkit-box-orient: vertical;    
+-webkit-line-clamp: 15; 
+}
+		

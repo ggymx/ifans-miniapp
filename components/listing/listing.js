@@ -24,9 +24,13 @@ Component({
       type:Boolean,
       value:false
     },
-    Id:{
+    tId:{
       type:Number,
       value:0
+    },
+    cId: {
+      type: Number,
+      value: 0
     },
     clock:{
       type:Boolean,
@@ -56,17 +60,25 @@ Component({
     /*跳转页面 */
     bindRouter:function(event){
       console.log(event);
-      console.log(this.properties.showIssue)
+      console.log(this.properties.showIssue);
+
+      // 
+      // console.log(`即将发送的id=${id}`);
       if(this.properties.showIssue){
+        let id=event.currentTarget.dataset.tid;
       wx.navigateTo({
-        url:'../topic-detail/topic-detail',
+        url:'../topic-detail/topic-detail?tid='+id,
         success:function(){
           wx.showToast({title:'话题详情'});
         }
       });
     }else{
+      let cId=event.currentTarget.dataset.cid;
+      let tId=event.currentTarget.dataset.tid;
+      console.log(`cId的值：${cId}，tId的值：${tId}`);
+      // console.log("评论的id："+id);
       wx.navigateTo({
-        url:'../publisher/publisher',
+        url:'../publisher/publisher?tid='+tId+'&cid='+cId,
         success:function(){
           wx.showToast({title:'发布者详情'});
         }
