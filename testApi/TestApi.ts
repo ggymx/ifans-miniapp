@@ -113,7 +113,12 @@ export class TestApi {
   }
   /*返回话题关联的评论 */
   public static getComment(tId:Number,cId:Number):any{
- 
+    let topic=this.getTopic(tId);
+    for(let i=0;i<topic.cmtList[i];i++){
+      if(cId===topic.cmtList[i].cmtId){
+        return topic.cmtList[i];
+      }
+    }
       
   }
 }
