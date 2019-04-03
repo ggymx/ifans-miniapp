@@ -1,33 +1,21 @@
-<!--pages/my/my.wxml-->
+<!-- pages/my/my.wxml -->
 <navbar back text="我的首页"></navbar>
 <view class="underlying" style="background-color:rgb(245,245,245)">
-   <view class="my-view">
-       <image src="../../imgs/test2.jpeg" class="big-avatar"/>
-       <text class="big-name" style='font-weight: 400;'>Rian</text>
-       <image src="../../imgs/zhuangfa@2x.png" class="share-ico"/>
-   </view>
-   <!-- 第一部分 -->
-   
-
- <view class="container">
- <block wx:for="{{toplicList}}">
-                 
-                  <block wx:for="{{item.cmtList}}" wx:for-item="cmItem">
-                        <listing card arrowBtn showTitle clock like Id="{{cmItem.cmtId}}">
-                              <text slot="user" class="item-name" >{{cmItem.cmtName}}</text>
-                              <text slot="title"  class="item-title" >{{item.title}}</text>
-                              <view slot="context"   class="item-context">{{cmItem.cmtContext}}</view>
-                              <text slot="date">{{cmItem.cmtDate}}</text>
-                               <text slot="like">{{cmItem.like}}</text>
+      <view class="my-view">
+            <image src="../../imgs/test2.jpeg" class="big-avatar" />
+            <text class="big-name" style='font-weight: 400;'>{{username}}</text>
+            <image src="../../imgs/zhuangfa@2x.png" class="share-ico" />
+      </view>
+      <!-- 第一部分 -->
+      <view class="container">
+                  <block wx:for="{{partiList}}" wx:for-item="partiItem">
+                        <listing card arrowBtn showTitle showIssue="{{partiItem.tId}}" clock like tId="{{partiItem.tId}}" cId="{{partiItem.cmtId}}">
+                              <text slot="user" class="item-name">{{partiItem.tName||partiItem.cmtName}}</text>
+                              <text slot="title" class="item-title">{{partiItem.title}}</text>
+                              <view slot="context" class="item-context">{{partiItem.context||partiItem.cmtContext}}</view>
+                              <text slot="date">{{partiItem.tDate||partiItem.cmtDate}}</text>
+                              <text slot="like">{{partiItem.tLike||partiItem.like}}</text>
                         </listing>
                   </block>
-                 
-            </block>
-</view>
-
-
-
-
-
-   
+      </view>
 </view>

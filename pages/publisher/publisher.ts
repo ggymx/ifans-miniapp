@@ -22,7 +22,7 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    topic:{},
+    topic:null,
     comment: {}
   },
 
@@ -30,13 +30,18 @@ Page({
   onLoad(options:any) {
     let tId=options.tid;
     let cId=options.cid;
-    // console.log(options);
-    console.log(`-----------------------------------`);
-    console.log(TestApi.getComment(cId));
+    if(tId!=0){
+      console.log("tId存在！")
     this.setData!({
       topic:TestApi.getTopic(tId),
       comment: TestApi.getComment(cId)
     });
+   }else{
+     console.log("tId不存在！");
+     this.setData!({
+       comment:TestApi.getComment(cId)
+     })
+   }
     // getTopic({id:1}).then((data)=>{
 
     //  let creatAt=data.topic.createAt.toLocaleString()

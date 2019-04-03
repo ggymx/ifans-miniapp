@@ -42,7 +42,7 @@ Component({
                     switch (res.tapIndex) {
                         case 0:
                             wx.navigateTo({
-                                url: '../my/my',
+                                url: '../my/my?name='+'葛干',
                                 success: function () {
                                     wx.showToast({
                                         title: '跳转首页！'

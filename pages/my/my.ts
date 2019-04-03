@@ -22,17 +22,17 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    toplicList: [],
-    toplic: {},
-    comment: {}
+    partiList:[],
+    username:''
   },
 
-  onLoad() {
-    console.log(this.data.toplicList);
+  onLoad(options:any) {
+    let username=options.name;
     this.setData!({
-      toplicList: TestApi.getTopList(),
-      toplic: TestApi.getTopic(3)
+      partiList:TestApi.getMyParti(username),
+      username:username
     });
+    console.log(this.data.partiList);
     // getTopic({id:1}).then((data)=>{
 
     //  let creatAt=data.topic.createAt.toLocaleString()

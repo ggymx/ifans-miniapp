@@ -9,6 +9,7 @@ Component({
    * final:确定是否是最终页面
    * tId：绑定话题Id
    * cId:绑定评论Id
+   * username：用户名
    * noBorder:是否有边框
    */
   properties: {
@@ -35,6 +36,10 @@ Component({
     cId: {
       type: Number,
       value: 0
+    },
+    username:{
+      type:String,
+      value:''
     },
     clock: {
       type: Boolean,
@@ -89,6 +94,19 @@ Component({
           });
         }
       }
+    },
+    bindMy:function(event){
+      console.log(event);
+      let username=event.currentTarget.dataset.name;
+      console.log("用户名:"+username);
+      wx.navigateTo({
+        url:'../my/my?name='+username,
+        success:function(){
+          wx.showToast({
+            title:'我的首页'
+          });
+        }
+      });
     },
     /*点赞 */
     likeSwitch: function (event) {
