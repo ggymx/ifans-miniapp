@@ -99,8 +99,27 @@ export class TestApi {
       ]
     }
   ];
-  /*返回假数据 */
+  /*返回话题列表 */
   public static getTopList(): any {
     return this.topList;
+  }
+  /* 返回话题*/
+  public static getTopic(id:Number):any{
+    for(let i=0;i<this.topList.length;i++){
+      if(id===this.topList[i].tId){
+        return this.topList[i];
+      }
+    }
+  }
+  /*返回话题关联的评论 */
+  public static getComment(id:Number):any{
+    let topList=this.topList;
+    for(let i=0;i<topList.length;i++){
+      for(let j=0;j<topList[i].cmtList.length;j++){
+        if(id===topList[i].cmtList[j].cmtId){
+          return topList[i].cmtList[j];
+        }
+      }
+    }
   }
 }

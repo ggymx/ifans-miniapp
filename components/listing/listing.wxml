@@ -28,7 +28,7 @@
                   <slot name="date"></slot>
              </view>
               <view class="heart-view">
-                             <image src="../../imgs/home-button-like@2x.png" style="width:26rpx;height:22rpx;" wx:if="{{like}}"/>
+              <image src="../../imgs/home-button-like@2x.png" style="width:26rpx;height:22rpx;" wx:if="{{like}}"/>
               <image src="../../imgs/button-like-dj@2x.png" style="width:26rpx;height:22rpx;" wx:elif="{{liked}}"/>
 
               <view style="margin-left:20rpx;display:inline-block">
