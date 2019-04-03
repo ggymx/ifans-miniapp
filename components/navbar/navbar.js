@@ -25,7 +25,7 @@ Component({
     },
     methods: {
         backHome: function () {
-            wx.reLaunch({
+            wx.navigateTo({
                 url: '../index/index',
             });
         },

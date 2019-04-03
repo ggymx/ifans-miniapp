@@ -24,6 +24,16 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     toplicList: []
   },
+  bindViewHot(){
+    wx.navigateTo({
+      url:'../hot/hot',
+      success(){
+        wx.showToast({
+          title:'跳转热点页'
+        });
+      }
+    });
+  },
   onLoad() {
     console.log(this.data.toplicList);
     this.setData!({

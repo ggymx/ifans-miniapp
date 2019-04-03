@@ -113,7 +113,7 @@ text-overflow: ellipsis;
     right: 46rpx;
     font-size: 26rpx;
     color: rgb(102, 102, 102);
-    height: 30rpx;
+    height: 60rpx;
     width: auto;
     top: 8rpx;
   

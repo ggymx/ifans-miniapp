@@ -1,5 +1,5 @@
 <!-- pages/hot/hot.wxml -->
-<navbar back text="每日热点" class="navbar"></navbar>
+<navbar home text="每日热点" class="navbar"></navbar>
 <!-- pages/hot/hot.wxml -->
 <view class="underlying">
     <view class='hot-subscribe'>
@@ -9,9 +9,6 @@
             <text class='week'>星期日</text>
         </view>
     </view>
-
-
-
 
 
  <view class="container">
@@ -29,18 +26,12 @@
 
 
 
-
-
-
-
-
-
-
-
   <!-- 底部 -->
         <view class='view-bottom'>
             <button class='btn-share' bind:tap="" open-type="share">分享给朋友</button>
-            <button class='btn-subscribe' bind:tap="subscribe">已订阅</button>
+            <button class='btn-subscribe' 
+            bind:tap="subscribe">
+            <image src="{{subImg}}" style="width:21rpx;height:21rpx;margin-right:18rpx;"/>{{subText}}</button>
         </view>
 
 </view>
