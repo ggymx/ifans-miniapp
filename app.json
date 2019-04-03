@@ -1,13 +1,13 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/test/test",
+    "pages/publisher/publisher",
+   
+    "pages/index/index",
     "pages/participate/participate",
     "pages/my/my",
-    "pages/publisher/publisher",
     "pages/topic-detail/topic-detail",
     "pages/hot/hot"
-    
   ],
   "window": {
     "backgroundTextStyle": "dark",
