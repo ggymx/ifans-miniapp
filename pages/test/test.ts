@@ -22,13 +22,16 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    toplicList:[]
+    toplicList:[],
+    toplic:{},
+    comment:{}
   },
 
   onLoad() {
     console.log(this.data.toplicList);
     this.setData!({
-      toplicList:TestApi.getTopList()
+      toplicList:TestApi.getTopList(),
+      toplic:TestApi.getTopic(3)
     });
     // getTopic({id:1}).then((data)=>{
 

@@ -112,14 +112,8 @@ export class TestApi {
     }
   }
   /*返回话题关联的评论 */
-  public static getComment(id:Number):any{
-    let topList=this.topList;
-    for(let i=0;i<topList.length;i++){
-      for(let j=0;j<topList[i].cmtList.length;j++){
-        if(id===topList[i].cmtList[j].cmtId){
-          return topList[i].cmtList[j];
-        }
-      }
-    }
+  public static getComment(tId:Number,cId:Number):any{
+ 
+      
   }
 }
