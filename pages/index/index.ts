@@ -24,7 +24,6 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     toplicList: []
   },
-
   onLoad() {
     console.log(this.data.toplicList);
     this.setData!({

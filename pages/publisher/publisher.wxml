@@ -31,9 +31,9 @@
     </view>
        <view class="opreate-underlying">
         <view class="container">
-                <listing  aarrowBtn clock liked showTitle style="border-style:none">
+                <listing   arrowBtn clock final  like  showTitle >
                     <text slot="user" class="item-name">{{comment.cmtName}}</text>
-                    <text slot="title" class="item-title"> #整蛊大作战#</text>
+                    <text slot="title" class="item-title"> {{topic.title}}</text>
                     <view slot="context" class="item-context">{{comment.cmtContext}}</view>
                     <text slot="date">{{comment.cmtDate}}</text>
                     <text slot="like">{{comment.like}}</text>

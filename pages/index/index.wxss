@@ -34,6 +34,13 @@
 }
 .topic-context{
  font-weight: 400;
+ white-space: pre-line;
+ display: -webkit-box;        
+word-break: break-all;
+text-overflow: ellipsis; 
+overflow: hidden;           
+-webkit-box-orient: vertical;    
+-webkit-line-clamp: 5; 
 }
 .item-name{
   font-size: 28rpx;
@@ -45,6 +52,14 @@
  font-weight: 500;
 }
 .item-context{
+  color: rgb(51, 51, 51);
   font-weight: 300;
+  white-space: pre-line;
+ display: -webkit-box;        
+word-break: break-all;
+text-overflow: ellipsis; 
+overflow: hidden;           
+-webkit-box-orient: vertical;    
+-webkit-line-clamp: 15; 
 }
 		

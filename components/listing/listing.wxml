@@ -1,5 +1,6 @@
+<!-- <wxs module="ani" src="../../wxs/animation.wxs"></wxs> -->
 <!--components/listing/listing.wxml-->
- <view class="publisher-item {{addClass}}" bind:tap="bindRouter" data-tid="{{tId}}" data-cid="{{cId}}">
+ <view class="publisher-item {{card?'item-card':''}} slot1 slot2" bind:tap="bindRouter" data-tid="{{tId}}" data-cid="{{cId}}">
             <view class="publisher-person">
              <image src="" class="avatar"/>
              <view class="user-view">
@@ -28,8 +29,8 @@
                   <slot name="date"></slot>
              </view>
               <view class="heart-view">
-              <image src="../../imgs/home-button-like@2x.png" style="width:26rpx;height:22rpx;" wx:if="{{like}}"/>
-              <image src="../../imgs/button-like-dj@2x.png" style="width:26rpx;height:22rpx;" wx:elif="{{liked}}"/>
+              <image src="{{imgUrl}}" style="width:26rpx;height:22rpx;" wx:if="{{like}}" catch:tap="likeSwitch"/>
+              <!-- <image src="../../imgs/button-like-dj@2x.png" style="width:26rpx;height:22rpx;" wx:elif="{{liked}}" catch:tap=""/> -->
 
               <view style="margin-left:20rpx;display:inline-block">
                   <!-- <text >99</text> -->

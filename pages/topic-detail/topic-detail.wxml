@@ -11,12 +11,36 @@
             <view class="topic-context" style='font-weight: 400;'>{{topic.context}}</view>
         </view>
     </view>
+
+
+ <view class="opreate-underlying">
+    <view class="container1">
+    <view class="opreate-view">
+        <view class="opreate-item" style="border-style:none">
+            <image src="../../imgs/canyu@2x.png" style="width:36rpx;height:29rpx;margin-right:16rpx;"/>
+            <text style="font-size:24rpx;color:rgb(102,102,102);">99参与</text>
+        </view>
+       <view class="opreate-item" bind:tap="bindViewParti">
+            <image src="../../imgs/fabu@2x.png" style="width:27rpx;height:27rpx;margin-right:16rpx;"/>
+            <text style="font-size:24rpx;color:rgb(102,102,102);">参与</text>
+        </view>
+        <view class="opreate-item">
+            <image src="../../imgs/zhuangfa@2x.png" style="width:29rpx;height:27rpx;margin-left:60rpx;margin-right:16rpx;"/>
+
+            <text style="font-size:24rpx;color:rgb(102,102,102);">分享话题</text>
+        </view>
+    </view>
+    </view>
+    </view>
+
+
+
     <view class="opreate-underlying">
         <view class="container">
             <block wx:for="{{topic.cmtList}}" wx:for-item="comment">
-                <listing addClass="item-card" aarrowBtn showTitle clock liked tId="{{topic.tId}}" cId="{{comment.cmtId}}">
+                <listing addClass="item-card" arrowBtn showTitle clock like tId="{{topic.tId}}" cId="{{comment.cmtId}}">
                     <text slot="user" class="item-name">{{comment.cmtName}}</text>
-                    <text slot="title" class="item-title">{{comment.title}}</text>
+                    <text slot="title" class="item-title">{{topic.title}}</text>
                     <view slot="context" class="item-context">{{comment.cmtContext}}</view>
                     <text slot="date">{{comment.cmtDate}}</text>
                     <text slot="like">{{comment.like}}</text>

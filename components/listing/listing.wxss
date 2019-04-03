@@ -16,6 +16,7 @@ view , text{
     /* box-shadow: rgba(6, 0, 1, 0.03) 0rpx 0rpx 20rpx 9rpx ; */
 
   }
+ 
   .publisher-person {
     height: 100rpx;
     width: 100%;

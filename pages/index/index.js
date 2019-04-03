@@ -10,6 +10,46 @@ Page({
         canIUse: wx.canIUse('button.open-type.getUserInfo'),
         toplicList: []
     },
+
+    // 添加
+
+  bindViewHot: function () {
+    wx.navigateTo({
+      url: '../hot/hot',
+      success: function () {
+        wx.showToast({ title: '每日热点' });
+      }
+    });
+  },
+  // bindViewDetail: function () {
+  //   wx.navigateTo({
+  //     url: '../topic-detail/topic-detail',
+  //     success: function () {
+  //       wx.showToast({ title: '话题详情' });
+  //     }
+  //   });
+  // },
+  // bindViewPublisher: function () {
+  //   wx.navigateTo({
+  //     url: '../publisher/publisher',
+  //     success: function () {
+  //       wx.showToast({ title: '发布者详情' });
+  //     }
+  //   });
+  // },
+  // bindViewMy: function () {
+  //   wx.navigateTo({
+  //     url: '../my/my',
+  //     success: function () {
+  //       wx.showToast({ title: '我的首页' });
+  //     }
+  //   });
+  // },
+
+
+
+
+
     onLoad: function () {
         var _this = this;
         console.log(this.data.toplicList);
