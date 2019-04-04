@@ -1,10 +1,10 @@
 <!--pages/login/login.wxml-->
-<navbar gear text="授权登录"></navbar>
+<navbar back text="授权登录"></navbar>
 <view class="underlying">
 <view wx:if="{{canIUse}}">
     <view class='header'>
-        <image src='{{avatar}}'></image>
-        <view>{{username}}</view>
+        <image src='{{returnInfo.user.avatar}}'></image>
+        <view>{{returnInfo.user.nickname}}</view>
     </view>
 
     <view class='content'>

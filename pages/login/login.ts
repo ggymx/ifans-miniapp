@@ -21,9 +21,8 @@ Page({
     motto: '点击 “编译” 以构建',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo');
-    avatar: '',
-    username: '未登录',
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    returnInfo:{},
     statusText:'授权登录'
   },
   // bindGetUserInfo(e: any) {
@@ -74,9 +73,10 @@ Page({
     /*点击确认按钮 */
     console.log("点击了确认按钮");
     if (e.detail.userInfo) {
+     var that=this;
      wx.login({
        success(res){
-         console.log("----------------------++++++-------------");
+          /*wx.login获取code-微信登录的标识 */
          console.log(res.code);
           wx.request({
 
@@ -95,6 +95,10 @@ Page({
             success(res){
               console.log("login获取的数据res:")
               console.log(res.data);
+              that.setData!({
+                returnInfo:res.data,
+                statusText:'已登录'
+              });
             },
             fail(res){
               console.log("login获取的数据err:")
@@ -108,11 +112,11 @@ Page({
       // console.log(e.detail.errMsg)
       // console.log(e.detail.userInfo)
       // console.log(e.detail.rawData)
-      this.setData!({
-        avatar: e.detail.userInfo.avatarUrl,
-        username: e.detail.userInfo.nickName,
-        statusText:'已登录'
-      });
+      // this.setData!({
+      //   avatar: e.detail.userInfo.avatarUrl,
+      //   username: e.detail.userInfo.nickName,
+      //   statusText:'已登录'
+      // });
       wx.showLoading({
         title:'加载中'
       });

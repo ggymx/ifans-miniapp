@@ -97,6 +97,7 @@ shareCard(){
       })
     }
   },
+  /**转发分享监听事件 */
   onShareAppMessage(res:any) {
     if (res.from === 'button') {
       wx.showShareMenu({

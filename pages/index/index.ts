@@ -22,7 +22,8 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    toplicList: []
+    toplicList: [],
+    returnInfo:{}
   },
   bindViewHot(){
     wx.navigateTo({
@@ -35,12 +36,13 @@ Page({
     });
   },
   onLoad() {
-
+   
     console.log(this.data.toplicList);
 
     this.setData!({
       toplicList: TestApi.getTopList(),
     });
+    var that=this;
     wx.request({
       url:'https://api-test.ifans.pub/v1/home/list',
 
@@ -54,6 +56,11 @@ Page({
       success(res){
         console.log("index获取的数据res：");
         console.log(res.data);
+        that.setData!({
+          returnInfo:res.data
+        });
+        /*通过返回的话题列表查询相应的参与话题的对象 */
+       
       },
       fail(err){
         console.log("index获取的数据err：");
