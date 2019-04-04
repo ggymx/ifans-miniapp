@@ -38,7 +38,7 @@
     <view class="opreate-underlying">
         <view class="container">
             <block wx:for="{{topic.cmtList}}" wx:for-item="comment">
-                <listing addClass="item-card" arrowBtn showTitle clock like tId="{{topic.tId}}" cId="{{comment.cmtId}}">
+                <listing addClass="item-card" arrowBtn showTitle clock like tId="{{topic.tId}}" cId="{{comment.cmtId}}" username="{{comment.cmtName}}">
                     <text slot="user" class="item-name">{{comment.cmtName}}</text>
                     <text slot="title" class="item-title">{{topic.title}}</text>
                     <view slot="context" class="item-context">{{comment.cmtContext}}</view>

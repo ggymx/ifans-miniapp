@@ -13,7 +13,7 @@
 
  <view class="container">
  <block wx:for="{{toplicList}}">
-                  <listing card showTitle showIssue clock like tId="{{item.tId}}">
+                  <listing card showTitle showIssue clock like tId="{{item.tId}}" username="{{item.tName}}">
                         <text slot="user" class="topic-name">{{item.tName}}</text>
                         <text slot="title" class="text-weight">{{item.title}}</text>
                         <view slot="context" class="topic-context" >{{item.context}}</view>

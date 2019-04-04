@@ -24,7 +24,32 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     toplicList: [],
     toplic: {},
-    comment: {}
+    comment: {},
+    pushText:''
+  },
+  /*textarea输入时触发该函数-微信框架无双向绑定 */
+  setPushText(event:any){
+    wx.showToast({title:'触发输入'});
+    this.setData!({
+      pushText:event.detail.value
+    });
+  },
+  test(){
+    console.log("激活聚焦事件！");
+  },
+  titleParti(event:any){
+    console.log("测试："+this.data.pushText);
+      if(this.data.pushText!=''){
+      wx.showToast({title:'发表成功！'});
+      wx.navigateTo({
+        url:'../index/index',
+        success:function(){
+
+        }
+      });
+    }else{
+      wx.showToast({title:'未发表任何内容！'});
+    }
   },
 
   onLoad() {
@@ -41,7 +66,7 @@ Page({
     //  console.log(data)
     // }).catch();
 
-
+    
 
     if (app.globalData.userInfo) {
       this.setData!({

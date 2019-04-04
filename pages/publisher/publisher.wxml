@@ -34,7 +34,7 @@
     </block>
     <view class="opreate-underlying">
         <view class="container">
-            <listing arrowBtn clock final like showTitle>
+            <listing arrowBtn clock final like showTitle username="{{comment.cmtName}}">
                 <text slot="user" class="item-name">{{comment.cmtName}}</text>
                 <text slot="title" class="item-title">{{comment.title}}</text>
                 <view slot="context" class="item-context">{{comment.cmtContext}}</view>

@@ -52,7 +52,7 @@ margin-top: 48rpx;  */
 
 .topic-text {
   width: 600rpx;
-  line-height: 48rpx;
+  line-height: rpx;
   font-size: 30rpx;
   /* background:red; */
   margin: auto;

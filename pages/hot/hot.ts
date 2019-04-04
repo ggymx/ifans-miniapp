@@ -25,7 +25,7 @@ Page({
     toplicList: [],
     toplic: {},
     comment: {},
-    subText:'分享给朋友',
+    subText:'搜索订阅号',
     subImg:'../../imgs/jia.png'
   },
  /*订阅 */

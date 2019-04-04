@@ -1,8 +1,8 @@
 /* pages/my/my.wxss */
 
-.underlying,
-.container {
+.underlying{
   /* background-color: #FFF */
+  height:100%;
 }
 
 .topic {

@@ -25,7 +25,16 @@ Page({
     topic:null,
     comment: {}
   },
-
+  bindViewParti(){
+    wx.navigateTo({
+      url:'../participate/participate',
+      success:function(){
+        wx.showToast({
+          title:'发布话题'
+        });
+      }
+    });
+  },
   /*options:获取url参数 */
   onLoad(options:any) {
     let tId=options.tid;
