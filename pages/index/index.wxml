@@ -8,7 +8,7 @@
             </view>
       </view>
       <view class="container">
-            <block wx:for="{{toplicList}}">
+            <block wx:for="{{toplicList}}" wx:for-index="index">
                   <listing card showTitle showIssue clock like tId="{{item.tId}}" username="{{item.tName}}">
                         <text slot="user" class="topic-name">{{item.tName}}</text>
                         <text slot="title" class="text-weight">{{item.title}}</text>
@@ -16,7 +16,7 @@
                         <text slot="date">{{item.tDate}}</text>
                         <text slot="like">{{item.tLike}}</text>
                   </listing>
-                  <block wx:for="{{item.cmtList}}" wx:for-item="cmItem">
+                  <block wx:for="{{item.cmtList}}" wx:for-item="cmItem" wx:for-index="index">
                         <listing card arrowBtn showTitle clock like tId="{{item.tId}}" cId="{{cmItem.cmtId}}" username="{{cmItem.cmtName}}">
                               <text slot="user" class="item-name">{{cmItem.cmtName}}</text>
                               <text slot="title" class="item-title">{{item.title}}</text>

@@ -28,7 +28,7 @@
                   <!-- <text>2019/03/20</text> -->
                   <slot name="date"></slot>
              </view>
-              <view class="heart-view" catch:tap="likeSwitch">
+              <view class="heart-view" catch:tap="giveLike">
               <image src="{{imgUrl}}" style="width:26rpx;height:22rpx;margin-left:20rpx;" wx:if="{{like}}"/>
               <!-- <image src="../../imgs/button-like-dj@2x.png" style="width:26rpx;height:22rpx;" wx:elif="{{liked}}" catch:tap=""/> -->
 

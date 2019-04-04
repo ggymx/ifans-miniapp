@@ -52,6 +52,10 @@ Component({
     final: {
       type: Boolean,
       value: false
+    },
+    statusId:{
+      type:Boolean,
+      value:false
     }
   },
 
@@ -109,7 +113,32 @@ Component({
       });
     },
     /*点赞 */
-    likeSwitch: function (event) {
+    giveLike: function (event) {
+      /*判断是否授权 */
+       wx.getSetting({
+        success: function (res) {
+            if (res.authSetting['scope.userInfo']) {
+                wx.getUserInfo({
+                    success: function (res) {
+                       console.log("处在授权状态------res:")
+                       console.log(res);
+                    }
+                });
+            }
+        }
+    });
+      if(!this.properties.statusId){
+        wx.showToast({
+          title:'请先登录！',
+          duration:6000,
+          success:function(){
+            wx.navigateTo({
+              url:'../login/login'
+            });
+          }
+        });
+        // wx.getUserInfo({});
+    }else{
       if (this.data.imgUrl == '../../imgs/home-button-like@2x.png') {
         this.setData({
           imgUrl: '../../imgs/button-like-dj@2x.png'
@@ -119,6 +148,8 @@ Component({
           imgUrl: '../../imgs/home-button-like@2x.png'
         })
       }
+    }
+      
 
       // setTimeout(2000,()=>{
       //   console.log("2秒后执行")

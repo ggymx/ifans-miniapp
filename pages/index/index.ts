@@ -35,19 +35,31 @@ Page({
     });
   },
   onLoad() {
+
     console.log(this.data.toplicList);
+
     this.setData!({
       toplicList: TestApi.getTopList(),
     });
-    // getTopic({id:1}).then((data)=>{
+    wx.request({
+      url:'https://api-test.ifans.pub/v1/home/list',
 
-    //  let creatAt=data.topic.createAt.toLocaleString()
+      data:{
+        cursor:0,
+        limit:5
+      },
 
-    //  this.setData!({data:data,creatAt:creatAt})
-    //  console.log(data)
-    // }).catch();
+      method:"GET",
 
-
+      success(res){
+        console.log("index获取的数据res：");
+        console.log(res.data);
+      },
+      fail(err){
+        console.log("index获取的数据err：");
+        console.log(err);
+      }
+    });
 
     if (app.globalData.userInfo) {
       this.setData!({
