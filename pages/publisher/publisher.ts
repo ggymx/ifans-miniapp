@@ -13,9 +13,10 @@ Page({
     topic:null,
     comment: null
   },
-  bindViewParti(){
+  bindViewParti(event:any){
+    var tid=event.currentTarget.dataset.tid;
     wx.navigateTo({
-      url:'../participate/participate',
+      url:'../participate/participate?tid='+tid,
       success:function(){
         wx.showToast({
           title:'发布话题'

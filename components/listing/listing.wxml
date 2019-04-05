@@ -1,5 +1,6 @@
 <!-- <wxs module="ani" src="../../wxs/animation.wxs"></wxs> -->
 <!--components/listing/listing.wxml-->
+<wxs module="ani" src="../../wxs/animation.wxs"></wxs>
  <view class="publisher-item {{card?'item-card':''}} slot1 slot2" bind:tap="bindRouter" data-tid="{{tId}}" data-cid="{{cId}}">
             <view class="publisher-person">
              <image src="{{avatar}}" class="avatar" catch:tap="bindMy" data-uid="{{userId}}"/>
@@ -10,7 +11,9 @@
                 </view>
                  <text wx:if="{{showIssue}}">发布了话题</text>
             </view>
-             <image src="../../imgs/myhome-gd@2x.png" class="arrow-btn" wx:if="{{arrowBtn}}"/>
+            <view class="arr-view" catchtap="ani.popControl">
+             <image src="../../imgs/myhome-gd@2x.png" class="arrow-btn"  wx:if="{{arrowBtn}}" />
+            </view>
             </view>
             <view class="publisher-topic" wx:if="{{showTitle}}">
                 <view style="margin-left:26rpx;display:inline-block">
@@ -38,4 +41,7 @@
               </view>
               </view>
             </view>
+
+            <!--举报弹出框-->
+            <view class="popBox"></view>
         </view>

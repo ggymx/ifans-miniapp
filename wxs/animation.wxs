@@ -1,10 +1,13 @@
 /*动态效果 */
 
-function test1() {
+function popControl(event,ownerInstance) {
   console.log("动画效果wxs");
+  console.log(event);
+  console.log("--------------------||---------------");
+  console.log(ownerInstance);
 }
 
 /*导出模块 */
 module.exports = {
-  test1: test1
+  popControl: popControl
 }
