@@ -10,9 +10,12 @@
       "severity": "warning",
       "options": [ "debug", "info", "log", "time", "timeEnd", "trace" ]
     },
+    "typedef": false,
     "forin": false,
     "no-var-requires": false,
     "only-arrow-functions": false,
+    "object-literal-sort-keys": false,
+    "member-access": false,
     "semicolon": [true, "never"],
     "quotemark": [true, "single"]
   },
