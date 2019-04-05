@@ -5,14 +5,15 @@
 <view class="heard ">
     <view class="container">
         <view class="parti-header">
-            <text style="margin-left:36rpx">#整蛊大行动</text>
+            <text style="margin-left:36rpx">{{topic.post.title}}</text>
         </view>
     </view>
 </view>
 <view class="container">
+<!--这里bindinput可以，bind:input不可以？-->
        <textarea class="topic-text" placeholder="请至少输入20个字" 
-          maxlength="-1" auto-height="{{true}}" placeholder-class="placeholder-set"
-          show-confirm-bar="{{false}}" value="{{pushText}}" bind:input="{{setPushText}}" bindfocus="{{test}}">
+          maxlength="-1" auto-height="{{true}}" placeholder-class="placeholder-set" 
+          bindinput="textAreaInput" bindconfirm="tapConfirm" value="{{pushText}}">
        </textarea>
 </view>
 </view>

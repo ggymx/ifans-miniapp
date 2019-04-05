@@ -2,17 +2,6 @@
 //获取应用实例
 import { IMyApp } from '../../app'
 
-//调用后台api
-/*导入index??? */
-import api from '../../common/api'
-import { ITopicDetailParams, ITopicDetailResponse } from '../../common/types/http_msg';
-import { TestApi } from '../../testApi/TestApi';
-
-// let getTopic=async (obj:ITopicDetailParams):Promise<ITopicDetailResponse>=>{
-//     return await api.getTopic(obj);
-// }
-
-
 
 const app = getApp<IMyApp>()
 
@@ -29,13 +18,10 @@ Page({
   onLoad(options:any) {
     let userId=options.userId;
     console.log("接收到的userId："+userId);
-    // this.setData!({
-    //   partiList:TestApi.getMyParti(username),
-    //   username:username
-    // });
+
     var that=this;
     wx.request({
-      url:'http://api-test.ifans.pub/v1/user/detail',
+      url:'https://api-test.ifans.pub/v1/user/detail',
       data:{
         id:userId
       },

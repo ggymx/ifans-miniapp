@@ -2,13 +2,6 @@
 //获取应用实例
 import { IMyApp } from '../../app'
 
-//调用后台api
-/*导入index??? */
-import api from '../../common/api'
-import { ITopicDetailParams, ITopicDetailResponse } from '../../common/types/http_msg';
-import { TestApi } from '../../testApi/TestApi';
-
-
 
 const app = getApp<IMyApp>()
 
@@ -18,7 +11,6 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    toplicList: [],
     returnInfo:null
   },
   bindViewHot(){
@@ -33,11 +25,6 @@ Page({
   },
   onLoad() {
    
-    console.log(this.data.toplicList);
-
-    this.setData!({
-      toplicList: TestApi.getTopList(),
-    });
     var that=this;
     wx.request({
       url:'https://api-test.ifans.pub/v1/home/list',
@@ -57,6 +44,7 @@ Page({
         });
         /*通过返回的话题列表查询相应的参与话题的对象 */
        
+
       },
       fail(err){
         console.log("index获取的数据err：");

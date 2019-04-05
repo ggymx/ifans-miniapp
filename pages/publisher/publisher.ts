@@ -32,7 +32,7 @@ Page({
     //获取话题详情
     wx.request({
 
-      url:'http://api-test.ifans.pub/v1/post/detail',
+      url:'https://api-test.ifans.pub/v1/post/detail',
 
       method:'GET',
 
@@ -57,7 +57,7 @@ Page({
     //获取投稿详情
     wx.request({
 
-      url:'http://api-test.ifans.pub/v1/post/detail',
+      url:'https://api-test.ifans.pub/v1/post/detail',
 
       method:'GET',
 

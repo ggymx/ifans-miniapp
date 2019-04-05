@@ -2,16 +2,6 @@
 //获取应用实例
 import { IMyApp } from '../../app'
 
-//调用后台api
-/*导入index??? */
-import api from '../../common/api'
-import { ITopicDetailParams, ITopicDetailResponse } from '../../common/types/http_msg';
-
-// let getTopic=async (obj:ITopicDetailParams):Promise<ITopicDetailResponse>=>{
-//     return await api.getTopic(obj);
-// }
-
-
 
 const app = getApp<IMyApp>()
 
@@ -24,9 +14,10 @@ Page({
     topic: {},
     comment:{}
   },
-  bindViewParti(){
+  bindViewParti(event:any){
+    var tid=event.currentTarget.dataset.tid;
     wx.navigateTo({
-      url:'../participate/participate',
+      url:'../participate/participate?tid='+tid,
       success:function(){
         wx.showToast({
           title:'发布话题'
@@ -40,7 +31,7 @@ Page({
     let id=options.tid;
     var that=this;
     wx.request({
-      url:'http://api-test.ifans.pub/v1/post/detail',
+      url:'https://api-test.ifans.pub/v1/post/detail',
       method:'GET',
       data:{
         id:id
@@ -55,7 +46,7 @@ Page({
 
         wx.request(
           {
-            url:'http://api-test.ifans.pub/v1/post/list',
+            url:'https://api-test.ifans.pub/v1/post/list',
     
             method:'GET',
     

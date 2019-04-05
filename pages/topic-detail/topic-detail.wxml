@@ -21,7 +21,7 @@
            <image src="../../imgs/home-button-Comment@2x.png" style="width:32rpx;height:32rpx;margin-right:16rpx;" />
             <text style="font-size:24rpx;color:rgb(102,102,102);">99参与</text>
         </view>
-       <view class="opreate-item" bind:tap="bindViewParti">
+       <view class="opreate-item" bind:tap="bindViewParti" data-tid="{{topic.post.id}}">
             <image src="../../imgs/fabu@2x.png" style="width:27rpx;height:27rpx;margin-right:16rpx;"/>
             <text style="font-size:24rpx;color:rgb(102,102,102);">参与</text>
         </view>
@@ -40,7 +40,7 @@
         <view class="container">
             <block wx:if="{{topic.post.refPostId}}">
             <block wx:for="{{comment.posts}}">
-                <listing addClass="item-card" arrowBtn showTitle clock like tId="{{3}}" cId="{{item.id}}" username="{{comment.cmtName}}">
+                <listing addClass="item-card" arrowBtn showTitle clock like tId="{{topic.post.id}}" cId="{{item.id}}" userId="{{item.userId}}">
                     <text slot="user" class="item-name">{{item.userId}}</text>
                     <text slot="title" class="item-title">{{item.title}}</text>
                     <view slot="context" class="item-context">{{item.text}}</view>
