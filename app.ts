@@ -1,15 +1,18 @@
-//app.ts
+import tracker from './utils/tracker_es.min'
+tracker({token: 'c9e8c81c6aefc93c107fd2c43d094726', behaviour: 9, optimisedForSPA: true, useHistory: true})
+
+// app.ts
 export interface IMyApp {
-  userInfoReadyCallback?(res: wx.UserInfo): void
   globalData: {
-    userInfo?: wx.UserInfo
+    userInfo?: wx.UserInfo,
   }
+  userInfoReadyCallback?(res: wx.UserInfo): void
 }
 
 App<IMyApp>({
   onLaunch() {
     // 展示本地存储能力
-    var logs: number[] = wx.getStorageSync('logs') || []
+    const logs: number[] = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
 
@@ -18,7 +21,7 @@ App<IMyApp>({
       success(_res) {
         console.log(_res.code)
         // 发送 _res.code 到后台换取 openId, sessionKey, unionId
-      }
+      },
     })
     // 获取用户信息
     wx.getSetting({
@@ -34,12 +37,12 @@ App<IMyApp>({
               if (this.userInfoReadyCallback) {
                 this.userInfoReadyCallback(res.userInfo)
               }
-            }
+            },
           })
         }
-      }
+      },
     })
   },
   globalData: {
-  }
+  },
 })
