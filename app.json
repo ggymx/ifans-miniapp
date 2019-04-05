@@ -1,9 +1,11 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/test/test",
+    
     "pages/login/login",
     "pages/topic-detail/topic-detail",
-    "pages/test/test",
+   
     "pages/publisher/publisher",
     "pages/participate/participate",
     "pages/hot/hot"

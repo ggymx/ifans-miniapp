@@ -6,7 +6,6 @@ import { IMyApp } from '../../app'
 /*导入index??? */
 import api from '../../common/api'
 import { ITopicDetailParams, ITopicDetailResponse } from '../../common/types/http_msg';
-import { TestApi } from '../../testApi/TestApi';
 
 // let getTopic=async (obj:ITopicDetailParams):Promise<ITopicDetailResponse>=>{
 //     return await api.getTopic(obj);
@@ -22,7 +21,8 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    topic: {}
+    topic: {},
+    comment:{}
   },
   bindViewParti(){
     wx.navigateTo({
@@ -38,22 +38,53 @@ Page({
   /*options:获取url参数 */
   onLoad(options:any) {
     let id=options.tid;
-    // console.log(options);
-    console.log(`-----------------------------------`);
-    console.log(TestApi.getTopic(id));
-    this.setData!({
-      topic: TestApi.getTopic(id)
+    var that=this;
+    wx.request({
+      url:'http://api-test.ifans.pub/v1/post/detail',
+      method:'GET',
+      data:{
+        id:id
+      },
+      success(res){
+        console.log("接受到的话题详情-------------------：")
+        console.log(res.data);
+        //设置数据
+        that.setData!({
+          topic:res.data
+        }); 
+
+        wx.request(
+          {
+            url:'http://api-test.ifans.pub/v1/post/list',
+    
+            method:'GET',
+    
+            data:{
+              id:res.data.post.refPostId
+            },
+            success(res){
+              console.log("接受到的参与列表-------------------：")
+              console.log(res.data);
+              //设置数据
+              that.setData!({
+                // topic:res.data
+                comment:res.data
+              });
+            },  
+            fail(err){
+              console.log("打印错误信息");
+              console.log(err.errMsg);
+            }
+          }
+        )   
+
+      },  
+      fail(){
+
+      }
     });
-    // getTopic({id:1}).then((data)=>{
 
-    //  let creatAt=data.topic.createAt.toLocaleString()
-
-    //  this.setData!({data:data,creatAt:creatAt})
-    //  console.log(data)
-    // }).catch();
-
-
-
+  
     if (app.globalData.userInfo) {
       this.setData!({
         userInfo: app.globalData.userInfo,

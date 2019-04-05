@@ -2,7 +2,7 @@
 <!--components/listing/listing.wxml-->
  <view class="publisher-item {{card?'item-card':''}} slot1 slot2" bind:tap="bindRouter" data-tid="{{tId}}" data-cid="{{cId}}">
             <view class="publisher-person">
-             <image src="" class="avatar" catch:tap="bindMy" data-name="{{username}}"/>
+             <image src="{{avatar}}" class="avatar" catch:tap="bindMy" data-uid="{{userId}}"/>
              <view class="user-view">
                  <view class="username">
                      <!--插入姓名-->

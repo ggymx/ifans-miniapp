@@ -1,14 +1,15 @@
 <!-- pages/topic-detail/topic-detail.wxml -->
+<wxs module="con" src="../../wxs/converter.wxs"></wxs>
 <navbar back text="话题详情"></navbar>
 <view class="underlying">
     <view class="container">
         <view class="topic">
             <view class="topic-title">
                 <text style='font-size: 36rpx;font-weight: bold;color: rgb(51, 51, 51);'>
-                    {{topic.title}}
+                    {{topic.post.title}}
                 </text>
             </view>
-            <view class="topic-context" style='font-weight: 400;'>{{topic.context}}</view>
+            <view class="topic-context" style='font-weight: 400;'>{{topic.post.text}}</view>
         </view>
     </view>
 
@@ -26,10 +27,8 @@
         </view>
         <view class="opreate-item">
             <!-- <image src="../../imgs/zhuangfa@2x.png" style="width:29rpx;height:27rpx;margin-left:60rpx;margin-right:16rpx;"/> -->
-            <button>
             <image src="../../imgs/zhuangfa@2x.png" style="width:29rpx;height:27rpx;margin-left:60rpx;margin-right:16rpx;"/>
             <text style="font-size:24rpx;color:rgb(102,102,102);">分享话题</text>
-            </button>
         </view>
     </view>
     </view>
@@ -39,14 +38,16 @@
 
     <view class="opreate-underlying">
         <view class="container">
-            <block wx:for="{{topic.cmtList}}" wx:for-item="comment">
-                <listing addClass="item-card" arrowBtn showTitle clock like tId="{{topic.tId}}" cId="{{comment.cmtId}}" username="{{comment.cmtName}}">
-                    <text slot="user" class="item-name">{{comment.cmtName}}</text>
-                    <text slot="title" class="item-title">{{topic.title}}</text>
-                    <view slot="context" class="item-context">{{comment.cmtContext}}</view>
-                    <text slot="date">{{comment.cmtDate}}</text>
-                    <text slot="like">{{comment.like}}</text>
+            <block wx:if="{{topic.post.refPostId}}">
+            <block wx:for="{{comment.posts}}">
+                <listing addClass="item-card" arrowBtn showTitle clock like tId="{{3}}" cId="{{item.id}}" username="{{comment.cmtName}}">
+                    <text slot="user" class="item-name">{{item.userId}}</text>
+                    <text slot="title" class="item-title">{{item.title}}</text>
+                    <view slot="context" class="item-context">{{item.text}}</view>
+                    <text slot="date">{{con.dateCon(item.creatAt)}}</text>
+                    <text slot="like">{{99}}</text>
                 </listing>
+            </block>
             </block>
         </view>
     </view>

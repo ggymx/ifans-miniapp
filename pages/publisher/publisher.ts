@@ -2,18 +2,6 @@
 //获取应用实例
 import { IMyApp } from '../../app'
 
-//调用后台api
-/*导入index??? */
-import api from '../../common/api'
-import { ITopicDetailParams, ITopicDetailResponse } from '../../common/types/http_msg';
-import { TestApi } from '../../testApi/TestApi';
-
-// let getTopic=async (obj:ITopicDetailParams):Promise<ITopicDetailResponse>=>{
-//     return await api.getTopic(obj);
-// }
-
-
-
 const app = getApp<IMyApp>()
 
 Page({
@@ -23,7 +11,7 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     topic:null,
-    comment: {}
+    comment: null
   },
   bindViewParti(){
     wx.navigateTo({
@@ -39,26 +27,57 @@ Page({
   onLoad(options:any) {
     let tId=options.tid;
     let cId=options.cid;
-    if(tId!=0){
-      console.log("tId存在！")
-    this.setData!({
-      topic:TestApi.getTopic(tId),
-      comment: TestApi.getComment(cId)
+     
+    var that=this;
+    //获取话题详情
+    wx.request({
+
+      url:'http://api-test.ifans.pub/v1/post/detail',
+
+      method:'GET',
+
+      data:{
+        id:tId
+      },
+
+      success(res){
+        console.log("接受到的话题详情-------------------：")
+        console.log(res.data);
+        //设置数据
+        that.setData!({
+          topic:res.data
+        }); 
+
+      },  
+      fail(){
+
+      }
     });
-   }else{
-     console.log("tId不存在！");
-     this.setData!({
-       comment:TestApi.getComment(cId)
-     })
-   }
-    // getTopic({id:1}).then((data)=>{
 
-    //  let creatAt=data.topic.createAt.toLocaleString()
+    //获取投稿详情
+    wx.request({
 
-    //  this.setData!({data:data,creatAt:creatAt})
-    //  console.log(data)
-    // }).catch();
+      url:'http://api-test.ifans.pub/v1/post/detail',
 
+      method:'GET',
+
+      data:{
+        id:cId
+      },
+
+      success(res){
+        console.log("接受到的投稿详情-------------------：")
+        console.log(res.data);
+        //设置数据
+        that.setData!({
+          comment:res.data
+        }); 
+
+      },  
+      fail(){
+
+      }
+    });
 
 
     if (app.globalData.userInfo) {

@@ -11,6 +11,7 @@ Component({
    * cId:绑定评论Id
    * username：用户名
    * noBorder:是否有边框
+   * avatar:头像
    */
   properties: {
     card: {
@@ -37,7 +38,7 @@ Component({
       type: Number,
       value: 0
     },
-    username:{
+    userId:{
       type:String,
       value:''
     },
@@ -53,9 +54,9 @@ Component({
       type: Boolean,
       value: false
     },
-    statusId:{
-      type:Boolean,
-      value:false
+    avatar:{
+      type:String,
+      value:'../../imgs/test1.jpg'
     }
   },
 
@@ -63,7 +64,8 @@ Component({
    * 组件的初始数据
    */
   data: {
-    imgUrl: '../../imgs/home-button-like@2x.png'
+    imgUrl: '../../imgs/home-button-like@2x.png',
+    userStatus:false
   },
 
   /**
@@ -101,10 +103,10 @@ Component({
     },
     bindMy:function(event){
       console.log(event);
-      let username=event.currentTarget.dataset.name;
-      console.log("用户名:"+username);
+      let userId=event.currentTarget.dataset.uid;
+      console.log("用户名Id:"+userId);
       wx.navigateTo({
-        url:'../my/my?name='+username,
+        url:'../my/my?userId='+userId,
         success:function(){
           wx.showToast({
             title:'我的首页'
@@ -114,20 +116,22 @@ Component({
     },
     /*点赞 */
     giveLike: function (event) {
+      var that=this;
       /*判断是否授权 */
+      console.log("userStatus的状态："+userStatus);
        wx.getSetting({
         success: function (res) {
             if (res.authSetting['scope.userInfo']) {
                 wx.getUserInfo({
                     success: function (res) {
                        console.log("处在授权状态------res:")
-                       console.log(res);
+                      //  console.log(res);
                     }
                 });
             }
         }
     });
-      if(!this.properties.statusId){
+      if(!this.data.userStatus){
         wx.showToast({
           title:'请先登录！',
           duration:6000,

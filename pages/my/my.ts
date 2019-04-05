@@ -23,25 +23,38 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     partiList:[],
-    username:''
+    userData:null
   },
 
   onLoad(options:any) {
-    let username=options.name;
-    this.setData!({
-      partiList:TestApi.getMyParti(username),
-      username:username
+    let userId=options.userId;
+    console.log("接收到的userId："+userId);
+    // this.setData!({
+    //   partiList:TestApi.getMyParti(username),
+    //   username:username
+    // });
+    var that=this;
+    wx.request({
+      url:'http://api-test.ifans.pub/v1/user/detail',
+      data:{
+        id:userId
+      },
+      method:'GET',
+      success(res){
+      console.log("获取用户对象-----------------------");
+        console.log(res.data);
+        that.setData!({
+          userData:res.data
+        });
+      },
+      fail(err){
+        console.log("获取用户对象失败------------------------");
+        console.log(err.errMsg);
+      }
     });
+
     console.log(this.data.partiList);
-    // getTopic({id:1}).then((data)=>{
-
-    //  let creatAt=data.topic.createAt.toLocaleString()
-
-    //  this.setData!({data:data,creatAt:creatAt})
-    //  console.log(data)
-    // }).catch();
-
-
+  
 
     if (app.globalData.userInfo) {
       this.setData!({

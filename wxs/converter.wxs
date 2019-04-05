@@ -1,0 +1,37 @@
+/*数据格式转换器 */
+//日期处理
+function dateCon(dateStr) {
+  if (!dateStr || dateStr == '') return '';
+  //getDate()获取当前时间
+  var oldDate = getDate(dateStr);
+  var oldStr = ''
+  var now = getDate();
+  if (now.getFullYear() - oldDate.getFullYear() > 0) {
+    oldStr = oldDate.getFullYear()+"年"+oldDate.getMonth()+"月"+oldDate.getMonth()+"日";
+  } else {
+    if (now.getMonth() - oldDate.getMonth() > 0) {
+      oldStr = oldDate.getFullYear()+"年"+oldDate.getMonth()+"月"+oldDate.getMonth()+"日";
+    } else {
+      if (now.getDate() - oldDate.getDate() > 3) {
+        oldStr = oldDate.getFullYear()+"年"+oldDate.getMonth()+"月"+oldDate.getMonth()+"日";
+      } else {
+        if (now.getDate() - oldDate.getDate() == 3) {
+          oldStr = '3天前';
+        } else if (now.getDate() - oldDate.getDate() == 2) {
+          oldStr = '2天前';
+        } else if (now.getDate() - oldDate.getDate() == 1) {
+          oldStr = '24小时前';
+        } else {
+          oldStr = '刚刚';
+        }
+      }
+    }
+  }
+  console.log("oldStr:" + oldStr.toString());
+  return oldStr;
+}
+
+/*导出模块 */
+module.exports = {
+  dateCon: dateCon
+}

@@ -8,6 +8,7 @@
    * tId：绑定话题Id
    * cId:绑定评论Id   
 -->
+<wxs module="converter" src="../../wxs/converter.wxs"></wxs>
 <navbar back text="测试"></navbar>
 <view class="underlying">
       <view class="container">
@@ -30,4 +31,6 @@
                   </block>
             </block>
       </view>
+
+      <view>{{converter.dateCon()}}</view>
 </view>

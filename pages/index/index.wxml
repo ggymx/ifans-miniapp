@@ -1,4 +1,5 @@
 <!-- pages/index/index.wxml -->
+<wxs module="con" src="../../wxs/converter.wxs"></wxs>
 <navbar gear text="首页" class="navbar-index"></navbar>
 <view class="underlying">
       <view class='index-subscribe'>
@@ -29,19 +30,19 @@
       </view> -->
       <view class="container">
             <block wx:for="{{returnInfo.posts}}" wx:for-index="index">
-                  <listing card showTitle showIssue clock like tId="{{item.id}}" username="{{item.user.nickname}}">
+                  <listing card showTitle showIssue clock like tId="{{item.id}}" userId="{{item.user.id}}" avatar="{{item.user.avatar}}">
                         <text slot="user" class="topic-name">{{item.user.nickname}}</text>
                         <text slot="title" class="text-weight">{{item.title}}</text>
                         <view slot="context" class="topic-context">{{item.text}}</view>
-                        <text slot="date">{{item.updateAt}}</text>
+                        <text slot="date">{{con.dateCon(item.creatAt)}}</text>
                         <text slot="like">99</text>
                   </listing>
                   <block wx:if="{{item.refPostId}}">
-                        <listing card arrowBtn showTitle clock like tId="{{item.id}}" cId="{{item.refPostId}}" username="{{cmItem.cmtName}}">
+                        <listing card arrowBtn showTitle clock like tId="{{item.id}}" cId="{{item.refPostId}}" userId="{{item.refPost.userId}}">
                               <text slot="user" class="item-name">{{item.refPost.userId}}</text>
                               <text slot="title" class="item-title">{{item.refPost.title}}</text>
                               <view slot="context" class="item-context">{{item.refPost.text}}</view>
-                              <text slot="date">{{item.refPost.creatAt}}</text>
+                              <text slot="date">{{con.dateCon(item.refPost.creatAt)}}</text>
                               <text slot="like">999</text>
                         </listing>
                   </block>

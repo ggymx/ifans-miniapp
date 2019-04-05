@@ -1,8 +1,10 @@
+/*动态效果 */
+
+function test1() {
+  console.log("动画效果wxs");
+}
+
+/*导出模块 */
 module.exports = {
-    touchmove:function (event, instance) {
-      console.log('log event', JSON.stringify(event))
-    },
-    propObserver:function(newValue, oldValue, ownerInstance, instance) {
-      console.log('prop observer', newValue, oldValue)
-    }
-  }
+  test1: test1
+}

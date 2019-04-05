@@ -22,7 +22,7 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    returnInfo:{},
+    returnInfo:null,
     statusText:'授权登录'
   },
   // bindGetUserInfo(e: any) {
