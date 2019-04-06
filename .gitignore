@@ -81,4 +81,3 @@ jspm_packages/
 .dynamodb/
 
 #My config
-*.js

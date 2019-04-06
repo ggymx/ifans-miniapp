@@ -7,7 +7,14 @@ function popControl(event,ownerInstance) {
   console.log(ownerInstance);
 }
 
+function test(){
+  console.log("测试。。。。。。。。。。。。");
+  var x="测试";
+  return x;
+}
+
 /*导出模块 */
 module.exports = {
-  popControl: popControl
+  popControl: popControl,
+  test:test
 }

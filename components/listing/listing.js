@@ -65,6 +65,7 @@ Component({
    */
   data: {
     imgUrl: '../../imgs/home-button-like@2x.png',
+    isExist:false
   },
 
   /**
@@ -169,12 +170,17 @@ Component({
     },
 
      //点击弹出屏蔽举报模态框
-    // popBox(){
-    // console.log("测试");
-
-    // },
+    popBox(){
+      /**不能直接设置样式？ */
+      // const query=wx.createSelectorQuery().in(this).select('.arr-view');
+      // console.log("------------------------------------");
+      // console.log(query);
+      console.log(this.data.isExist);
+      this.setData({
+        isExist:'block'
+      });
+    },
   },
-
 
   options: {
     multipleSlots: true // 在组件定义时的选项中启用多slot支持
@@ -186,6 +192,7 @@ Component({
 
     }
   },
+  
   /*接受的外部样式类,通过slot1/slot2两个属性获取 */
   externalClasses: ['slot1', 'slot2']
 })

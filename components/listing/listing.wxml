@@ -11,7 +11,7 @@
                 </view>
                  <text wx:if="{{showIssue}}">发布了话题</text>
             </view>
-            <view class="arr-view" catchtap="ani.popControl">
+            <view class="arr-view" catchtap="popBox">
              <image src="../../imgs/myhome-gd@2x.png" class="arrow-btn"  wx:if="{{arrowBtn}}" />
             </view>
             </view>
@@ -43,5 +43,5 @@
             </view>
 
             <!--举报弹出框-->
-            <view class="popBox"></view>
+            <view class="popBox" style="{{'display'+isExist}}"></view>
         </view>

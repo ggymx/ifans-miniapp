@@ -9,6 +9,7 @@
    * cId:绑定评论Id   
 -->
 <wxs module="converter" src="../../wxs/converter.wxs"></wxs>
+<wxs module="ani" src="../../wxs/animation.wxs"></wxs>
 <navbar back text="测试"></navbar>
 <view class="underlying">
       <view class="container">
@@ -33,4 +34,5 @@
       </view>
 
       <view>{{converter.dateCon()}}</view>
+      <view>{{ani.test()}}</view>
 </view>

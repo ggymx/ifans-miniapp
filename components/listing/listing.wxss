@@ -157,5 +157,5 @@ text {
   position:absolute;
   top:52rpx;
   right:72rpx;
-  display: none;
+  /* display: block; */
 }
