@@ -16,7 +16,14 @@
     "only-arrow-functions": false,
     "object-literal-sort-keys": false,
     "member-access": false,
-    "semicolon": [true, "never"],
+    "whitespace": false,
+    "comment-format": false,
+    "trailing-comma": false,
+    "one-line": false,
+    "align": false,
+    "arrow-parens": false,
+    "no-shadowed-variable": false,
+    "semicolon": [false, "never"],
     "quotemark": [true, "single"]
   },
   "jsRules": {
