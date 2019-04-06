@@ -2,6 +2,7 @@
   "name": "demo",
   "version": "1.0.0",
   "scripts": {
+    "build": "tsc",
     "tsc": "./node_modules/typescript/bin/tsc",
     "lint": "tslint -c tslint.json -p tsconfig.json",
     "compile": "tsc"
