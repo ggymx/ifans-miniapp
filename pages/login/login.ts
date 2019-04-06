@@ -3,7 +3,7 @@
 import { IMyApp } from '../../app'
 
 const app = getApp<IMyApp>()
-
+let loginCode: string
 Page({
   data: {
     motto: '点击 “编译” 以构建',
@@ -16,19 +16,24 @@ Page({
   /*授权登录 */
   onGotUserInfo(e: any) {
     /*点击确认按钮 */
-    console.log("点击了确认按钮");
+    console.log("点击了确认按钮", e);
     if (e.detail.userInfo) {
      var that=this;
-     wx.login({
-       success(res){
-          /*wx.login获取code-微信登录的标识 */
-         console.log(res.code);
+    //  wx.login({
+    //    success(res){
+    //       /*wx.login获取code-微信登录的标识 */
+    //      console.log(res.code);
+    //      console.log('wx.login res', res)
           wx.request({
 
             url:'https://api-test.ifans.pub/v1/auth/login',
 
             data:{
-              code:res.code
+              code:loginCode,
+              encryptedData: e.detail.encryptedData,
+              iv: e.detail.iv,
+              rawData: e.detail.rawData,
+              signature: e.detail.signature,
             },
 
             header: {
@@ -63,8 +68,8 @@ Page({
             }
 
           });
-       }
-     })
+    //    }
+    //  })
       wx.showLoading({
         title:'加载中'
       });
@@ -94,14 +99,22 @@ Page({
     }
   },
   onLoad() {
-
+    wx.login({
+      success(res) {
+        /*wx.login获取code-微信登录的标识 */
+        console.log('on load: wx.login res', res)
+        loginCode = res.code
+      }
+    })
 
     if (app.globalData.userInfo) {
+      console.log('has app.globalData.userInfo', app.globalData.userInfo)
       this.setData!({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true,
       })
     } else if (this.data.canIUse) {
+      console.log('this.data.canIUse', this.data.canIUse)
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
       app.userInfoReadyCallback = (res) => {
@@ -111,9 +124,11 @@ Page({
         })
       }
     } else {
+      console.log('no open-type=getUserInfo')
       // 在没有 open-type=getUserInfo 版本的兼容处理
       wx.getUserInfo({
         success: res => {
+          console.log('getUserInfo res', res)
           app.globalData.userInfo = res.userInfo
           this.setData!({
             userInfo: res.userInfo,
@@ -125,7 +140,7 @@ Page({
   },
 
   getUserInfo(e: any) {
-    console.log(e)
+    console.log('====this.getUserInfo', e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData!({
       userInfo: e.detail.userInfo,
