@@ -11,91 +11,112 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    topic:null,
-    pushText:null,
-    refPostId:null
+    topic: null,
+    pushText: null,
+    refPostId: null
   },
   /*textarea输入时触发该函数-微信框架无双向绑定 */
-  textAreaInput(event:any){
+  textAreaInput(event: any) {
     this.setData!({
-      pushText:event.detail.value
+      pushText: event.detail.value
     })
     // console.log('input事件被触发：'+this.data.pushText);
     // wx.showToast({title:'input事件被触发'})
   },
-  
-  tapConfirm(event:any){
+
+  tapConfirm(event: any) {
     console.log('点击完成被触发');
-    wx.showToast({title:'点击完成被触发'});
+    wx.showToast({ title: '点击完成被触发' });
   },
 
   /*发布话题 */
-  titleParti(event:any){
-    var that=this;
-      if(!this.data.pushText){
-        wx.showToast({
-          title:'内容不能为空！'
-        });
-      }else{
-        // wx.showToast({
-        //   title:'发表成功！'
-        // });
-        wx.showLoading({
-          title:'发布中...',
-          success(){
-
-          }
-        });
+  titleParti(event: any) {
+    var that = this;
+    if (!this.data.pushText) {
+      wx.showToast({
+        title: '内容不能为空！'
+      });
+    } else {
+      // wx.showToast({
+      //   title:'发表成功！'
+      // });
+      wx.showLoading({
+        title: '发布中...',
+        success() {
+        }
+      });
+      //获取缓存中的token，同步方式
+      var token = wx.getStorageSync('token');
+      console.log("获取缓存中的token：" + token);
+      if (token) {
         wx.request({
-          url:'https://api-test.ifans.pub/v1/post/create',
-          data:{
-            text:that.data.pushText,
-            type:2,
-            userid:1,
-            refPostId:12
+          url: 'https://api-test.ifans.pub/v1/post/create',
+          data: {
+            text: that.data.pushText,
+            type: 2,
+            userid: 1,
+            refPostId: 12
           },
-          method:'POST',
-          success(res){
+          header: {
+            Authorization: token
+          },
+          method: 'POST',
+          success(res) {
             console.log("参与话题成功！");
             wx.hideLoading({
-              success(){
+              success() {
                 wx.navigateTo({
-                  url:'../topic-detail/topic-detail'
+                  url: '../topic-detail/topic-detail'
                 });
               }
             });
-  
-          },
-          fail(){
 
+          },
+          fail(res) {
+            console.log(res.errMsg);
+          }
+        });
+      }else{
+        //用户未登录或者token过期
+        wx.showToast({
+          title:'暂未登录！',
+          duration:6000,
+          success(){
+            wx.navigateTo({
+              url:'../login/login',
+              success(){
+                wx.showToast({title:'前往登录页'});
+              }
+            });
           }
         });
       }
+    }
   },
 
-  onLoad(options:any) {
+  onLoad(options: any) {
     console.log('触发load事件');
-      let tid=options.tid;
-      this.data.refPostId=options.tid;
-      console.log(`传过来的tid：${tid}，存储的id${this.data.refPostId}`);
-      var that=this;
-      wx.request({
-        url:'https://api-test.ifans.pub/v1/post/detail',
-        data:{
-          id:tid
-        },
-        method:'GET',
-        success(res){
-          console.log("参与话题页----------获取res");
-          console.log(res.data);
-          that.setData!({
-            topic:res.data
-          });
-        },
-        fail(err){
-          console.log("打印错误信息:"+err.errMsg);
-        }
-      });
+    let tid = options.tid;
+    this.data.refPostId = options.tid;
+    console.log(`传过来的tid：${tid}，存储的id${this.data.refPostId}`);
+    var that = this;
+    wx.request({
+      url: 'https://api-test.ifans.pub/v1/post/detail',
+      data: {
+        id: tid
+      },
+      method: 'GET',
+      success(res) {
+        console.log("参与话题页----------获取res");
+        console.log(res.data);
+        that.setData!({
+          topic: res.data
+        });
+      },
+      fail(err) {
+        console.log("打印错误信息:" + err.errMsg);
+      }
+    });
 
     if (app.globalData.userInfo) {
       this.setData!({

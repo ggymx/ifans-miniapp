@@ -27,7 +27,6 @@ function dateCon(dateStr) {
       }
     }
   }
-  console.log("oldStr:" + oldStr.toString());
   return oldStr;
 }
 

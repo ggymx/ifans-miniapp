@@ -2,18 +2,6 @@
 //获取应用实例
 import { IMyApp } from '../../app'
 
-//调用后台api
-/*导入index??? */
-import api from '../../common/api'
-import { ITopicDetailParams, ITopicDetailResponse } from '../../common/types/http_msg';
-import { TestApi } from '../../testApi/TestApi';
-
-// let getTopic=async (obj:ITopicDetailParams):Promise<ITopicDetailResponse>=>{
-//     return await api.getTopic(obj);
-// }
-
-
-
 const app = getApp<IMyApp>()
 
 Page({
@@ -25,49 +13,6 @@ Page({
     returnInfo:null,
     statusText:'授权登录'
   },
-  // bindGetUserInfo(e: any) {
-  //   console.log("测试------------------")
-  //   if (e.detail.userInfo) {
-  //     //用户按了允许授权按钮
-  //     var that = this;
-  //     //插入登录的用户的相关信息到数据库
-  //     wx.request({
-  //       url: app.globalData.urlPath + 'user/add',
-  //       data: {
-  //         openid: getApp().globalData.openid,
-  //         nickName: e.detail.userInfo.nickName,
-  //         avatarUrl: e.detail.userInfo.avatarUrl,
-  //         province: e.detail.userInfo.province,
-  //         city: e.detail.userInfo.city
-  //       },
-  //       header: {
-  //         'content-type': 'application/json'
-  //       },
-  //       success: function (res) {
-  //         //从数据库获取用户信息
-  //         // that.queryUsreInfo();
-  //         console.log("插入小程序登录用户信息成功！");
-  //       }
-  //     });
-  //     //授权成功后，跳转进入小程序首页
-  //     wx.switchTab({
-  //       url: '/pages/index/index'
-  //     })
-  //   } else {
-  //     //用户按了拒绝按钮
-  //     wx.showModal({
-  //       title: '警告',
-  //       content: '您点击了拒绝授权，将无法进入小程序，请授权之后再进入!!!',
-  //       showCancel: false,
-  //       confirmText: '返回授权',
-  //       success: function (res) {
-  //         if (res.confirm) {
-  //           console.log('用户点击了“返回授权”')
-  //         }
-  //       }
-  //     })
-  //   }
-  // },
   /*授权登录 */
   onGotUserInfo(e: any) {
     /*点击确认按钮 */
@@ -94,10 +39,22 @@ Page({
 
             success(res){
               console.log("login获取的数据res:")
-              console.log(res.data);
+              // console.log(res.data);
+              console.log(res.data.token);
               that.setData!({
                 returnInfo:res.data,
                 statusText:'已登录'
+              });
+              //往缓存中添加token（异步）
+              wx.setStorage({
+                key:'token',
+                data:res.data.token,
+                success(){
+                  console.log("存入token成功");
+                },
+                fail(){
+                  console.log("缓存失败！");
+                }
               });
             },
             fail(res){
@@ -108,15 +65,6 @@ Page({
           });
        }
      })
-      // console.log("++++++++++++++++++++++++++++++++++++++");
-      // console.log(e.detail.errMsg)
-      // console.log(e.detail.userInfo)
-      // console.log(e.detail.rawData)
-      // this.setData!({
-      //   avatar: e.detail.userInfo.avatarUrl,
-      //   username: e.detail.userInfo.nickName,
-      //   statusText:'已登录'
-      // });
       wx.showLoading({
         title:'加载中'
       });

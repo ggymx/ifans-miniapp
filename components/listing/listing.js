@@ -38,9 +38,9 @@ Component({
       type: Number,
       value: 0
     },
-    userId:{
-      type:String,
-      value:''
+    userId: {
+      type: String,
+      value: ''
     },
     clock: {
       type: Boolean,
@@ -54,9 +54,9 @@ Component({
       type: Boolean,
       value: false
     },
-    avatar:{
-      type:String,
-      value:'../../imgs/test1.jpg'
+    avatar: {
+      type: String,
+      value: '../../imgs/test1.jpg'
     }
   },
 
@@ -65,7 +65,6 @@ Component({
    */
   data: {
     imgUrl: '../../imgs/home-button-like@2x.png',
-    userStatus:false
   },
 
   /**
@@ -101,68 +100,82 @@ Component({
         }
       }
     },
-    bindMy:function(event){
+    bindMy: function (event) {
       console.log(event);
-      let userId=event.currentTarget.dataset.uid;
-      console.log("用户名Id:"+userId);
+      let userId = event.currentTarget.dataset.uid;
+      console.log("用户名Id:" + userId);
       wx.navigateTo({
-        url:'../my/my?userId='+userId,
-        success:function(){
+        url: '../my/my?userId=' + userId,
+        success: function () {
           wx.showToast({
-            title:'我的首页'
+            title: '我的首页'
           });
         }
       });
     },
     /*点赞 */
     giveLike: function (event) {
-      var that=this;
-      /*判断是否授权 */
-      console.log("userStatus的状态："+userStatus);
-       wx.getSetting({
-        success: function (res) {
-            if (res.authSetting['scope.userInfo']) {
-                wx.getUserInfo({
-                    success: function (res) {
-                       console.log("处在授权状态------res:")
-                      //  console.log(res);
-                    }
-                });
-            }
-        }
-    });
-      if(!this.data.userStatus){
+      var that = this;
+      //  wx.getSetting({
+      //     success: function (res) {
+      //          console.log("查看授权状态："+res.authSetting['scope.userInfo']);
+      //           /*判断是否授权 */
+      //         if (!res.authSetting['scope.userInfo']) {
+      //             wx.showToast({
+      //               title:'请先登录！',
+      //               duration:5000,
+      //               success:function(){
+      //                 wx.navigateTo({
+      //                   url:'../login/login'
+      //                 });
+      //               }
+      //             });
+      //         }else{
+      //           if (that.data.imgUrl == '../../imgs/home-button-like@2x.png') {
+      //             that.setData({
+      //               imgUrl: '../../imgs/button-like-dj@2x.png'
+      //             })
+      //           } else {
+      //             that.setData({
+      //               imgUrl: '../../imgs/home-button-like@2x.png'
+      //             })
+      //           }
+      //         }
+      //     }
+      // });
+      //获取token
+      var token = wx.getStorageSync('token');
+      if (!token) {
         wx.showToast({
-          title:'请先登录！',
-          duration:6000,
-          success:function(){
+          title: '请先登录！',
+          duration: 5000,
+          success: function () {
             wx.navigateTo({
-              url:'../login/login'
+              url: '../login/login'
             });
           }
         });
-        // wx.getUserInfo({});
-    }else{
-      if (this.data.imgUrl == '../../imgs/home-button-like@2x.png') {
-        this.setData({
-          imgUrl: '../../imgs/button-like-dj@2x.png'
-        })
       } else {
-        this.setData({
-          imgUrl: '../../imgs/home-button-like@2x.png'
-        })
+        if (that.data.imgUrl == '../../imgs/home-button-like@2x.png') {
+          that.setData({
+            imgUrl: '../../imgs/button-like-dj@2x.png'
+          })
+        } else {
+          that.setData({
+            imgUrl: '../../imgs/home-button-like@2x.png'
+          })
+        }
       }
-    }
-      
+    },
 
-      // setTimeout(2000,()=>{
-      //   console.log("2秒后执行")
-      //   this.setData({
-      //     imgUrl:''
-      //   });
-      // });
-    }
+     //点击弹出屏蔽举报模态框
+    // popBox(){
+    // console.log("测试");
+
+    // },
   },
+
+
   options: {
     multipleSlots: true // 在组件定义时的选项中启用多slot支持
   },
