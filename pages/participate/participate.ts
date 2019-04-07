@@ -68,6 +68,7 @@ Page({
         let userId = wx.getStorageSync('userId');
         console.log('获取到的userId:', userId);
         console.log('获取到的话题的id:', this.data.refPostId);
+        console.log('获取到的投稿的内容：',this.data.pushText);
         wx.request({
           url: 'https://api-test.ifans.pub/v1/post/create',
           data: {
@@ -81,6 +82,7 @@ Page({
           },
           method: 'POST',
           success(res) {
+            console.log("发布投稿成功！！！！！！！！！",res.data);
             setTimeout(() => {
               wx.hideLoading({
                 success() {
