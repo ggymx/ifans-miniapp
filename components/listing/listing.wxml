@@ -43,5 +43,5 @@
             </view>
 
             <!--举报弹出框-->
-            <view class="popBox" style="{{'display'+isExist}}"></view>
+            <view class="popBox" wx:if="{{false}}"></view>
         </view>

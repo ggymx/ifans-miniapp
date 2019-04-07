@@ -1,5 +1,8 @@
 "use strict";
 var app = getApp();
+/*待初始化的缓存和草稿 */
+let topicCache
+let draft
 Component({
     properties: {
         text: {
@@ -30,46 +33,48 @@ Component({
             });
         },
         back: function () {
-            console.log("测试");
+           topicCache=wx.getStorageSync('topic');
+           draft=wx.getStorageSync('draft');
+           //回退时，如果缓存有话题和草稿，则清除
+           if(topicCache) wx.removeStorageSync('topic')
+           if(draft) wx.removeStorageSync('draft')
             wx.navigateBack({
                 delta: 1
             });
         },
         backGear: function () {
             wx.showActionSheet({
-                itemList: ['我的首页', '联系客服', '分享给朋友'],
+                itemList: ['我的空间', '联系客服', '分享给朋友'],
                 success: function (res) {
                     switch (res.tapIndex) {
                         case 0:
-                            wx.navigateTo({
-                                url: '../my/my?name='+'葛干',
-                                success: function () {
-                                    wx.showToast({
-                                        title: '跳转首页！'
-                                    });
-                                }
+                        let token = wx.getStorageSync('token');
+                        if(token){
+                            //获取用户Id
+                            let userId=wx.getStorageSync('userId');
+                            wx.showToast({
+                                title: '前往空间'
                             });
+                            setTimeout(()=>{
+                                wx.navigateTo({
+                                    url: '../my/my?userId='+userId,
+                                    success: function () {
+                                       
+                                    }
+                                });
+                            },2000)
+                            
+                        }else{
+                            wx.showToast({title:'请先登录！'});
+                            setTimeout(()=>{
+                                wx.navigateTo({
+                                    url:'../login/login'
+                                });
+                            },2000)
+                        }
                             break;
-                        case 1:
-                            // wx.navigateTo({
-                            //     url: '../news/news',
-                            //     success: function () {
-                            //         wx.showToast({
-                            //             title: '跳转消息页！'
-                            //         });
-                            //     }
-                            // });
-                            break;
-                        case 2:
-                            // wx.navigateTo({
-                            //     url: '../track/track',
-                            //     success: function () {
-                            //         wx.showToast({
-                            //             title: '跳转足迹页！'
-                            //         });
-                            //     }
-                            // });
-                            break;
+                        case 1:break;
+                        case 2:break;
                     }
                 },
                 fail: function (res) {

@@ -1,6 +1,6 @@
 <!-- pages/my/my.wxml -->
 <wxs module="con" src="../../wxs/converter.wxs"></wxs>
-<navbar back text="我的首页"></navbar>
+<navbar back text="我的空间"></navbar>
 <view class="underlying" style="background-color:rgb(245,245,245)">
       <view class="my-view">
             <image src="{{userData.user.avatar}}" class="big-avatar" />
@@ -12,7 +12,7 @@
                   <block wx:for="{{userData.posts}}" wx:for-item="partiItem">
                         <listing card arrowBtn showTitle showIssue="{{partiItem.type==1?'true':'false'}}" clock like tId="{{partiItem.tId}}" cId="{{partiItem.cmtId}}" avatar="{{userData.user.avatar}}">
                               <text slot="user" class="item-name">{{userData.user.nickname}}</text>
-                              <text slot="title" class="item-title">{{partiItem.title}}</text>
+                              <text slot="title" class="item-title">{{partiItem.refPost.title}}</text>
                               <view slot="context" class="item-context">{{partiItem.text}}</view>
                               <text slot="date">{{con.dateCon(partiItem.creatAt)}}</text>
                               <text slot="like">{{99}}</text>

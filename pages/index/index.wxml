@@ -23,7 +23,7 @@
                               <text slot="title" class="item-title">{{item.refPost.title}}</text>
                               <view slot="context" class="item-context">{{item.refPost.text}}</view>
                               <text slot="date">{{con.dateCon(item.refPost.creatAt)}}</text>
-                              <text slot="like">999</text>
+                              <text slot="like">99</text>
                         </listing>
                   </block>
             </block>

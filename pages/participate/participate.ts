@@ -12,7 +12,7 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     topic: null,
-    pushText: null,
+    pushText:'',
     refPostId: null
   },
   /*textarea输入时触发该函数-微信框架无双向绑定 */
@@ -20,8 +20,6 @@ Page({
     this.setData!({
       pushText: event.detail.value
     })
-    // console.log('input事件被触发：'+this.data.pushText);
-    // wx.showToast({title:'input事件被触发'})
   },
 
   tapConfirm(event: any) {
@@ -32,70 +30,92 @@ Page({
   /*发布话题 */
   titleParti(event: any) {
     var that = this;
-    if (!this.data.pushText) {
-      wx.showToast({
-        title: '内容不能为空！'
-      });
-    } else {
-      // wx.showToast({
-      //   title:'发表成功！'
-      // });
-      wx.showLoading({
-        title: '发布中...',
-        success() {
+    //获取缓存中的token，同步方式
+    let token = wx.getStorageSync('token');
+    if (!token) {
+      //用户未登录或者token过期
+      wx.showToast({ title: '请先登录！' });
+      //缓存未发布的草稿
+      console.log("未发布的草稿：",this.data.pushText)
+      if(this.data.pushText!=''){
+      wx.setStorage({
+        key:'draft',
+        data:this.data.pushText,
+        success(){
         }
       });
-      //获取缓存中的token，同步方式
-      var token = wx.getStorageSync('token');
-      console.log("获取缓存中的token：" + token);
-      if (token) {
+    }
+      setTimeout(() => {
+        wx.navigateTo({
+          url: '../login/login',
+          success() {
+
+          }
+        });
+      }, 2000);
+
+    } else {
+      if (!this.data.pushText) {
+        wx.showToast({
+          title: '内容不能为空！'
+        });
+      } else {
+        wx.showLoading({
+          title: '投稿中...',
+          success() {
+          }
+        });
+        let userId = wx.getStorageSync('userId');
+        console.log('获取到的userId:', userId);
+        console.log('获取到的话题的id:', this.data.refPostId);
         wx.request({
           url: 'https://api-test.ifans.pub/v1/post/create',
           data: {
             text: that.data.pushText,
             type: 2,
-            userid: 1,
-            refPostId: 12
+            userid: userId,
+            refPostId: this.data.refPostId
           },
           header: {
             Authorization: token
           },
           method: 'POST',
           success(res) {
-            console.log("参与话题成功！");
-            wx.hideLoading({
-              success() {
-                wx.navigateTo({
-                  url: '../topic-detail/topic-detail'
-                });
-              }
-            });
+            setTimeout(() => {
+              wx.hideLoading({
+                success() {
+                  wx.showToast({
+                    title: '投稿成功！'
+                  });
+                  //投稿成功则清除缓存中的话题和草稿
+                  wx.removeStorageSync('topic');
+                  wx.removeStorageSync('draft');
+                  setTimeout(() => {
+                    wx.navigateTo({
+                      url: '../index/index'
+                    });
+                  }, 1000);
+                }
+              });
+
+            }, 1000);
 
           },
           fail(res) {
             console.log(res.errMsg);
           }
         });
-      }else{
-        //用户未登录或者token过期
-        wx.showToast({
-          title:'暂未登录！',
-          duration:6000,
-          success(){
-            wx.navigateTo({
-              url:'../login/login',
-              success(){
-                wx.showToast({title:'前往登录页'});
-              }
-            });
-          }
-        });
+
       }
     }
   },
 
   onLoad(options: any) {
     console.log('触发load事件');
+    let topic=wx.getStorageSync('topic')
+    console.log('获得缓存中的topic：',topic);
+    //没有话题缓存说明是首次来该页面
+    if(!topic){
     let tid = options.tid;
     this.data.refPostId = options.tid;
     console.log(`传过来的tid：${tid}，存储的id${this.data.refPostId}`);
@@ -112,11 +132,34 @@ Page({
         that.setData!({
           topic: res.data
         });
+
+        //缓存话题
+        wx.setStorage({
+          key:'topic',
+          data:res.data,
+          success(){
+            console.log("缓存取到的话题：",res.data);
+          }
+        });
       },
       fail(err) {
         console.log("打印错误信息:" + err.errMsg);
       }
     });
+  }else{
+    //有话题缓存说明是从登录页跳转过来的，就直接取缓存
+    this.setData!({
+      topic:topic
+    });
+    this.setData!({
+      refPostId:topic.post.id
+    });
+    //取出缓存的草稿，应该是异步，这里是同步待修改
+    let draft =wx.getStorageSync('draft');
+    this.setData!({
+      pushText:draft
+    });
+  }
 
     if (app.globalData.userInfo) {
       this.setData!({

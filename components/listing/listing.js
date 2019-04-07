@@ -65,7 +65,6 @@ Component({
    */
   data: {
     imgUrl: '../../imgs/home-button-like@2x.png',
-    isExist:false
   },
 
   /**
@@ -147,15 +146,13 @@ Component({
       //获取token
       var token = wx.getStorageSync('token');
       if (!token) {
-        wx.showToast({
-          title: '请先登录！',
-          duration: 5000,
-          success: function () {
-            wx.navigateTo({
-              url: '../login/login'
-            });
-          }
-        });
+        wx.showToast({title: '请先登录！'});
+        //延迟三秒执行跳转
+        setTimeout(()=>{
+          wx.navigateTo({
+            url: '../login/login'
+          });
+        },2000);
       } else {
         if (that.data.imgUrl == '../../imgs/home-button-like@2x.png') {
           that.setData({
@@ -174,11 +171,6 @@ Component({
       /**不能直接设置样式？ */
       // const query=wx.createSelectorQuery().in(this).select('.arr-view');
       // console.log("------------------------------------");
-      // console.log(query);
-      console.log(this.data.isExist);
-      this.setData({
-        isExist:'block'
-      });
     },
   },
 

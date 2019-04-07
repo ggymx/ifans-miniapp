@@ -17,13 +17,10 @@ Page({
   onGotUserInfo(e: any) {
     /*点击确认按钮 */
     console.log("点击了确认按钮", e);
+    /*当拿到用户信息时*/
     if (e.detail.userInfo) {
      var that=this;
-    //  wx.login({
-    //    success(res){
-    //       /*wx.login获取code-微信登录的标识 */
-    //      console.log(res.code);
-    //      console.log('wx.login res', res)
+    /*这里不需要用token判断 */
           wx.request({
 
             url:'https://api-test.ifans.pub/v1/auth/login',
@@ -43,8 +40,7 @@ Page({
             method:'POST',
 
             success(res){
-              console.log("login获取的数据res:")
-              // console.log(res.data);
+              console.log("后端成功拿到用户信息后的返回的数据",res.data);
               console.log(res.data.token);
               that.setData!({
                 returnInfo:res.data,
@@ -61,6 +57,14 @@ Page({
                   console.log("缓存失败！");
                 }
               });
+              //往缓存中添加当前用户的id
+              wx.setStorage({
+                key:'userId',
+                data:res.data.user.id,
+                success(){
+                  console.log("存入用户id成功：",res.data.user.id);
+                }
+              });
             },
             fail(res){
               console.log("login获取的数据err:")
@@ -68,20 +72,26 @@ Page({
             }
 
           });
-    //    }
-    //  })
       wx.showLoading({
         title:'加载中'
       });
       setTimeout(()=>{
         wx.hideLoading({
          success(){
+           //如果缓存的有话题，则应直接跳转到参与话题页面
+           let topic=wx.getStorageSync('topic');
+           if(!topic){
            wx.navigateTo({
              url:'../index/index'
            });
+         }else{
+           wx.navigateTo({
+             url:'../participate/participate',
+           })
          }
+        }
         });
-      },3000);
+      },2000);
       /*发起http请求-插入数据 */
 
     } else {
@@ -99,6 +109,7 @@ Page({
     }
   },
   onLoad() {
+    /*获取登录凭证*/
     wx.login({
       success(res) {
         /*wx.login获取code-微信登录的标识 */
