@@ -38,7 +38,7 @@
                     <listing addClass="item-card" arrowBtn clock like tId="{{topic.post.id}}" cId="{{item.id}}" userId="{{item.userId}}">
                         <text slot="user" class="item-name">{{item.userId}}</text>
                         <text slot="title" class="item-title">{{item.title}}</text>
-                        <view slot="context" class="item-context">{{item.text}}</view>
+                        <view slot="context" class="item-context">{{con.topicContextCon(item.text)}}<a slot="more" style="color:rgb(9,166,220)" wx:if="{{con.isMore(item.text)}}">更多</a></view>
                         <text slot="date">{{con.dateCon(item.creatAt)}}</text>
                         <text slot="like">{{99}}</text>
                     </listing>
@@ -48,7 +48,7 @@
     </view>
      <view wx:else>
          <view class="container">
-             <image src="../../imgs/nulltip.png" class="null-img"/>
+             <image src="../../imgs/null.png" class="null-img"/>
              <text class="null-text">评论区空空去也，客官赏脸给个评论吧~</text>
         </view>
     </view>

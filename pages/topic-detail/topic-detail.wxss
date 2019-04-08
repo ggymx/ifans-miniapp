@@ -237,8 +237,8 @@ overflow: hidden;
 
 /*内容为空时提示图片*/
 .null-img{
-  width:220rpx;
-height:219rpx;
+  width:293rpx;
+height:193rpx;
 margin:auto;
 display:block;
 margin-top:200rpx;

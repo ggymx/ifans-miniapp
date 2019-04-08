@@ -5,7 +5,7 @@
 <view class="heard ">
     <view class="container">
         <view class="parti-header">
-            <text style="margin-left:36rpx">{{topic.post.title}}</text>
+            <text style="margin-left:36rpx">#{{topic.post.title}}#</text>
         </view>
     </view>
 </view>

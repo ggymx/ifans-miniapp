@@ -28,7 +28,8 @@ Page({
   onLoad(options:any) {
     let tId=options.tid;
     let cId=options.cid;
-     
+    console.log("接收到的话题id："+tId);
+    console.log("接受到的投稿id："+cId);
     var that=this;
     //获取话题详情
     wx.request({
