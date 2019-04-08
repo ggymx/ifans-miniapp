@@ -18,6 +18,7 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "轻话题",
     "navigationBarTextStyle": "black",
-    "navigationStyle": "custom"
+    "navigationStyle": "custom",
+    "onReachBottomDistance":10
   }
 }

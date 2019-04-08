@@ -31,7 +31,7 @@ Page({
 
       data:{
         cursor:0,
-        limit:10
+        limit:5
       },
 
       method:"GET",
@@ -87,5 +87,43 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  },
+  onPullDownRefresh(){
+    console.log("下拉刷新。。。");
+    var that=this;
+   // 刷新
+    wx.request({
+      url:'https://api-test.ifans.pub/v1/home/list',
+      data:{
+        cursor:0,
+        limit:5
+      },
+      method:'GET',
+      success(res){
+        console.log("上拉刷新成功:",res.data);
+        that.setData!({
+          returnInfo:res.data
+        });
+      }
+    });
+    
+  },
+  onReachBottom(){
+    console.log('上拉加载更多！');
+    var that=this;
+    wx.request({
+      url:'https://api-test.ifans.pub/v1/home/list',
+      data:{
+        cursor:1,
+        limit:5
+      },
+      method:'GET',
+      success(res){
+        console.log("上拉刷新成功:",res.data);
+        that.setData!({
+          returnInfo:res.data
+        });
+      }
+    });
   }
 })
