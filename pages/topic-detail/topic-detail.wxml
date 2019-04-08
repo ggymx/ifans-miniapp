@@ -12,43 +12,44 @@
             <view class="topic-context" style='font-weight: 400;'>{{topic.post.text}}</view>
         </view>
     </view>
-
-
- <view class="opreate-underlying">
-    <view class="container1">
-    <view class="opreate-view">
-        <view class="opreate-item" style="border-style:none">
-           <image src="../../imgs/home-button-Comment@2x.png" style="width:32rpx;height:32rpx;margin-right:16rpx;" />
-            <text style="font-size:24rpx;color:rgb(102,102,102);">99参与</text>
-        </view>
-       <view class="opreate-item" bind:tap="bindViewParti" data-tid="{{topic.post.id}}">
-            <image src="../../imgs/fabu@2x.png" style="width:27rpx;height:27rpx;margin-right:16rpx;"/>
-            <text style="font-size:24rpx;color:rgb(102,102,102);">参与</text>
-        </view>
-        <view class="opreate-item">
-            <!-- <image src="../../imgs/zhuangfa@2x.png" style="width:29rpx;height:27rpx;margin-left:60rpx;margin-right:16rpx;"/> -->
-            <image src="../../imgs/zhuangfa@2x.png" style="width:29rpx;height:27rpx;margin-left:60rpx;margin-right:16rpx;"/>
-            <text style="font-size:24rpx;color:rgb(102,102,102);">分享话题</text>
-        </view>
-    </view>
-    </view>
-    </view>
-
-
-
     <view class="opreate-underlying">
+        <view class="container1">
+            <view class="opreate-view">
+                <view class="opreate-item" style="border-style:none">
+                    <image src="../../imgs/home-button-Comment@2x.png" style="width:32rpx;height:32rpx;margin-right:16rpx;" />
+                    <text style="font-size:24rpx;color:rgb(102,102,102);">99参与</text>
+                </view>
+                <view class="opreate-item" bind:tap="bindViewParti" data-tid="{{topic.post.id}}">
+                    <image src="../../imgs/fabu@2x.png" style="width:27rpx;height:27rpx;margin-right:16rpx;" />
+                    <text style="font-size:24rpx;color:rgb(102,102,102);">参与</text>
+                </view>
+                <view class="opreate-item">
+                    <!-- <image src="../../imgs/zhuangfa@2x.png" style="width:29rpx;height:27rpx;margin-left:60rpx;margin-right:16rpx;"/> -->
+                    <image src="../../imgs/zhuangfa@2x.png" style="width:29rpx;height:27rpx;margin-left:60rpx;margin-right:16rpx;" />
+                    <text style="font-size:24rpx;color:rgb(102,102,102);">分享话题</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="opreate-underlying" wx:if="{{comment.posts.length>0}}">
         <view class="container">
-            <block wx:if="{{topic.post.refPostId}}">
-            <block wx:for="{{comment.posts}}">
-                <listing addClass="item-card" arrowBtn showTitle clock like tId="{{topic.post.id}}" cId="{{item.id}}" userId="{{item.userId}}">
-                    <text slot="user" class="item-name">{{item.userId}}</text>
-                    <text slot="title" class="item-title">{{item.title}}</text>
-                    <view slot="context" class="item-context">{{item.text}}</view>
-                    <text slot="date">{{con.dateCon(item.creatAt)}}</text>
-                    <text slot="like">{{99}}</text>
-                </listing>
+            <block >
+                <block wx:for="{{comment.posts}}">
+                    <listing addClass="item-card" arrowBtn clock like tId="{{topic.post.id}}" cId="{{item.id}}" userId="{{item.userId}}">
+                        <text slot="user" class="item-name">{{item.userId}}</text>
+                        <text slot="title" class="item-title">{{item.title}}</text>
+                        <view slot="context" class="item-context">{{item.text}}</view>
+                        <text slot="date">{{con.dateCon(item.creatAt)}}</text>
+                        <text slot="like">{{99}}</text>
+                    </listing>
+                </block>
             </block>
-            </block>
+        </view>
+    </view>
+     <view wx:else>
+         <view class="container">
+             <image src="../../imgs/nulltip.png" class="null-img"/>
+             <text class="null-text">评论区空空去也，客官赏脸给个评论吧~</text>
         </view>
     </view>
 </view>

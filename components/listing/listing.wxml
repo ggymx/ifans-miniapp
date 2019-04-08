@@ -23,7 +23,10 @@
             </view>
             <view class="publisher-context">
              <!--插入评论话题的内容-->
-              <slot name="context"></slot>
+              <slot name="context">
+                   <slot name="more"></slot>
+              </slot>
+             
             </view> 
             <view class="publisher-status" wx:if="{{clock||like||liked}}">
               <image src="../../imgs/button-time@2x.png" class="clock-icon" wx:if="{{clock}}"/>

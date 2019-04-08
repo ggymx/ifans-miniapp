@@ -30,7 +30,45 @@ function dateCon(dateStr) {
   return oldStr;
 }
 
+//姓名处理
+function nickNameCon(nickName){
+  if(nickName.length>10){
+   console.log("测试！！！"+nickName.substring(0,15));
+   return nickName.substring(0,15)+"..."
+  }
+  return nickName;
+}
+
+//话题标题处理
+function topicTitleCon(topicTitle){
+  // console.log("传进来的内容长度："+topicTitle.length)
+  if(topicTitle.length>16){
+   console.log("测试！！！"+topicTitle.substring(0,16));
+   return topicTitle.substring(0,16)+"..."
+  }
+  return topicTitle;
+}
+//话题内容处理
+function topicContextCon(topicContext){
+  if(topicContext.length>70){
+    return topicContext.substring(0,70)+'...'
+  }
+  return topicContext;
+}
+
+//通过话题内容判断是否显示更多
+function isMore(topicContext){
+  if(topicContext.length>70){
+    return true;
+  }
+  return false;
+}
+
 /*导出模块 */
 module.exports = {
-  dateCon: dateCon
+  dateCon: dateCon,
+  nickNameCon:nickNameCon,
+  topicTitleCon:topicTitleCon,
+  topicContextCon:topicContextCon,
+  isMore:isMore
 }

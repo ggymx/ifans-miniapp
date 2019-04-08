@@ -29,6 +29,7 @@ Page({
   /*options:获取url参数 */
   onLoad(options:any) {
     let id=options.tid;
+    console.log("话题的id："+id);
     var that=this;
     wx.request({
       url:'https://api-test.ifans.pub/v1/post/detail',
@@ -43,7 +44,6 @@ Page({
         that.setData!({
           topic:res.data
         }); 
-
         wx.request(
           {
             url:'https://api-test.ifans.pub/v1/post/list',
@@ -51,7 +51,7 @@ Page({
             method:'GET',
     
             data:{
-              id:res.data.post.refPostId
+              id:id
             },
             success(res){
               console.log("接受到的参与列表-------------------：")
