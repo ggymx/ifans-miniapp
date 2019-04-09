@@ -35,6 +35,9 @@
 
 .underlying {
   background-color: #FFF;
+  position: absolute;
+  top:128rpx;
+  margin-top: 0;
 }
 
 .container {

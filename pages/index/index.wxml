@@ -1,12 +1,23 @@
 <!-- pages/index/index.wxml -->
 <wxs module="con" src="../../wxs/converter.wxs"></wxs>
 <navbar gear text="首页" class="navbar-index"></navbar>
+<!-- <view style="height:128rpx;background-color:rgb(245, 245, 245);"></view> -->
 <view class="underlying">
       <view class='index-subscribe'>
-            <view style="width:240rpx;float:right;" bind:tap="bindViewHot">
+            <!-- <view style="width:240rpx;float:right;" bind:tap="bindViewHot">
                   <image class="img-subcribe" src='../../imgs/add.png'></image>
                   <text>订阅每日热点</text>
-            </view>
+            </view> -->
+            <button class="subscribe-btn" bind:tap="bindSubscribe">
+             <block wx:if="{{!isSubscribe}}">
+             <image class="img-subcribe" src='../../imgs/add.png'></image>
+             <text>订阅每日热点</text>
+            </block>
+            <block wx:else>
+            <image class="img-subcribe" src='../../imgs/subed.png'></image>
+             <text>已订阅</text>
+            </block>
+            </button>
       </view>
       <view class="container">
             <block wx:for="{{returnInfo.posts}}" wx:for-index="index">

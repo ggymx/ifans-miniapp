@@ -11,18 +11,37 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    returnInfo:null
+    returnInfo:null,
+    isSubscribe:false
   },
-  bindViewHot(){
-    wx.navigateTo({
-      url:'../hot/hot',
-      success(){
-        wx.showToast({
-          title:'跳转热点页'
-        });
-      }
-    });
+  
+  bindSubscribe(){
+    let status=this.data.isSubscribe;
+    // console.log("当前订阅状态："+this.data.isSubscribe);
+    if(!status){
+      this.setData!({
+        isSubscribe:true
+      });
+      wx.showToast({
+        title:'已订阅，将于明早发送',
+        icon: 'none'
+      })
+    }else{
+      this.setData!({
+        isSubscribe:false
+      })
+      wx.showToast({title:'取消订阅',icon:'none'});
+    }
+  //  this.data.isSubscribe=this.data.isSubscribe?false:true;
   },
+  //测试订阅功能
+  onsubscribe(res:any){
+    // if(res.detail.errMsg="subscribeMessage:ok"){
+     
+    // }
+    // console.log("订阅res：",res)
+  },
+
   onLoad() {
    
     var that=this;
@@ -115,7 +134,7 @@ Page({
       url:'https://api-test.ifans.pub/v1/home/list',
       data:{
         cursor:1,
-        limit:5
+        limit:8
       },
       method:'GET',
       success(res){

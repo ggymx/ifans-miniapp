@@ -104,7 +104,6 @@ shareCard(){
         withShareTicket:true,
         success(shareTickets){
         console.log(shareTickets);
-        //  var test=JSON.stringify(shareTickets);
         //  wx.showToast({title:test});
         }
       })

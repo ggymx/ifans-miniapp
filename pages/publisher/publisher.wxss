@@ -242,3 +242,19 @@ overflow: hidden;
 .no-border{
   border-style: none!important;
 }
+
+.operate-btn{
+  width:200rpx;
+height:40rpx;
+background-color:#FFF;
+color:rgb(102,102,102);
+font-size:24rpx;
+padding:0px;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+/*覆盖微信默认样式*/
+.operate-btn:after{
+border-style: none
+}

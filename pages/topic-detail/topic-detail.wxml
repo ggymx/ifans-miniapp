@@ -25,8 +25,12 @@
                 </view>
                 <view class="opreate-item">
                     <!-- <image src="../../imgs/zhuangfa@2x.png" style="width:29rpx;height:27rpx;margin-left:60rpx;margin-right:16rpx;"/> -->
-                    <image src="../../imgs/zhuangfa@2x.png" style="width:29rpx;height:27rpx;margin-left:60rpx;margin-right:16rpx;" />
-                    <text style="font-size:24rpx;color:rgb(102,102,102);">分享话题</text>
+                    <!-- <image src="../../imgs/zhuangfa@2x.png" style="width:29rpx;height:27rpx;margin-left:60rpx;margin-right:16rpx;" />
+                    <text style="font-size:24rpx;color:rgb(102,102,102);">分享话题</text> -->
+                    <button class="operate-btn" open-type="share">
+                      <image src="../../imgs/zhuangfa@2x.png" style="width:29rpx;height:27rpx;margin-right:16rpx;"/>
+                      <text>分享话题</text>
+                    </button>
                 </view>
             </view>
         </view>

@@ -13,7 +13,7 @@
 .img-subcribe{
   width: 30rpx;
   height: 30rpx;
-  margin-top: 30rpx;
+  /* margin-top: 30rpx; */
 
 }
 .index-subscribe text{
@@ -71,4 +71,17 @@ overflow: hidden;
 -webkit-box-orient: vertical;    
 -webkit-line-clamp: 15; 
 }
-		
+.subscribe-btn{
+  width:240rpx;
+height:40px;
+float:right;
+padding:0;
+display:flex;
+align-items:center;
+justify-content:center;
+margin-top: 16rpx;
+background-color:rgb(245, 245, 245);
+}
+.subscribe-btn:after{
+  border-style: none;
+}

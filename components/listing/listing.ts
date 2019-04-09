@@ -54,6 +54,10 @@ Component({
       type: Boolean,
       value: false
     },
+    finalMy: {
+      type: Boolean,
+      value: false
+    },
     avatar: {
       type: String,
       value: '../../imgs/test1.jpg'
@@ -101,7 +105,8 @@ Component({
       }
     },
     bindMy(event:any) {
-      console.log(event);
+      // console.log(event);
+      if(!this.properties.finalMy){
       let userId = event.currentTarget.dataset.uid;
       console.log("用户名Id:" + userId);
       wx.navigateTo({
@@ -112,6 +117,7 @@ Component({
           });
         }
       });
+    }
     },
     /*点赞 */
     giveLike(event:any) {

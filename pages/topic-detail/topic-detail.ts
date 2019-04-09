@@ -104,6 +104,15 @@ Page({
     }
   },
 
+  /*转发分享监听事件 */
+  // onShareAppMessage(res:any){
+  //   if(res.from==='button'){
+     
+  //   }
+    
+  //   return{}
+  // },
+
   getUserInfo(e: any) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
