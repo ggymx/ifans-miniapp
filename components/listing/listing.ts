@@ -132,7 +132,7 @@ Component({
           wx.navigateTo({
             url: '../login/login'
           });
-        },2000);
+        },200);
       } else {
         if (that.data.imgUrl == '../../imgs/home-button-like@2x.png') {
           that.setData!({

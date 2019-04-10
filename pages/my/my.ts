@@ -12,10 +12,20 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     partiList:[],
-    userData:null
+    userData:null,
+    sharCard:false
   },
 
   onLoad(options:any) {
+
+  //获取场景值，根据场景值切换导航栏的状态
+  let launchPara=wx.getLaunchOptionsSync();
+  if(launchPara.scene==1007){
+    this.setData!({
+      sharCard:true
+    });
+  }
+ 
     let userId=options.userId;
     console.log("接收到的userId："+userId);
 

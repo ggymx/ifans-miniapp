@@ -4,7 +4,7 @@ import { IMyApp } from '../../app'
 
 
 const app = getApp<IMyApp>()
-
+let id:number
 Page({
   data: {
     motto: '点击 “编译” 以构建',
@@ -12,7 +12,8 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     topic: {},
-    comment:{}
+    comment:{},
+    sharCard:false
   },
   bindViewParti(event:any){
     var tid=event.currentTarget.dataset.tid;
@@ -28,7 +29,24 @@ Page({
 
   /*options:获取url参数 */
   onLoad(options:any) {
-    let id=options.tid;
+  
+
+    // let id=options.tid;
+    id=options.tid;
+        //获取场景值，根据场景值切换导航栏的状态
+    wx.showToast({
+      title:`获得的id：${id}`
+    });
+        let launchPara=wx.getLaunchOptionsSync();
+        // wx.showToast({
+        //   title:"场景值："+launchPara.scene
+        // })
+        if(launchPara.scene==1007&&id==0){
+          this.setData!({
+            sharCard:true
+          });
+        }
+
     console.log("话题的id："+id);
     var that=this;
     wx.request({
@@ -75,7 +93,6 @@ Page({
       }
     });
 
-  
     if (app.globalData.userInfo) {
       this.setData!({
         userInfo: app.globalData.userInfo,

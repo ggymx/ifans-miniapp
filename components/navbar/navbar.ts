@@ -52,9 +52,6 @@ Component({
                         if(token){
                             //获取用户Id
                             let userId=wx.getStorageSync('userId');
-                            wx.showToast({
-                                title: '前往空间'
-                            });
                             setTimeout(()=>{
                                 wx.navigateTo({
                                     url: '../my/my?userId='+userId,
@@ -62,7 +59,7 @@ Component({
                                        
                                     }
                                 });
-                            },2000)
+                            },500)
                             
                         }else{
                             wx.showToast({title:'请先登录！'});
@@ -70,7 +67,7 @@ Component({
                                 wx.navigateTo({
                                     url:'../login/login'
                                 });
-                            },2000)
+                            },500)
                         }
                             break;
                         case 1:break;

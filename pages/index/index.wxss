@@ -44,7 +44,7 @@ word-break: break-all;
 text-overflow: ellipsis; 
 overflow: hidden;           
 -webkit-box-orient: vertical;    
--webkit-line-clamp: 5; 
+/* -webkit-line-clamp: 5;  */
 }
 .conmment-weight{
   font-weight: 400;

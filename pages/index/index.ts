@@ -82,7 +82,7 @@ Page({
           that.setData!({
             isErr:true
           });
-        },1000)
+        },800)
       }
     });
 
@@ -153,6 +153,6 @@ Page({
     setTimeout(()=>{
       //重新加载
       that.onLoad();
-    },1000)
+    },500)
   }
 })

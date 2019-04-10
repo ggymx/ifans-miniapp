@@ -1,6 +1,8 @@
 <!-- pages/my/my.wxml -->
 <wxs module="con" src="../../wxs/converter.wxs"></wxs>
-<navbar back text="{{userData.user.nickname}}"></navbar>
+<navbar home text="{{userData.user.nickname}}" wx:if="{{sharCard}}"></navbar>
+<navbar back text="{{userData.user.nickname}}" wx:else></navbar>
+
 <view class="underlying" style="background-color:rgb(245,245,245)">
       <view class="my-view">
             <image src="{{userData.user.avatar}}" class="big-avatar" />

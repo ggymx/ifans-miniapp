@@ -1,6 +1,6 @@
 <!-- pages/index/index.wxml -->
 <wxs module="con" src="../../wxs/converter.wxs"></wxs>
-<navbar gear text="首页" class="navbar-index"></navbar>
+<navbar gear text="轻话题" class="navbar-index"></navbar>
 <view class="underlying">
       <view class='index-subscribe'>
             <!-- <view style="width:240rpx;float:right;" bind:tap="bindViewHot">

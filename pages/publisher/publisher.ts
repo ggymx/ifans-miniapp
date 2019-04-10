@@ -11,7 +11,8 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     topic:null,
-    comment: null
+    comment: null,
+    sharCard:false
   },
   bindViewParti(event:any){
     var tid=event.currentTarget.dataset.tid;
@@ -24,8 +25,26 @@ Page({
       }
     });
   },
+  bindViewTopic(event:any){
+    var tid=event.currentTarget.dataset.tid;
+    wx.navigateTo({
+      url:`../topic-detail/topic-detail?tid=${tid}`,
+      success(){
+
+      }
+    });
+  },
   /*options:获取url参数 */
   onLoad(options:any) {
+
+      //获取场景值，根据场景值切换导航栏的状态
+      let launchPara=wx.getLaunchOptionsSync();
+      if(launchPara.scene==1007){
+        this.setData!({
+          sharCard:true
+        });
+      }
+
     let tId=options.tid;
     let cId=options.cid;
     console.log("接收到的话题id："+tId);
