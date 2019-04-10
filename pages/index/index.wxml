@@ -45,8 +45,8 @@
             </block>
             <block wx:else>
               <view class="no-more">
-                <image src="../../imgs/null.png" />
-                <text>抱歉，没有更多信息了</text>
+                <image src="../../imgs/null.png" class="nomore-img{"/>
+                <text class="nomore-text">抱歉，没有更多信息了</text>
               </view>
             </block>
       </view> 
