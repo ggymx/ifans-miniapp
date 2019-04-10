@@ -14,9 +14,9 @@
   /*background-color: blue;*/
   /* background-color:red; */
  background-color:rgb(245, 245, 245);
-  /* top:128rpx;
-  position:absolute; */
-  margin-top:128rpx;
+  top:128rpx;
+  position:absolute;
+  /* margin-top:128rpx; */
 }
 /*居中容器*/
 .container {

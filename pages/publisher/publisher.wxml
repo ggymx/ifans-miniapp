@@ -39,8 +39,8 @@
     </block>
     <view class="opreate-underlying">
         <view class="container">
-            <listing arrowBtn clock final like userId="{{comment.post.userId}}">
-                <text slot="user" class="item-name">{{comment.post.userId}}</text>
+            <listing arrowBtn clock final like userId="{{comment.post.userId}}" avatar="{{comment.post.user.avatar}}">
+                <text slot="user" class="item-name">{{comment.post.user.nickname}}</text>
                 <text slot="title" class="item-title">{{comment.post.title}}</text>
                 <view slot="context" class="item-context">{{comment.post.text}}</view>
                 <text slot="date">{{con.dateCon(comment.post.creatAt)}}</text>

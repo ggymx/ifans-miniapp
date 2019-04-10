@@ -39,8 +39,8 @@
         <view class="container">
             <block >
                 <block wx:for="{{comment.posts}}">
-                    <listing addClass="item-card" arrowBtn clock like tId="{{topic.post.id}}" cId="{{item.id}}" userId="{{item.userId}}">
-                        <text slot="user" class="item-name">{{item.userId}}</text>
+                    <listing addClass="item-card" arrowBtn clock like tId="{{topic.post.id}}" cId="{{item.id}}" userId="{{item.userId}}" avatar="{{item.user.avatar}}">
+                        <text slot="user" class="item-name">{{item.user.nickname}}</text>
                         <text slot="title" class="item-title">{{item.title}}</text>
                         <view slot="context" class="item-context">{{con.topicContextCon(item.text)}}<a slot="more" style="color:rgb(9,166,220)" wx:if="{{con.isMore(item.text)}}">更多</a></view>
                         <text slot="date">{{con.dateCon(item.creatAt)}}</text>

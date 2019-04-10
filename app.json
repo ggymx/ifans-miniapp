@@ -1,11 +1,13 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/participate/participate",
+    
+   
     "pages/test/test",
     "pages/login/login",
     "pages/topic-detail/topic-detail",
     "pages/publisher/publisher",
-    "pages/participate/participate",
     "pages/hot/hot"
   ],
   "window": {

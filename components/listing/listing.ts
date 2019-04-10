@@ -69,6 +69,7 @@ Component({
    */
   data: {
     imgUrl: '../../imgs/home-button-like@2x.png',
+    isDelete:true
   },
 
   /**

@@ -105,13 +105,22 @@ Page({
   },
 
   /*转发分享监听事件 */
-  // onShareAppMessage(res:any){
-  //   if(res.from==='button'){
-     
-  //   }
-    
-  //   return{}
-  // },
+  onShareAppMessage(res:any){
+    var that=this
+    console.log("激活转发事件：",res)
+      return{
+        title:`#${this.data.topic.post.title}#`,
+        imageUrl:'../../imgs/jietu.png',
+        success(e:any){
+        wx.showShareMenu({
+          withShareTicket:true
+        })
+        },
+        fail(){
+
+        }
+      }
+  },
 
   getUserInfo(e: any) {
     console.log(e)

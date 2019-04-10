@@ -85,3 +85,44 @@ background-color:rgb(245, 245, 245);
 .subscribe-btn:after{
   border-style: none;
 }
+
+/*异常时显示的样式*/
+.errView{
+  height:100%;
+display:flex;
+justify-content:center;
+/* align-items:center; */
+font-size:26rpx;
+color:rgb(153, 153, 153);
+}
+.err-img{
+  width:242rpx;
+  height:233rpx;
+  margin-left:30rpx;
+  margin-bottom:50rpx;
+}
+.err-img+text{
+  display:block;
+  text-align:center
+}
+
+/*没有更多信息时*/
+/* .no-more{
+  height:554px;
+font-size:13px;
+color:rgb(153, 153, 153);
+display:flex;
+flex-direction:column;
+align-items:center;
+border-top-style:solid;
+border-top-width:1rpx;
+}
+.no-more>image{
+  width:293rpx;
+height:193rpx;
+margin-top:250rpx;
+}
+.no-more>text{
+  margin-top:80rpx;
+  text-align:center;
+} */

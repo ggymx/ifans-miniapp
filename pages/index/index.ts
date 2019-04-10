@@ -4,6 +4,7 @@ import { IMyApp } from '../../app'
 
 
 const app = getApp<IMyApp>()
+let cursor:number=0;
 
 Page({
   data: {
@@ -12,7 +13,8 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     returnInfo:null,
-    isSubscribe:false
+    isSubscribe:false,
+    isErr:false
   },
   
   bindSubscribe(){
@@ -32,7 +34,7 @@ Page({
       })
       wx.showToast({title:'取消订阅',icon:'none'});
     }
-  //  this.data.isSubscribe=this.data.isSubscribe?false:true;
+  
   },
   //测试订阅功能
   onsubscribe(res:any){
@@ -45,11 +47,16 @@ Page({
   onLoad() {
    
     var that=this;
+    console.log("当前的cursor："+cursor);
+    wx.showLoading({
+      title:'请稍候'
+    });
+
     wx.request({
       url:'https://api-test.ifans.pub/v1/home/list',
 
       data:{
-        cursor:0,
+        cursor:cursor,
         limit:5
       },
 
@@ -62,12 +69,20 @@ Page({
           returnInfo:res.data
         });
         /*通过返回的话题列表查询相应的参与话题的对象 */
-       
+        //指针后移
+        cursor=res.data.cursor;
+        wx.hideLoading({});
 
       },
       fail(err){
         console.log("index获取的数据err：");
         console.log(err);
+        wx.hideLoading({});
+        setTimeout(()=>{
+          that.setData!({
+            isErr:true
+          });
+        },1000)
       }
     });
 
@@ -110,7 +125,6 @@ Page({
   onPullDownRefresh(){
     console.log("下拉刷新。。。");
     var that=this;
-   // 刷新
     wx.request({
       url:'https://api-test.ifans.pub/v1/home/list',
       data:{
@@ -123,26 +137,23 @@ Page({
         that.setData!({
           returnInfo:res.data
         });
+        setTimeout(()=>{
+          wx.stopPullDownRefresh({});
+        },500);
+        cursor=res.data.cursor;
+        console.log("当前的cursor：",cursor);
       }
     });
-    
   },
   onReachBottom(){
-    console.log('上拉加载更多！');
     var that=this;
-    wx.request({
-      url:'https://api-test.ifans.pub/v1/home/list',
-      data:{
-        cursor:1,
-        limit:8
-      },
-      method:'GET',
-      success(res){
-        console.log("上拉刷新成功:",res.data);
-        that.setData!({
-          returnInfo:res.data
-        });
-      }
+    wx.showLoading({
+      title:'加载更多.'
     });
+    setTimeout(()=>{
+      //重新加载
+      that.onLoad();
+    },1000)
+   
   }
 })

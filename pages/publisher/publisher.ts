@@ -110,6 +110,28 @@ Page({
     }
   },
 
+  /*转发分享监听事件 */
+  onShareAppMessage(res:any){
+    // var that=this;
+    let text=this.data.comment!.post.text;
+    console.log("激活转发事件：",res)
+     if(this.data.comment!.post.text.length>10){
+      text=this.data.comment!.post.text.substring(0,10)+"..."
+     }
+      return{
+        title:`#${this.data.topic.post.title}#${text}`,
+        imageUrl:'../../imgs/jietu.png',
+        success(e:any){
+        wx.showShareMenu({
+          withShareTicket:true
+        })
+        },
+        fail(){
+
+        }
+      }
+  },
+
   getUserInfo(e: any) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo

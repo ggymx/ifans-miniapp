@@ -13,7 +13,8 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     topic: null,
     pushText:'',
-    refPostId: null
+    refPostId: null,
+    inputText:'390rpx'
   },
   /*textarea输入时触发该函数-微信框架无双向绑定 */
   textAreaInput(event: any) {
@@ -57,9 +58,15 @@ Page({
     } else {
       if (!this.data.pushText) {
         wx.showToast({
+          icon:'none',
           title: '内容不能为空！'
         });
-      } else {
+      }else if(this.data.pushText.length<5){
+        wx.showToast({
+          icon:'none',
+          title:'抱歉客官，参与投稿不得低于五个字呦'
+        });
+      }else {
         wx.showLoading({
           title: '投稿中...',
           success() {
@@ -111,7 +118,22 @@ Page({
       }
     }
   },
-
+  
+onEditText(event:any){
+  console.log(event);
+  this.setData!({
+    inputText:'390rpx'
+  });
+},
+onEndEditor(event:any){
+  // wx.showToast({
+  //   title:'结束编辑'
+  // })
+  this.setData!({
+    inputText:'900rpx'
+  });
+}
+,
   onLoad(options: any) {
     console.log('触发load事件');
     let topic=wx.getStorageSync('topic')
