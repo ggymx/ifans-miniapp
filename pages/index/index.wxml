@@ -19,6 +19,7 @@
             </button>
       </view>
       <view class="container">
+            <block wx:if="{{returnInfo.posts.length!=0}}">
             <block wx:for="{{returnInfo.posts}}" wx:for-index="index">
                   <block wx:if="{{item.type=='1'}}">
                   <listing card showTitle showIssue clock like tId="{{item.id}}" userId="{{item.user.id}}" avatar="{{item.user.avatar}}">
@@ -40,6 +41,13 @@
                         <text slot="like">99</text>
                   </listing>
                   </block>
+            </block>
+            </block>
+            <block wx:else>
+              <view class="no-more">
+                <image src="../../imgs/null.png" />
+                <text>抱歉，没有更多信息了</text>
+              </view>
             </block>
       </view> 
 </view>
