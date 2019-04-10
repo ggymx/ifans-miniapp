@@ -120,7 +120,7 @@ Page({
      }
       return{
         title:`#${this.data.topic.post.title}#${text}`,
-        imageUrl:'../../imgs/jietu.png',
+        imageUrl:'../../imgs/topicShare.png',
         success(e:any){
         wx.showShareMenu({
           withShareTicket:true

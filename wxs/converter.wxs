@@ -49,16 +49,28 @@ function topicTitleCon(topicTitle){
   return topicTitle;
 }
 //话题内容处理
-function topicContextCon(topicContext){
-  if(topicContext.length>70){
-    return topicContext.substring(0,70)+'...'
+// function topicContextCon(topicContext){
+//   if(topicContext.length>70){
+//     return topicContext.substring(0,70)+'...'
+//   }
+//   return topicContext;
+// }
+
+//文本内容处理
+function contextCon(text,setLength){
+  console.log("setLength:"+setLength);
+  if(text.length>setLength){
+    return text.substring(0,setLength)+'...'
   }
-  return topicContext;
+  return text;
 }
 
+
 //通过话题内容判断是否显示更多
-function isMore(topicContext){
-  if(topicContext.length>70){
+function isMore(text,setLength){
+  console.log("text的length："+text.length);
+  console.log("text的length："+setLength);
+  if(text.length>setLength){
     return true;
   }
   return false;
@@ -69,6 +81,6 @@ module.exports = {
   dateCon: dateCon,
   nickNameCon:nickNameCon,
   topicTitleCon:topicTitleCon,
-  topicContextCon:topicContextCon,
+  contextCon:contextCon,
   isMore:isMore
 }

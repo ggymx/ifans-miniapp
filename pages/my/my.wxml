@@ -5,7 +5,10 @@
       <view class="my-view">
             <image src="{{userData.user.avatar}}" class="big-avatar" />
             <text class="big-name" style='font-weight: 400;'>{{userData.user.nickname}}</text>
-            <image src="../../imgs/zhuangfa@2x.png" class="share-ico" />
+            <!-- <image src="../../imgs/zhuangfa@2x.png" class="share-ico" /> -->
+            <button class="share-btn" open-type="share">
+                  <image src="../../imgs/zhuangfa@2x.png" class="share-ico"/>
+            </button>
       </view>
       <!-- 第一部分 -->
       <view class="container">

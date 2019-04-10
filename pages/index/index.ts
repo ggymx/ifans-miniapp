@@ -57,7 +57,7 @@ Page({
 
       data:{
         cursor:cursor,
-        limit:5
+        limit:10
       },
 
       method:"GET",
@@ -129,7 +129,7 @@ Page({
       url:'https://api-test.ifans.pub/v1/home/list',
       data:{
         cursor:0,
-        limit:5
+        limit:10
       },
       method:'GET',
       success(res){

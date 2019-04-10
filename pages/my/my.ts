@@ -70,6 +70,23 @@ Page({
     }
   },
 
+onShareAppMessage(){
+  var that=this;
+  let userName=that.data.userData!.user.nickname
+  return{
+        title:`邀你进入-${userName}的空间`,
+        imageUrl:'../../imgs/topicShare.png',
+        success(e:any){
+        wx.showShareMenu({
+          withShareTicket:true
+        })
+        },
+        fail(){
+
+        }
+  }
+},
+
   getUserInfo(e: any) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo

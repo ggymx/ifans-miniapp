@@ -217,9 +217,24 @@
 .share-ico {
   width: 38rpx;
   height: 36rpx;
-  position: absolute;
+  /* position: absolute;
   top: 26rpx;
-  right: 26rpx;
+  right: 26rpx; */
+  margin-bottom:20rpx;
+  margin-left:20rpx;
+
+}
+.share-btn{
+  position:absolute;
+top:40rpx;
+right:26rpx;
+height:88rpx;
+width:88rpx;
+padding:0;
+}
+
+.share-btn::after{
+  border-style:none;
 }
 
 /* 修改 */
