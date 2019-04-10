@@ -116,6 +116,7 @@ flex-direction:column;
 align-items:center;
 border-top-style:solid;
 border-top-width:1rpx;
+border-top-color: rgb(153, 153, 153)
 }
 .nomore-img{
   width:293rpx;
