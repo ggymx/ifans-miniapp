@@ -20,7 +20,7 @@ function dateCon(dateStr) {
   } else if (now.getDate() - oldDate.getDate() == 2) {
     oldStr = '2天前';
   } else if (now.getDate() - oldDate.getDate() == 1) {
-    oldStr = '一天前';
+    oldStr = '1天前';
   }
   else {
     if (now.getHours() - oldDate.getHours() > 0) {
