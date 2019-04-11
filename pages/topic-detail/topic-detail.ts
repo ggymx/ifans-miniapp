@@ -45,7 +45,7 @@ Page({
         }); 
         api.request(
           {
-            url:'/v1/post/list',
+            url:'/v1/post/answer-list',
     
             method:'GET',
     
