@@ -64,7 +64,7 @@ export interface ITrackTopicListResponse {
 export interface IPostPublishParams {
   banner?: string,          // 封面
   refPostId?: number,       // 参与的话题（可以扩展为引用他人的文章
-  text: string,             // 内容
+  text?: string,             // 内容
   thumbnails?: IThumbnail[], // 九宫格缩略图（视频/音频/图片）
   title: string,            // 标题
 }
