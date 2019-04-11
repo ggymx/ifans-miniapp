@@ -76,11 +76,11 @@ Page({
            //如果缓存的有话题，则应直接跳转到参与话题页面
            let topic=wx.getStorageSync('topic');
            if(!topic){
-           wx.navigateTo({
+           wx.redirectTo({
              url:'../index/index'
            });
          }else{
-           wx.navigateTo({
+           wx.redirectTo({
              url:'../participate/participate',
            })
          }
