@@ -14,6 +14,8 @@ Component({
    * username：用户名
    * noBorder:是否有边框
    * avatar:头像
+   * like：是否显示心形按钮
+   * isLike根据是否点赞显示是否是红心
    */
   properties: {
     card: {
@@ -49,6 +51,10 @@ Component({
       value: false
     },
     like: {
+      type: Boolean,
+      value: false
+    },
+    isLike:{
       type: Boolean,
       value: false
     },
@@ -124,31 +130,30 @@ Component({
     },
     /*点赞 */
     async giveLike(event:any) {
-      var that = this;
       //获取token
       var token = wx.getStorageSync('token');
       if (!token) {
         wx.showToast({title: '请先登录！'});
-        //延迟三秒执行跳转
         setTimeout(()=>{
           wx.navigateTo({
             url: '../login/login'
           });
         },200);
       } else {
-        console.log('giveLike', this.properties)
+        // console.log('giveLike', this.properties)
         if(!this.properties.isLike) {
-          const res = await api.giveLike({postId: this.data.cId})
-          that.setData!({
-            isLike: true,
-            // imgUrl: '../../imgs/button-like-dj@2x.png'
+          console.log("点赞的cId："+this.properties.cId)
+          const res = await api.giveLike({postId: this.properties.cId})
+          this.setData!({
+            isLike: true
           })
         } else {
-          const res = await api.disLike({postId: this.data.cId})
-          that.setData!({
-            isLike: false,
-            // imgUrl: '../../imgs/home-button-like@2x.png'
+          console.log("取消点赞的cId："+this.properties.cId);
+          const res = await api.disLike({postId: this.properties.cId})
+          this.setData!({
+            isLike: false
           })
+          // this.properties.isLike=false
         }
       }
     },

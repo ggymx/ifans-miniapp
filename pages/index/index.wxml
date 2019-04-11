@@ -7,7 +7,7 @@
                   <image class="img-subcribe" src='../../imgs/add.png'></image>
                   <text>订阅每日热点</text>
             </view> -->
-             <button class="subscribe-btn" bind:tap="bindSubscribe">
+            <button class="subscribe-btn" bind:tap="bindSubscribe">
                   <block wx:if="{{!isSubscribe}}">
                         <image class="img-subcribe" src='../../imgs/add.png'></image>
                         <text>订阅每日热点</text>
@@ -21,24 +21,40 @@
       <view class="container">
             <block wx:for="{{topList}}" wx:for-index="index">
                   <block wx:if="{{item.type=='1'}}">
-                  <listing card showTitle showIssue clock like tId="{{item.id}}" cId="{{item.id}}" userId="{{item.user.id}}" avatar="{{item.user.avatar}}" isLike="{{item.isLike}}">
-                        <text slot="user" class="topic-name">{{con.nickNameCon(item.user.nickname)}}</text>
-                        <text slot="title" class="text-weight">{{con.contextCon(item.title,16)}}</text>
-                        <view slot="context" class="topic-context">{{con.contextCon(item.text,70)}}<a slot="more" style="color:rgb(9,166,220)" wx:if="{{con.isMore(item.text,70)}}">更多</a>
-                        </view>
-                        <text slot="date">{{con.dateCon(item.creatAt)}}</text>
-                        <text slot="like">{{con.numCon(item.likeCount)}}</text>
-                  </listing>
+                        <listing card showTitle showIssue clock tId="{{item.id}}" cId="{{item.id}}" userId="{{item.user.id}}" avatar="{{item.user.avatar}}" isLike="{{item.isLike}}">
+                              <text slot="user" class="topic-name">
+                                    {{con.nickNameCon(item.user.nickname)}}
+                              </text>
+                              <text slot="title" class="text-weight">
+                                    {{con.contextCon(item.title,16)}}
+                              </text>
+                              <view slot="context" class="topic-context">
+                                    {{con.contextCon(item.text,70)}}
+                                    <a slot="more" style="color:rgb(9,166,220)" wx:if="{{con.isMore(item.text,70)}}">
+                                          更多
+                                    </a>
+                              </view>
+                              <text slot="date">{{con.dateCon(item.creatAt)}}</text>
+                              <text slot="like">{{con.numCon(item.likeCount)}}</text>
+                        </listing>
                   </block>
                   <block wx:elif="{{item.type==2}}">
                         <listing card showTitle clock like tId="{{item.refPostId}}" cId="{{item.id}}" userId="{{item.user.id}}" avatar="{{item.user.avatar}}" isLike="{{item.isLike}}">
-                        <text slot="user" class="comment-name">{{con.nickNameCon(item.user.nickname)}}</text>
-                        <text slot="title" class="conmment-weight">#{{con.contextCon(item.refPost.title,16)}}#</text>
-                        <view slot="context" class="topic-context">{{con.contextCon(item.text,70)}}<a slot="more" style="color:rgb(9,166,220)" wx:if="{{con.isMore(item.text,70)}}">更多</a>
-                        </view>
-                        <text slot="date">{{con.dateCon(item.creatAt)}}</text>
-                        <text slot="like">{{con.numCon(item.likeCount)}}</text>
-                  </listing>
+                              <text slot="user" class="comment-name">
+                                    {{con.nickNameCon(item.user.nickname)}}
+                              </text>
+                              <text slot="title" class="conmment-weight">
+                                    #{{con.contextCon(item.refPost.title,16)}}#
+                              </text>
+                              <view slot="context" class="topic-context">
+                                    {{con.contextCon(item.text,70)}}
+                                    <a slot="more" style="color:rgb(9,166,220)" wx:if="{{con.isMore(item.text,70)}}">
+                                          更多
+                                    </a>
+                              </view>
+                              <text slot="date">{{con.dateCon(item.creatAt)}}</text>
+                              <text slot="like">{{con.numCon(item.likeCount)}}</text>
+                        </listing>
                   </block>
             </block>
             <!-- <block wx:elif="{{!more}}">
@@ -47,5 +63,5 @@
                 <text class="nomore-text">抱歉，没有更多信息了</text>
               </view>
             </block> -->
-      </view> 
+      </view>
 </view>
