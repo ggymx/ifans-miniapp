@@ -18,7 +18,7 @@
 		"minified": true,
 		"newFeature": true,
 		"autoAudits": false,
-		"uglifyFileName": true
+		"uglifyFileName": false
 	},
 	"appid": "wx9cc039bf853da6b0",
 	"condition": {}
