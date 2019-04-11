@@ -40,12 +40,12 @@
     </block>
     <view class="opreate-underlying">
         <view class="container">
-            <listing arrowBtn clock final like userId="{{comment.post.userId}}" avatar="{{comment.post.user.avatar}}">
+            <listing arrowBtn clock final like userId="{{comment.post.userId}}" avatar="{{comment.post.user.avatar}}" cId="{{comment.post.id}}" isLike="{{comment.post.isLike}}">
                 <text slot="user" class="item-name">{{comment.post.user.nickname}}</text>
                 <text slot="title" class="item-title">{{comment.post.title}}</text>
                 <view slot="context" class="item-context">{{comment.post.text}}</view>
                 <text slot="date">{{con.dateCon(comment.post.creatAt)}}</text>
-                <text slot="like">{{99}}</text>
+                <text slot="like">{{con.numCon(comment.post.likeCount)}}</text>
             </listing>
         </view>
     </view>

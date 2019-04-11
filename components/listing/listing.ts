@@ -58,6 +58,10 @@ Component({
       type: Boolean,
       value: false
     },
+    likeCount:{
+      type:Number,
+      value:0
+    },
     final: {
       type: Boolean,
       value: false
@@ -158,11 +162,26 @@ Component({
       }
     },
 
-     //点击弹出屏蔽举报模态框
     popBox(){
-      /**不能直接设置样式？ */
-      // const query=wx.createSelectorQuery().in(this).select('.arr-view');
-      // console.log("------------------------------------");
+      wx.showActionSheet({
+        itemList:["屏蔽","举报","删除"],
+        success(res){
+          switch(res.tapIndex){
+            case 0:break;
+            case 1:break;
+            case 2:
+              wx.showModal({
+                title:'删除投稿',
+                content:'确定删除这个信息吗？',
+                success(res){
+                  if(res.confirm){
+                    wx.showToast({title:'删除成功！'})
+                  }
+                }
+              })
+          }
+        }
+      })
     },
   },
 

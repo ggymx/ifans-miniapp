@@ -25,9 +25,6 @@
                     <text style="font-size:24rpx;color:rgb(102,102,102);">参与</text>
                 </view>
                 <view class="opreate-item">
-                    <!-- <image src="../../imgs/zhuangfa@2x.png" style="width:29rpx;height:27rpx;margin-left:60rpx;margin-right:16rpx;"/> -->
-                    <!-- <image src="../../imgs/zhuangfa@2x.png" style="width:29rpx;height:27rpx;margin-left:60rpx;margin-right:16rpx;" />
-                    <text style="font-size:24rpx;color:rgb(102,102,102);">分享话题</text> -->
                     <button class="operate-btn" open-type="share">
                       <image src="../../imgs/zhuangfa@2x.png" style="width:29rpx;height:27rpx;margin-right:16rpx;"/>
                       <text>分享话题</text>
@@ -40,12 +37,12 @@
         <view class="container">
             <block >
                 <block wx:for="{{comment.posts}}">
-                    <listing addClass="item-card" arrowBtn clock like tId="{{topic.post.id}}" cId="{{item.id}}" userId="{{item.userId}}" avatar="{{item.user.avatar}}">
+                    <listing addClass="item-card" arrowBtn clock like tId="{{topic.post.id}}" cId="{{item.id}}" userId="{{item.userId}}" avatar="{{item.user.avatar}}" isLike="{{item.isLike}}">
                         <text slot="user" class="item-name">{{item.user.nickname}}</text>
                         <text slot="title" class="item-title">{{item.title}}</text>
                         <view slot="context" class="item-context">{{con.contextCon(item.text,300)}}<a slot="more" style="color:rgb(9,166,220)" wx:if="{{con.isMore(item.text,300)}}">更多</a></view>
                         <text slot="date">{{con.dateCon(item.creatAt)}}</text>
-                        <text slot="like">{{99}}</text>
+                        <text slot="like">{{con.numCon(item.likeCount)}}</text>
                     </listing>
                 </block>
             </block>

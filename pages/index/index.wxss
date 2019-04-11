@@ -107,7 +107,7 @@ color:rgb(153, 153, 153);
 }
 
 /*没有更多信息时*/
-.no-more{
+/* .no-more{
   height:554px;
 font-size:13px;
 color:rgb(153, 153, 153);
@@ -126,4 +126,4 @@ margin-top:250rpx;
 .nomore-text{
   margin-top:80rpx;
   text-align:center;
-}
+} */
