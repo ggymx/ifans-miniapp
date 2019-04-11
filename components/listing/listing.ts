@@ -1,3 +1,5 @@
+import api from "../../common/api";
+
 // components/listing/listing.js
 Component({
   /**
@@ -68,7 +70,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    imgUrl: '../../imgs/home-button-like@2x.png',
+    // imgUrl: '../../imgs/home-button-like@2x.png',
     isDelete:true
   },
 
@@ -121,7 +123,7 @@ Component({
     }
     },
     /*点赞 */
-    giveLike(event:any) {
+    async giveLike(event:any) {
       var that = this;
       //获取token
       var token = wx.getStorageSync('token');
@@ -134,13 +136,18 @@ Component({
           });
         },2000);
       } else {
-        if (that.data.imgUrl == '../../imgs/home-button-like@2x.png') {
+        console.log('giveLike', this.properties)
+        if(!this.properties.isLike) {
+          const res = await api.giveLike({postId: this.data.cId})
           that.setData!({
-            imgUrl: '../../imgs/button-like-dj@2x.png'
+            isLike: true,
+            // imgUrl: '../../imgs/button-like-dj@2x.png'
           })
         } else {
+          const res = await api.disLike({postId: this.data.cId})
           that.setData!({
-            imgUrl: '../../imgs/home-button-like@2x.png'
+            isLike: false,
+            // imgUrl: '../../imgs/home-button-like@2x.png'
           })
         }
       }
