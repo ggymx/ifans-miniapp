@@ -10,10 +10,10 @@ function dateCon(dateStr) {
   var now = getDate();
 
   if (Date.parse(oldDate) > Date.parse(now)) {
-    oldStr = oldDate.getFullYear() + "/" + (oldDate.getMonth() + 1) + "/" + oldDate.getDate() + "/";
+    oldStr = oldDate.getFullYear() + "/" + (oldDate.getMonth() + 1) + "/" + oldDate.getDate();
   }
   else if (now.getDate() - oldDate.getDate() >= 3) {
-    oldStr = oldDate.getFullYear() + "/" + (oldDate.getMonth() + 1) + "/" + oldDate.getDate() + "/";
+    oldStr = oldDate.getFullYear() + "/" + (oldDate.getMonth() + 1) + "/" + oldDate.getDate();
   }
   else if (now.getDate() - oldDate.getDate() == 3) {
     oldStr = '3天前';
