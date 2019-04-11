@@ -33,7 +33,6 @@ function dateCon(dateStr) {
 //姓名处理
 function nickNameCon(nickName){
   if(nickName.length>10){
-   console.log("测试！！！"+nickName.substring(0,15));
    return nickName.substring(0,15)+"..."
   }
   return nickName;
