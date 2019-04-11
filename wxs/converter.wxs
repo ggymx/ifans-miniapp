@@ -76,11 +76,22 @@ function isMore(text,setLength){
   return false;
 }
 
+//数字显示处理
+function numCon(num) {
+  if(num>=10000){
+    return Math.round(num/1000) + 'K'
+  } else if(num>=1000){
+    return Number(num/1000).toFixed(1) + 'K'
+  }
+  return num || ''
+}
+
 /*导出模块 */
 module.exports = {
   dateCon: dateCon,
   nickNameCon:nickNameCon,
   topicTitleCon:topicTitleCon,
   contextCon:contextCon,
+  numCon:numCon,
   isMore:isMore
 }

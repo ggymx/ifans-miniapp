@@ -22,23 +22,23 @@
             <block wx:if="{{returnInfo.posts.length!=0}}">
             <block wx:for="{{returnInfo.posts}}" wx:for-index="index">
                   <block wx:if="{{item.type=='1'}}">
-                  <listing card showTitle showIssue clock like tId="{{item.id}}" userId="{{item.user.id}}" avatar="{{item.user.avatar}}">
+                  <listing card showTitle showIssue clock like tId="{{item.id}}" cId="{{item.id}}" userId="{{item.user.id}}" avatar="{{item.user.avatar}}" isLike="{{item.isLike}}">
                         <text slot="user" class="topic-name">{{con.nickNameCon(item.user.nickname)}}</text>
                         <text slot="title" class="text-weight">{{con.contextCon(item.title,16)}}</text>
                         <view slot="context" class="topic-context">{{con.contextCon(item.text,70)}}<a slot="more" style="color:rgb(9,166,220)" wx:if="{{con.isMore(item.text,70)}}">更多</a>
                         </view>
                         <text slot="date">{{con.dateCon(item.creatAt)}}</text>
-                        <text slot="like">99</text>
+                        <text slot="like">{{con.numCon(item.likeCount)}}</text>
                   </listing>
                   </block>
                   <block wx:elif="{{item.type==2}}">
-                        <listing card showTitle clock like tId="{{item.refPostId}}" cId="{{item.id}}" userId="{{item.user.id}}" avatar="{{item.user.avatar}}">
+                        <listing card showTitle clock like tId="{{item.refPostId}}" cId="{{item.id}}" userId="{{item.user.id}}" avatar="{{item.user.avatar}}" isLike="{{item.isLike}}">
                         <text slot="user" class="comment-name">{{con.nickNameCon(item.user.nickname)}}</text>
                         <text slot="title" class="conmment-weight">#{{con.contextCon(item.refPost.title,16)}}#</text>
                         <view slot="context" class="topic-context">{{con.contextCon(item.text,70)}}<a slot="more" style="color:rgb(9,166,220)" wx:if="{{con.isMore(item.text,70)}}">更多</a>
                         </view>
                         <text slot="date">{{con.dateCon(item.creatAt)}}</text>
-                        <text slot="like">99</text>
+                        <text slot="like">{{con.numCon(item.likeCount)}}</text>
                   </listing>
                   </block>
             </block>
