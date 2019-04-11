@@ -1,7 +1,6 @@
 <!-- pages/publisher/publisher.wxml -->
 <wxs module="con" src="../../wxs/converter.wxs"></wxs>
-<navbar home text="文章详情" wx:if="{{sharCard}}"></navbar>
-<navbar back text="文章详情" wx:else></navbar>
+<navbar back text="文章详情"></navbar>
 <!-- comment -->
 <view class="underlying">
     <block wx:if="{{topic}}">
