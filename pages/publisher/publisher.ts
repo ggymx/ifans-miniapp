@@ -1,6 +1,7 @@
 //index.js
 //获取应用实例
 import { IMyApp } from '../../app'
+import api from '../../common/api';
 
 const app = getApp<IMyApp>()
 
@@ -51,9 +52,9 @@ Page({
     console.log("接受到的投稿id："+cId);
     var that=this;
     //获取话题详情
-    wx.request({
+    api.request({
 
-      url:'https://api-test.ifans.pub/v1/post/detail',
+      url:'/v1/post/detail',
 
       method:'GET',
 
@@ -76,9 +77,9 @@ Page({
     });
 
     //获取投稿详情
-    wx.request({
+    api.request({
 
-      url:'https://api-test.ifans.pub/v1/post/detail',
+      url:'/v1/post/detail',
 
       method:'GET',
 

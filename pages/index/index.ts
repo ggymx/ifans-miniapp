@@ -136,8 +136,8 @@ Page({
   onPullDownRefresh(){
     console.log("下拉刷新。。。");
     var that=this;
-    wx.request({
-      url:'https://api-test.ifans.pub/v1/home/list',
+    api.request({
+      url:'/v1/post/home-list',
       data:{
         cursor:0,
         limit:10
