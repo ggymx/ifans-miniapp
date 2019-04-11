@@ -1,6 +1,7 @@
 //index.js
 //获取应用实例
 import { IMyApp } from '../../app'
+import api from '../../common/api';
 
 
 const app = getApp<IMyApp>()
@@ -30,8 +31,8 @@ Page({
     console.log("接收到的userId："+userId);
 
     var that=this;
-    wx.request({
-      url:'https://api-test.ifans.pub/v1/user/detail',
+    api.request({
+      url:'/v1/user/detail',
       data:{
         id:userId
       },

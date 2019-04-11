@@ -6,7 +6,6 @@ import api from '../../common/api';
 
 const app = getApp<IMyApp>()
 let cursor:number=0;
-const domain = 'https://api-test.ifans.pub'
 
 Page({
   data: {
@@ -54,13 +53,8 @@ Page({
       title:'请稍候'
     });
 
-<<<<<<< Updated upstream
     api.request({
-      url:'/v1/api/home-list',
-=======
-    wx.request({
-      url:domain+'/v1/home-list',
->>>>>>> Stashed changes
+      url:'/v1/post/home-list',
 
       data:{
         cursor:cursor,
@@ -140,8 +134,8 @@ Page({
   onPullDownRefresh(){
     console.log("下拉刷新。。。");
     var that=this;
-    wx.request({
-      url:'https://api-test.ifans.pub/v1/home/list',
+    api.request({
+      url:'/v1/post/home-list',
       data:{
         cursor:0,
         limit:10

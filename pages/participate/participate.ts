@@ -1,6 +1,7 @@
 //index.js
 //获取应用实例
 import { IMyApp } from '../../app'
+import api from '../../common/api';
 
 
 const app = getApp<IMyApp>()
@@ -76,8 +77,8 @@ Page({
         console.log('获取到的userId:', userId);
         console.log('获取到的话题的id:', this.data.refPostId);
         console.log('获取到的投稿的内容：',this.data.pushText);
-        wx.request({
-          url: 'https://api-test.ifans.pub/v1/post/create',
+        api.request({
+          url: '/v1/post/create',
           data: {
             text: that.data.pushText,
             type: 2,
@@ -146,8 +147,8 @@ onEndEditor(event:any){
     this.data.refPostId = options.tid;
     // console.log(`传过来的tid：${tid}，存储的id${this.data.refPostId}`);
     var that = this;
-    wx.request({
-      url: 'https://api-test.ifans.pub/v1/post/detail',
+    api.request({
+      url: '/v1/post/detail',
       data: {
         id: tId
       },
