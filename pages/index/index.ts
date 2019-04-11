@@ -54,7 +54,7 @@ Page({
     });
 
     api.request({
-      url:'/v1/post/home-list',
+      url:'/v1/api/home-list',
 
       data:{
         cursor:cursor,
