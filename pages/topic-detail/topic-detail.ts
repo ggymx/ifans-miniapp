@@ -39,6 +39,7 @@ Page({
       },
       success(res){
         //设置数据
+        console.log("获取的话题详情：",res.data);
         that.setData!({
           topic:res.data
         }); 
@@ -53,6 +54,7 @@ Page({
             },
             success(res){
               //设置数据
+              console.log("获取的投稿列表：",res.data);
               that.setData!({
                 // topic:res.data
                 comment:res.data

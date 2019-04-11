@@ -35,8 +35,10 @@
 }
 
 .capsule>view {
-  width: 64rpx;
-  height: 60%;
+  /* width: 64rpx;
+  height: 60%; */
+  width:88rpx;
+  height:88rpx;
   position: relative;
 }
 
@@ -45,8 +47,10 @@
 }
 
 .capsule image {
-  width: 60%;
-  height: 100%;
+  /* width: 60%;
+  height: 100%; */
+  width:38rpx;
+  height:38rpx;
   position: absolute;
   left: 50%;
   top: 50%;
