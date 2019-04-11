@@ -1,6 +1,6 @@
 <!-- <wxs module="ani" src="../../wxs/animation.wxs"></wxs> -->
 <!--components/listing/listing.wxml-->
-<wxs module="ani" src="../../wxs/animation.wxs"></wxs>
+<wxs module="con" src="../../wxs/converter.wxs"></wxs>
  <view class="publisher-item {{card?'item-card':''}} slot1 slot2" bind:tap="bindRouter" data-tid="{{tId}}" data-cid="{{cId}}">
             <view class="publisher-person">
              <image src="{{avatar}}" class="avatar" catch:tap="bindMy" data-uid="{{userId}}"/>
@@ -11,7 +11,7 @@
                 </view>
                  <text wx:if="{{showIssue}}">发布了话题</text>
             </view>
-            <view class="arr-view" catchtap="popBox">
+            <view class="arr-view" catch:tap="popBox">
              <image src="../../imgs/myhome-gd@2x.png" class="arrow-btn"  wx:if="{{arrowBtn}}" />
             </view>
             </view>
@@ -40,11 +40,12 @@
 
               <view style="margin-left:20rpx;display:inline-block">
                   <!-- <text >99</text> -->
+                  
                   <slot name="like"></slot>
+                <!-- <text wx:if="{{like}}">{{likeCount}}</text> -->
               </view>
               </view>
             </view>
 
-            <!--举报弹出框-->
-            <view class="popBox" wx:if="{{false}}"></view>
+            <!-- <view class="popBox" wx:if="{{false}}"></view>  -->
         </view>

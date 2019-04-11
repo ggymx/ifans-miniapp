@@ -8,10 +8,6 @@ const app = getApp<IMyApp>()
 let tId:number;
 Page({
   data: {
-    motto: '点击 “编译” 以构建',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
     topic: null,
     pushText:'',
     refPostId: null,
@@ -74,9 +70,6 @@ Page({
           }
         });
         let userId = wx.getStorageSync('userId');
-        console.log('获取到的userId:', userId);
-        console.log('获取到的话题的id:', this.data.refPostId);
-        console.log('获取到的投稿的内容：',this.data.pushText);
         api.request({
           url: '/v1/post/create',
           data: {
@@ -85,14 +78,10 @@ Page({
             userid: userId,
             refPostId: this.data.refPostId
           },
-          header: {
-            Authorization: token
-          },
           method: 'POST',
           success(res) {
-            console.log("投稿成功的id："+res.data.id);
             let cId=res.data.id;
-            console.log("发布投稿成功！！！！！！！！！",res.data);
+        
             setTimeout(() => {
               wx.hideLoading({
                 success() {
@@ -123,29 +112,26 @@ Page({
   },
   
 onEditText(event:any){
-  console.log(event);
+  // console.log(event);
   this.setData!({
     inputText:'390rpx'
   });
 },
 onEndEditor(event:any){
-  // wx.showToast({
-  //   title:'结束编辑'
-  // })
+ 
   this.setData!({
     inputText:'900rpx'
   });
 }
 ,
   onLoad(options: any) {
-    console.log('触发load事件');
+
     let topic=wx.getStorageSync('topic')
-    console.log('获得缓存中的topic：',topic);
     //没有话题缓存说明是首次来该页面
     if(!topic){
     tId = options.tid;
     this.data.refPostId = options.tid;
-    // console.log(`传过来的tid：${tid}，存储的id${this.data.refPostId}`);
+   
     var that = this;
     api.request({
       url: '/v1/post/detail',
@@ -154,8 +140,7 @@ onEndEditor(event:any){
       },
       method: 'GET',
       success(res) {
-        console.log("参与话题页----------获取res");
-        console.log(res.data);
+
         that.setData!({
           topic: res.data
         });
@@ -165,12 +150,12 @@ onEndEditor(event:any){
           key:'topic',
           data:res.data,
           success(){
-            console.log("缓存取到的话题：",res.data);
+            // console.log("缓存取到的话题：",res.data);
           }
         });
       },
       fail(err) {
-        console.log("打印错误信息:" + err.errMsg);
+        // console.log("打印错误信息:" + err.errMsg);
       }
     });
   }else{
@@ -187,41 +172,5 @@ onEndEditor(event:any){
       pushText:draft
     });
   }
-
-    if (app.globalData.userInfo) {
-      this.setData!({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true,
-      })
-    } else if (this.data.canIUse) {
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = (res) => {
-        this.setData!({
-          userInfo: res,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData!({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
-    }
-  },
-
-  getUserInfo(e: any) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData!({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
   }
 })

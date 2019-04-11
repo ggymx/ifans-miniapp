@@ -2,8 +2,6 @@
   "pages": [
     "pages/index/index",
     "pages/participate/participate",
-    
-   
     "pages/test/test",
     "pages/login/login",
     "pages/topic-detail/topic-detail",
@@ -16,7 +14,7 @@
     "navigationBarTitleText": "轻话题",
     "navigationBarTextStyle": "black",
     "navigationStyle": "custom",
-    "onReachBottomDistance":3,
+    "onReachBottomDistance":2,
     "backgroundColor":"#F5F5F5"
   }
 }

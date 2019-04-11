@@ -1,18 +1,25 @@
+import api from './common/api'
 import tracker from './utils/tracker_es.min'
-import api from './common/api';
 tracker({token: 'c9e8c81c6aefc93c107fd2c43d094726', behaviour: 9, optimisedForSPA: true, useHistory: true})
 
 // app.ts
 export interface IMyApp {
   globalData: {
     userInfo?: wx.UserInfo,
+    share: boolean,
+    height: number,
   }
   userInfoReadyCallback?(res: wx.UserInfo): void
 }
 
 App<IMyApp>({
-  onLaunch() {
+  onLaunch(options) {
     api.init('https://api-test.ifans.pub')
+    wx.getSystemInfo({
+      success: (res) => {
+        this.globalData.height = res.statusBarHeight
+      }
+    })
     // 展示本地存储能力
     const logs: number[] = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
@@ -45,6 +52,15 @@ App<IMyApp>({
       },
     })
   },
+  onShow(options) {
+    if(options.scene === 1007 || options.scene === 1008) {
+      this.globalData.share = true
+    } else {
+      this.globalData.share = false
+    }
+  },
   globalData: {
+    share: false,
+    height: 0,
   },
 })

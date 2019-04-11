@@ -8,8 +8,8 @@
 	"projectname": "ifans-miniapp",
 	"scripts": {
 		"beforeCompile": "npm run compile",
-		"beforePreview": "npm run compile",
-		"beforeUpload": "npm run compile"
+		"beforePreview": "echo hello",
+		"beforeUpload": "echo hello"
 	},
 	"setting": {
 		"urlCheck": false,
@@ -17,7 +17,8 @@
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
-		"autoAudits": false
+		"autoAudits": false,
+		"uglifyFileName": false
 	},
 	"appid": "wx9cc039bf853da6b0",
 	"condition": {}
