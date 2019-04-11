@@ -1,6 +1,6 @@
 <!-- pages/index/index.wxml -->
 <wxs module="con" src="../../wxs/converter.wxs"></wxs>
-<navbar gear text="首页" class="navbar-index"></navbar>
+<navbar gear text="轻话题" class="navbar-index"></navbar>
 <view class="underlying">
       <view class='index-subscribe'>
             <!-- <view style="width:240rpx;float:right;" bind:tap="bindViewHot">
@@ -19,13 +19,12 @@
             </button>
       </view>
       <view class="container">
-            <block wx:if="{{returnInfo.posts.length!=0}}">
-            <block wx:for="{{returnInfo.posts}}" wx:for-index="index">
+            <block wx:for="{{topList}}" wx:for-index="index">
                   <block wx:if="{{item.type=='1'}}">
                   <listing card showTitle showIssue clock like tId="{{item.id}}" cId="{{item.id}}" userId="{{item.user.id}}" avatar="{{item.user.avatar}}" isLike="{{item.isLike}}">
                         <text slot="user" class="topic-name">{{con.nickNameCon(item.user.nickname)}}</text>
-                        <text slot="title" class="text-weight">{{con.topicTitleCon(item.title)}}</text>
-                        <view slot="context" class="topic-context">{{con.topicContextCon(item.text)}}<a slot="more" style="color:rgb(9,166,220)" wx:if="{{con.isMore(item.text)}}">更多</a>
+                        <text slot="title" class="text-weight">{{con.contextCon(item.title,16)}}</text>
+                        <view slot="context" class="topic-context">{{con.contextCon(item.text,70)}}<a slot="more" style="color:rgb(9,166,220)" wx:if="{{con.isMore(item.text,70)}}">更多</a>
                         </view>
                         <text slot="date">{{con.dateCon(item.creatAt)}}</text>
                         <text slot="like">{{con.numCon(item.likeCount)}}</text>
@@ -34,20 +33,19 @@
                   <block wx:elif="{{item.type==2}}">
                         <listing card showTitle clock like tId="{{item.refPostId}}" cId="{{item.id}}" userId="{{item.user.id}}" avatar="{{item.user.avatar}}" isLike="{{item.isLike}}">
                         <text slot="user" class="comment-name">{{con.nickNameCon(item.user.nickname)}}</text>
-                        <text slot="title" class="conmment-weight">#{{con.topicTitleCon(item.refPost.title)}}#</text>
-                        <view slot="context" class="topic-context">{{con.topicContextCon(item.text)}}<a slot="more" style="color:rgb(9,166,220)" wx:if="{{con.isMore(item.text)}}">更多</a>
+                        <text slot="title" class="conmment-weight">#{{con.contextCon(item.refPost.title,16)}}#</text>
+                        <view slot="context" class="topic-context">{{con.contextCon(item.text,70)}}<a slot="more" style="color:rgb(9,166,220)" wx:if="{{con.isMore(item.text,70)}}">更多</a>
                         </view>
                         <text slot="date">{{con.dateCon(item.creatAt)}}</text>
                         <text slot="like">{{con.numCon(item.likeCount)}}</text>
                   </listing>
                   </block>
             </block>
-            </block>
-            <block wx:else>
+            <!-- <block wx:elif="{{!more}}">
               <view class="no-more">
                 <image src="../../imgs/null.png" class="nomore-img{"/>
                 <text class="nomore-text">抱歉，没有更多信息了</text>
               </view>
-            </block>
+            </block> -->
       </view> 
 </view>

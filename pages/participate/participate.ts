@@ -4,7 +4,7 @@ import { IMyApp } from '../../app'
 
 
 const app = getApp<IMyApp>()
-
+let tId:number;
 Page({
   data: {
     motto: '点击 “编译” 以构建',
@@ -53,7 +53,7 @@ Page({
 
           }
         });
-      }, 2000);
+      }, 300);
 
     } else {
       if (!this.data.pushText) {
@@ -89,6 +89,8 @@ Page({
           },
           method: 'POST',
           success(res) {
+            console.log("投稿成功的id："+res.data.id);
+            let cId=res.data.id;
             console.log("发布投稿成功！！！！！！！！！",res.data);
             setTimeout(() => {
               wx.hideLoading({
@@ -101,13 +103,13 @@ Page({
                   wx.removeStorageSync('draft');
                   setTimeout(() => {
                     wx.navigateTo({
-                      url: '../index/index'
+                      url: `../publisher/publisher?tid=${tId}&cid=${cId}`
                     });
-                  }, 1000);
+                  }, 200);
                 }
               });
 
-            }, 1000);
+            }, 200);
 
           },
           fail(res) {
@@ -140,14 +142,14 @@ onEndEditor(event:any){
     console.log('获得缓存中的topic：',topic);
     //没有话题缓存说明是首次来该页面
     if(!topic){
-    let tid = options.tid;
+    tId = options.tid;
     this.data.refPostId = options.tid;
-    console.log(`传过来的tid：${tid}，存储的id${this.data.refPostId}`);
+    // console.log(`传过来的tid：${tid}，存储的id${this.data.refPostId}`);
     var that = this;
     wx.request({
       url: 'https://api-test.ifans.pub/v1/post/detail',
       data: {
-        id: tid
+        id: tId
       },
       method: 'GET',
       success(res) {

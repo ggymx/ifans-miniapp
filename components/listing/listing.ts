@@ -134,7 +134,7 @@ Component({
           wx.navigateTo({
             url: '../login/login'
           });
-        },2000);
+        },200);
       } else {
         console.log('giveLike', this.properties)
         if(!this.properties.isLike) {

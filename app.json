@@ -16,7 +16,7 @@
     "navigationBarTitleText": "轻话题",
     "navigationBarTextStyle": "black",
     "navigationStyle": "custom",
-    "onReachBottomDistance":10,
+    "onReachBottomDistance":3,
     "backgroundColor":"#F5F5F5"
   }
 }

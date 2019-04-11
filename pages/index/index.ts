@@ -14,7 +14,7 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    returnInfo:null,
+    topList:[],
     isSubscribe:false,
     isErr:false
   },
@@ -64,20 +64,28 @@ Page({
 
       data:{
         cursor:cursor,
-        limit:5
+        limit:10
       },
 
       method:"GET",
 
       success(res){
+        console.log("more的数值："+that.data.more);
         console.log("index获取的数据res：");
         console.log(res.data);
-        that.setData!({
-          returnInfo:res.data
-        });
-        /*通过返回的话题列表查询相应的参与话题的对象 */
-        //指针后移
-        cursor=res.data.cursor;
+        if(res.data.posts.length==0){
+          that.data.more=false;
+          wx.showToast({
+            icon:'none',
+            title:'没有更多信息了！'
+          });
+        }else{
+          that.setData!({
+            topList:that.data.topList.concat(res.data.posts)
+          });
+            //指针后移
+         cursor=res.data.cursor;
+        }
         wx.hideLoading({});
 
       },
@@ -89,7 +97,7 @@ Page({
           that.setData!({
             isErr:true
           });
-        },1000)
+        },800)
       }
     });
 
@@ -136,7 +144,7 @@ Page({
       url:'https://api-test.ifans.pub/v1/home/list',
       data:{
         cursor:0,
-        limit:5
+        limit:10
       },
       method:'GET',
       success(res){
@@ -160,6 +168,6 @@ Page({
     setTimeout(()=>{
       //重新加载
       that.onLoad();
-    },1000)
+    },500)
   }
 })

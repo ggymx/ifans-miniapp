@@ -4,7 +4,7 @@ import { IMyApp } from '../../app'
 
 
 const app = getApp<IMyApp>()
-
+let id:number
 Page({
   data: {
     motto: '点击 “编译” 以构建',
@@ -12,7 +12,8 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     topic: {},
-    comment:{}
+    comment:{},
+    sharCard:false
   },
   bindViewParti(event:any){
     var tid=event.currentTarget.dataset.tid;
@@ -28,7 +29,29 @@ Page({
 
   /*options:获取url参数 */
   onLoad(options:any) {
-    let id=options.tid;
+  
+
+    // let id=options.tid;
+    id=options.tid;
+        //获取场景值，根据场景值切换导航栏的状态
+        let launchPara=wx.getLaunchOptionsSync();
+        // wx.showToast({
+        //   icon:"none",
+        //   title:"场景值："+launchPara.path
+        // })
+        // let pages=getCurrentPages();
+        // let prevpage = pages[pages.length - 2];
+        // wx.showToast({
+        //   icon:"none",
+        //   title:prevpage.route!.toString()
+        // });
+
+        if(launchPara.scene==1007&&false){
+          this.setData!({
+            sharCard:true
+          });
+        }
+
     console.log("话题的id："+id);
     var that=this;
     wx.request({
@@ -75,7 +98,6 @@ Page({
       }
     });
 
-  
     if (app.globalData.userInfo) {
       this.setData!({
         userInfo: app.globalData.userInfo,
@@ -110,7 +132,7 @@ Page({
     console.log("激活转发事件：",res)
       return{
         title:`#${this.data.topic.post.title}#`,
-        imageUrl:'../../imgs/jietu.png',
+        imageUrl:'../../imgs/topicShare.png',
         success(e:any){
         wx.showShareMenu({
           withShareTicket:true

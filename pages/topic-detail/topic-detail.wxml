@@ -1,6 +1,7 @@
 <!-- pages/topic-detail/topic-detail.wxml -->
 <wxs module="con" src="../../wxs/converter.wxs"></wxs>
-<navbar back text="话题详情"></navbar>
+<navbar home text="话题详情" wx:if="{{sharCard}}"></navbar>
+<navbar back text="话题详情" wx:else></navbar>
 <view class="underlying">
     <view class="container">
         <view class="topic">
@@ -42,7 +43,7 @@
                     <listing addClass="item-card" arrowBtn clock like tId="{{topic.post.id}}" cId="{{item.id}}" userId="{{item.userId}}" avatar="{{item.user.avatar}}">
                         <text slot="user" class="item-name">{{item.user.nickname}}</text>
                         <text slot="title" class="item-title">{{item.title}}</text>
-                        <view slot="context" class="item-context">{{con.topicContextCon(item.text)}}<a slot="more" style="color:rgb(9,166,220)" wx:if="{{con.isMore(item.text)}}">更多</a></view>
+                        <view slot="context" class="item-context">{{con.contextCon(item.text,300)}}<a slot="more" style="color:rgb(9,166,220)" wx:if="{{con.isMore(item.text,300)}}">更多</a></view>
                         <text slot="date">{{con.dateCon(item.creatAt)}}</text>
                         <text slot="like">{{99}}</text>
                     </listing>
