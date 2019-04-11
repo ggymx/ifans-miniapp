@@ -2,31 +2,45 @@
 //日期处理
 function dateCon(dateStr) {
   if (!dateStr || dateStr == '') return '';
-  //getDate()获取当前时间
+
   var oldDate = getDate(dateStr);
+
   var oldStr = ''
+
   var now = getDate();
-  if (now.getFullYear() - oldDate.getFullYear() > 0) {
-    oldStr = oldDate.getFullYear()+"年"+oldDate.getMonth()+"月"+oldDate.getMonth()+"日";
-  } else {
-    if (now.getMonth() - oldDate.getMonth() > 0) {
-      oldStr = oldDate.getFullYear()+"年"+oldDate.getMonth()+"月"+oldDate.getMonth()+"日";
-    } else {
-      if (now.getDate() - oldDate.getDate() > 3) {
-        oldStr = oldDate.getFullYear()+"年"+oldDate.getMonth()+"月"+oldDate.getMonth()+"日";
+
+  if (Date.parse(oldDate) > Date.parse(now)) {
+    oldStr = oldDate.getFullYear() + "年" + (oldDate.getMonth() + 1) + "月" + oldDate.getDate() + "日";
+  }
+  else if (now.getDate() - oldDate.getDate() >= 3) {
+    oldStr = oldDate.getFullYear() + "年" + (oldDate.getMonth() + 1) + "月" + oldDate.getDate() + "日";
+  }
+  else if (now.getDate() - oldDate.getDate() == 3) {
+    oldStr = '3天前';
+  } else if (now.getDate() - oldDate.getDate() == 2) {
+    oldStr = '2天前';
+  } else if (now.getDate() - oldDate.getDate() == 1) {
+    oldStr = '一天前';
+  }
+  else {
+    if (now.getHours() - oldDate.getHours() > 0) {
+
+      if (now.getHours() - oldDate.getHours() < 1) {
+        oldStr = (60 - oldDate.getMinutes() + now.getMinutes()) + '分钟前'
       } else {
-        if (now.getDate() - oldDate.getDate() == 3) {
-          oldStr = '3天前';
-        } else if (now.getDate() - oldDate.getDate() == 2) {
-          oldStr = '2天前';
-        } else if (now.getDate() - oldDate.getDate() == 1) {
-          oldStr = '24小时前';
-        } else {
-          oldStr = '刚刚';
-        }
+        oldStr = now.getHours() - oldDate.getHours() + '小时前'
       }
+    } else if (now.getMinutes() - oldDate.getMinutes() > 0) {
+      if (now.getMinutes() - oldDate.getMinutes() < 1) {
+        oldStr = (60 - oldDate.getSeconds() + now.getSeconds()) + '秒前'
+      } else {
+        oldStr = now.getMinutes() - oldDate.getMinutes() + '分钟前'
+      }
+    } else {
+      oldStr = (now.getSeconds() - oldDate.getSeconds()) + '秒前'
     }
   }
+
   return oldStr;
 }
 
