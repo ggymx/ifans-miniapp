@@ -115,7 +115,7 @@ Page({
   },
   
 onEditText(event:any){
-  console.log(event);
+  // console.log(event);
   this.setData!({
     inputText:'390rpx'
   });
@@ -153,12 +153,12 @@ onEndEditor(event:any){
           key:'topic',
           data:res.data,
           success(){
-            console.log("缓存取到的话题：",res.data);
+            // console.log("缓存取到的话题：",res.data);
           }
         });
       },
       fail(err) {
-        console.log("打印错误信息:" + err.errMsg);
+        // console.log("打印错误信息:" + err.errMsg);
       }
     });
   }else{
