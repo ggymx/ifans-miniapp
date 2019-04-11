@@ -1,4 +1,5 @@
 import tracker from './utils/tracker_es.min'
+import api from './common/api';
 tracker({token: 'c9e8c81c6aefc93c107fd2c43d094726', behaviour: 9, optimisedForSPA: true, useHistory: true})
 
 // app.ts
@@ -11,6 +12,7 @@ export interface IMyApp {
 
 App<IMyApp>({
   onLaunch() {
+    api.init('https://api-test.ifans.pub')
     // 展示本地存储能力
     const logs: number[] = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())

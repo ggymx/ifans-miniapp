@@ -1,6 +1,7 @@
 //index.js
 //获取应用实例
 import { IMyApp } from '../../app'
+import api from '../../common/api';
 
 
 const app = getApp<IMyApp>()
@@ -52,8 +53,8 @@ Page({
       title:'请稍候'
     });
 
-    wx.request({
-      url:'https://api-test.ifans.pub/v1/home/list',
+    api.request({
+      url:'/v1/post/home-list',
 
       data:{
         cursor:cursor,
