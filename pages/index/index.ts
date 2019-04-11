@@ -68,11 +68,13 @@ Page({
         console.log("index获取的数据res：");
         console.log(res.data);
         if(res.data.posts.length==0){
-          that.data.more=false;
-          wx.showToast({
-            icon:'none',
-            title:'没有更多信息了！'
-          });
+          setTimeout(()=>{
+            wx.showToast({
+              icon:'none',
+              title:'已经到底了。。。'
+            });
+          },200)
+         
         }else{
           that.setData!({
             topList:that.data.topList.concat(res.data.posts)
@@ -144,7 +146,7 @@ Page({
       success(res){
         console.log("上拉刷新成功:",res.data);
         that.setData!({
-          returnInfo:res.data
+          topList:res.data.posts
         });
         setTimeout(()=>{
           wx.stopPullDownRefresh({});
@@ -159,8 +161,10 @@ Page({
     wx.showLoading({
       title:'加载更多.'
     });
+    
     setTimeout(()=>{
       //重新加载
+      wx.hideLoading({});
       that.onLoad();
     },500)
   }

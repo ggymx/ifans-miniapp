@@ -46,7 +46,7 @@ Page({
         //   title:prevpage.route!.toString()
         // });
 
-        if(launchPara.scene==1007&&false){
+        if(launchPara.scene==1007){
           this.setData!({
             sharCard:true
           });
