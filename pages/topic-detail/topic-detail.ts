@@ -33,24 +33,6 @@ Page({
 
     // let id=options.tid;
     id=options.tid;
-        //获取场景值，根据场景值切换导航栏的状态
-        let launchPara=wx.getLaunchOptionsSync();
-        // wx.showToast({
-        //   icon:"none",
-        //   title:"场景值："+launchPara.path
-        // })
-        // let pages=getCurrentPages();
-        // let prevpage = pages[pages.length - 2];
-        // wx.showToast({
-        //   icon:"none",
-        //   title:prevpage.route!.toString()
-        // });
-
-        if(launchPara.scene==1007){
-          this.setData!({
-            sharCard:true
-          });
-        }
 
     console.log("话题的id："+id);
     var that=this;

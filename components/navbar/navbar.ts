@@ -1,5 +1,5 @@
-"use strict";
-var app = getApp();
+import { IMyApp } from './../../app';
+const app: IMyApp = getApp();
 /*待初始化的缓存和草稿 */
 let topicCache:any
 let draft:any
@@ -22,14 +22,20 @@ Component({
             value: false
         }
     },
+    attached() {
+      this.setData({
+        share: app.globalData.share
+      })
+    },
     data: {
         statusBarHeight: app.statusBarHeight + 'px',
         navigationBarHeight: (app.statusBarHeight + 44) + 'px'
     },
     methods: {
         backHome() {
-            wx.navigateTo({
-                url: '../index/index',
+            app.globalData.share = false
+            wx.redirectTo({
+              url: '/pages/index/index',
             });
         },
         back() {
