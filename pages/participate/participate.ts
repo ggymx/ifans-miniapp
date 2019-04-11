@@ -1,6 +1,7 @@
 //index.js
 //获取应用实例
 import { IMyApp } from '../../app'
+import api from '../../common/api';
 
 
 const app = getApp<IMyApp>()
@@ -69,17 +70,13 @@ Page({
           }
         });
         let userId = wx.getStorageSync('userId');
-      
-        wx.request({
-          url: 'https://api-test.ifans.pub/v1/post/create',
+        api.request({
+          url: '/v1/post/create',
           data: {
             text: that.data.pushText,
             type: 2,
             userid: userId,
             refPostId: this.data.refPostId
-          },
-          header: {
-            Authorization: token
           },
           method: 'POST',
           success(res) {
@@ -136,8 +133,8 @@ onEndEditor(event:any){
     this.data.refPostId = options.tid;
    
     var that = this;
-    wx.request({
-      url: 'https://api-test.ifans.pub/v1/post/detail',
+    api.request({
+      url: '/v1/post/detail',
       data: {
         id: tId
       },

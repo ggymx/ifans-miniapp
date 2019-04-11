@@ -1,7 +1,6 @@
 <!-- pages/topic-detail/topic-detail.wxml -->
 <wxs module="con" src="../../wxs/converter.wxs"></wxs>
-<navbar home text="话题详情" wx:if="{{sharCard}}"></navbar>
-<navbar back text="话题详情" wx:else></navbar>
+<navbar back text="话题详情"></navbar>
 <view class="underlying">
     <view class="container">
         <view class="topic">

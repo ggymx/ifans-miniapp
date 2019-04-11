@@ -1,6 +1,7 @@
 //index.js
 //获取应用实例
 import { IMyApp } from '../../app'
+import api from '../../common/api';
 
 
 const app = getApp<IMyApp>()
@@ -28,18 +29,10 @@ Page({
   
     // let id=options.tid;
     id=options.tid;
-        //获取场景值，根据场景值切换导航栏的状态
-        let launchPara=wx.getLaunchOptionsSync();
-  
-        if(launchPara.scene==1007){
-          this.setData!({
-            sharCard:true
-          });
-        }
 
     var that=this;
-    wx.request({
-      url:'https://api-test.ifans.pub/v1/post/detail',
+    api.request({
+      url:'/v1/post/detail',
       method:'GET',
       data:{
         id:id
@@ -49,9 +42,9 @@ Page({
         that.setData!({
           topic:res.data
         }); 
-        wx.request(
+        api.request(
           {
-            url:'https://api-test.ifans.pub/v1/post/list',
+            url:'/v1/post/list',
     
             method:'GET',
     

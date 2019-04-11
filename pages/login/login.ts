@@ -1,6 +1,7 @@
 //index.js
 //获取应用实例
 import { IMyApp } from '../../app'
+import api from '../../common/api';
 
 const app = getApp<IMyApp>()
 let loginCode: string
@@ -17,9 +18,9 @@ Page({
     if (e.detail.userInfo) {
      var that=this;
     /*这里不需要用token判断 */
-          wx.request({
+          api.request({
 
-            url:'https://api-test.ifans.pub/v1/auth/login',
+            url:'/v1/auth/login',
 
             data:{
               code:loginCode,
