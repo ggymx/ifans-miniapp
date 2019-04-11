@@ -13,7 +13,7 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    returnInfo:null,
+    topList:[],
     isSubscribe:false,
     isErr:false
   },
@@ -64,14 +64,22 @@ Page({
       method:"GET",
 
       success(res){
+        console.log("more的数值："+that.data.more);
         console.log("index获取的数据res：");
         console.log(res.data);
-        that.setData!({
-          returnInfo:res.data
-        });
-        /*通过返回的话题列表查询相应的参与话题的对象 */
-        //指针后移
-        cursor=res.data.cursor;
+        if(res.data.posts.length==0){
+          that.data.more=false;
+          wx.showToast({
+            icon:'none',
+            title:'没有更多信息了！'
+          });
+        }else{
+          that.setData!({
+            topList:that.data.topList.concat(res.data.posts)
+          });
+            //指针后移
+         cursor=res.data.cursor;
+        }
         wx.hideLoading({});
 
       },

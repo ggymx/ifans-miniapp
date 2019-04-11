@@ -19,8 +19,7 @@
             </button>
       </view>
       <view class="container">
-            <block wx:if="{{returnInfo.posts.length!=0}}">
-            <block wx:for="{{returnInfo.posts}}" wx:for-index="index">
+            <block wx:for="{{topList}}" wx:for-index="index">
                   <block wx:if="{{item.type=='1'}}">
                   <listing card showTitle showIssue clock like tId="{{item.id}}" cId="{{item.id}}" userId="{{item.user.id}}" avatar="{{item.user.avatar}}" isLike="{{item.isLike}}">
                         <text slot="user" class="topic-name">{{con.nickNameCon(item.user.nickname)}}</text>
@@ -42,12 +41,11 @@
                   </listing>
                   </block>
             </block>
-            </block>
-            <block wx:else>
+            <!-- <block wx:elif="{{!more}}">
               <view class="no-more">
                 <image src="../../imgs/null.png" class="nomore-img{"/>
                 <text class="nomore-text">抱歉，没有更多信息了</text>
               </view>
-            </block>
+            </block> -->
       </view> 
 </view>

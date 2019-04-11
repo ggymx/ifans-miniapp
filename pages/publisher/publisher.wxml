@@ -8,8 +8,8 @@
         <view class="container">
             <view class="topic" catch:tap="bindViewTopic" data-tid="{{topic.post.id}}">
                 <view class="topic-title">
-                    <text style='font-size: 36rpx;font-weight: bold;color: rgb(51, 51, 51);'>
-                        {{topic.post.title}}
+                    <text style='font-size: 36rpx;font-weight: bold;color: rgb(153, 153, 153);'>
+                        #{{topic.post.title}}#
                     </text>
                 </view>
                 <view class="topic-context" style='font-weight: 400;'>{{topic.post.text}}</view>
