@@ -4,5 +4,6 @@
     "navbar": "../..//components/navbar/navbar",
     "listing": "../..//components/listing/listing"
   },
-  "enablePullDownRefresh":true
+  "enablePullDownRefresh":true,
+  "disableSwipeBack":false
 }
