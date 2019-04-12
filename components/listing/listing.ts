@@ -97,9 +97,7 @@ Component({
           wx.navigateTo({
             url: '../topic-detail/topic-detail?tid=' + id,
             success: function () {
-              // wx.showToast({
-              //   title: '话题详情'
-              // });
+             
             }
           });
         } else {
@@ -108,11 +106,7 @@ Component({
           let tId = event.currentTarget.dataset.tid;
           wx.navigateTo({
             url: '../publisher/publisher?tid=' + tId + '&cid=' + cId,
-            // success: function () {
-            //   wx.showToast({
-            //     title: '发布者详情'
-            //   });
-            // }
+          
           });
         }
       }
@@ -125,9 +119,7 @@ Component({
       wx.navigateTo({
         url: '../my/my?userId=' + userId,
         success: function () {
-          // wx.showToast({
-          //   title: '我的首页'
-          // });
+      
         }
       });
     }
@@ -142,7 +134,7 @@ Component({
           wx.navigateTo({
             url: '../login/login'
           });
-        },200);
+        },100);
       } else {
         // console.log('giveLike', this.properties)
         if(!this.properties.isLike) {
@@ -163,13 +155,23 @@ Component({
     },
 
     popBox(){
+      const ownId=wx.getStorageSync('userId');
+     const userId=this.properties.userId
+     console.log(`当前用户的id：${ownId}，投稿的用户Id：${userId}`);
+      let token=wx.getStorageSync('token');
+      let itemList;
+      if(token){
+        if(ownId==userId){
+          itemList=["删除"];
+        }else{
+          itemList=["举报"];
+        }
       wx.showActionSheet({
-        itemList:["屏蔽","举报","删除"],
+        itemList:itemList,
         success(res){
           switch(res.tapIndex){
             case 0:break;
-            case 1:break;
-            case 2:
+            case 1:
               wx.showModal({
                 title:'删除投稿',
                 content:'确定删除这个信息吗？',
@@ -182,6 +184,14 @@ Component({
           }
         }
       })
+    }else{
+      wx.showToast({title: '请先登录！'});
+      setTimeout(()=>{
+        wx.navigateTo({
+          url: '../login/login'
+        });
+      },100);
+    }
     },
   },
 
