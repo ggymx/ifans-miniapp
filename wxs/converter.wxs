@@ -89,6 +89,11 @@ function numCon(num) {
   return num || ''
 }
 
+//判断话题内容是否为null或者为空
+function notNull(text){
+  return text != null && text.trim().length!==0
+}
+
 /*导出模块 */
 module.exports = {
   dateCon: dateCon,
@@ -96,5 +101,6 @@ module.exports = {
   topicTitleCon:topicTitleCon,
   contextCon:contextCon,
   numCon:numCon,
-  isMore:isMore
+  isMore:isMore,
+  notNull:notNull
 }

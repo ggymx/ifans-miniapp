@@ -92,7 +92,7 @@ Page({
                   wx.removeStorageSync('topic');
                   wx.removeStorageSync('draft');
                   setTimeout(() => {
-                    wx.navigateTo({
+                    wx.redirectTo({
                       url: `../publisher/publisher?tid=${tId}&cid=${cId}`
                     });
                   }, 200);

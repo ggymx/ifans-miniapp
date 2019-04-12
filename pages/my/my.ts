@@ -31,7 +31,7 @@ Page({
       },
       method:'GET',
       success(res){
-  
+        console.log("。。。。。。",res.data)
         that.setData!({
           userData:res.data
         });

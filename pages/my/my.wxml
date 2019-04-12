@@ -15,12 +15,12 @@
       <view class="container">
                   <block wx:for="{{userData.posts}}" wx:for-item="partiItem">
                         <block wx:if="{{partiItem.type==1}}">
-                        <listing card arrowBtn showTitle showIssue finalMy clock like tId="{{partiItem.id}}"  avatar="{{userData.user.avatar}}">
+                        <listing card arrowBtn showTitle showIssue finalMy clock  tId="{{partiItem.id}}"  avatar="{{userData.user.avatar}}">
                               <text slot="user" class="item-name">{{con.nickNameCon(userData.user.nickname)}}</text>
                               <text slot="title" class="item-title">{{partiItem.title}}</text>
                               <view slot="context" class="item-context">{{partiItem.text}}</view>
                               <text slot="date">{{con.dateCon(partiItem.creatAt)}}</text>
-                              <text slot="like">{{99}}</text>
+                              <!-- <text slot="like">{{99}}</text> -->
                         </listing>
                         </block>
                         <block wx:if="{{partiItem.type==2}}">
@@ -29,7 +29,7 @@
                               <text slot="title" class="item-title">#{{partiItem.refPost.title}}#</text>
                               <view slot="context" class="item-context">{{partiItem.text}}</view>
                               <text slot="date">{{con.dateCon(partiItem.creatAt)}}</text>
-                              <text slot="like">{{99}}</text>
+                              <text slot="like">{{partiItem.likeCount}}</text>
                         </listing>
                         </block>
                   </block>
