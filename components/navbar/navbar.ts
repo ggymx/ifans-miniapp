@@ -26,7 +26,7 @@ Component({
       const pages = getCurrentPages().map(p=>p.route)
       this.setData({
         canBack: pages.length > 1,
-        needHome: pages.length === 1 && pages[0] === 'pages/index/index'
+        needHome: pages.length === 1 && pages[0] !== 'pages/index/index'
       })
     },
     data: {
