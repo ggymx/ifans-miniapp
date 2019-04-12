@@ -97,9 +97,9 @@ Component({
           wx.navigateTo({
             url: '../topic-detail/topic-detail?tid=' + id,
             success: function () {
-              wx.showToast({
-                title: '话题详情'
-              });
+              // wx.showToast({
+              //   title: '话题详情'
+              // });
             }
           });
         } else {
@@ -108,11 +108,11 @@ Component({
           let tId = event.currentTarget.dataset.tid;
           wx.navigateTo({
             url: '../publisher/publisher?tid=' + tId + '&cid=' + cId,
-            success: function () {
-              wx.showToast({
-                title: '发布者详情'
-              });
-            }
+            // success: function () {
+            //   wx.showToast({
+            //     title: '发布者详情'
+            //   });
+            // }
           });
         }
       }
@@ -125,9 +125,9 @@ Component({
       wx.navigateTo({
         url: '../my/my?userId=' + userId,
         success: function () {
-          wx.showToast({
-            title: '我的首页'
-          });
+          // wx.showToast({
+          //   title: '我的首页'
+          // });
         }
       });
     }

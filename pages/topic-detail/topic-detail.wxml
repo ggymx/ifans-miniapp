@@ -4,12 +4,11 @@
 <view class="underlying">
     <view class="container">
         <view class="topic">
-            <view class="topic-title">
-                <text style='font-size: 36rpx;font-weight: bold;color: rgb(51, 51, 51);'>
-                    {{topic.post.title}}
-                </text>
+            <view class="topic-title" style="margin-bottom: 30rpx;">
+            <text style='font-size: 36rpx;font-weight: bold;color: rgb(51, 51, 51);'>{{topic.post.title}}
+            </text>
             </view>
-            <view class="topic-context" style='font-weight: 400;'>{{topic.post.text}}</view>
+            <view class="topic-context" style='font-weight: 400;' wx:if="{{con.notNull(topic.post.text)}}">{{topic.post.text}}</view>
         </view>
     </view>
     <view class="opreate-underlying">

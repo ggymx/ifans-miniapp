@@ -33,14 +33,12 @@ overflow: hidden;
   margin-top: 20rpx;
 }
 
-.topic-context {
-  /* background-color: red; */
+/* .topic-context {
   font-size:30rpx;
-  margin-top: 30rpx;
   line-height: 48rpx;
   margin-bottom: 36rpx;
-  /* text-align: center; */
-}
+
+} */
 
 .topic-title,
 .topic-context {
@@ -191,11 +189,10 @@ overflow: hidden;
 .topic-context {
   /* background-color: red; */
 
-  margin-top: 30rpx;
+  /* margin-top: 30rpx; */
  
-  margin-bottom: 36rpx;
+  margin-bottom: 30rpx;
   /* text-align: center; */
-  
   color: rgb(51, 51, 51);
 Font-family:"Roboto","Noto Sans","San Francisco","PingFang","Microsof";
   font-size: 30rpx;
@@ -211,7 +208,7 @@ padding-left: 20px;
 padding-right: 10px;
 overflow: hidden;           
 -webkit-box-orient: vertical;    
--webkit-line-clamp: 15;  
+/* -webkit-line-clamp: 15;   */
 }
 
 /* 修改 */

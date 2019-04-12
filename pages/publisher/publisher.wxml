@@ -3,18 +3,30 @@
 <navbar back text="文章详情"></navbar>
 <!-- comment -->
 <view class="underlying">
-    <block wx:if="{{topic}}">
+    <!-- <block wx:if="{{topic}}">
         <view class="container">
             <view class="topic" catch:tap="bindViewTopic" data-tid="{{topic.post.id}}">
-                <view class="topic-title">
+                <view class="topic-title" style="border-bottom-style:solid;border-width:1rpx;border-color:rgb(250,250,250)">
                     <text style='font-size: 36rpx;font-weight: bold;color: rgb(153, 153, 153);'>
                         #{{topic.post.title}}#
                     </text>
                 </view>
-                <view class="topic-context" style='font-weight: 400;'>{{topic.post.text}}</view>
             </view>
         </view>
-        <view class="opreate-underlying">
+    </block> -->
+    <view class="opreate-underlying" style="border-style:none">
+        <view class="container">
+            <listing arrowBtn clock final showTitle like userId="{{comment.post.userId}}" avatar="{{comment.post.user.avatar}}" cId="{{comment.post.id}}" isLike="{{comment.post.isLike}}" style="border-width:1rpx">
+                <text slot="user" class="item-name">{{comment.post.user.nickname}}</text>
+                <text slot="title" class="item-title" catch:tap="bindViewTopic" data-tid="{{topic.post.id}}"> #{{con.contextCon(topic.post.title,16)}}#</text>
+                <view slot="context" class="item-context">{{comment.post.text}}</view>
+                <text slot="date">{{con.dateCon(comment.post.creatAt)}}</text>
+                <text slot="like">{{con.numCon(comment.post.likeCount)}}</text>
+            </listing>
+        </view>
+    </view>
+
+   <view class="opreate-underlying" style="position:fixed;bottom:0;margin-bottom:0;background-color:#FFF">
             <view class="container1">
                 <view class="opreate-view">
                     <view class="opreate-item" style="border-style:none" catch:tap="bindViewTopic" data-tid="{{topic.post.id}}">
@@ -36,16 +48,7 @@
                 </view>
             </view>
         </view>
-    </block>
-    <view class="opreate-underlying">
-        <view class="container">
-            <listing arrowBtn clock final like userId="{{comment.post.userId}}" avatar="{{comment.post.user.avatar}}" cId="{{comment.post.id}}" isLike="{{comment.post.isLike}}">
-                <text slot="user" class="item-name">{{comment.post.user.nickname}}</text>
-                <text slot="title" class="item-title">{{comment.post.title}}</text>
-                <view slot="context" class="item-context">{{comment.post.text}}</view>
-                <text slot="date">{{con.dateCon(comment.post.creatAt)}}</text>
-                <text slot="like">{{con.numCon(comment.post.likeCount)}}</text>
-            </listing>
-        </view>
-    </view>
+        
+
 </view>
+

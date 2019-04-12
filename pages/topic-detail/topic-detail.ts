@@ -81,7 +81,7 @@ Page({
     console.log("激活转发事件：",res)
       return{
         title:`#${this.data.topic.post.title}#`,
-        imageUrl:'../../imgs/topicShare.png',
+        // imageUrl:'../../imgs/topicShare.png',
         success(e:any){
         wx.showShareMenu({
           withShareTicket:true
