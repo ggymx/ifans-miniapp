@@ -5,14 +5,14 @@
     <view class='capsule' style="margin-top:40rpx;" wx:if="{{ back || home || gear }}">
       <view bindtap='back' wx:if="{{back && !share}}">
         <!--返回箭头-->
-        <image src='img/back.png' style="width:21rpx;height:37rpx;"></image>            
+        <image src='img/back.png' style="width:21rpx;height:37rpx;"></image>   
       </view>
       <view bindtap='backHome' wx:if="{{home || share}}">
-        <image src='img/home.png'></image>
+         <image src='img/home.png'></image>
       </view>
       <!--齿轮-->
       <view bindtap='backGear' wx:if="{{gear}}">
-        <image src='img/gear.png'></image>
+       <image src='img/gear.png'></image>
       </view>
     </view>
     <view class='title'>{{text}}</view>
