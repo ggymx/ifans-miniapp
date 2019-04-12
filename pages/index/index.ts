@@ -39,35 +39,13 @@ Page({
   },
 
   onLoad() {
-   console.log(this.data.topList);
+
     var that=this;
     console.log("当前的cursor："+cursor);
     wx.showLoading({
       title:'请稍候'
     });
     
-    //存在login则说明是从登录页面过来的，直接刷新页面
-    if(wx.getStorageSync('login')){
-      console.log("登录页面过来的。。。",wx.getStorageSync('login'));
-      api.request({
-        url:'/v1/post/home-list',
-        data:{
-          cursor:0,
-          limit:10
-        },
-        method:'GET',
-        success(res){
-        
-          that.setData!({
-            topList:res.data.posts
-          });
-          cursor=res.data.cursor;
-          wx.removeStorage({
-            key:'login'
-          })
-        }
-      });
-    }else{
     api.request({
       url:'/v1/post/home-list',
 
@@ -105,7 +83,6 @@ Page({
         },300)
       }
     });
-  }
   wx.hideLoading({});
   },
 

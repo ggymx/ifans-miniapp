@@ -101,9 +101,11 @@ Component({
             }
           });
         } else {
-          /*不存在则跳转到发布者详情 */
+          /*不存在则跳转到文章详情 */
           let cId = event.currentTarget.dataset.cid;
           let tId = event.currentTarget.dataset.tid;
+          console.log("---------------------------");
+          console.log(`cId：${cId}，tId：${tId}`);
           wx.navigateTo({
             url: '../publisher/publisher?tid=' + tId + '&cid=' + cId,
           

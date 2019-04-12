@@ -8,56 +8,46 @@ const app = getApp<IMyApp>()
 
 Page({
   data: {
-    partiList:[],
-    userData:null,
-    sharCard:false
+    userData: null
   },
 
-  onLoad(options:any) {
+  onLoad(options: any) {
 
-  //获取场景值，根据场景值切换导航栏的状态
-  let launchPara=wx.getLaunchOptionsSync();
-  if(launchPara.scene==1007){
-    this.setData!({
-      sharCard:true
-    });
-  }
-    let userId=options.userId;
-    var that=this;
+    let userId = options.userId;
+    var that = this;
     api.request({
-      url:'/v1/user/detail',
-      data:{
-        id:userId
+      url: '/v1/user/detail',
+      data: {
+        id: userId
       },
-      method:'GET',
-      success(res){
-        console.log("。。。。。。",res.data)
+      method: 'GET',
+      success(res) {
+        console.log("。。。。。。", res.data)
         that.setData!({
-          userData:res.data
+          userData: res.data
         });
       },
-      fail(err){
-       
+      fail(err) {
+
       }
     });
-
   },
 
-onShareAppMessage(){
-  var that=this;
-  let userName=that.data.userData!.user.nickname
-  return{
-        title:`邀你进入-${userName}的空间`,
-        imageUrl:'../../imgs/topicShare.png',
-        success(e:any){
+  onShareAppMessage() {
+    var that = this;
+    let userName = that.data.userData!.user.nickname
+    return {
+      title: `邀你进入-${userName}的空间`,
+      imageUrl: '../../imgs/topicShare.png',
+      success(e: any) {
         wx.showShareMenu({
-          withShareTicket:true
+          withShareTicket: true
         })
-        },
-        fail(){
+      },
+      fail() {
 
-        }
-  }
-},
+      }
+    }
+  },
 
 })
