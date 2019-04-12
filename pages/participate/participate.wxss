@@ -57,11 +57,12 @@ margin-top: 48rpx;  */
 
 .topic-text {
   width: 600rpx;
-  line-height: rpx;
+  /* line-height: rpx; */
   font-size: 30rpx;
   /* background:red; */
   margin: auto;
-  margin-top: 48rpx;
+  /* margin-top: 48rpx; */
+  margin-top: 40rpx;
 }
 
 /*输入表情和分享的区域*/

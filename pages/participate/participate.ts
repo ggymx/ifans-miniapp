@@ -120,7 +120,7 @@ onEditText(event:any){
 onEndEditor(event:any){
  
   this.setData!({
-    inputText:'900rpx'
+    inputText:'910rpx'
   });
 }
 ,
