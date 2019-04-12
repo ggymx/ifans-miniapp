@@ -10,7 +10,6 @@ Page({
   data: {
     topic: {},
     comment:{},
-    sharCard:false
   },
   bindViewParti(event:any){
     var tid=event.currentTarget.dataset.tid;

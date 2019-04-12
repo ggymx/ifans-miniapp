@@ -1,4 +1,5 @@
 import api from "../../common/api";
+import { smartGotoPage } from "../../common/helper";
 
 // components/listing/listing.js
 Component({
@@ -94,7 +95,7 @@ Component({
       if (!this.properties.final) {
         if (this.properties.showIssue) {
           let id = event.currentTarget.dataset.tid;
-          wx.navigateTo({
+          smartGotoPage({
             url: '../topic-detail/topic-detail?tid=' + id,
             success: function () {
              
@@ -104,7 +105,7 @@ Component({
           /*不存在则跳转到发布者详情 */
           let cId = event.currentTarget.dataset.cid;
           let tId = event.currentTarget.dataset.tid;
-          wx.navigateTo({
+          smartGotoPage({
             url: '../publisher/publisher?tid=' + tId + '&cid=' + cId,
           
           });
@@ -116,7 +117,7 @@ Component({
       if(!this.properties.finalMy){
       let userId = event.currentTarget.dataset.uid;
       console.log("用户名Id:" + userId);
-      wx.navigateTo({
+      smartGotoPage({
         url: '../my/my?userId=' + userId,
         success: function () {
       
@@ -132,7 +133,7 @@ Component({
         wx.showToast({title: '请先登录！'});
       
         setTimeout(()=>{
-          wx.navigateTo({
+          smartGotoPage({
             url: '../login/login'
           });
         },100);
@@ -222,7 +223,7 @@ Component({
     }else{
       wx.showToast({title: '请先登录！'});
       setTimeout(()=>{
-        wx.navigateTo({
+        smartGotoPage({
           url: '../login/login'
         });
       },100);
