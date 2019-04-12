@@ -175,11 +175,25 @@ Component({
                 case 0:
                   wx.showModal({
                     title:'删除投稿',
-                    content:'确定删除这个信息吗？',
+                    content:'确定删除这则投稿吗？',
                     success(res){
                       if(res.confirm){
-                        
-                        wx.showToast({title:'删除成功！'})
+                        api.request({
+                          url:'/v1/post/delete',
+                          data:{
+                            postId:cId
+                          },
+                          method:'POST',
+                          success(res){
+                            console.log("删除后接收到的用户信息：",res.data);
+                             wx.showToast({title:'删除成功'})
+                          },
+                          fail(res){
+                            wx.showToast({title:'删除成功'})
+
+                          }
+                        });
+                    
                       }
                     }
                   });break;

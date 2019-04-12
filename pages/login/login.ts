@@ -43,16 +43,7 @@ Page({
             statusText: '已登录'
           });
           //往缓存中添加token（异步）
-          wx.setStorage({
-            key: 'token',
-            data: res.data.token,
-            success() {
-
-            },
-            fail() {
-
-            }
-          });
+          api.setToken(res.data.token);
           //往缓存中添加当前用户的id
           wx.setStorage({
             key: 'userId',
@@ -73,15 +64,9 @@ Page({
       setTimeout(() => {
         wx.hideLoading({
           success() {
-            //如果缓存的有话题，则应直接跳转到参与话题页面
-            let topic = wx.getStorageSync('topic');
-            if (!topic) {
+          
               wx.navigateBack({ delta: 1 })
-            } else {
-              wx.redirectTo({
-                url: '../participate/participate',
-              })
-            }
+
           }
         });
       }, 500);

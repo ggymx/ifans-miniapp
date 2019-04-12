@@ -33,15 +33,9 @@ Page({
     if (!token) {
       //用户未登录或者token过期
       wx.showToast({ title: '请先登录！' });
-      //缓存未发布的草稿
-      console.log("未发布的草稿：",this.data.pushText)
+      
       if(this.data.pushText!=''){
-      wx.setStorage({
-        key:'draft',
-        data:this.data.pushText,
-        success(){
-        }
-      });
+  
     }
       setTimeout(() => {
         wx.navigateTo({
@@ -126,9 +120,6 @@ onEndEditor(event:any){
 ,
   onLoad(options: any) {
 
-    let topic=wx.getStorageSync('topic')
-    //没有话题缓存说明是首次来该页面
-    if(!topic){
     tId = options.tid;
     this.data.refPostId = options.tid;
    
@@ -150,27 +141,13 @@ onEndEditor(event:any){
           key:'topic',
           data:res.data,
           success(){
-            // console.log("缓存取到的话题：",res.data);
           }
         });
       },
       fail(err) {
-        // console.log("打印错误信息:" + err.errMsg);
+      
       }
     });
-  }else{
-    //有话题缓存说明是从登录页跳转过来的，就直接取缓存
-    this.setData!({
-      topic:topic
-    });
-    this.setData!({
-      refPostId:topic.post.id
-    });
-    //取出缓存的草稿，应该是异步，这里是同步待修改
-    let draft =wx.getStorageSync('draft');
-    this.setData!({
-      pushText:draft
-    });
-  }
+ 
   }
 })

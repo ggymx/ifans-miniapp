@@ -40,6 +40,11 @@ class Api {
     this.token = wx.getStorageSync('token');
   }
 
+  setToken(token: string) {
+    wx.setStorageSync('token', token)
+    this.token = token
+  }
+
   /**
    * 为了方便的迁移 wx.requset，修改位 api.request
    */
