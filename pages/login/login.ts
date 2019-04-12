@@ -79,11 +79,42 @@ Page({
            wx.redirectTo({
              url:'../index/index'
            });
+           //当从登录页面跳转到首页时，重新刷新数据
            wx.setStorage({
              key:'login',
              data:'1',
              success(){}
            });
+          //  let pages=getCurrentPages();
+          //  let prePage=pages[pages.length-2];
+          //  console.log("上一页的数据：",prePage.data);
+          //缓存上一页的数据
+          // wx.setStorageSync('currentData',prePage.data);
+          // if(prePage.route=="pages/index/index"){
+          //   wx.redirectTo({
+          //     url:'../index/index'
+          //   })
+          //   wx.setStorage({
+          //        key:'login',
+          //        data:'1',
+          //        success(){}
+          //     });
+          // }
+          // if(prePage.route=="pages/topic-detail/topic-detail"){
+          //   wx.redirectTo({
+          //     url:'../topic-detail/topic-detail'
+          //   })
+          // }
+          // if(prePage.route=="pages/publisher/publisher"){
+          //   wx.redirectTo({
+          //     url:'../publisher/publisher'
+          //   })
+          // }
+          // if(prePage.route=="pages/my/my"){
+          //   wx.redirectTo({
+          //     url:'../my/my'
+          //   })
+          // }
          }else{
            wx.redirectTo({
              url:'../participate/participate',

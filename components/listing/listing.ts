@@ -130,6 +130,7 @@ Component({
       var token = wx.getStorageSync('token');
       if (!token) {
         wx.showToast({title: '请先登录！'});
+      
         setTimeout(()=>{
           wx.navigateTo({
             url: '../login/login'
@@ -155,35 +156,69 @@ Component({
     },
 
     popBox(){
-      const ownId=wx.getStorageSync('userId');
-     const userId=this.properties.userId
-     console.log(`当前用户的id：${ownId}，投稿的用户Id：${userId}`);
+   
       let token=wx.getStorageSync('token');
-      let itemList;
+      // let itemList;
       if(token){
+        const ownId=wx.getStorageSync('userId');
+        const userId=this.properties.userId
+        const cId=this.properties.cId;
+        console.log(`当前用户的id：${ownId}，投稿的用户Id：${userId}`);
+        console.log(`投稿的id：${cId}`);
         if(ownId==userId){
-          itemList=["删除"];
+          wx.showActionSheet({
+            itemList:["删除"],
+            success(res){
+              switch(res.tapIndex){
+                case 0:
+                  wx.showModal({
+                    title:'删除投稿',
+                    content:'确定删除这个信息吗？',
+                    success(res){
+                      if(res.confirm){
+                        
+                        wx.showToast({title:'删除成功！'})
+                      }
+                    }
+                  });break;
+              }
+            }
+          })
         }else{
-          itemList=["举报"];
+          wx.showActionSheet({
+            itemList:["举报"],
+            success(res){
+              switch(res.tapIndex){
+                case 0:
+                  wx.showModal({
+                    title:'举报',
+                    content:'确定举报这则投稿吗？',
+                    success(res){
+                      if(res.confirm){
+                        console.log("用户确定");
+                        api.request({
+                          url:'/v1/post/abuse-report',
+                          data:{
+                            postId:cId
+                          },
+                          method:'POST',
+                          success(res){
+                            console.log("举报后接收到的用户信息：",res.data);
+                            res.data.msg=="ok"?wx.showToast({title:'举报成功'}):''
+                          },
+                          fail(res){
+                           console.log("错误信息：",res.errMsg)
+                          }
+                        });
+                       
+                      }
+                    }
+                  });break;
+              }
+            }
+          })
         }
-      wx.showActionSheet({
-        itemList:itemList,
-        success(res){
-          switch(res.tapIndex){
-            case 0:break;
-            case 1:
-              wx.showModal({
-                title:'删除投稿',
-                content:'确定删除这个信息吗？',
-                success(res){
-                  if(res.confirm){
-                    wx.showToast({title:'删除成功！'})
-                  }
-                }
-              })
-          }
-        }
-      })
+    
     }else{
       wx.showToast({title: '请先登录！'});
       setTimeout(()=>{

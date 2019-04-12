@@ -46,6 +46,7 @@ Page({
       title:'请稍候'
     });
     
+    //存在login则说明是从登录页面过来的，直接刷新页面
     if(wx.getStorageSync('login')){
       console.log("登录页面过来的。。。",wx.getStorageSync('login'));
       api.request({
