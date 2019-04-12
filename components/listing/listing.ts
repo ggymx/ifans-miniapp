@@ -102,10 +102,13 @@ Component({
             }
           });
         } else {
-          /*不存在则跳转到发布者详情 */
+          /*不存在则跳转到文章详情 */
           let cId = event.currentTarget.dataset.cid;
           let tId = event.currentTarget.dataset.tid;
           smartGotoPage({
+          console.log("---------------------------");
+          console.log(`cId：${cId}，tId：${tId}`);
+          wx.navigateTo({
             url: '../publisher/publisher?tid=' + tId + '&cid=' + cId,
           
           });
@@ -174,11 +177,25 @@ Component({
                 case 0:
                   wx.showModal({
                     title:'删除投稿',
-                    content:'确定删除这个信息吗？',
+                    content:'确定删除这则投稿吗？',
                     success(res){
                       if(res.confirm){
-                        
-                        wx.showToast({title:'删除成功！'})
+                        api.request({
+                          url:'/v1/post/delete',
+                          data:{
+                            postId:cId
+                          },
+                          method:'POST',
+                          success(res){
+                            console.log("删除后接收到的用户信息：",res.data);
+                             wx.showToast({title:'删除成功'})
+                          },
+                          fail(res){
+                            wx.showToast({title:'删除成功'})
+
+                          }
+                        });
+                    
                       }
                     }
                   });break;
@@ -215,6 +232,31 @@ Component({
                       }
                     }
                   });break;
+                  // case 1:
+                  // wx.showModal({
+                  //   title:'删除投稿',
+                  //   content:'确定删除这则投稿吗？',
+                  //   success(res){
+                  //     if(res.confirm){
+                  //       api.request({
+                  //         url:'/v1/post/delete',
+                  //         data:{
+                  //           postId:cId
+                  //         },
+                  //         method:'POST',
+                  //         success(res){
+                  //           console.log("删除后接收到的用户信息：",res.data);
+                  //            wx.showToast({title:'删除成功'})
+                  //         },
+                  //         fail(res){
+                  //           wx.showToast({title:'删除成功'})
+
+                  //         }
+                  //       });
+                    
+                  //     }
+                  //   }
+                  // });break;
               }
             }
           })
