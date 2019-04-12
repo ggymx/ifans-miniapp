@@ -79,6 +79,11 @@ Page({
            wx.redirectTo({
              url:'../index/index'
            });
+           wx.setStorage({
+             key:'login',
+             data:'1',
+             success(){}
+           });
          }else{
            wx.redirectTo({
              url:'../participate/participate',

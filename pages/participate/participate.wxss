@@ -2,13 +2,13 @@
 .parti-header {
   /* height: 116rpx; */
   height:auto;
-  widows: 100%;
+  width: 100%;
   /* background-color:pink; */
   font-size: 34rpx;
   color: rgb(9, 166, 220);
   display: flex;
   align-items: center;
-  padding:20rpx 0 30rpx 0;
+  padding:30rpx 0 30rpx 0;
 }
 
 
@@ -44,6 +44,7 @@
 
 .container {
   background-color: #FFF;
+  overflow: hidden
 }
 
 .placeholder-set {
@@ -56,13 +57,13 @@ margin-top: 48rpx;  */
 }
 
 .topic-text {
-  width: 600rpx;
+  width: 630rpx;
   /* line-height: rpx; */
   font-size: 30rpx;
   /* background:red; */
   margin: auto;
   /* margin-top: 48rpx; */
-  margin-top: 40rpx;
+  margin-top: 20rpx;
 }
 
 /*输入表情和分享的区域*/

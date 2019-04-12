@@ -114,13 +114,13 @@ Page({
 onEditText(event:any){
   // console.log(event);
   this.setData!({
-    inputText:'390rpx'
+    inputText:'370rpx'
   });
 },
 onEndEditor(event:any){
  
   this.setData!({
-    inputText:'910rpx'
+    inputText:'890rpx'
   });
 }
 ,

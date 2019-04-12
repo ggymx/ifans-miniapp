@@ -50,7 +50,7 @@ Component({
         },
         backGear() {
             wx.showActionSheet({
-                itemList: ['我的首页', '联系客服', '分享给朋友'],
+                itemList: ['我的首页'],
                 success(res) {
                     switch (res.tapIndex) {
                         case 0:
@@ -76,8 +76,7 @@ Component({
                             },500)
                         }
                             break;
-                        case 1:break;
-                        case 2:break;
+
                     }
                 },
                 fail(res) {
