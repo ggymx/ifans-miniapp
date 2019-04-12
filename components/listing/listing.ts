@@ -106,9 +106,6 @@ Component({
           let cId = event.currentTarget.dataset.cid;
           let tId = event.currentTarget.dataset.tid;
           smartGotoPage({
-          console.log("---------------------------");
-          console.log(`cId：${cId}，tId：${tId}`);
-          wx.navigateTo({
             url: '../publisher/publisher?tid=' + tId + '&cid=' + cId,
           
           });
