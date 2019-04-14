@@ -1,7 +1,7 @@
 //index.js
 //获取应用实例
-import { IMyApp } from '../../app'
-import api from '../../common/api';
+import { IMyApp } from '../../../app'
+import api from '../../../common/api';
 
 
 const app = getApp<IMyApp>()
@@ -20,11 +20,6 @@ Page({
     })
   },
 
-  tapConfirm(event: any) {
-    console.log('点击完成被触发');
-    wx.showToast({ title: '点击完成被触发' });
-  },
-
   /*发布话题 */
   titleParti(event: any) {
     var that = this;
@@ -34,12 +29,9 @@ Page({
       //用户未登录或者token过期
       wx.showToast({ title: '请先登录！' });
       
-      if(this.data.pushText!=''){
-  
-    }
       setTimeout(() => {
         wx.navigateTo({
-          url: '../login/login',
+          url: '../../login/login',
           success() {
 
           }
@@ -87,7 +79,7 @@ Page({
                   wx.removeStorageSync('draft');
                   setTimeout(() => {
                     wx.redirectTo({
-                      url: `../publisher/publisher?tid=${tId}&cid=${cId}`
+                      url: `../contribute/contribute?tid=${tId}&cid=${cId}`
                     });
                   }, 200);
                 }

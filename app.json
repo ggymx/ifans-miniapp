@@ -1,14 +1,20 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/publisher/publisher",
-    
-    "pages/participate/participate",
-    "pages/test/test",
     "pages/login/login",
-    "pages/topic-detail/topic-detail",
+
+    "pages/user/detail/detail",
+
+    "pages/post/topic-detail/topic-detail",
+    "pages/post/create/create",
+    "pages/post/contribute/contribute",
+    "pages/post/hot/hot",
+
+    "pages/test/test"
+    
+    
    
-    "pages/hot/hot"
+  
   ],
   "window": {
     "backgroundTextStyle": "dark",

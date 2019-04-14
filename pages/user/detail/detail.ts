@@ -1,7 +1,7 @@
 //index.js
 //获取应用实例
-import { IMyApp } from '../../app'
-import api from '../../common/api';
+import { IMyApp } from '../../../app'
+import api from '../../../common/api';
 
 
 const app = getApp<IMyApp>()
@@ -38,7 +38,6 @@ Page({
     let userName = that.data.userData!.user.nickname
     return {
       title: `邀你进入-${userName}的空间`,
-      imageUrl: '../../imgs/topicShare.png',
       success(e: any) {
         wx.showShareMenu({
           withShareTicket: true

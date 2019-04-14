@@ -1,6 +1,7 @@
 import api from "../../common/api";
 
 // components/listing/listing.js
+
 Component({
   /**
    * 组件的属性列表
@@ -54,13 +55,13 @@ Component({
       type: Boolean,
       value: false
     },
-    isLike:{
+    isLike: {
       type: Boolean,
       value: false
     },
-    likeCount:{
-      type:Number,
-      value:0
+    likeCount: {
+      type: Number,
+      value: 0
     },
     final: {
       type: Boolean,
@@ -81,7 +82,7 @@ Component({
    */
   data: {
     // imgUrl: '../../imgs/home-button-like@2x.png',
-    isDelete:true
+    isDelete: true
   },
 
   /**
@@ -89,174 +90,198 @@ Component({
    */
   methods: {
     /*跳转页面 */
-    bindRouter(event:any) {
+    bindRouter(event: any) {
       /*showIssue存在则跳转到话题详情 */
+     
       if (!this.properties.final) {
+        
+        let pages = getCurrentPages()
+        let curPage = pages[pages.length - 1];
+
         if (this.properties.showIssue) {
           let id = event.currentTarget.dataset.tid;
-          wx.navigateTo({
-            url: '../topic-detail/topic-detail?tid=' + id,
-            success: function () {
-             
-            }
-          });
+
+          console.log("当前页面：", curPage.route);
+          if (curPage.route == "pages/index/index") {
+            wx.navigateTo({
+              url: '../post/topic-detail/topic-detail?tid=' + id
+            });
+          }else if(curPage.route=="pages/user/detail/detail"){
+            wx.navigateTo({ url: '../../post/topic-detail/topic-detail?tid=' + id });
+          }else {
+            wx.navigateTo({ url: '../topic-detail/topic-detail?tid=' + id });
+          }
         } else {
           /*不存在则跳转到文章详情 */
           let cId = event.currentTarget.dataset.cid;
           let tId = event.currentTarget.dataset.tid;
-          console.log("---------------------------");
-          console.log(`cId：${cId}，tId：${tId}`);
-          wx.navigateTo({
-            url: '../publisher/publisher?tid=' + tId + '&cid=' + cId,
-          
-          });
+          console.log("当前页面：", curPage.route);
+          if (curPage.route == "pages/index/index") {
+            wx.navigateTo({
+              url: '../post/contribute/contribute?tid=' + tId + '&cid=' + cId
+            });
+          } else if(curPage.route=="pages/user/detail/detail"){
+            wx.navigateTo({  url: '../../post/contribute/contribute?tid=' + tId + '&cid=' + cId });
+          }else {
+            wx.navigateTo({
+              url: '../contribute/contribute?tid=' + tId + '&cid=' + cId,
+            });
+          }
         }
       }
     },
-    bindMy(event:any) {
-      // console.log(event);
-      if(!this.properties.finalMy){
-      let userId = event.currentTarget.dataset.uid;
-      console.log("用户名Id:" + userId);
-      wx.navigateTo({
-        url: '../my/my?userId=' + userId,
-        success: function () {
-      
+    bindMy(event: any) {
+      if (!this.properties.finalMy) {
+        //获取当前页面
+        let pages = getCurrentPages()
+        let curPage = pages[pages.length - 1];
+
+        let userId = event.currentTarget.dataset.uid;
+
+        if(curPage.route=="pages/index/index"){
+          wx.navigateTo({
+            url: '../user/detail/detail?userId=' + userId
+          });
+        }else{
+          wx.navigateTo({
+            url: '../../user/detail/detail?userId=' + userId
+          })
         }
-      });
-    }
+      
+      }
     },
     /*点赞 */
-    async giveLike(event:any) {
+    async giveLike(event: any) {
       //获取token
       var token = wx.getStorageSync('token');
       if (!token) {
-        wx.showToast({title: '请先登录！'});
-      
-        setTimeout(()=>{
+        let pages=getCurrentPages();
+        let curPage=pages[pages.length-1];
+        wx.showToast({ title: '请先登录！' });
+
+        setTimeout(() => {
+         if(curPage.route=="pages/index/index"){
           wx.navigateTo({
             url: '../login/login'
           });
-        },100);
+        }else{
+          wx.navigateTo({
+            url: '../../login/login'
+          });
+        }
+        }, 100);
       } else {
-        // console.log('giveLike', this.properties)
-        if(!this.properties.isLike) {
-          console.log("点赞的cId："+this.properties.cId)
-          const res = await api.giveLike({postId: this.properties.cId})
+        if (!this.properties.isLike) {
+          console.log("点赞的cId：" + this.properties.cId)
+          const res = await api.giveLike({ postId: this.properties.cId })
           this.setData!({
             isLike: true
           })
         } else {
-          console.log("取消点赞的cId："+this.properties.cId);
-          const res = await api.disLike({postId: this.properties.cId})
+          console.log("取消点赞的cId：" + this.properties.cId);
+          const res = await api.disLike({ postId: this.properties.cId })
           this.setData!({
             isLike: false
           })
-          // this.properties.isLike=false
         }
       }
     },
 
-    popBox(){
-   
-      let token=wx.getStorageSync('token');
-      // let itemList;
-      if(token){
-        const ownId=wx.getStorageSync('userId');
-        const userId=this.properties.userId
-        const cId=this.properties.cId;
+    popBox() {
+
+      let token = wx.getStorageSync('token');
+      if (token) {
+        const ownId = wx.getStorageSync('userId');
+        const userId = this.properties.userId
+        const cId = this.properties.cId;
         console.log(`当前用户的id：${ownId}，投稿的用户Id：${userId}`);
         console.log(`投稿的id：${cId}`);
-        if(ownId==userId){
+        if (ownId == userId) {
           wx.showActionSheet({
-            itemList:["删除"],
-            success(res){
-              switch(res.tapIndex){
+            itemList: ["删除"],
+            success(res) {
+              switch (res.tapIndex) {
                 case 0:
                   wx.showModal({
-                    title:'删除投稿',
-                    content:'确定删除这则投稿吗？',
-                    success(res){
-                      if(res.confirm){
+                    title: '删除投稿',
+                    content: '确定删除这则投稿吗？',
+                    success(res) {
+                      if (res.confirm) {
                         api.request({
-                          url:'/v1/post/delete',
-                          data:{
-                            postId:cId
+                          url: '/v1/post/delete',
+                          data: {
+                            postId: cId
                           },
-                          method:'POST',
-                          success(res){
-                            console.log("删除后接收到的用户信息：",res.data);
-                             wx.showToast({title:'删除成功'})
+                          method: 'POST',
+                          success(res) {
+                            console.log("删除后接收到的用户信息：", res.data);
+                            wx.showToast({ title: '删除成功' })
                           },
-                          fail(res){
-                            wx.showToast({title:'删除成功'})
-
+                          fail(res) {
+                            wx.showToast({ title: '删除成功' })
                           }
                         });
-                    
+
                       }
                     }
-                  });break;
+                  }); break;
               }
             }
           })
-        }else{
+        } else {
           wx.showActionSheet({
-            itemList:["举报"],
-            success(res){
-              switch(res.tapIndex){
+            itemList: ["举报"],
+            success(res) {
+              switch (res.tapIndex) {
                 case 0:
                   wx.showModal({
-                    title:'举报',
-                    content:'确定举报这则投稿吗？',
-                    success(res){
-                      if(res.confirm){
+                    title: '举报',
+                    content: '确定举报这则投稿吗？',
+                    success(res) {
+                      if (res.confirm) {
                         console.log("用户确定");
                         api.request({
-                          url:'/v1/post/abuse-report',
-                          data:{
-                            postId:cId
+                          url: '/v1/post/abuse-report',
+                          data: {
+                            postId: cId
                           },
-                          method:'POST',
-                          success(res){
-                            console.log("举报后接收到的用户信息：",res.data);
-                            res.data.msg=="ok"?wx.showToast({title:'举报成功'}):''
-                          },
-                          fail(res){
-                           console.log("错误信息：",res.errMsg)
+                          method: 'POST',
+                          success(res) {
+                            console.log("举报后接收到的用户信息：", res.data);
+                            res.data.msg == "ok" ? wx.showToast({ title: '举报成功' }) : ''
                           }
                         });
-                       
+
                       }
                     }
-                  });break;
+                  }); break;
               }
             }
           })
         }
-    
-    }else{
-      wx.showToast({title: '请先登录！'});
-      setTimeout(()=>{
-        wx.navigateTo({
-          url: '../login/login'
-        });
-      },100);
-    }
+
+      } else {
+        let pages=getCurrentPages();
+        let curPage=pages[pages.length-1];
+        wx.showToast({ title: '请先登录！' });
+        setTimeout(() => {
+          if(curPage.route=="pages/index/index"){
+          wx.navigateTo({
+            url: '../login/login'
+          });
+        }else{
+          wx.navigateTo({
+            url: '../../login/login'
+          });
+        }
+        }, 100);
+      }
     },
   },
 
   options: {
     multipleSlots: true // 在组件定义时的选项中启用多slot支持
   },
-  /*数据监听器 */
-  observers: {
-    'imgUrl': function (numberA:any, numberB:any) {
-      // 在 numberA 或者 numberB 被设置时，执行这个函数
-
-    }
-  },
-  
   /*接受的外部样式类,通过slot1/slot2两个属性获取 */
   externalClasses: ['slot1', 'slot2']
 })

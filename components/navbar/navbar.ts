@@ -60,12 +60,12 @@ Component({
                             let userId=wx.getStorageSync('userId');
                             setTimeout(()=>{
                                 wx.navigateTo({
-                                    url: '../my/my?userId='+userId,
+                                    url: '../user/detail/detail?userId='+userId,
                                     success() {
                                        
                                     }
                                 });
-                            },500)
+                            },100)
                             
                         }else{
                             wx.showToast({title:'请先登录！'});
@@ -73,7 +73,7 @@ Component({
                                 wx.navigateTo({
                                     url:'../login/login'
                                 });
-                            },500)
+                            },100)
                         }
                             break;
 

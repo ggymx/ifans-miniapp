@@ -1,12 +1,12 @@
 //index.js
 //获取应用实例
-import { IMyApp } from '../../app'
+import { IMyApp } from '../../../app'
 
 //调用后台api
 /*导入index??? */
-import api from '../../common/api'
-import { ITopicDetailParams, ITopicDetailResponse } from '../../common/types/http_msg';
-import { TestApi } from '../../testApi/TestApi';
+import api from '../../../common/api'
+import { ITopicDetailParams, ITopicDetailResponse } from '../../../common/types/http_msg';
+import { TestApi } from '../../../testApi/TestApi';
 
 // let getTopic=async (obj:ITopicDetailParams):Promise<ITopicDetailResponse>=>{
 //     return await api.getTopic(obj);

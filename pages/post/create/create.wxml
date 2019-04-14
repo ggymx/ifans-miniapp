@@ -1,5 +1,5 @@
 <!--pages/participate/participate.wxml-->
-<wxs module="con" src="../../wxs/converter.wxs"></wxs>
+<wxs module="con" src="../../../wxs/converter.wxs"></wxs>
 <navbar back text="参与话题"></navbar>
 
 <view class="underlying flex-urly">
@@ -24,8 +24,6 @@
 <view class="footer">
     <view class="container">
      <view class="expression-view">
-         <!-- <image style="height:50rpx;width:50rpx;margin-left:56rpx" src="../../imgs/button-bq@2x.png"/>
-         <text style="font-size:32rpx;color:rgb(51,51,51);display:block;margin-right:56rpx" catch:tap="titleParti">发表</text> -->
          <button type="primary" style="height:80rpx;background-color:rgb(82,163,255);width:100%;font-size:33rpx;" catch:tap="titleParti">发表</button>
      </view>
     </view>

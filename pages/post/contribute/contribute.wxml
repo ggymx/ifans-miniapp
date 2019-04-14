@@ -1,5 +1,5 @@
 <!-- pages/publisher/publisher.wxml -->
-<wxs module="con" src="../../wxs/converter.wxs"></wxs>
+<wxs module="con" src="../../../wxs/converter.wxs"></wxs>
 <navbar back text="文章详情"></navbar>
 <!-- comment -->
 <view class="underlying">
@@ -20,17 +20,17 @@
             <view class="container1">
                 <view class="opreate-view">
                     <view class="opreate-item" style="border-style:none" catch:tap="bindViewTopic" data-tid="{{topic.post.id}}">
-                        <image src="../../imgs/home-button-Comment@2x.png" style="width:32rpx;height:32rpx;margin-right:16rpx;" />
+                        <image src="../../../imgs/home-button-Comment@2x.png" style="width:32rpx;height:32rpx;margin-right:16rpx;" />
                         <text style="font-size:24rpx;color:rgb(102,102,102);">{{topic.post.attendCount}}参与</text>
                     </view>
                     <view class="opreate-item" catch:tap="bindViewParti" data-tid="{{topic.post.id}}">
-                        <image src="../../imgs/fabu@2x.png" style="width:27rpx;height:27rpx;margin-right:16rpx;" />
+                        <image src="../../../imgs/fabu@2x.png" style="width:27rpx;height:27rpx;margin-right:16rpx;" />
                         <text style="font-size:24rpx;color:rgb(102,102,102);">参与</text>
                     </view>
                     <view class="opreate-item">
 
                         <button class="operate-btn" open-type="share">
-                            <image src="../../imgs/zhuangfa@2x.png" style="width:29rpx;height:27rpx;margin-right:16rpx;" />
+                            <image src="../../../imgs/zhuangfa@2x.png" style="width:29rpx;height:27rpx;margin-right:16rpx;" />
                             <text>分享文章</text>
                         </button>
                     </view>
