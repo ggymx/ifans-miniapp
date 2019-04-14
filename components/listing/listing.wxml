@@ -32,7 +32,7 @@
                   <slot name="date"></slot>
              </view>
               <view class="heart-view" catch:tap="giveLike">
-              <image src="{{isLike && '../../imgs/button-like-dj@2x.png' || '../../imgs/home-button-like@2x.png' }}" style="width:26rpx;height:22rpx;margin-left:20rpx;" wx:if="{{like}}"/>
+              <image src="{{isLike && '../../imgs/button-like-dj@2x.png' || '../../imgs/home-button-like@2x.png' }}" class="like-img" wx:if="{{like}}"/>
               <view style="margin-left:20rpx;display:inline-block">          
                   <slot name="like"></slot>
               </view>

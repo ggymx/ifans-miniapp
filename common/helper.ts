@@ -3,7 +3,7 @@ export function isPostPage(page: string) {
 }
 
 export function smartGotoPage(option: wx.NavigateToOption) {
-  const pages = getCurrentPages()
+  const pages = getCurrentPages();
   if (pages.length === 10) {
     wx.redirectTo(option)
   } else {

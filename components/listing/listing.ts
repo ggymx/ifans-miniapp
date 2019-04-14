@@ -85,26 +85,26 @@ Component({
         if (this.properties.showIssue) {
           let id=this.properties.post.id
           if (curPage.route == "pages/index/index") {
-            wx.navigateTo({
+            smartGotoPage({
               url: '../post/topic-detail/topic-detail?tid=' + id
             });
           }else if(curPage.route=="pages/user/detail/detail"){
-            wx.navigateTo({ url: '../../post/topic-detail/topic-detail?tid=' + id });
+            smartGotoPage({ url: '../../post/topic-detail/topic-detail?tid=' + id });
           }else {
-            wx.navigateTo({ url: '../topic-detail/topic-detail?tid=' + id });
+            smartGotoPage({ url: '../topic-detail/topic-detail?tid=' + id });
           }
         } else {
           /*不存在则跳转到文章详情 */
           let cId = this.properties.post.id;
           let tId = this.properties.post.refPostId;
           if (curPage.route == "pages/index/index") {
-            wx.navigateTo({
+            smartGotoPage({
               url: '../post/contribute/contribute?tid=' + tId + '&cid=' + cId
             });
           } else if(curPage.route=="pages/user/detail/detail"){
-            wx.navigateTo({  url: '../../post/contribute/contribute?tid=' + tId + '&cid=' + cId });
+            smartGotoPage({  url: '../../post/contribute/contribute?tid=' + tId + '&cid=' + cId });
           }else {
-            wx.navigateTo({
+            smartGotoPage({
               url: '../contribute/contribute?tid=' + tId + '&cid=' + cId,
             });
           }
@@ -118,11 +118,11 @@ Component({
         let curPage = pages[pages.length - 1];
         let  userId= this.properties.post.user.id;
         if(curPage.route=="pages/index/index"){
-          wx.navigateTo({
+          smartGotoPage({
             url: '../user/detail/detail?userId=' + userId
           });
         }else{
-          wx.navigateTo({
+          smartGotoPage({
             url: '../../user/detail/detail?userId=' + userId
           })
         }
@@ -140,11 +140,11 @@ Component({
 
         setTimeout(() => {
          if(curPage.route=="pages/index/index"){
-          wx.navigateTo({
+          smartGotoPage({
             url: '../login/login'
           });
         }else{
-          wx.navigateTo({
+          smartGotoPage({
             url: '../../login/login'
           });
         }
@@ -239,11 +239,11 @@ Component({
         wx.showToast({ title: '请先登录！' });
         setTimeout(() => {
           if(curPage.route=="pages/index/index"){
-          wx.navigateTo({
+            smartGotoPage({
             url: '../login/login'
           });
         }else{
-          wx.navigateTo({
+          smartGotoPage({
             url: '../../login/login'
           });
         }

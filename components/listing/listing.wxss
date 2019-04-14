@@ -159,3 +159,9 @@ text {
   right:72rpx;
   /* display: block; */
 }
+
+.like-img{
+  width:26rpx;
+  height:22rpx;
+  margin-left:20rpx;
+}
