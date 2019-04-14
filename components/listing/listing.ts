@@ -10,11 +10,7 @@ Component({
    * showTopic：是否显示关联的话题
    * showIssue：是否显示发布文本
    * final:确定是否是最终页面
-   * tId：绑定话题Id
-   * cId:绑定评论Id
-   * username：用户名
    * noBorder:是否有边框
-   * avatar:头像
    * like：是否显示心形按钮
    * isLike：根据是否点赞显示是否是红心
    * post:传入的post对象
@@ -35,18 +31,6 @@ Component({
     showIssue: {
       type: Boolean,
       value: false
-    },
-    tId: {
-      type: Number,
-      value: 0
-    },
-    cId: {
-      type: Number,
-      value: 0
-    },
-    userId: {
-      type: String,
-      value: ''
     },
     clock: {
       type: Boolean,
@@ -71,10 +55,6 @@ Component({
     finalMy: {
       type: Boolean,
       value: false
-    },
-    avatar: {
-      type: String,
-      value: '../../imgs/test1.jpg'
     },
     post:{
       type:Object,
