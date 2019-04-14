@@ -16,7 +16,8 @@ Component({
    * noBorder:是否有边框
    * avatar:头像
    * like：是否显示心形按钮
-   * isLike根据是否点赞显示是否是红心
+   * isLike：根据是否点赞显示是否是红心
+   * post:传入的post对象
    */
   properties: {
     card: {
@@ -74,6 +75,10 @@ Component({
     avatar: {
       type: String,
       value: '../../imgs/test1.jpg'
+    },
+    post:{
+      type:Object,
+      value:null
     }
   },
 
