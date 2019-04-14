@@ -1,4 +1,3 @@
-<!-- <wxs module="ani" src="../../wxs/animation.wxs"></wxs> -->
 <!--components/listing/listing.wxml-->
 <wxs module="con" src="../../wxs/converter.wxs"></wxs>
  <view class="publisher-item {{card?'item-card':''}} slot1 slot2" bind:tap="bindRouter" data-tid="{{tId}}" data-cid="{{cId}}">
@@ -26,26 +25,17 @@
               <slot name="context">
                    <slot name="more"></slot>
               </slot>
-             
             </view> 
             <view class="publisher-status" wx:if="{{clock||like||liked}}">
               <image src="../../imgs/button-time@2x.png" class="clock-icon" wx:if="{{clock}}"/>
               <view class="publisher-date">
-                  <!-- <text>2019/03/20</text> -->
                   <slot name="date"></slot>
              </view>
               <view class="heart-view" catch:tap="giveLike">
               <image src="{{isLike && '../../imgs/button-like-dj@2x.png' || '../../imgs/home-button-like@2x.png' }}" style="width:26rpx;height:22rpx;margin-left:20rpx;" wx:if="{{like}}"/>
-              <!-- <image src="../../imgs/button-like-dj@2x.png" style="width:26rpx;height:22rpx;" wx:elif="{{liked}}" catch:tap=""/> -->
-
-              <view style="margin-left:20rpx;display:inline-block">
-                  <!-- <text >99</text> -->
-                  
+              <view style="margin-left:20rpx;display:inline-block">          
                   <slot name="like"></slot>
-                <!-- <text wx:if="{{like}}">{{likeCount}}</text> -->
               </view>
               </view>
             </view>
-
-            <!-- <view class="popBox" wx:if="{{false}}"></view>  -->
         </view>

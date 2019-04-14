@@ -5,7 +5,7 @@ import api from '../../../common/api';
 
 
 const app = getApp<IMyApp>()
-let id: number
+let id: number;
 Page({
   data: {
     topic: {},
@@ -26,7 +26,6 @@ Page({
   /*options:获取url参数 */
   onLoad(options: any) {
 
-    // let id=options.tid;
     id = options.tid;
 
     var that = this;
@@ -38,7 +37,6 @@ Page({
       },
       success(res) {
         //设置数据
-        console.log("获取的话题详情：", res.data);
         that.setData!({
           topic: res.data
         });
@@ -53,40 +51,26 @@ Page({
             },
             success(res) {
               //设置数据
-              console.log("获取的投稿列表：", res.data);
               that.setData!({
-                // topic:res.data
                 comment: res.data,
               });
-            },
-            fail(err) {
-              console.log("打印错误信息");
-              console.log(err.errMsg);
             }
           }
         )
 
-      },
-      fail() {
-
-      }
+      } 
     });
   },
 
   /*转发分享监听事件 */
   onShareAppMessage(res: any) {
     var that = this
-    console.log("激活转发事件：", res)
     return {
       title: `#${this.data.topic.post.title}#`,
-      // imageUrl:'../../imgs/topicShare.png',
       success(e: any) {
         wx.showShareMenu({
           withShareTicket: true
         })
-      },
-      fail() {
-
       }
     }
   }

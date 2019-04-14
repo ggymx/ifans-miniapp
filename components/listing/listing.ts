@@ -81,7 +81,6 @@ Component({
    * 组件的初始数据
    */
   data: {
-    // imgUrl: '../../imgs/home-button-like@2x.png',
     isDelete: true
   },
 
@@ -97,11 +96,8 @@ Component({
         
         let pages = getCurrentPages()
         let curPage = pages[pages.length - 1];
-
         if (this.properties.showIssue) {
           let id = event.currentTarget.dataset.tid;
-
-          console.log("当前页面：", curPage.route);
           if (curPage.route == "pages/index/index") {
             wx.navigateTo({
               url: '../post/topic-detail/topic-detail?tid=' + id
@@ -115,7 +111,6 @@ Component({
           /*不存在则跳转到文章详情 */
           let cId = event.currentTarget.dataset.cid;
           let tId = event.currentTarget.dataset.tid;
-          console.log("当前页面：", curPage.route);
           if (curPage.route == "pages/index/index") {
             wx.navigateTo({
               url: '../post/contribute/contribute?tid=' + tId + '&cid=' + cId
@@ -172,13 +167,11 @@ Component({
         }, 100);
       } else {
         if (!this.properties.isLike) {
-          console.log("点赞的cId：" + this.properties.cId)
           const res = await api.giveLike({ postId: this.properties.cId })
           this.setData!({
             isLike: true
           })
         } else {
-          console.log("取消点赞的cId：" + this.properties.cId);
           const res = await api.disLike({ postId: this.properties.cId })
           this.setData!({
             isLike: false
@@ -188,14 +181,11 @@ Component({
     },
 
     popBox() {
-
       let token = wx.getStorageSync('token');
       if (token) {
         const ownId = wx.getStorageSync('userId');
         const userId = this.properties.userId
         const cId = this.properties.cId;
-        console.log(`当前用户的id：${ownId}，投稿的用户Id：${userId}`);
-        console.log(`投稿的id：${cId}`);
         if (ownId == userId) {
           wx.showActionSheet({
             itemList: ["删除"],
@@ -214,7 +204,6 @@ Component({
                           },
                           method: 'POST',
                           success(res) {
-                            console.log("删除后接收到的用户信息：", res.data);
                             wx.showToast({ title: '删除成功' })
                           },
                           fail(res) {
@@ -239,7 +228,6 @@ Component({
                     content: '确定举报这则投稿吗？',
                     success(res) {
                       if (res.confirm) {
-                        console.log("用户确定");
                         api.request({
                           url: '/v1/post/abuse-report',
                           data: {
@@ -247,7 +235,6 @@ Component({
                           },
                           method: 'POST',
                           success(res) {
-                            console.log("举报后接收到的用户信息：", res.data);
                             res.data.msg == "ok" ? wx.showToast({ title: '举报成功' }) : ''
                           }
                         });

@@ -60,10 +60,7 @@ Component({
                             let userId=wx.getStorageSync('userId');
                             setTimeout(()=>{
                                 wx.navigateTo({
-                                    url: '../user/detail/detail?userId='+userId,
-                                    success() {
-                                       
-                                    }
+                                    url: '../user/detail/detail?userId='+userId                 
                                 });
                             },100)
                             
@@ -76,11 +73,7 @@ Component({
                             },100)
                         }
                             break;
-
                     }
-                },
-                fail(res) {
-                    console.log(res.errMsg);
                 }
             });
         }

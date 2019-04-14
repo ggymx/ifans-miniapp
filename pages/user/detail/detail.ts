@@ -22,13 +22,9 @@ Page({
       },
       method: 'GET',
       success(res) {
-        console.log("。。。。。。", res.data)
         that.setData!({
           userData: res.data
         });
-      },
-      fail(err) {
-
       }
     });
   },
@@ -42,9 +38,6 @@ Page({
         wx.showShareMenu({
           withShareTicket: true
         })
-      },
-      fail() {
-
       }
     }
   },

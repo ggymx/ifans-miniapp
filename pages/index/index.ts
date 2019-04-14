@@ -16,7 +16,6 @@ Page({
   
   bindSubscribe(){
     let status=this.data.isSubscribe;
-    // console.log("当前订阅状态："+this.data.isSubscribe);
     if(!status){
       this.setData!({
         isSubscribe:true
@@ -39,9 +38,7 @@ Page({
   },
 
   onLoad() {
-
     var that=this;
-    console.log("当前的cursor："+cursor);
     wx.showLoading({
       title:'请稍候'
     });

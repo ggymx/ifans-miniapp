@@ -47,27 +47,16 @@ Page({
           //往缓存中添加当前用户的id
           wx.setStorage({
             key: 'userId',
-            data: res.data.user.id,
-            success() {
-
-            }
+            data: res.data.user.id
           });
-        },
-        fail(res) {
-
         }
-
       });
       wx.showLoading({
         title: '加载中'
       });
       setTimeout(() => {
         wx.hideLoading({
-          success() {
-          
-              wx.navigateBack({ delta: 1 })
-
-          }
+          success() {wx.navigateBack({ delta: 1 })}
         });
       }, 500);
       /*发起http请求-插入数据 */
@@ -77,12 +66,7 @@ Page({
         title: '警告',
         content: '您点击了拒绝授权，将无法进入小程序，请授权之后再进入!!!',
         showCancel: false,
-        confirmText: '返回授权',
-        success: function (res) {
-          if (res.confirm) {
-
-          }
-        }
+        confirmText: '返回授权'
       })
     }
   },

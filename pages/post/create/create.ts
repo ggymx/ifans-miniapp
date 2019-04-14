@@ -31,10 +31,7 @@ Page({
       
       setTimeout(() => {
         wx.navigateTo({
-          url: '../../login/login',
-          success() {
-
-          }
+          url: '../../login/login'
         });
       }, 300);
 
@@ -51,9 +48,7 @@ Page({
         });
       }else {
         wx.showLoading({
-          title: '投稿中...',
-          success() {
-          }
+          title: '投稿中...'
         });
         let userId = wx.getStorageSync('userId');
         api.request({
@@ -87,9 +82,6 @@ Page({
 
             }, 200);
 
-          },
-          fail(res) {
-            console.log(res.errMsg);
           }
         });
 
@@ -98,7 +90,6 @@ Page({
   },
   
 onEditText(event:any){
-  // console.log(event);
   this.setData!({
     inputText:'370rpx'
   });
@@ -108,8 +99,7 @@ onEndEditor(event:any){
   this.setData!({
     inputText:'890rpx'
   });
-}
-,
+},
   onLoad(options: any) {
 
     tId = options.tid;
@@ -135,9 +125,6 @@ onEndEditor(event:any){
           success(){
           }
         });
-      },
-      fail(err) {
-      
       }
     });
  

@@ -13,19 +13,13 @@ Page({
   bindViewParti(event: any) {
     var tid = event.currentTarget.dataset.tid;
     wx.navigateTo({
-      url: '../create/create?tid=' + tid,
-      success: function () {
-
-      }
+      url: '../create/create?tid=' + tid
     });
   },
   bindViewTopic(event: any) {
     var tid = event.currentTarget.dataset.tid;
     wx.navigateTo({
-      url: `../topic-detail/topic-detail?tid=${tid}`,
-      success() {
-
-      }
+      url: `../topic-detail/topic-detail?tid=${tid}`
     });
   },
   /*options:获取url参数 */
@@ -33,8 +27,6 @@ Page({
 
     let tId = options.tid;
     let cId = options.cid;
-    console.log("接收到的话题id：" + tId);
-    console.log("接受到的投稿id：" + cId);
     var that = this;
     //获取话题详情
     api.request({
@@ -48,15 +40,10 @@ Page({
       },
 
       success(res) {
-        console.log("接受到的话题详情-------------------：")
-        console.log(res.data);
         //设置数据
         that.setData!({
           topic: res.data
         });
-
-      },
-      fail() {
 
       }
     });
@@ -73,16 +60,10 @@ Page({
       },
 
       success(res) {
-        console.log("接受到的投稿详情-------------------：")
-        console.log(res.data);
         //设置数据
         that.setData!({
           comment: res.data
         });
-
-      },
-      fail() {
-
       }
     });
 
@@ -90,21 +71,16 @@ Page({
 
   /*转发分享监听事件 */
   onShareAppMessage(res: any) {
-    // var that=this;
     let text = this.data.comment!.post.text;
     if (this.data.comment!.post.text.length > 10) {
       text = this.data.comment!.post.text.substring(0, 10) + "..."
     }
     return {
       title: `#${this.data.topic.post.title}#${text}`,
-      // imageUrl:'../../imgs/topicShare.png',
       success(e: any) {
         wx.showShareMenu({
           withShareTicket: true
         })
-      },
-      fail() {
-
       }
     }
   }
