@@ -2,6 +2,7 @@
 //获取应用实例
 import { IMyApp } from '../../../app'
 import api from '../../../common/api';
+import { smartGotoPage } from '../../../common/helper';
 
 const app = getApp<IMyApp>()
 

@@ -6,7 +6,6 @@ tracker({token: 'c9e8c81c6aefc93c107fd2c43d094726', behaviour: 9, optimisedForSP
 export interface IMyApp {
   globalData: {
     userInfo?: wx.UserInfo,
-    share: boolean,
     height: number,
   }
   userInfoReadyCallback?(res: wx.UserInfo): void
@@ -52,15 +51,7 @@ App<IMyApp>({
       },
     })
   },
-  onShow(options) {
-    if(options.scene === 1007 || options.scene === 1008) {
-      this.globalData.share = true
-    } else {
-      this.globalData.share = false
-    }
-  },
   globalData: {
-    share: false,
     height: 0,
   },
 })

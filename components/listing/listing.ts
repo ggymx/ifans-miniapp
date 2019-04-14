@@ -1,4 +1,5 @@
 import api from "../../common/api";
+import { smartGotoPage } from "../../common/helper";
 
 // components/listing/listing.js
 

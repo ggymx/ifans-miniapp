@@ -15,6 +15,12 @@ wx9cc039bf853da6b0
 secret:
 a8090d07bc847eac6bde700b504efef2
 
+测试版：
+"appid": "wx9cc039bf853da6b0",
+
+正式版:
+"appid": "wx2ba0a8131ef456bf",
+
 #### 安装教程
 
 1. xxxx

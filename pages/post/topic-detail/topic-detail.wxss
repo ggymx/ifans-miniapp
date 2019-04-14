@@ -56,7 +56,7 @@ overflow: hidden;
 
 .opreate-item {
   height: 40rpx;
-  width: 234rpx;
+  width:260rpx;
   border-left-style: solid;
   border-width: 2rpx;
   border-color: rgb(234, 234, 234);
