@@ -168,8 +168,10 @@ Component({
       let token = wx.getStorageSync('token');
       if (token) {
         const ownId = wx.getStorageSync('userId');
-        const userId = this.properties.userId
-        const cId = this.properties.cId;
+        const userId = this.properties.post.user.id
+        const cId = this.properties.post.id;
+        console.log("自己的id：",ownId);
+        console.log("投稿的id：",userId);
         if (ownId == userId) {
           wx.showActionSheet({
             itemList: ["删除"],
