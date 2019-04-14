@@ -14,12 +14,7 @@ Page({
   bindViewParti(event: any) {
     var tid = event.currentTarget.dataset.tid;
     wx.navigateTo({
-      url: '../create/create?tid=' + tid,
-      success: function () {
-        wx.showToast({
-          title: '发布话题'
-        });
-      }
+      url: '../create/create?tid=' + tid
     });
   },
 

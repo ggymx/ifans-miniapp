@@ -20,7 +20,7 @@
                 </view>
                 <view class="opreate-item" bind:tap="bindViewParti" data-tid="{{topic.post.id}}">
                     <image src="../../../imgs/fabu@2x.png" style="width:27rpx;height:27rpx;margin-right:16rpx;" />
-                    <text style="font-size:24rpx;color:rgb(102,102,102);">参与</text>
+                    <text style="font-size:24rpx;color:rgb(102,102,102);">投稿</text>
                 </view>
                 <view class="opreate-item">
                     <button class="operate-btn" open-type="share">
@@ -35,7 +35,7 @@
         <view class="container">
             <block >
                 <block wx:for="{{comment.posts}}">
-                    <listing addClass="item-card" arrowBtn clock like tId="{{topic.post.id}}" cId="{{item.id}}" userId="{{item.userId}}" avatar="{{item.user.avatar}}" isLike="{{item.isLike}}">
+                    <listing addClass="item-card" arrowBtn clock like post="{{item}}" isLike="{{item.isLike}}">
                         <text slot="user" class="item-name">{{item.user.nickname}}</text>
                         <text slot="title" class="item-title">{{item.title}}</text>
                         <view slot="context" class="item-context">{{con.contextCon(item.text,300)}}<a slot="more" style="color:rgb(9,166,220)" wx:if="{{con.isMore(item.text,300)}}">更多</a></view>

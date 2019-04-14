@@ -1,8 +1,8 @@
 <!--components/listing/listing.wxml-->
 <wxs module="con" src="../../wxs/converter.wxs"></wxs>
- <view class="publisher-item {{card?'item-card':''}} slot1 slot2" bind:tap="bindRouter" data-tid="{{tId}}" data-cid="{{cId}}">
+ <view class="publisher-item {{card?'item-card':''}} slot1 slot2" bind:tap="bindRouter">
             <view class="publisher-person">
-             <image src="{{avatar}}" class="avatar" catch:tap="bindMy" data-uid="{{userId}}"/>
+             <image src="{{post.user.avatar}}" class="avatar" catch:tap="bindMy"/>
              <view class="user-view">
                  <view class="username">
                      <!--插入姓名-->

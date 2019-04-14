@@ -102,7 +102,7 @@ Component({
         let pages = getCurrentPages()
         let curPage = pages[pages.length - 1];
         if (this.properties.showIssue) {
-          let id = event.currentTarget.dataset.tid;
+          let id=this.properties.post.id
           if (curPage.route == "pages/index/index") {
             wx.navigateTo({
               url: '../post/topic-detail/topic-detail?tid=' + id
@@ -114,8 +114,8 @@ Component({
           }
         } else {
           /*不存在则跳转到文章详情 */
-          let cId = event.currentTarget.dataset.cid;
-          let tId = event.currentTarget.dataset.tid;
+          let cId = this.properties.post.id;
+          let tId = this.properties.post.refPostId;
           if (curPage.route == "pages/index/index") {
             wx.navigateTo({
               url: '../post/contribute/contribute?tid=' + tId + '&cid=' + cId
@@ -135,9 +135,7 @@ Component({
         //获取当前页面
         let pages = getCurrentPages()
         let curPage = pages[pages.length - 1];
-
-        let userId = event.currentTarget.dataset.uid;
-
+        let  userId= this.properties.post.user.id;
         if(curPage.route=="pages/index/index"){
           wx.navigateTo({
             url: '../user/detail/detail?userId=' + userId

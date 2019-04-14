@@ -17,7 +17,7 @@
           <view class="container" style="margin-top:20rpx;">
             <block wx:for="{{topList}}" wx:for-index="index">
                   <block wx:if="{{item.type=='1'}}">
-                  <listing card showTitle showIssue clock tId="{{item.id}}" userId="{{item.user.id}}" avatar="{{item.user.avatar}}">
+                  <listing card showTitle showIssue clock post="{{item}}">
                         <text slot="user" class="topic-name">{{con.nickNameCon(item.user.nickname)}}</text>
                         <text slot="title" class="text-weight"> {{con.contextCon(item.title,16)}}</text>
                         <view slot="context" class="topic-context">{{con.contextCon(item.text,70)}}<a slot="more" style="color:rgb(9,166,220)" wx:if="{{con.isMore(item.text,70)}}">更多</a>
@@ -27,7 +27,7 @@
                   </listing>
                   </block>
                   <block wx:elif="{{item.type==2}}">
-                        <listing card showTitle arrowBtn clock like tId="{{item.refPostId}}" cId="{{item.id}}" userId="{{item.user.id}}" avatar="{{item.user.avatar}}" isLike="{{item.isLike}}">
+                        <listing card showTitle arrowBtn clock like post="{{item}}" isLike="{{item.isLike}}">
                         <text slot="user" class="comment-name">{{con.nickNameCon(item.user.nickname)}}</text>
                         <text slot="title" class="conmment-weight">#{{con.contextCon(item.refPost.title,16)}}#</text>
                         <view slot="context" class="topic-context">{{con.contextCon(item.text,70)}}<a slot="more" style="color:rgb(9,166,220)" wx:if="{{con.isMore(item.text,70)}}">更多</a>
