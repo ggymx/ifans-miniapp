@@ -2,16 +2,15 @@
 //获取应用实例
 import { IMyApp } from '../../app'
 import api from '../../common/api';
-
-
+import { smartGotoPage } from '../../common/helper';
 const app = getApp<IMyApp>()
-let tId:number;
+let tId: number;
 Page({
   data: {
     topic: null,
-    pushText:'',
+    pushText: '',
     refPostId: null,
-    inputText:'390rpx'
+    inputText: '390rpx'
   },
   /*textarea输入时触发该函数-微信框架无双向绑定 */
   textAreaInput(event: any) {
@@ -22,15 +21,14 @@ Page({
 
   /*发布话题 */
   titleParti(event: any) {
-    var that = this;
+    const that = this;
     //获取缓存中的token，同步方式
-    let token = wx.getStorageSync('token');
+    const token = wx.getStorageSync('token');
     if (!token) {
       //用户未登录或者token过期
       wx.showToast({ title: '请先登录！' });
-      
       setTimeout(() => {
-        wx.navigateTo({
+        smartGotoPage({
           url: '../../login/login'
         });
       }, 300);
@@ -38,19 +36,19 @@ Page({
     } else {
       if (!this.data.pushText) {
         wx.showToast({
-          icon:'none',
+          icon: 'none',
           title: '内容不能为空！'
         });
-      }else if(this.data.pushText.length<5){
+      } else if (this.data.pushText.length < 5) {
         wx.showToast({
-          icon:'none',
-          title:'抱歉客官，参与投稿不得低于五个字呦'
+          icon: 'none',
+          title: '抱歉客官，参与投稿不得低于五个字呦'
         });
-      }else {
+      } else {
         wx.showLoading({
           title: '投稿中...'
         });
-        let userId = wx.getStorageSync('userId');
+        const userId = wx.getStorageSync('userId');
         api.request({
           url: '/v1/post/create',
           data: {
@@ -61,8 +59,8 @@ Page({
           },
           method: 'POST',
           success(res) {
-            let cId=res.data.id;
-        
+            const data = res.data as any
+            const cId = data.id;
             setTimeout(() => {
               wx.hideLoading({
                 success() {
@@ -88,24 +86,21 @@ Page({
       }
     }
   },
-  
-onEditText(event:any){
-  this.setData!({
-    inputText:'370rpx'
-  });
-},
-onEndEditor(event:any){
- 
-  this.setData!({
-    inputText:'890rpx'
-  });
-},
+  onEditText(event: any) {
+    this.setData!({
+      inputText: '370rpx'
+    });
+  },
+  onEndEditor(event: any) {
+    this.setData!({
+      inputText: '890rpx'
+    });
+  },
   onLoad(options: any) {
 
     tId = options.tid;
     this.data.refPostId = options.tid;
-   
-    var that = this;
+    const that = this;
     api.request({
       url: '/v1/post/detail',
       data: {
@@ -120,13 +115,10 @@ onEndEditor(event:any){
 
         //缓存话题
         wx.setStorage({
-          key:'topic',
-          data:res.data,
-          success(){
-          }
+          key: 'topic',
+          data: res.data
         });
       }
     });
- 
   }
 })

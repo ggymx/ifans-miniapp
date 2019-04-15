@@ -2,8 +2,7 @@
 //获取应用实例
 import { IMyApp } from '../../app'
 import api from '../../common/api';
-
-
+import { smartGotoPage } from '../../common/helper';
 const app = getApp<IMyApp>()
 let id: number;
 Page({
@@ -12,23 +11,21 @@ Page({
     comment: {}
   },
   bindViewParti(event: any) {
-    var tid = event.currentTarget.dataset.tid;
-    wx.navigateTo({
-      url: '../create/create?tid=' + tid
+    const tid = event.currentTarget.dataset.tid;
+    smartGotoPage({
+      url: './create?tid=' + tid
     });
   },
 
-  /*options:获取url参数 */
+  //options:获取url参数
   onLoad(options: any) {
-
     id = options.tid;
-
-    var that = this;
+    const that = this;
     api.request({
       url: '/v1/post/detail',
       method: 'GET',
       data: {
-        id: id
+        id
       },
       success(res) {
         //设置数据
@@ -38,11 +35,10 @@ Page({
         api.request(
           {
             // url:'/v1/post/answer-list',
-            url:'/v1/post/list',
-            method:'GET',
-    
-            data:{
-              id:id
+            url: '/v1/post/list',
+            method: 'GET',
+            data: {
+              id
             },
             success(res) {
               //设置数据
@@ -53,13 +49,13 @@ Page({
           }
         )
 
-      } 
+      }
     });
   },
 
   /*转发分享监听事件 */
   onShareAppMessage(res: any) {
-    var that = this
+    const that = this
     return {
       title: `#${this.data.topic.post.title}#`,
       success(e: any) {

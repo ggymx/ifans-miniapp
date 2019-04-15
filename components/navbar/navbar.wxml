@@ -1,6 +1,6 @@
 <!-- <view class="navbar" style="{{'height: ' + navigationBarHeight}}"> -->
 <view class="navbar" style="height:128rpx;">
-  <view style="{{'height: ' + statusBarHeight}}"></view>
+  <!-- <view style="{{'height: ' + statusBarHeight}}"></view> -->
   <view class='title-container' style="height:128rpx;">
     <view class='capsule' style="margin-top:40rpx;" wx:if="{{ back || home || gear }}">
       <view bindtap='back' wx:if="{{back && canBack}}">

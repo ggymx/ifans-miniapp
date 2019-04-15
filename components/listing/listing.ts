@@ -1,8 +1,7 @@
-import api from "../../common/api";
-import { smartGotoPage } from "../../common/helper";
+import api from '../../common/api';
+import { smartGotoPage } from '../../common/helper';
 
-// components/listing/listing.js
-
+// @ts-ignorets
 Component({
   /**
    * 组件的属性列表
@@ -57,9 +56,9 @@ Component({
       type: Boolean,
       value: false
     },
-    post:{
-      type:Object,
-      value:null
+    post: {
+      type: Object,
+      value: null
     }
   },
 
@@ -76,34 +75,34 @@ Component({
   methods: {
     /*跳转页面 */
     bindRouter(event: any) {
+      const instance = this as any;
       /*showIssue存在则跳转到话题详情 */
-     
-      if (!this.properties.final) {
-        
-        let pages = getCurrentPages()
-        let curPage = pages[pages.length - 1];
-        if (this.properties.showIssue) {
-          let id=this.properties.post.id
-          if (curPage.route == "pages/index") {
+      if (!instance.properties.final) {
+
+        const pages = getCurrentPages()
+        const curPage = pages[pages.length - 1];
+        if (instance.properties.showIssue) {
+          const id = instance.properties.post.id
+          if (curPage.route === 'pages/index') {
             smartGotoPage({
               url: './post/topic-detail?tid=' + id
             });
-          }else if(curPage.route=="pages/user/detail"){
+          } else if (curPage.route === 'pages/user/detail') {
             smartGotoPage({ url: '../post/topic-detail?tid=' + id });
-          }else {
+          } else {
             smartGotoPage({ url: './topic-detail?tid=' + id });
           }
         } else {
           /*不存在则跳转到文章详情 */
-          let cId = this.properties.post.id;
-          let tId = this.properties.post.refPostId;
-          if (curPage.route == "pages/index") {
+          const cId = instance.properties.post.id;
+          const tId = instance.properties.post.refPostId;
+          if (curPage.route === 'pages/index') {
             smartGotoPage({
               url: './post/detail?tid=' + tId + '&cid=' + cId
             });
-          } else if(curPage.route=="pages/user/detail"){
-            smartGotoPage({  url: '../post/detail?tid=' + tId + '&cid=' + cId });
-          }else {
+          } else if (curPage.route === 'pages/user/detail') {
+            smartGotoPage({ url: '../post/detail?tid=' + tId + '&cid=' + cId });
+          } else {
             smartGotoPage({
               url: './detail?tid=' + tId + '&cid=' + cId,
             });
@@ -112,52 +111,54 @@ Component({
       }
     },
     bindMy(event: any) {
-      if (!this.properties.finalMy) {
+      const instance = this as any;
+      if (!instance.properties.finalMy) {
         //获取当前页面
-        let pages = getCurrentPages()
-        let curPage = pages[pages.length - 1];
-        let  userId= this.properties.post.user.id;
-        if(curPage.route=="pages/index"){
+        const pages = getCurrentPages()
+        const curPage = pages[pages.length - 1];
+        const userId = instance.properties.post.user.id;
+        if (curPage.route === 'pages/index') {
           smartGotoPage({
             url: './user/detail?userId=' + userId
           });
-        }else{
+        } else {
           smartGotoPage({
             url: '../user/detail?userId=' + userId
           })
         }
-      
+
       }
     },
     /*点赞 */
     async giveLike(event: any) {
       //获取token
-      var token = wx.getStorageSync('token');
+      const token = wx.getStorageSync('token');
       if (!token) {
-        let pages=getCurrentPages();
-        let curPage=pages[pages.length-1];
+        const pages = getCurrentPages();
+        const curPage = pages[pages.length - 1];
         wx.showToast({ title: '请先登录！' });
 
         setTimeout(() => {
-         if(curPage.route=="pages/index"){
-          smartGotoPage({
-            url: './login'
-          });
-        }else{
-          smartGotoPage({
-            url: '../login'
-          });
-        }
+          if (curPage.route === 'pages/index') {
+            smartGotoPage({
+              url: './login'
+            });
+          } else {
+            smartGotoPage({
+              url: '../login'
+            });
+          }
         }, 100);
       } else {
-        if (!this.properties.isLike) {
-          const res = await api.giveLike({ postId: this.properties.cId })
-          this.setData!({
+        const instance = this as any;
+        if (!instance.properties.isLike) {
+          const res = await api.giveLike({ postId: instance.properties.cId })
+          instance.setData!({
             isLike: true
           })
         } else {
-          const res = await api.disLike({ postId: this.properties.cId })
-          this.setData!({
+          const res = await api.disLike({ postId: instance.properties.cId })
+          instance.setData!({
             isLike: false
           })
         }
@@ -165,16 +166,15 @@ Component({
     },
 
     popBox() {
-      let token = wx.getStorageSync('token');
+      const instance = this as any;
+      const token = wx.getStorageSync('token');
       if (token) {
         const ownId = wx.getStorageSync('userId');
-        const userId = this.properties.post.user.id
-        const cId = this.properties.post.id;
-        console.log("自己的id：",ownId);
-        console.log("投稿的id：",userId);
-        if (ownId == userId) {
+        const userId = instance.properties.post.user.id
+        const cId = instance.properties.post.id;
+        if (ownId === userId) {
           wx.showActionSheet({
-            itemList: ["删除"],
+            itemList: ['删除'],
             success(res) {
               switch (res.tapIndex) {
                 case 0:
@@ -205,7 +205,7 @@ Component({
           })
         } else {
           wx.showActionSheet({
-            itemList: ["举报"],
+            itemList: ['举报'],
             success(res) {
               switch (res.tapIndex) {
                 case 0:
@@ -221,7 +221,8 @@ Component({
                           },
                           method: 'POST',
                           success(res) {
-                            res.data.msg == "ok" ? wx.showToast({ title: '举报成功' }) : ''
+                            const data = res.data as any;
+                            data.msg === 'ok' ? wx.showToast({ title: '举报成功' }) : ''
                           }
                         });
 
@@ -234,19 +235,19 @@ Component({
         }
 
       } else {
-        let pages=getCurrentPages();
-        let curPage=pages[pages.length-1];
+        const pages = getCurrentPages();
+        const curPage = pages[pages.length - 1];
         wx.showToast({ title: '请先登录！' });
         setTimeout(() => {
-          if(curPage.route=="pages/index"){
+          if (curPage.route === 'pages/index') {
             smartGotoPage({
-            url: './login'
-          });
-        }else{
-          smartGotoPage({
-            url: '../login'
-          });
-        }
+              url: './login'
+            });
+          } else {
+            smartGotoPage({
+              url: '../login'
+            });
+          }
         }, 100);
       }
     },

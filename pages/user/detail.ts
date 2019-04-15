@@ -2,8 +2,6 @@
 //获取应用实例
 import { IMyApp } from '../../app'
 import api from '../../common/api';
-
-
 const app = getApp<IMyApp>()
 
 Page({
@@ -12,9 +10,8 @@ Page({
   },
 
   onLoad(options: any) {
-
-    let userId = options.userId;
-    var that = this;
+    const userId = options.userId;
+    const that = this;
     api.request({
       url: '/v1/user/detail',
       data: {
@@ -30,8 +27,8 @@ Page({
   },
 
   onShareAppMessage() {
-    var that = this;
-    let userName = that.data.userData!.user.nickname
+    const that = this;
+    const userName = that.data.userData!.user.nickname
     return {
       title: `邀你进入-${userName}的空间`,
       success(e: any) {

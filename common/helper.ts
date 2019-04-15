@@ -10,3 +10,6 @@ export function smartGotoPage(option: wx.NavigateToOption) {
     wx.navigateTo(option)
   }
 }
+ export function smartDate(option: any){
+  return option
+ }

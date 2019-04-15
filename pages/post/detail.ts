@@ -12,23 +12,23 @@ Page({
     comment: null
   },
   bindViewParti(event: any) {
-    var tid = event.currentTarget.dataset.tid;
-    wx.navigateTo({
-      url: '../create/create?tid=' + tid
+    const tid = event.currentTarget.dataset.tid;
+    smartGotoPage({
+      url: './create?tid=' + tid
     });
   },
   bindViewTopic(event: any) {
-    var tid = event.currentTarget.dataset.tid;
-    wx.navigateTo({
-      url: `../topic-detail/topic-detail?tid=${tid}`
+    const tid = event.currentTarget.dataset.tid;
+    smartGotoPage({
+      url: `./topic-detail?tid=${tid}`
     });
   },
   /*options:获取url参数 */
   onLoad(options: any) {
 
-    let tId = options.tid;
-    let cId = options.cid;
-    var that = this;
+    const tId = options.tid;
+    const cId = options.cid;
+    const that = this;
     //获取话题详情
     api.request({
 
@@ -74,7 +74,7 @@ Page({
   onShareAppMessage(res: any) {
     let text = this.data.comment!.post.text;
     if (this.data.comment!.post.text.length > 10) {
-      text = this.data.comment!.post.text.substring(0, 10) + "..."
+      text = this.data.comment!.post.text.substring(0, 10) + '...'
     }
     return {
       title: `#${this.data.topic.post.title}#${text}`,

@@ -16,7 +16,7 @@ Page({
     /*点击确认按钮 */
     /*当拿到用户信息时*/
     if (e.detail.userInfo) {
-      var that = this;
+      const that = this;
       /*这里不需要用token判断 */
       api.request({
 
@@ -37,17 +37,17 @@ Page({
         method: 'POST',
 
         success(res) {
-
+          const data = res.data as any
           that.setData!({
             returnInfo: res.data,
             statusText: '已登录'
           });
           //往缓存中添加token（异步）
-          api.setToken(res.data.token);
+          api.setToken(data.token);
           //往缓存中添加当前用户的id
           wx.setStorage({
             key: 'userId',
-            data: res.data.user.id
+            data: data.user.id
           });
         }
       });
@@ -56,7 +56,7 @@ Page({
       });
       setTimeout(() => {
         wx.hideLoading({
-          success() {wx.navigateBack({ delta: 1 })}
+          success() { wx.navigateBack({ delta: 1 }) }
         });
       }, 500);
       /*发起http请求-插入数据 */

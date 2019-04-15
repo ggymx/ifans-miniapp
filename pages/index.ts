@@ -2,119 +2,105 @@
 //获取应用实例
 import { IMyApp } from '../app'
 import api from '../common/api';
-
-
 const app = getApp<IMyApp>()
-let cursor:number=0;
+let cursor: number = 0;
 
 Page({
   data: {
-    topList:[],
-    isSubscribe:false,
-    isErr:false
+    topList: [],
+    isSubscribe: false,
+    isErr: false
   },
-  
-  bindSubscribe(){
-    let status=this.data.isSubscribe;
-    if(!status){
+  bindSubscribe() {
+    const status = this.data.isSubscribe;
+    if (!status) {
       this.setData!({
-        isSubscribe:true
+        isSubscribe: true
       });
       wx.showToast({
-        title:'已订阅，将于明早发送',
+        title: '已订阅，将于明早发送',
         icon: 'none'
       })
-    }else{
+    } else {
       this.setData!({
-        isSubscribe:false
+        isSubscribe: false
       })
-      wx.showToast({title:'取消订阅',icon:'none'});
+      wx.showToast({ title: '取消订阅', icon: 'none' });
     }
-  
   },
-  //测试订阅功能
-  onsubscribe(res:any){
-  
-  },
-
   onLoad() {
-    var that=this;
+    const that = this;
     wx.showLoading({
-      title:'请稍候'
+      title: '请稍候'
     });
-    
     api.request({
-      url:'/v1/post/home-list',
+      url: '/v1/post/home-list',
 
-      data:{
-        cursor:cursor,
-        limit:10
+      data: {
+        cursor,
+        limit: 10
       },
-
-      method:"GET",
-
-      success(res){
-        if(res.data.posts.length==0){
-          setTimeout(()=>{
+      method: 'GET',
+      success(res) {
+        const data = res.data as any
+        if (data.posts.length === 0) {
+          setTimeout(() => {
             wx.showToast({
-              icon:'none',
-              title:'已经到底了。。。'
+              icon: 'none',
+              title: '已经到底了。。。'
             });
-          },200)
-         
-        }else{
+          }, 200);
+        } else {
           that.setData!({
-            topList:that.data.topList.concat(res.data.posts)
+            topList: that.data.topList.concat(data.posts)
           });
-            //指针后移
-         cursor=res.data.cursor;
+          //指针后移
+          cursor = data.cursor;
         }
 
       },
-      fail(err){
+      fail(err) {
         wx.hideLoading({});
-        setTimeout(()=>{
+        setTimeout(() => {
           that.setData!({
-            isErr:true
+            isErr: true
           });
-        },300)
+        }, 300)
       }
     });
-  wx.hideLoading({});
+    wx.hideLoading({});
   },
 
-  onPullDownRefresh(){
-    var that=this;
+  onPullDownRefresh() {
+    const that = this;
     api.request({
-      url:'/v1/post/home-list',
-      data:{
-        cursor:0,
-        limit:10
+      url: '/v1/post/home-list',
+      data: {
+        cursor: 0,
+        limit: 10
       },
-      method:'GET',
-      success(res){
-      
+      method: 'GET',
+      success(res) {
+        const data = res.data as any
         that.setData!({
-          topList:res.data.posts
+          topList: data.posts
         });
-        setTimeout(()=>{
+        setTimeout(() => {
           wx.stopPullDownRefresh({});
-        },500);
-        cursor=res.data.cursor;
-      
+        }, 500);
+        cursor = data.cursor;
       }
     });
   },
-  onReachBottom(){
-    var that=this;
+  onReachBottom() {
+    const that = this;
     wx.showLoading({
-      title:'加载更多.'
+      title: '加载更多.'
     });
-    
-    setTimeout(()=>{
+    setTimeout(() => {
       //重新加载
       wx.hideLoading({});
       that.onLoad();
-    },500)
+    }, 500)
   }
 })

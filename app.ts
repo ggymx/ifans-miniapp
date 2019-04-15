@@ -17,6 +17,8 @@ App<IMyApp>({
     wx.getSystemInfo({
       success: (res) => {
         this.globalData.height = res.statusBarHeight
+        console.log(' res.statusBarHeight', res.statusBarHeight);
+        console.log('打印height：',this.globalData.height);
       }
     })
     // 展示本地存储能力
