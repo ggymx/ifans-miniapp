@@ -84,28 +84,28 @@ Component({
         let curPage = pages[pages.length - 1];
         if (this.properties.showIssue) {
           let id=this.properties.post.id
-          if (curPage.route == "pages/index/index") {
+          if (curPage.route == "pages/index") {
             smartGotoPage({
-              url: '../post/topic-detail/topic-detail?tid=' + id
+              url: '../post/topic-detail?tid=' + id
             });
-          }else if(curPage.route=="pages/user/detail/detail"){
-            smartGotoPage({ url: '../../post/topic-detail/topic-detail?tid=' + id });
+          }else if(curPage.route=="pages/user/detail"){
+            smartGotoPage({ url: '../post/topic-detail?tid=' + id });
           }else {
-            smartGotoPage({ url: '../topic-detail/topic-detail?tid=' + id });
+            smartGotoPage({ url: './topic-detail?tid=' + id });
           }
         } else {
           /*不存在则跳转到文章详情 */
           let cId = this.properties.post.id;
           let tId = this.properties.post.refPostId;
-          if (curPage.route == "pages/index/index") {
+          if (curPage.route == "pages/index") {
             smartGotoPage({
-              url: '../post/contribute/contribute?tid=' + tId + '&cid=' + cId
+              url: './post/contribute?tid=' + tId + '&cid=' + cId
             });
-          } else if(curPage.route=="pages/user/detail/detail"){
-            smartGotoPage({  url: '../../post/contribute/contribute?tid=' + tId + '&cid=' + cId });
+          } else if(curPage.route=="pages/user/detail"){
+            smartGotoPage({  url: '../post/contribute?tid=' + tId + '&cid=' + cId });
           }else {
             smartGotoPage({
-              url: '../contribute/contribute?tid=' + tId + '&cid=' + cId,
+              url: './contribute?tid=' + tId + '&cid=' + cId,
             });
           }
         }
@@ -117,13 +117,13 @@ Component({
         let pages = getCurrentPages()
         let curPage = pages[pages.length - 1];
         let  userId= this.properties.post.user.id;
-        if(curPage.route=="pages/index/index"){
+        if(curPage.route=="pages/index"){
           smartGotoPage({
-            url: '../user/detail/detail?userId=' + userId
+            url: './user/detail?userId=' + userId
           });
         }else{
           smartGotoPage({
-            url: '../../user/detail/detail?userId=' + userId
+            url: '../user/detail?userId=' + userId
           })
         }
       
@@ -139,13 +139,13 @@ Component({
         wx.showToast({ title: '请先登录！' });
 
         setTimeout(() => {
-         if(curPage.route=="pages/index/index"){
+         if(curPage.route=="pages/index"){
           smartGotoPage({
-            url: '../login/login'
+            url: './login'
           });
         }else{
           smartGotoPage({
-            url: '../../login/login'
+            url: '../login'
           });
         }
         }, 100);
@@ -238,13 +238,13 @@ Component({
         let curPage=pages[pages.length-1];
         wx.showToast({ title: '请先登录！' });
         setTimeout(() => {
-          if(curPage.route=="pages/index/index"){
+          if(curPage.route=="pages/index"){
             smartGotoPage({
-            url: '../login/login'
+            url: './login'
           });
         }else{
           smartGotoPage({
-            url: '../../login/login'
+            url: '../login'
           });
         }
         }, 100);

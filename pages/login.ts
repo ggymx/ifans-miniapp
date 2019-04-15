@@ -1,7 +1,7 @@
 //index.js
 //获取应用实例
-import { IMyApp } from '../../app'
-import api from '../../common/api';
+import { IMyApp } from '../app'
+import api from '../common/api';
 
 const app = getApp<IMyApp>()
 let loginCode: string

@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "每日热点",
-  "usingComponents": {
-    "navbar":"../../..//components/navbar/navbar",
-    "listing": "../../..//components/listing/listing"
-  }
-}

@@ -1,5 +1,5 @@
 <!--pages/participate/participate.wxml-->
-<wxs module="con" src="../../../wxs/converter.wxs"></wxs>
+<wxs module="con" src="../../wxs/converter.wxs"></wxs>
 <navbar back text="参与话题"></navbar>
 
 <view class="underlying flex-urly">

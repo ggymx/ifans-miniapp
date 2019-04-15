@@ -27,7 +27,7 @@ Component({
       const pages = getCurrentPages().map(p=>p.route)
       this.setData({
         canBack: pages.length > 1,
-        needHome: pages.length === 1 && pages[0] !== 'pages/index/index'
+        needHome: pages.length === 1 && pages[0] !== 'pages/index'
       })
     },
     data: {
@@ -37,7 +37,7 @@ Component({
     methods: {
         backHome() {
             wx.redirectTo({
-              url: '/pages/index/index',
+              url: '/pages/index',
             });
         },
         back() {
@@ -77,7 +77,7 @@ Component({
                             let userId=wx.getStorageSync('userId');
                             setTimeout(()=>{
                                 wx.navigateTo({
-                                    url: '../user/detail/detail?userId='+userId                 
+                                    url: './user/detail?userId='+userId                 
                                 });
                             },100)
                             
@@ -85,7 +85,7 @@ Component({
                             wx.showToast({title:'请先登录！'});
                             setTimeout(()=>{
                                 wx.navigateTo({
-                                    url:'../login/login'
+                                    url:'./login'
                                 });
                             },100)
                         }

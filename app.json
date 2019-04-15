@@ -1,14 +1,14 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/login/login",
+    "pages/index",
+    "pages/login",
 
-    "pages/user/detail/detail",
+    "pages/user/detail",
 
-    "pages/post/topic-detail/topic-detail",
-    "pages/post/create/create",
-    "pages/post/contribute/contribute",
-    "pages/post/hot/hot",
+    "pages/post/topic-detail",
+    "pages/post/create",
+    "pages/post/contribute",
+    "pages/post/hot",
 
     "pages/test/test"
     

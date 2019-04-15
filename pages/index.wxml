@@ -1,15 +1,15 @@
 <!-- pages/index/index.wxml -->
-<wxs module="con" src="../../wxs/converter.wxs"></wxs>
+<wxs module="con" src="../wxs/converter.wxs"></wxs>
 <navbar gear text="首页" class="navbar-index"></navbar>
 <view class="underlying">
       <view class='index-subscribe'>
           <button class="subscribe-btn" bind:tap="bindSubscribe">
                   <block wx:if="{{!isSubscribe}}">
-                        <image class="img-subcribe" src='../../imgs/add.png'></image>
+                        <image class="img-subcribe" src='../imgs/add.png'></image>
                         <text>订阅每日热点</text>
                   </block>
                   <block wx:else>
-                        <image class="img-subcribe" src='../../imgs/subed.png'></image>
+                        <image class="img-subcribe" src='../imgs/subed.png'></image>
                         <text>已订阅</text>
                   </block>
             </button>
