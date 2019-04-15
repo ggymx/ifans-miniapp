@@ -86,7 +86,7 @@ Component({
           let id=this.properties.post.id
           if (curPage.route == "pages/index") {
             smartGotoPage({
-              url: '../post/topic-detail?tid=' + id
+              url: './post/topic-detail?tid=' + id
             });
           }else if(curPage.route=="pages/user/detail"){
             smartGotoPage({ url: '../post/topic-detail?tid=' + id });
@@ -99,13 +99,13 @@ Component({
           let tId = this.properties.post.refPostId;
           if (curPage.route == "pages/index") {
             smartGotoPage({
-              url: './post/contribute?tid=' + tId + '&cid=' + cId
+              url: './post/detail?tid=' + tId + '&cid=' + cId
             });
           } else if(curPage.route=="pages/user/detail"){
-            smartGotoPage({  url: '../post/contribute?tid=' + tId + '&cid=' + cId });
+            smartGotoPage({  url: '../post/detail?tid=' + tId + '&cid=' + cId });
           }else {
             smartGotoPage({
-              url: './contribute?tid=' + tId + '&cid=' + cId,
+              url: './detail?tid=' + tId + '&cid=' + cId,
             });
           }
         }

@@ -74,7 +74,7 @@ Page({
                   wx.removeStorageSync('draft');
                   setTimeout(() => {
                     wx.redirectTo({
-                      url: `../contribute/contribute?tid=${tId}&cid=${cId}`
+                      url: `./detail?tid=${tId}&cid=${cId}`
                     });
                   }, 200);
                 }

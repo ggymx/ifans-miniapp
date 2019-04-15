@@ -49,7 +49,7 @@
     </view>
      <view wx:else>
          <view class="container">
-             <image src="../../../imgs/null.png" class="null-img"/>
+             <image src="../../imgs/null.png" class="null-img"/>
              <text class="null-text">评论区空空去也，客官赏脸给个评论吧~</text>
         </view>
     </view>

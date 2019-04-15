@@ -1,20 +1,13 @@
 {
-  "pages": [
+  "pages": [ 
     "pages/index",
     "pages/login",
-
     "pages/user/detail",
-
     "pages/post/topic-detail",
     "pages/post/create",
-    "pages/post/contribute",
-    "pages/post/hot",
-
+    "pages/post/detail",
+    "pages/post/daily-hot",
     "pages/test/test"
-    
-    
-   
-  
   ],
   "window": {
     "backgroundTextStyle": "dark",
