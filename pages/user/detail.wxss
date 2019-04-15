@@ -257,4 +257,31 @@ overflow: hidden;
 -webkit-box-orient: vertical;    
 -webkit-line-clamp: 15; 
 }
-		
+
+.no-info{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  /* justify-content:space-evenly; */
+  height:958rpx;
+}
+.no-info>text{
+  font-size:30rpx;
+  color:rgb(153,153,153);  
+  text-align: center;
+  margin-top:100rpx;
+}
+.no-info>image{
+  width:293rpx;
+  height:193rpx;
+  margin:60rpx 0;
+}
+.no-info>button{
+  font-size:10px;
+display:flex;
+align-items:center;
+width:200rpx;
+height:50rpx;
+padding:0;
+justify-content:center;
+}

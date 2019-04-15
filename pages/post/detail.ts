@@ -31,7 +31,6 @@ Page({
     const that = this;
     //获取话题详情
     api.request({
-
       url: '/v1/post/detail',
 
       method: 'GET',
@@ -51,7 +50,6 @@ Page({
 
     //获取投稿详情
     api.request({
-
       url: '/v1/post/detail',
 
       method: 'GET',

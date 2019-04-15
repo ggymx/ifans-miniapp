@@ -32,10 +32,10 @@
             </view>
         </view>
     </view>
-    <view class="opreate-underlying" wx:if="{{comment.posts.length>0}}">
+    <view class="opreate-underlying" wx:if="{{postArr.length>0}}">
         <view class="container">
             <block >
-                <block wx:for="{{comment.posts}}">
+                <block wx:for="{{postArr}}">
                     <listing addClass="item-card" arrowBtn clock like post="{{item}}" isLike="{{item.isLike}}">
                         <text slot="user" class="item-name">{{item.user.nickname}}</text>
                         <text slot="title" class="item-title">{{item.title}}</text>

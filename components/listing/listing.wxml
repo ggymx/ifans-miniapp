@@ -1,6 +1,6 @@
 <!--components/listing/listing.wxml-->
 <wxs module="con" src="../../wxs/converter.wxs"></wxs>
- <view class="publisher-item {{card?'item-card':''}} slot1 slot2" bind:tap="bindRouter">
+ <view class="publisher-item {{card?'item-card':''}} slot1 slot2" catch:tap="bindRouter">
             <view class="publisher-person">
              <image src="{{post.user.avatar}}" class="avatar" catch:tap="bindMy"/>
              <view class="user-view">

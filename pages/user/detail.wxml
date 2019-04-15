@@ -12,7 +12,8 @@
             </button>
       </view>
       <!-- 第一部分 -->
-      <view class="container">
+      <view class="container" bind:tap="test">
+                  <block wx:if="{{userData.posts.length!=0}}">
                   <block wx:for="{{userData.posts}}" wx:for-item="partiItem">
                         <block wx:if="{{partiItem.type==1}}">
                         <listing card arrowBtn showTitle showIssue finalMy clock post="{{partiItem}}">
@@ -32,6 +33,18 @@
                               <text slot="like">{{partiItem.likeCount}}</text>
                         </listing>
                         </block>
+                  </block>
+                  </block>
+
+                  <block wx:else>
+                  <view class="no-info">
+                    <text>您的空间空空如也，赶快发布投稿，让更多的人知道你的想法吧~</text>
+                    <image src="../../imgs/null.png" />
+                    <button style="font-size:20rpx;" bind:tap="bindViewIndex">
+                          <image src="../../imgs/home-Fixedbutton-canyu@2x.png" 
+                          style="height:24rpx;width:24rpx;margin-bottom:6rpx;"/>赶快参与
+                  </button>
+                  </view>
                   </block>
       </view>
 </view>

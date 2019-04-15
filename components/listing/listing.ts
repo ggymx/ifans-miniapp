@@ -75,6 +75,8 @@ Component({
   methods: {
     /*跳转页面 */
     bindRouter(event: any) {
+      console.log('//////////////',event);
+      // if(event.target.offsetTop!=event.currentTarget.offsetTop){return;}
       const instance = this as any;
       /*showIssue存在则跳转到话题详情 */
       if (!instance.properties.final) {
@@ -109,6 +111,7 @@ Component({
           }
         }
       }
+
     },
     bindMy(event: any) {
       const instance = this as any;
@@ -191,6 +194,13 @@ Component({
                           method: 'POST',
                           success(res) {
                             wx.showToast({ title: '删除成功' })
+                            // const pages=getCurrentPages();
+                            // const curPage=pages[pages.length-1];
+                            // const keyWord=curPage.route.split('/')[2]
+                            // console.log('------',keyWord);
+                            // wx.redirectTo({
+                            //   url:`./${keyWord}`
+                            // });
                           },
                           fail(res) {
                             wx.showToast({ title: '删除成功' })

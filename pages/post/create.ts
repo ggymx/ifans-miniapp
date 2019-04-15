@@ -29,7 +29,7 @@ Page({
       wx.showToast({ title: '请先登录！' });
       setTimeout(() => {
         smartGotoPage({
-          url: '../../login/login'
+          url: '../login'
         });
       }, 300);
 
