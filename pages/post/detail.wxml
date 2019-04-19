@@ -10,7 +10,7 @@
                 <text slot="user" class="item-name">{{comment.post.user.nickname}}</text>
                 <text slot="title" class="item-title" catch:tap="bindViewTopic" data-tid="{{topic.post.id}}"> #{{con.contextCon(topic.post.title,16)}}#</text>
                 <view slot="context" class="item-context">{{comment.post.text}}</view>
-                <text slot="date">{{con.dateCon(comment.post.creatAt)}}</text>
+                <text slot="date">{{con.dateCon(comment.post.createAt)}}</text>
                 <text slot="like">{{con.numCon(comment.post.likeCount)}}</text>
             </listing>
         </view>

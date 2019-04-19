@@ -40,7 +40,7 @@
                         <text slot="user" class="item-name">{{item.user.nickname}}</text>
                         <text slot="title" class="item-title">{{item.title}}</text>
                         <view slot="context" class="item-context">{{con.contextCon(item.text,300)}}<a slot="more" style="color:rgb(9,166,220)" wx:if="{{con.isMore(item.text,300)}}">更多</a></view>
-                        <text slot="date">{{con.dateCon(item.creatAt)}}</text>
+                        <text slot="date">{{con.dateCon(item.createAt)}}</text>
                         <text slot="like">{{con.numCon(item.likeCount)}}</text>
                     </listing>
                 </block>

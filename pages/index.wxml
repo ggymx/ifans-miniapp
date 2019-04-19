@@ -22,7 +22,7 @@
                         <text slot="title" class="text-weight"> {{con.contextCon(item.title,16)}}</text>
                         <view slot="context" class="topic-context">{{con.contextCon(item.text,70)}}<a slot="more" style="color:rgb(9,166,220)" wx:if="{{con.isMore(item.text,70)}}">更多</a>
                         </view>
-                        <text slot="date">{{con.dateCon(item.creatAt)}}</text>
+                        <text slot="date">{{con.dateCon(item.createAt)}}</text>
                         <!-- <text slot="like">{{con.numCon(item.likeCount)}}</text> -->
                   </listing>
                   </block>
@@ -32,7 +32,7 @@
                         <text slot="title" class="conmment-weight">#{{con.contextCon(item.refPost.title,16)}}#</text>
                         <view slot="context" class="topic-context">{{con.contextCon(item.text,70)}}<a slot="more" style="color:rgb(9,166,220)" wx:if="{{con.isMore(item.text,70)}}">更多</a>
                         </view>
-                        <text slot="date">{{con.dateCon(item.creatAt)}}</text>
+                        <text slot="date">{{con.dateCon(item.createAt)}}</text>
                         <text slot="like">{{con.numCon(item.likeCount)}}</text>
                   </listing>
                   </block>

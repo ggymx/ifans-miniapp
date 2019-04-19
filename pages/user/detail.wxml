@@ -20,7 +20,7 @@
                               <text slot="user" class="item-name">{{con.nickNameCon(userData.user.nickname)}}</text>
                               <text slot="title" class="item-title">{{partiItem.title}}</text>
                               <view slot="context" class="item-context">{{partiItem.text}}</view>
-                              <text slot="date">{{con.dateCon(partiItem.creatAt)}}</text>
+                              <text slot="date">{{con.dateCon(partiItem.createAt)}}</text>
                               <!-- <text slot="like">{{99}}</text> -->
                         </listing>
                         </block>
@@ -29,7 +29,7 @@
                               <text slot="user" class="item-name">{{userData.user.nickname}}</text>
                               <text slot="title" class="item-title">#{{partiItem.refPost.title}}#</text>
                               <view slot="context" class="item-context">{{partiItem.text}}</view>
-                              <text slot="date">{{con.dateCon(partiItem.creatAt)}}</text>
+                              <text slot="date">{{con.dateCon(partiItem.createAt)}}</text>
                               <text slot="like">{{partiItem.likeCount}}</text>
                         </listing>
                         </block>
