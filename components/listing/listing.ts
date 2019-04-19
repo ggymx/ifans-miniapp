@@ -155,12 +155,12 @@ Component({
       } else {
         const instance = this as any;
         if (!instance.properties.isLike) {
-          const res = await api.giveLike({ postId: instance.properties.cId })
+          const res = await api.giveLike({ postId: instance.properties.post.id })
           instance.setData!({
             isLike: true
           })
         } else {
-          const res = await api.disLike({ postId: instance.properties.cId })
+          const res = await api.disLike({ postId: instance.properties.post.id })
           instance.setData!({
             isLike: false
           })
