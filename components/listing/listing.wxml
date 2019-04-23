@@ -1,41 +1,41 @@
-<!--components/listing/listing.wxml-->
+<!-- components/listing/listing.wxml -->
 <wxs module="con" src="../../wxs/converter.wxs"></wxs>
- <view class="publisher-item {{card?'item-card':''}} slot1 slot2" catch:tap="bindRouter">
-            <view class="publisher-person">
-             <image src="{{post.user.avatar}}" class="avatar" catch:tap="bindMy"/>
-             <view class="user-view">
-                 <view class="username">
-                     <!--插入姓名-->
-                     <slot name="user"></slot>
-                </view>
-                 <text wx:if="{{showIssue}}">发布了话题</text>
-            </view>
-            <view class="arr-view" catch:tap="popBox">
-             <image src="../../imgs/myhome-gd@2x.png" class="arrow-btn"  wx:if="{{arrowBtn}}" />
-            </view>
-            </view>
-            <view class="publisher-topic" wx:if="{{showTitle}}">
-                <view style="margin-left:26rpx;display:inline-block">
-                    <!--插入话题标题-->
-                    <slot name="title"></slot>
-                </view>
-            </view>
-            <view class="publisher-context">
-             <!--插入评论话题的内容-->
-              <slot name="context">
-                   <slot name="more"></slot>
-              </slot>
-            </view> 
-            <view class="publisher-status" wx:if="{{clock||like||liked}}">
-              <image src="../../imgs/button-time@2x.png" class="clock-icon" wx:if="{{clock}}"/>
-              <view class="publisher-date">
-                  <slot name="date"></slot>
-             </view>
-              <view class="heart-view" catch:tap="giveLike">
-              <image src="{{isLike && '../../imgs/button-like-dj@2x.png' || '../../imgs/home-button-like@2x.png' }}" class="like-img" wx:if="{{like}}"/>
-              <view style="margin-left:20rpx;display:inline-block">          
-                  <slot name="like"></slot>
-              </view>
-              </view>
-            </view>
-        </view>
+<view class="publisher-item {{card?'item-card':''}} slot1 slot2" catch:tap="bindRouter">
+  <view class="publisher-person">
+    <image src="{{post.user.avatar}}" class="avatar" catch:tap="bindMy" />
+    <view class="user-view">
+      <view class="username">
+        <!-- 插入姓名 -->
+        <slot name="user"></slot>
+      </view>
+      <text wx:if="{{showIssue}}">发布了话题</text>
+    </view>
+    <view class="arr-view" catch:tap="popBox">
+      <image src="../../imgs/myhome-gd@2x.png" class="arrow-btn" wx:if="{{arrowBtn}}" />
+    </view>
+  </view>
+  <view class="publisher-topic" wx:if="{{showTitle}}">
+    <view style="margin-left:26rpx;display:inline-block">
+      <!-- 插入话题标题 -->
+      <slot name="title"></slot>
+    </view>
+  </view>
+  <view class="publisher-context">
+    <!-- 插入评论话题的内容 -->
+    <slot name="context">
+      <slot name="more"></slot>
+    </slot>
+  </view>
+  <view class="publisher-status" wx:if="{{clock||like||liked}}">
+    <image src="../../imgs/button-time@2x.png" class="clock-icon" wx:if="{{clock}}" />
+    <view class="publisher-date">
+      <slot name="date"></slot>
+    </view>
+    <view class="heart-view" catch:tap="giveLike">
+      <image src="{{isLike && '../../imgs/button-like-dj@2x.png' || '../../imgs/home-button-like@2x.png' }}" class="like-img" wx:if="{{like}}" />
+      <view style="margin-left:20rpx;display:inline-block">
+        <slot name="like"></slot>
+      </view>
+    </view>
+  </view>
+</view>
