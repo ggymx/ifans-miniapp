@@ -44,7 +44,6 @@ Page({
         that.setData!({
           topic: res.data
         });
-
       }
     });
 

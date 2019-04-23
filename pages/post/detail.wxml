@@ -5,6 +5,7 @@
 <view class="underlying">
   <view class="opreate-underlying" style="border-style:none">
     <view class="container">
+      <postCard arrowBtn clock final showTitle like/>
       <listing arrowBtn clock final showTitle like post="{{comment.post}}" isLike="{{comment.post.isLike}}" style="border-width:1rpx">
         <text slot="user" class="item-name">{{comment.post.user.nickname}}</text>
         <text slot="title" class="item-title" catch:tap="bindViewTopic" data-tid="{{topic.post.id}}">

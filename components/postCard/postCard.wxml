@@ -1,2 +1,42 @@
-<!--components/postCard/postCard.wxml-->
-<text>components/postCard/postCard.wxml</text>
+<!-- components/postCard/postCard.wxml -->
+<wxs module="con" src="../../wxs/converter.wxs"></wxs>
+<view class="publisher-item {{card?'item-card':''}} slot1 slot2" catch:tap="bindRouter">
+  <view class="publisher-person">
+    <image src="{{post.user.avatar}}" class="avatar" catch:tap="finalLink" />
+    <view class="user-view">
+      <view class="username">
+        <!-- 插入姓名 -->
+        <text class="topic-name">{{con.nickNameCon(post.user.nickname)}}</text>
+      </view>
+      <text wx:if="{{showIssue}}">发布了话题</text>
+    </view>
+    <view class="arr-view" catch:tap="popBox">
+      <image src="../../imgs/myhome-gd@2x.png" class="arrow-btn" wx:if="{{arrowBtn}}" />
+    </view>
+  </view>
+  <view class="publisher-topic" wx:if="{{showTitle}}">
+    <view style="margin-left:26rpx;display:inline-block">
+      <!-- 插入话题标题 -->
+      <text class="text-weight">{{con.contextCon(post.title,16)}}</text>
+    </view>
+  </view>
+  <view class="publisher-context">
+    <!-- 插入评论话题的内容 -->
+    <view name="context" class="topic-context">
+      {{con.contextCon(post.text,70)}}<a name="more" style="color:rgb(9,166,220)" wx:if="{{showMore}}">更多</a>
+    </view>
+  </view>
+  <view class="publisher-status">
+    <image src="../../imgs/button-time@2x.png" class="clock-icon" />
+    <view class="publisher-date">
+      <text>{{con.dateCon(post.createAt)}}</text>
+    </view>
+    <view class="heart-view" catch:tap="giveLike">
+      <image src="{{isLike && '../../imgs/button-like-dj@2x.png' || '../../imgs/home-button-like@2x.png' }}" class="like-img" wx:if="{{like}}" />
+      <view style="margin-left:20rpx;display:inline-block">
+        <!-- <text wx:if="{{like}}">{{con.numCon(post.likeCount)}}</text> -->
+        <text wx:if="{{ con.numCon(post.likeCount) }}">{{con.numCon(post.likeCount)}}</text>
+      </view>
+    </view>
+  </view>
+</view>

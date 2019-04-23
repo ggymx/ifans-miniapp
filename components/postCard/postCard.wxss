@@ -1,1 +1,159 @@
 /* components/postCard/postCard.wxss */
+/*每一项*/
+view,
+text {
+  font-family: "Roboto", "Noto Sans", "San Francisco", "PingFang", "Microsof";
+}
+
+.publisher-item {
+  width: 702rpx;
+  height: auto;
+  /* background-color: green; */
+  border-bottom-style: solid;
+  border-width: 4rpx;
+  border-color: rgb(250, 250, 250);
+  position: relative;
+  background-color: #fff;
+  /* box-shadow: rgba(6, 0, 1, 0.03) 0rpx 0rpx 20rpx 9rpx ; */
+}
+
+.publisher-person {
+  height: 100rpx;
+  width: 100%;
+  /* background:pink; */
+}
+
+.avatar {
+  height: 60rpx;
+  width: 60rpx;
+  border-radius: 50%;
+  background-color: gray;
+  position: absolute;
+  top: 20rpx;
+  left: 26rpx;
+}
+
+.user-view {
+  font-size: 28rpx;
+  color: rgb(153, 153, 153);
+  position: absolute;
+  top: 34rpx;
+  left: 102rpx;
+  font-weight: 500;
+  width: 500rpx;
+}
+
+/*用户名文本*/
+.username {
+  margin-right: 14rpx;
+  display: inline-block;
+}
+
+/*右侧箭头按钮*/
+.arrow-btn {
+  width: 32rpx;
+  height: 6rpx;
+  position: absolute;
+  /* top: 44rpx;
+    right: 44rpx; */
+  top: 14rpx;
+  right: 14rpx;
+}
+
+.arr-view {
+  position: absolute;
+  top: 30rpx;
+  right: 30rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.publisher-topic {
+  height: auto;
+  width: 100%;
+  background: #fff;
+  font-size: 30rpx;
+  color: rgb(153, 153, 153);
+  margin-bottom: 26rpx;
+}
+
+.publisher-context {
+  letter-spacing: 3rpx;
+  line-height: 56rpx;
+  white-space: pre-line;
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+
+  height: auto;
+  font-size: 30rpx;
+  color: rgb(51, 51, 51);
+  padding-left: 26rpx;
+  padding-right: 26rpx;
+  overflow: hidden;
+  /* margin-bottom: 24rpx; */
+  margin-bottom: 14rpx;
+  margin-top: -10rpx;
+}
+
+.publisher-status {
+  height: 80rpx;
+  width: 100%;
+  /* background:pink; */
+  position: relative;
+}
+
+.clock-icon {
+  width: 28rpx;
+  height: 28rpx;
+  position: absolute;
+  left: 26rpx;
+  top: 10rpx;
+}
+
+.publisher-date {
+  position: absolute;
+  font-size: 24rpx;
+  color: rgb(102, 102, 102);
+  left: 68rpx;
+  top: 8rpx;
+}
+
+.heart-view {
+  position: absolute;
+  right: 46rpx;
+  font-size: 26rpx;
+  color: rgb(102, 102, 102);
+  height: 60rpx;
+  width: auto;
+  top: 8rpx;
+}
+
+/*卡片效果*/
+.item-card {
+  margin-bottom: 26rpx;
+  border-style: solid;
+  border-width: 2rpx;
+  /* border-color:#000; */
+  border-radius: 24rpx;
+  box-shadow: rgba(6, 0, 1, 0.03) 0rpx 0rpx 20rpx 9rpx;
+}
+
+/*举报弹出框*/
+.popBox {
+  width: 80rpx;
+  height: 100rpx;
+  background: red;
+  position: absolute;
+  top: 52rpx;
+  right: 72rpx;
+  /* display: block; */
+}
+
+.like-img {
+  width: 26rpx;
+  height: 22rpx;
+  margin-left: 20rpx;
+}

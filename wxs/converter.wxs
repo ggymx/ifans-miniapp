@@ -46,6 +46,7 @@ function dateCon(dateStr) {
 
 //姓名处理
 function nickNameCon(nickName){
+  if(nickName==null) return ''
   if(nickName.length>10){
    return nickName.substring(0,15)+"..."
   }
@@ -64,8 +65,10 @@ function topicTitleCon(topicTitle){
 
 //文本内容处理
 function contextCon(text,setLength){
+  if(text==null) return ''
   if(text.length>setLength){
-    return text.substring(0,setLength)+'...'
+    // return text.substring(0,setLength)+'...'
+    return text.substring(0,setLength)
   }
   return text;
 }

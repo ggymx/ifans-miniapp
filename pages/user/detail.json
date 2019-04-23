@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "navbar":"../../..//components/navbar/navbar",
-    "listing": "../../..//components/listing/listing"
+    "listing": "../../..//components/listing/listing",
+    "postCard": "../../..//components/postCard/postCard"
   }
 }

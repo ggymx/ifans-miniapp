@@ -11,6 +11,7 @@ Page({
     isSubscribe: false,
     isErr: false
   },
+  // 订阅功能
   bindSubscribe() {
     const status = this.data.isSubscribe;
     if (!status) {
@@ -28,6 +29,7 @@ Page({
       wx.showToast({ title: '取消订阅', icon: 'none' });
     }
   },
+  // 加载
   onLoad() {
     const that = this;
     wx.showLoading({
@@ -35,7 +37,6 @@ Page({
     });
     api.request({
       url: '/v1/post/home-list',
-
       data: {
         cursor,
         limit: 10
@@ -54,6 +55,7 @@ Page({
           that.setData!({
             topList: that.data.topList.concat(data.posts)
           });
+          console.log(that.data)
           //指针后移
           cursor = data.cursor;
         }
@@ -70,7 +72,7 @@ Page({
     });
     wx.hideLoading({});
   },
-
+  // 下拉刷新功能
   onPullDownRefresh() {
     const that = this;
     api.request({
@@ -92,6 +94,7 @@ Page({
       }
     });
   },
+  // 浏览到底端功能
   onReachBottom() {
     const that = this;
     wx.showLoading({
@@ -100,6 +103,7 @@ Page({
     setTimeout(() => {
       //重新加载
       wx.hideLoading({});
+      // 获取数据
       that.onLoad();
     }, 500)
   }
