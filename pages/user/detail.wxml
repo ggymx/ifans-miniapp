@@ -1,50 +1,48 @@
 <!-- pages/my/my.wxml -->
 <wxs module="con" src="../../wxs/converter.wxs"></wxs>
 <navbar back text="{{userData.user.nickname}}"></navbar>
-
 <view class="underlying" style="background-color:rgb(245,245,245)">
-      <view class="my-view">
-            <image src="{{userData.user.avatar}}" class="big-avatar" />
-            <text class="big-name" style='font-weight: 400;'>{{userData.user.nickname}}</text>
-            <!-- <image src="../../imgs/zhuangfa@2x.png" class="share-ico" /> -->
-            <button class="share-btn" open-type="share">
-                  <image src="../../imgs/zhuangfa@2x.png" class="share-ico"/>
-            </button>
+  <view class="my-view">
+    <image src="{{userData.user.avatar}}" class="big-avatar" />
+    <text class="big-name" style='font-weight: 400;'>{{userData.user.nickname}}</text>
+    <!-- <image src="../../imgs/zhuangfa@2x.png" class="share-ico" /> -->
+    <button class="share-btn" open-type="share">
+      <image src="../../imgs/zhuangfa@2x.png" class="share-ico" />
+    </button>
+  </view>
+  <!-- 第一部分 -->
+  <view class="container" bind:tap="test">
+    <block wx:if="{{userData.posts.length!=0}}">
+      <block wx:for="{{userData.posts}}" wx:for-item="partiItem">
+        <block wx:if="{{partiItem.type==1}}">
+          <listing card arrowBtn showTitle showIssue finalMy clock post="{{partiItem}}">
+            <text slot="user" class="item-name">{{con.nickNameCon(userData.user.nickname)}}</text>
+            <text slot="title" class="item-title">{{partiItem.title}}</text>
+            <view slot="context" class="item-context">{{partiItem.text}}</view>
+            <text slot="date">{{con.dateCon(partiItem.createAt)}}</text>
+            <!-- <text slot="like">{{99}}</text> -->
+          </listing>
+        </block>
+        <block wx:if="{{partiItem.type==2}}">
+          <listing card arrowBtn showTitle finalMy clock like post="{{partiItem}}">
+            <text slot="user" class="item-name">{{userData.user.nickname}}</text>
+            <text slot="title" class="item-title">#{{partiItem.refPost.title}}#</text>
+            <view slot="context" class="item-context">{{partiItem.text}}</view>
+            <text slot="date">{{con.dateCon(partiItem.createAt)}}</text>
+            <text slot="like">{{partiItem.likeCount}}</text>
+          </listing>
+        </block>
+      </block>
+    </block>
+    <block wx:else>
+      <view class="no-info">
+        <text>您的空间空空如也，赶快发布投稿，让更多的人知道你的想法吧~</text>
+        <image src="../../imgs/null.png" />
+        <button style="font-size:20rpx;" bind:tap="bindViewIndex">
+          <image src="../../imgs/home-Fixedbutton-canyu@2x.png" style="height:24rpx;width:24rpx;margin-bottom:6rpx;" />
+          赶快参与
+        </button>
       </view>
-      <!-- 第一部分 -->
-      <view class="container" bind:tap="test">
-                  <block wx:if="{{userData.posts.length!=0}}">
-                  <block wx:for="{{userData.posts}}" wx:for-item="partiItem">
-                        <block wx:if="{{partiItem.type==1}}">
-                        <listing card arrowBtn showTitle showIssue finalMy clock post="{{partiItem}}">
-                              <text slot="user" class="item-name">{{con.nickNameCon(userData.user.nickname)}}</text>
-                              <text slot="title" class="item-title">{{partiItem.title}}</text>
-                              <view slot="context" class="item-context">{{partiItem.text}}</view>
-                              <text slot="date">{{con.dateCon(partiItem.createAt)}}</text>
-                              <!-- <text slot="like">{{99}}</text> -->
-                        </listing>
-                        </block>
-                        <block wx:if="{{partiItem.type==2}}">
-                              <listing card arrowBtn showTitle finalMy clock like post="{{partiItem}}">
-                              <text slot="user" class="item-name">{{userData.user.nickname}}</text>
-                              <text slot="title" class="item-title">#{{partiItem.refPost.title}}#</text>
-                              <view slot="context" class="item-context">{{partiItem.text}}</view>
-                              <text slot="date">{{con.dateCon(partiItem.createAt)}}</text>
-                              <text slot="like">{{partiItem.likeCount}}</text>
-                        </listing>
-                        </block>
-                  </block>
-                  </block>
-
-                  <block wx:else>
-                  <view class="no-info">
-                    <text>您的空间空空如也，赶快发布投稿，让更多的人知道你的想法吧~</text>
-                    <image src="../../imgs/null.png" />
-                    <button style="font-size:20rpx;" bind:tap="bindViewIndex">
-                          <image src="../../imgs/home-Fixedbutton-canyu@2x.png" 
-                          style="height:24rpx;width:24rpx;margin-bottom:6rpx;"/>赶快参与
-                  </button>
-                  </view>
-                  </block>
-      </view>
+    </block>
+  </view>
 </view>
