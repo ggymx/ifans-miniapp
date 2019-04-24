@@ -69,7 +69,7 @@ Component({
         },
         backGear() {
             wx.showActionSheet({
-                itemList: ['我的首页'],
+                itemList: ['我的首页','分享到朋友圈'],
                 success(res) {
                     switch (res.tapIndex) {
                         case 0:

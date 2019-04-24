@@ -1,20 +1,18 @@
-
 /* pages/topic-detail/topic-detail.wxss */
 .underlying,
 .container {
-  background-color: #FFF
+  background-color: #fff;
 }
-.publisher-contant{
- font-weight: 300; 
- padding: 0 auto;
+.publisher-contant {
+  font-weight: 300;
+  padding: 0 auto;
   white-space: pre-line;
- display: -webkit-box;        
-word-break: break-all;
-text-overflow: ellipsis; 
-overflow: hidden;           
--webkit-box-orient: vertical;    
--webkit-line-clamp: 17;   
-
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 17;
 }
 .topic {
   width: 100%;
@@ -24,13 +22,12 @@ overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 
 .topic-title {
   /* background-color: green; */
   font-size: 28rpx;
-  margin-top: 20rpx;
+  margin-top: -20rpx;
 }
 
 /* .topic-context {
@@ -48,7 +45,7 @@ overflow: hidden;
 .opreate-view {
   width: 100%;
   /* height: auto; */
-  height:72rpx;
+  height: 72rpx;
   /* background-color: yellow; */
   display: flex;
   align-items: center;
@@ -56,7 +53,7 @@ overflow: hidden;
 
 .opreate-item {
   height: 40rpx;
-  width:260rpx;
+  width: 260rpx;
   border-left-style: solid;
   border-width: 2rpx;
   border-color: rgb(234, 234, 234);
@@ -87,6 +84,10 @@ overflow: hidden;
   border-color: rgb(250, 250, 250);
 }
 
+.op {
+  margin-top: -20rpx;
+}
+
 .avatar {
   height: 60rpx;
   width: 60rpx;
@@ -103,7 +104,6 @@ overflow: hidden;
   position: absolute;
   top: 34rpx;
   left: 102rpx;
-
 }
 
 /*右侧箭头按钮*/
@@ -118,7 +118,7 @@ overflow: hidden;
 .publisher-topic {
   height: auto;
   width: 100%;
-  background: #FFF;
+  background: #fff;
   font-size: 30rpx;
   color: rgb(153, 153, 153);
   margin-bottom: 26rpx;
@@ -148,7 +148,6 @@ overflow: hidden;
   position: absolute;
   left: 26rpx;
   top: 10rpx;
-
 }
 
 .publisher-date {
@@ -157,7 +156,6 @@ overflow: hidden;
   color: rgb(102, 102, 102);
   left: 68rpx;
   top: 8rpx;
-
 }
 
 .heart-icon {
@@ -176,7 +174,6 @@ overflow: hidden;
   height: 30rpx;
   width: auto;
   top: 8rpx;
-
 }
 
 .publisher-person {
@@ -185,81 +182,79 @@ overflow: hidden;
   /* background:pink; */
 }
 
-
 .topic-context {
   /* background-color: red; */
 
   /* margin-top: 30rpx; */
- 
+
   margin-bottom: 30rpx;
   /* text-align: center; */
   color: rgb(51, 51, 51);
-Font-family:"Roboto","Noto Sans","San Francisco","PingFang","Microsof";
+  font-family: "Roboto", "Noto Sans", "San Francisco", "PingFang", "Microsof";
   font-size: 30rpx;
-  letter-spacing:3rpx;
+  letter-spacing: 3rpx;
   line-height: 56rpx;
   font-weight: 400;
-
- white-space: pre-line;
- display: -webkit-box;        
-word-break: break-all;
-text-overflow: ellipsis; 
-padding-left: 20px;
-padding-right: 10px;
-overflow: hidden;           
--webkit-box-orient: vertical;    
-/* -webkit-line-clamp: 15;   */
+  /* white-space: pre-line; */
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  padding-left: 20px;
+  padding-right: 10px;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  /* -webkit-line-clamp: 15;   */
 }
 
 /* 修改 */
-.item-name{
+.item-name {
   font-size: 28rpx;
   font-weight: bold;
-   width: 500rpx;
-    color: rgb(51, 51, 51);
+  width: 500rpx;
+  color: rgb(51, 51, 51);
 }
-.item-title{
- font-weight: 500;
+.item-title {
+  font-weight: 500;
 }
-.item-context{
+.item-context {
   font-weight: 300;
-   white-space: pre-line;
- display: -webkit-box;        
-word-break: break-all;
-text-overflow: ellipsis; 
-overflow: hidden;           
--webkit-box-orient: vertical;    
-/* -webkit-line-clamp: 15;  */
+  white-space: pre-line;
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  /* -webkit-line-clamp: 15;  */
 }
 
 /*内容为空时提示图片*/
-.null-img{
-  width:293rpx;
-height:193rpx;
-margin:auto;
-display:block;
-margin-top:200rpx;
-margin-bottom:60rpx;
+.null-img {
+  width: 293rpx;
+  height: 193rpx;
+  margin: auto;
+  display: block;
+  margin-top: 200rpx;
+  margin-bottom: 60rpx;
 }
 
-.null-text{
+.null-text {
   display: block;
-  font-size:26rpx;
-  color:rgb(153, 153, 153);
-  text-align: center
+  font-size: 26rpx;
+  color: rgb(153, 153, 153);
+  text-align: center;
 }
-.operate-btn{
-  width:200rpx;
-height:40rpx;
-background-color:#FFF;
-color:rgb(102,102,102);
-font-size:24rpx;
-padding:0px;
-display:flex;
-justify-content:center;
-align-items:center;
+.operate-btn {
+  width: 200rpx;
+  height: 40rpx;
+  background-color: #fff;
+  color: rgb(102, 102, 102);
+  font-size: 24rpx;
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 /*覆盖微信默认样式*/
-.operate-btn:after{
-border-style: none
+.operate-btn:after {
+  border-style: none;
 }

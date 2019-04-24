@@ -77,25 +77,42 @@ text {
   margin-bottom: 26rpx;
 }
 
+.text-weight {
+  font-size:36rpx;
+  font-weight:bold;
+  color:rgb(51, 51, 51);
+}
+
 .publisher-context {
   letter-spacing: 3rpx;
   line-height: 56rpx;
-  white-space: pre-line;
+  /* white-space: pre-line; */
   display: -webkit-box;
-  word-break: break-all;
+  word-break: normal;
+  /* word-break: break-all; */
   text-overflow: ellipsis;
+  overflow: hidden;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 4;
 
   height: auto;
   font-size: 30rpx;
   color: rgb(51, 51, 51);
   padding-left: 26rpx;
   padding-right: 26rpx;
-  overflow: hidden;
   /* margin-bottom: 24rpx; */
   margin-bottom: 14rpx;
-  margin-top: -10rpx;
+  margin-top: -60rpx;
+}
+
+.topic-context {
+  font-weight:400;
+  white-space:pre-line;
+  display:-webkit-box;
+  word-break:break-all;
+  text-overflow:ellipsis;
+  overflow:hidden;
+  -webkit-box-orient:vertical;
 }
 
 .publisher-status {
@@ -130,6 +147,15 @@ text {
   width: auto;
   top: 8rpx;
 }
+.comment-view {
+  position: absolute;
+  right: 46rpx;
+  font-size: 26rpx;
+  color: rgb(102, 102, 102);
+  height: 60rpx;
+  width: auto;
+  top: 8rpx;
+}
 
 /*卡片效果*/
 .item-card {
@@ -156,4 +182,16 @@ text {
   width: 26rpx;
   height: 22rpx;
   margin-left: 20rpx;
+}
+
+.comment-img {
+  width: 32rpx;
+  height: 31rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+
+.comment-count {
+  position: relative;
+  top: -5rpx;
 }

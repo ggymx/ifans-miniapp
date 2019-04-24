@@ -80,7 +80,6 @@ Component({
       const instance = this as any;
       /*showIssue存在则跳转到话题详情 */
       if (!instance.properties.final) {
-
         const pages = getCurrentPages()
         const curPage = pages[pages.length - 1];
         if (instance.properties.showIssue) {

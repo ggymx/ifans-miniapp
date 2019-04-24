@@ -67,8 +67,7 @@ function topicTitleCon(topicTitle){
 function contextCon(text,setLength){
   if(text==null) return ''
   if(text.length>setLength){
-    // return text.substring(0,setLength)+'...'
-    return text.substring(0,setLength)
+    return text.substring(0,setLength)+'...'
   }
   return text;
 }

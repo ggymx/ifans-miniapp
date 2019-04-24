@@ -34,11 +34,12 @@
       </view>
     </view>
   </view>
-  <view class="opreate-underlying" wx:if="{{postArr.length>0}}">
+  <view class="opreate-underlying op" wx:if="{{postArr.length>0}}">
     <view class="container">
       <block>
         <block wx:for="{{postArr}}">
-          <listing addClass="item-card" arrowBtn clock like post="{{item}}" isLike="{{item.isLike}}">
+          <postCard addClass="item-card" arrowBtn clock like post="{{item}}" isLike="{{item.isLike}}"/>
+          <!-- <listing addClass="item-card" arrowBtn clock like post="{{item}}" isLike="{{item.isLike}}">
             <text slot="user" class="item-name">{{item.user.nickname}}</text>
             <text slot="title" class="item-title">{{item.title}}</text>
             <view slot="context" class="item-context">
@@ -49,7 +50,7 @@
             </view>
             <text slot="date">{{con.dateCon(item.createAt)}}</text>
             <text slot="like">{{con.numCon(item.likeCount)}}</text>
-          </listing>
+          </listing> -->
         </block>
       </block>
     </view>

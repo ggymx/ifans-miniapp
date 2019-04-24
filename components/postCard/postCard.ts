@@ -83,41 +83,7 @@ Component({
       // if(event.target.offsetTop!=event.currentTarget.offsetTop){return;}
       const instance = this as any;
       /*showIssue存在则跳转到话题详情 */
-        const pages = getCurrentPages();
-        const curPage = pages[pages.length - 1];
-        if (instance.properties.showIssue) {
-          const id = instance.properties.post.id;
-          console.log(curPage.route)
-          if (curPage.route === "pages/index") {
-            smartGotoPage({
-              url: "./post/topic-detail?tid=" + id
-            });
-          } else if (curPage.route === "pages/user/detail") {
-            smartGotoPage({ url: "../post/topic-detail?tid=" + id });
-          } else {
-            smartGotoPage({ url: "./topic-detail?tid=" + id });
-          }
-        } else {
-          /*不存在则跳转到文章详情 */
-          const cId = instance.properties.post.id;
-          const tId = instance.properties.post.refPostId;
-          if (curPage.route === "pages/index") {
-            smartGotoPage({
-              url: "./post/detail?tid=" + tId + "&cid=" + cId
-            });
-          } else if (curPage.route === "pages/user/detail") {
-            smartGotoPage({ url: "../post/detail?tid=" + tId + "&cid=" + cId });
-          } else {
-            smartGotoPage({
-              url: "./detail?tid=" + tId + "&cid=" + cId
-            });
-          }
-      }
-    },
-    finalRouter(event: any) {
-      // if(event.target.offsetTop!=event.currentTarget.offsetTop){return;}
-      const instance = this as any;
-      /*showIssue存在则跳转到话题详情 */
+      if (!instance.properties.final) {
         const pages = getCurrentPages();
         const curPage = pages[pages.length - 1];
         if (instance.properties.showIssue) {
@@ -147,7 +113,41 @@ Component({
             });
           }
         }
-      
+      }
+    },
+    finalRouter(event: any) {
+      // if(event.target.offsetTop!=event.currentTarget.offsetTop){return;}
+      const instance = this as any;
+      /*showIssue存在则跳转到话题详情 */
+      const pages = getCurrentPages();
+      const curPage = pages[pages.length - 1];
+      if (instance.properties.showIssue) {
+        const id = instance.properties.post.id;
+        if (curPage.route === "pages/index") {
+          smartGotoPage({
+            url: "./post/topic-detail?tid=" + id
+          });
+        } else if (curPage.route === "pages/user/detail") {
+          smartGotoPage({ url: "../post/topic-detail?tid=" + id });
+        } else {
+          smartGotoPage({ url: "./topic-detail?tid=" + id });
+        }
+      } else {
+        /*不存在则跳转到文章详情 */
+        const cId = instance.properties.post.id;
+        const tId = instance.properties.post.refPostId;
+        if (curPage.route === "pages/index") {
+          smartGotoPage({
+            url: "./post/detail?tid=" + tId + "&cid=" + cId
+          });
+        } else if (curPage.route === "pages/user/detail") {
+          smartGotoPage({ url: "../post/detail?tid=" + tId + "&cid=" + cId });
+        } else {
+          smartGotoPage({
+            url: "./detail?tid=" + tId + "&cid=" + cId
+          });
+        }
+      }
     },
     bindMy(event: any) {
       const instance = this as any;
@@ -168,26 +168,26 @@ Component({
       }
     },
     finalLink(event: any) {
-        const instance = this as any;
-        //获取当前页面
-        const pages = getCurrentPages();
-        // 数组中第一个元素为首页，最后一个元素为当前页面。
-        const curPage = pages[pages.length - 1];
-        const userId = instance.properties.post.user.id;
-        console.log(curPage.route)
-        // 判断跳转页面和当前页面一致
-        if (curPage.route === 'pages/user/detail') {
-          return false
-        }
-        if (curPage.route === "pages/index") {
-          smartGotoPage({
-            url: "./user/detail?userId=" + userId
-          });
-        } else {
-          smartGotoPage({
-            url: "../user/detail?userId=" + userId
-          });
-        }
+      const instance = this as any;
+      //获取当前页面
+      const pages = getCurrentPages();
+      // 数组中第一个元素为首页，最后一个元素为当前页面。
+      const curPage = pages[pages.length - 1];
+      const userId = instance.properties.post.user.id;
+      console.log(curPage.route);
+      // 判断跳转页面和当前页面一致
+      if (curPage.route === "pages/user/detail") {
+        return false;
+      }
+      if (curPage.route === "pages/index") {
+        smartGotoPage({
+          url: "./user/detail?userId=" + userId
+        });
+      } else {
+        smartGotoPage({
+          url: "../user/detail?userId=" + userId
+        });
+      }
     },
     /*点赞 */
     async giveLike(event: any) {
@@ -253,7 +253,15 @@ Component({
                           },
                           method: "POST",
                           success(res) {
-                            wx.showToast({ title: "删除成功" });
+                            wx.showToast({ 
+                              title: "删除成功" ,
+                              success: function() {
+                                console.log('123')
+                                wx.navigateBack({
+                                  delta: 1
+                                })
+                              }
+                            });
                             // const pages=getCurrentPages();
                             // const curPage=pages[pages.length-1];
                             // const keyWord=curPage.route.split('/')[2]

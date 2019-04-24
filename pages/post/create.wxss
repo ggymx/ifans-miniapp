@@ -27,6 +27,7 @@
 }
 
 .footer {
+  position: absolute;
   bottom: 0rpx;
   width: 100%;
   height: auto;

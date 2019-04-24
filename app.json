@@ -1,5 +1,5 @@
 {
-  "pages": [ 
+  "pages": [
     "pages/index",
     "pages/login",
     "pages/user/detail",
@@ -15,7 +15,8 @@
     "navigationBarTitleText": "轻话题",
     "navigationBarTextStyle": "black",
     "navigationStyle": "custom",
-    "onReachBottomDistance":2,
-    "backgroundColor":"#F5F5F5"
-  }
+    "onReachBottomDistance": 2,
+    "backgroundColor": "#F5F5F5"
+  },
+  "sitemapLocation": "sitemap.json"
 }

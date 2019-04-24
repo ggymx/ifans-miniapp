@@ -15,24 +15,24 @@
     <block wx:if="{{userData.posts.length!=0}}">
       <block wx:for="{{userData.posts}}" wx:for-item="partiItem">
         <block wx:if="{{partiItem.type==1}}">
-          <postCard card arrowBtn showTitle showIssue post="{{partiItem}}"></postCard>
-          <!-- <listing card arrowBtn showTitle showIssue finalMy clock post="{{partiItem}}">
+          <!-- <postCard card arrowBtn showTitle showIssue post="{{partiItem}}"></postCard> -->
+          <listing card arrowBtn showTitle showIssue finalMy clock post="{{partiItem}}">
             <text slot="user" class="item-name">{{con.nickNameCon(userData.user.nickname)}}</text>
             <text slot="title" class="item-title">{{partiItem.title}}</text>
             <view slot="context" class="item-context">{{partiItem.text}}</view>
             <text slot="date">{{con.dateCon(partiItem.createAt)}}</text>
-            <!-- <text slot="like">{{99}}</text> -->
-          <!-- </listing> --> -->
+            <text slot="like">{{99}}</text>
+          </listing>
         </block>
         <block wx:if="{{partiItem.type==2}}">
-          <postCard card arrowBtn showTitle clock like post="{{partiItem}}"></postCard>
-          <!-- <listing card arrowBtn showTitle finalMy clock like post="{{partiItem}}">
+          <!-- <postCard card arrowBtn showTitle clock like post="{{partiItem}}"></postCard> -->
+          <listing card arrowBtn showTitle finalMy clock like post="{{partiItem}}">
             <text slot="user" class="item-name">{{userData.user.nickname}}</text>
             <text slot="title" class="item-title">#{{partiItem.refPost.title}}#</text>
             <view slot="context" class="item-context">{{partiItem.text}}</view>
             <text slot="date">{{con.dateCon(partiItem.createAt)}}</text>
             <text slot="like">{{partiItem.likeCount}}</text>
-          </listing> -->
+          </listing>
         </block>
       </block>
     </block>

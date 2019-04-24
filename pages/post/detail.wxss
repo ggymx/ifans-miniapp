@@ -9,7 +9,6 @@
   width: 100%;
 }
 
-
 .topic {
   width: 100%;
   height: auto;
@@ -140,6 +139,7 @@ overflow: hidden;
   font-size: 30rpx;
   color: rgb(153, 153, 153);
   margin-bottom: 26rpx;
+  margin-top: -20rpx;
 }
 
 .publisher-context {
