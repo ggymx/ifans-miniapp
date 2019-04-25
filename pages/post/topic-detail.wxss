@@ -199,8 +199,8 @@
   display: -webkit-box;
   word-break: break-all;
   text-overflow: ellipsis;
-  padding-left: 20px;
-  padding-right: 10px;
+  padding-left: 20rpx;
+  padding-right: 10rpx;
   overflow: hidden;
   -webkit-box-orient: vertical;
   /* -webkit-line-clamp: 15;   */

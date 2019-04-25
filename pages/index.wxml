@@ -18,6 +18,8 @@
     <block wx:for="{{topList}}" wx:for-index="index">
       
         <postCard wx:if="{{item.type=='1'}}" card showTitle showIssue post="{{item}}" showMore="{{con.isMore(item.text,50)}}"/>
+        <postCard wx:elif="{{item.type=='2'}}" card showTitle arrowBtn like post="{{item}}" isLike="{{item.isLike}}" showMore="{{con.isMore(item.text,50)}}"/>
+       
         <!-- <listing card showTitle showIssue clock post="{{item}}" >
           <text slot="user" class="topic-name">{{con.nickNameCon(item.user.nickname)}}</text>
           <text slot="title" class="text-weight">{{con.contextCon(item.title,16)}}</text>
@@ -29,7 +31,6 @@
           <text slot="like">{{con.numCon(item.likeCount)}}</text>
         </listing>  -->
    
-        <postCard wx:elif="{{item.type=='2'}}" card showTitle arrowBtn like post="{{item}}" isLike="{{item.isLike}}" showMore="{{con.isMore(item.text,50)}}"/>
         <!-- <listing card showTitle arrowBtn clock like post="{{item}}" isLike="{{item.isLike}}">
           <text slot="user" class="comment-name">{{con.nickNameCon(item.user.nickname)}}</text>
           <text slot="title" class="conmment-weight">

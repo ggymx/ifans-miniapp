@@ -2,7 +2,7 @@
 .underlying{
   height:auto;
   width:100%;
- background-color:rgb(245, 245, 245);
+  background-color:rgb(245, 245, 245);
   top:128rpx;
   position:absolute;
 }

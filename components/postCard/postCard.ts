@@ -14,6 +14,7 @@ Component({
    * like：是否显示心形按钮
    * isLike：根据是否点赞显示是否是红心
    * post:传入的post对象
+   * showMore:是否显示更多按钮
    */
   properties: {
     card: {
@@ -177,7 +178,7 @@ Component({
       console.log(curPage.route);
       // 判断跳转页面和当前页面一致
       if (curPage.route === "pages/user/detail") {
-        return false;
+        return 
       }
       if (curPage.route === "pages/index") {
         smartGotoPage({

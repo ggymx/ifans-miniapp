@@ -6,6 +6,7 @@ text {
 }
 
 .publisher-item {
+  margin: auto;
   width: 702rpx;
   height: auto;
   /* background-color: green; */

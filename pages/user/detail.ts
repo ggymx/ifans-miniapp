@@ -8,7 +8,8 @@ const app = getApp<IMyApp>()
 
 Page({
   data: {
-    userData: null
+    userData: null,
+    recommendList: []
   },
 
   onLoad(options: any) {
@@ -26,6 +27,21 @@ Page({
         });
       }
     });
+    api.request({
+      url: '/v1/post/home-list',
+      data: {
+        cursor: 0,
+        limit: 10
+      },
+      method: 'GET',
+      success(res) {
+        console.log('111')
+        const data = res.data as any
+        that.setData!({
+          recommendList: that.data.recommendList.concat(data.posts)
+        });
+      }
+    })
   },
 
   onShareAppMessage() {
