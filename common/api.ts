@@ -1,11 +1,18 @@
 // tslint:disable max-line-length
-import { IHomeTopicListParams, IHomeTopicListResponse, IPostDetailParams, IPostDetailResponse, IPostsDetailResponse, IUserPageParams, ILikeParams, ILikeResponse, IDisLikeParams, IUserPageResponse, IDisLikeResponse } from "./types/http_msg";
+import { IDisLikeParams, IDisLikeResponse, IHomeTopicListParams, IHomeTopicListResponse, ILikeParams, ILikeResponse, IPostDetailParams, IPostsDetailResponse, IUserPageParams, IUserPageResponse, IGetAnswerListParams, IGetAnswerListResponse } from "./types/http_msg";
 
 class Api {
   /**
    * 获取首页话题列表
    */
   getHomeTopicList = this.makeApi<IHomeTopicListParams, IHomeTopicListResponse>('GET', '/v1/post/home-list')
+
+
+  /**
+   * 
+   * 根据参与id获取参与的列表
+   */
+  getRefPostList = this.makeApi<IGetAnswerListParams, IGetAnswerListResponse>('GET', '/v1/post/answer-list')
 
   /**
    * 获取投稿详情
@@ -49,19 +56,19 @@ class Api {
    * 为了方便的迁移 wx.requset，修改位 api.request
    */
   request(option: wx.RequestOption): wx.RequestTask {
-    if(option.url[0] !== '/') {
+    if (option.url[0] !== '/') {
       throw new Error('api.request: url 需要以 "/" 开头')
     }
     option.url = this.host + option.url
     option.header = option.header || {}
     const header = this.getHeader()
-    for(const h in header) {
+    for (const h in header) {
       option.header[h] = header[h]
     }
     return wx.request(option)
   }
 
-  async httpRequest(method: 'GET'|'POST', path: string, data: object) {
+  async httpRequest(method: 'GET' | 'POST', path: string, data: object) {
     return new Promise<wx.RequestSuccessCallbackResult>((resolve, reject) => {
       wx.request({
         method,
@@ -88,13 +95,13 @@ class Api {
 
   private makeApi<Q extends object, R>(method: 'GET' | 'POST', path: string): (params: Q) => Promise<R> {
     return (params: Q): Promise<R> => {
-      return this.httpRequest(method, path, params).then(res=>res.data as R)
+      return this.httpRequest(method, path, params).then(res => res.data as R)
     }
   }
 
   private getHeader(): any {
-    if(this.token) {
-      return {Authorization: this.token}
+    if (this.token) {
+      return { Authorization: this.token }
     }
     return {}
   }

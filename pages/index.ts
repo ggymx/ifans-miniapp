@@ -43,9 +43,11 @@ Page({
       },
       method: 'GET',
       success(res) {
+
+        console.log('=======测试首页展示数据=======', res.data)
         const data = res.data as any
         if (data.posts.length === 0) {
-          setTimeout(() => {
+          setTimeout(() =>  {
             wx.showToast({
               icon: 'none',
               title: '已经到底了。。。'

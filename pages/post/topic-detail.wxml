@@ -6,11 +6,11 @@
     <view class="topic">
       <view class="topic-title" style="margin-bottom: 30rpx;">
         <text style='font-size: 36rpx;font-weight: bold;color: rgb(51, 51, 51);'>
-          {{topic.post.title}}
+          {{topic.title}}
         </text>
       </view>
-      <view class="topic-context" style='font-weight: 400;' wx:if="{{con.notNull(topic.post.text)}}">
-        {{topic.post.text}}
+      <view class="topic-context" style='font-weight: 400;' >
+        {{text}}
       </view>
     </view>
   </view>
@@ -19,9 +19,9 @@
       <view class="opreate-view">
         <view class="opreate-item" style="border-style:none">
           <image src="../../imgs/home-button-Comment@2x.png" style="width:32rpx;height:32rpx;margin-right:16rpx;" />
-          <text style="font-size:24rpx;color:rgb(102,102,102);">{{topic.post.attendCount}}参与</text>
+          <text style="font-size:24rpx;color:rgb(102,102,102);">{{topic.attendCount}}参与</text>
         </view>
-        <view class="opreate-item" bind:tap="bindViewParti" data-tid="{{topic.post.id}}">
+        <view class="opreate-item" bind:tap="bindViewParti" data-tid="{{topic.id}}">
           <image src="../../imgs/fabu@2x.png" style="width:27rpx;height:27rpx;margin-right:16rpx;" />
           <text style="font-size:24rpx;color:rgb(102,102,102);">投稿</text>
         </view>

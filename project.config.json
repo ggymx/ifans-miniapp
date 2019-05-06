@@ -18,7 +18,8 @@
 		"minified": true,
 		"newFeature": true,
 		"autoAudits": false,
-		"uglifyFileName": false
+		"uglifyFileName": false,
+		"checkInvalidKey": true
 	},
 	"appid": "wx9cc039bf853da6b0",
 	"simulatorType": "wechat",

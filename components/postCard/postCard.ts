@@ -80,46 +80,67 @@ Component({
   methods: {
     /*跳转页面 */
     bindRouter(event: any) {
-      console.log("//////////////", event);
       // if(event.target.offsetTop!=event.currentTarget.offsetTop){return;}
       const instance = this as any;
       /*showIssue存在则跳转到话题详情 */
+
+      console.log('---------instance----------', instance)
       if (!instance.properties.final) {
+        // instance.properties.final为false的时候进来
         const pages = getCurrentPages();
+        console.log('instance.properties.post.type', instance.properties.post.type)
         const curPage = pages[pages.length - 1];
-        if (instance.properties.showIssue) {
-          const id = instance.properties.post.id;
-          if (curPage.route === "pages/index") {
-            smartGotoPage({
-              url: "./post/topic-detail?tid=" + id
-            });
-          } else if (curPage.route === "pages/user/detail") {
-            smartGotoPage({ url: "../post/topic-detail?tid=" + id });
-          } else {
-            smartGotoPage({ url: "./topic-detail?tid=" + id });
-          }
+
+        if (instance.properties.post.type === 1) {
+          const id = instance.properties.post.id
+          smartGotoPage({
+            url: './post/topic-detail?id=' + id
+          })
         } else {
-          /*不存在则跳转到文章详情 */
-          const cId = instance.properties.post.id;
-          const tId = instance.properties.post.refPostId;
-          if (curPage.route === "pages/index") {
-            smartGotoPage({
-              url: "./post/detail?tid=" + tId + "&cid=" + cId
-            });
-          } else if (curPage.route === "pages/user/detail") {
-            smartGotoPage({ url: "../post/detail?tid=" + tId + "&cid=" + cId });
-          } else {
-            smartGotoPage({
-              url: "./detail?tid=" + tId + "&cid=" + cId
-            });
-          }
+          const id = instance.properties.post.id
+          smartGotoPage({
+            url:'./post/detail?id=' + id
+          })
         }
+
+        // //判断，如果为true
+        // if (instance.properties.showIssue) {
+
+        //   console.table(instance.properties)
+        //   console.log('instance.properties.showIssue', instance.properties.showIssue)
+        //   const id = instance.properties.post.id;
+        //   if (curPage.route === "pages/index") {
+
+        //     smartGotoPage({
+        //       url: "./post/topic-detail?tid=" + id
+        //     });
+        //   } else if (curPage.route === "pages/user/detail") {
+        //     smartGotoPage({ url: "../post/topic-detail?tid=" + id });
+        //   } else {
+        //     smartGotoPage({ url: "./topic-detail?tid=" + id });
+        //   }
+        // } else {
+        //   /*不存在则跳转到文章详情 */
+        //   const cId = instance.properties.post.id;
+        //   const tId = instance.properties.post.refPostId;
+        //   if (curPage.route === "pages/index") {
+        //     smartGotoPage({
+        //       url: "./post/detail?tid=" + tId + "&cid=" + cId
+        //     });
+        //   } else if (curPage.route === "pages/user/detail") {
+        //     smartGotoPage({ url: "../post/detail?tid=" + tId + "&cid=" + cId });
+        //   } else {
+        //     smartGotoPage({
+        //       url: "./detail?tid=" + tId + "&cid=" + cId
+        //     });
+        //   }
+        // }
       }
     },
     finalRouter(event: any) {
       // if(event.target.offsetTop!=event.currentTarget.offsetTop){return;}
       const instance = this as any;
-      /*showIssue存在则跳转到话题详情 */
+      /*showIssue存在则跳转到话题详情  列表*/
       const pages = getCurrentPages();
       const curPage = pages[pages.length - 1];
       if (instance.properties.showIssue) {
@@ -134,7 +155,7 @@ Component({
           smartGotoPage({ url: "./topic-detail?tid=" + id });
         }
       } else {
-        /*不存在则跳转到文章详情 */
+        /*不存在则跳转到文章详情 单个的投稿 */
         const cId = instance.properties.post.id;
         const tId = instance.properties.post.refPostId;
         if (curPage.route === "pages/index") {
@@ -175,10 +196,9 @@ Component({
       // 数组中第一个元素为首页，最后一个元素为当前页面。
       const curPage = pages[pages.length - 1];
       const userId = instance.properties.post.user.id;
-      console.log(curPage.route);
       // 判断跳转页面和当前页面一致
       if (curPage.route === "pages/user/detail") {
-        return 
+        return
       }
       if (curPage.route === "pages/index") {
         smartGotoPage({
@@ -254,10 +274,9 @@ Component({
                           },
                           method: "POST",
                           success(res) {
-                            wx.showToast({ 
-                              title: "删除成功" ,
-                              success: function() {
-                                console.log('123')
+                            wx.showToast({
+                              title: "删除成功",
+                              success: function () {
                                 wx.navigateBack({
                                   delta: 1
                                 })

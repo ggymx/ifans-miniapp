@@ -24,46 +24,36 @@ Page({
     });
   },
   /*options:获取url参数 */
-  onLoad(options: any) {
+  async onLoad(options: any) {
+    // const tId = options.tid;
 
-    const tId = options.tid;
-    const cId = options.cid;
+    // const cId = options.refPostId;
+    const id = options.id
     const that = this;
     //获取话题详情
-    api.request({
-      url: '/v1/post/detail',
+    // api.request({
+    //   url: '/v1/post/detail',
 
-      method: 'GET',
+    //   method: 'GET',
 
-      data: {
-        id: tId
-      },
+    //   data: {
+    //     id
+    //   },
 
-      success(res) {
-        //设置数据
-        that.setData!({
-          topic: res.data
-        });
-      }
-    });
+    //   success(res) {
+    //     //设置数据
+    //     console.table(res.data)
+    //     that.setData!({
+    //       topic: res.data
+    //     });
+    //   }
+    // });
 
-    //获取投稿详情
-    api.request({
-      url: '/v1/post/detail',
-
-      method: 'GET',
-
-      data: {
-        id: cId
-      },
-
-      success(res) {
-        //设置数据
-        that.setData!({
-          comment: res.data
-        });
-      }
-    });
+    const data = await api.getPost({ id })
+    console.table('详情', data)
+    this.setData!({
+      topic: data.post
+    })
 
   },
 

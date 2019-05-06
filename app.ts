@@ -13,7 +13,9 @@ export interface IMyApp {
 
 App<IMyApp>({
   onLaunch(options) {
-    api.init('https://api-test.ifans.pub')
+    // api.init('https://api-test.ifans.pub')
+    api.init('http://127.0.0.1:3000')
+
     wx.getSystemInfo({
       success: (res) => {
         this.globalData.height = res.statusBarHeight
