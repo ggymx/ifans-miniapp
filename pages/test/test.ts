@@ -35,9 +35,9 @@ Page({
     });
     // getTopic({id:1}).then((data)=>{
 
-    //  let creatAt=data.topic.createAt.toLocaleString()
+    //  let createAt=data.topic.createAt.toLocaleString()
 
-    //  this.setData!({data:data,creatAt:creatAt})
+    //  this.setData!({data:data,createAt:createAt})
     //  console.log(data)
     // }).catch();
     

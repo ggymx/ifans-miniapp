@@ -1,0 +1,51 @@
+<!-- components/postCard/postCard.wxml -->
+<wxs module="con" src="../../wxs/converter.wxs"></wxs>
+<view class="publisher-item {{card?'item-card':''}} slot1 slot2" catch:tap="bindRouter">
+  <!-- <view class="publisher-item {{card?'item-card':''}} slot1 slot2" catch:tap="finalLink"> -->
+  <view class="publisher-person">
+    <image src="{{post.user.avatar}}" class="avatar" catch:tap="finalLink" />
+    <view class="user-view">
+      <!-- 用户名 -->
+      <view class="username">
+        <text class="topic-name">{{con.nickNameCon(post.user.nickname)}}</text>
+      </view>
+      <text wx:if="{{showIssue}}">发布了话题</text>
+    </view>
+    <view class="arr-view" catch:tap="popBox">
+      <image src="../../imgs/myhome-gd@2x.png" class="arrow-btn" wx:if="{{arrowBtn}}" />
+    </view>
+  </view>
+  <view class="publisher-topic" wx:if="{{post.type==1 || (showTitle && post.refPost.title)}}">
+    <view style="margin-left:26rpx;display:inline-block">
+      <!-- 话题标题 -->
+      <text wx:if="{{post.type==1}}" class="text-weight">{{con.contextCon(post.title,16)}}</text>
+      <text wx:if="{{showTitle && post.refPost.title}}">
+        #{{con.contextCon(post.refPost.title,16)}}#
+      </text>
+    </view>
+  </view>
+  <view class="publisher-context">
+    <!-- 评论话题的内容 -->
+    <view name="context" class="topic-context">
+      <!-- {{con.contextCon(post.text,40)}}<a name="more" style="color:rgb(9,166,220)" wx:if="{{showMore}}">更多</a> -->
+      {{con.contextCon(post.text,50)}}
+      <a name="more" style="color:rgb(9,166,220)" wx:if="{{showMore}}">更多</a>
+    </view>
+  </view>
+  <view class="publisher-status">
+    <image src="../../imgs/button-time@2x.png" class="clock-icon" />
+    <view class="publisher-date">
+      <text>{{con.dateCon(post.createAt)}}</text>
+    </view>
+    <view class="heart-view" catch:tap="giveLike" wx:if="{{post.type=='2'}}">
+      <image src="{{isLike && '../../imgs/button-like-dj@2x.png' || '../../imgs/home-button-like@2x.png' }}" class="like-img" wx:if="{{like}}" />
+      <view style="margin-left:20rpx;display:inline-block">
+        <text wx:if="{{ con.numCon(post.likeCount) }}">{{con.numCon(post.likeCount)}}</text>
+      </view>
+    </view>
+    <view class="comment-view" wx:elif="{{post.type=='1'}}">
+      <image src="{{ '../../imgs/home-button-Comment@2x.png' }}" class="comment-img" />
+      <text class="comment-count" style="padding-top:-10rpx">{{post.attendCount}}</text>
+    </view>
+  </view>
+</view>

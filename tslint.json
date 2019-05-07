@@ -10,10 +10,20 @@
       "severity": "warning",
       "options": [ "debug", "info", "log", "time", "timeEnd", "trace" ]
     },
+    "typedef": false,
     "forin": false,
     "no-var-requires": false,
     "only-arrow-functions": false,
-    "semicolon": [true, "never"],
+    "object-literal-sort-keys": false,
+    "member-access": false,
+    "whitespace": false,
+    "comment-format": false,
+    "trailing-comma": false,
+    "one-line": false,
+    "align": false,
+    "arrow-parens": false,
+    "no-shadowed-variable": false,
+    "semicolon": [false, "never"],
     "quotemark": [true, "single"]
   },
   "jsRules": {

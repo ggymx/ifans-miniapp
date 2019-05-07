@@ -1,8 +1,0 @@
-module.exports = {
-    touchmove:function (event, instance) {
-      console.log('log event', JSON.stringify(event))
-    },
-    propObserver:function(newValue, oldValue, ownerInstance, instance) {
-      console.log('prop observer', newValue, oldValue)
-    }
-  }

@@ -1,19 +1,8 @@
 /**app.wxss**/
-/*.container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
-  box-sizing: border-box;
-}*/ 
 .underlying{
   height:auto;
   width:100%;
-  /*background-color: blue;*/
-  /* background-color:red; */
- background-color:rgb(245, 245, 245);
+  background-color:rgb(245, 245, 245);
   top:128rpx;
   position:absolute;
 }
@@ -21,8 +10,6 @@
 .container {
   height:auto;
   width:702rpx;
-  /*background-color: red;*/
-  /* background-color:blue; */
   margin-left:auto;
   margin-right: auto;
 } 

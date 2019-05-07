@@ -1,0 +1,30 @@
+<!-- pages/participate/participate.wxml -->
+<wxs module="con" src="../../wxs/converter.wxs"></wxs>
+<navbar back text="参与话题"></navbar>
+<view class="underlying flex-urly">
+  <view>
+    <view class="heard ">
+      <view class="container">
+        <view class="parti-header">
+          <text style="margin-left:36rpx;padding:10rpx 0;margin-top:-40rpx">
+            #{{con.contextCon(topic.post.title,30)}}#
+          </text>
+        </view>
+      </view>
+    </view>
+    <view class="container">
+      <!-- 这里bindinput可以，bind:input不可以？ -->
+      <!-- auto-height="{{true}}"将导致textarea失效 -->
+      <textarea class="topic-text" placeholder="请至少输入5个字" maxlength="-1" placeholder-class="placeholder-set" bindinput="textAreaInput" bindconfirm="onEndEditor" value="{{pushText}}" adjust-position="{{false}}" style="height:{{inputText}}" bindfocus="onEditText" bindblur="onEndEditor"></textarea>
+    </view>
+  </view>
+  <view class="footer">
+    <view class="container">
+      <view class="expression-view">
+        <button type="primary" style="height:80rpx;background-color:rgb(82,163,255);width:100%;font-size:33rpx;" catch:tap="titleParti">
+          发表
+        </button>
+      </view>
+    </view>
+  </view>
+</view>

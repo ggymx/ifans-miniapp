@@ -1,0 +1,108 @@
+/*数据格式转换器 */
+//日期处理
+function dateCon(dateStr) {
+  if (!dateStr || dateStr == '') return '';
+
+  var oldDate = getDate(dateStr);
+
+  var oldStr = ''
+
+  var now = getDate();
+
+  if (Date.parse(oldDate) > Date.parse(now)) {
+    oldStr = oldDate.getFullYear() + "/" + (oldDate.getMonth() + 1) + "/" + oldDate.getDate();
+  }
+  else if (now.getDate() - oldDate.getDate() >= 3) {
+    oldStr = oldDate.getFullYear() + "/" + (oldDate.getMonth() + 1) + "/" + oldDate.getDate();
+  }
+  else if (now.getDate() - oldDate.getDate() == 3) {
+    oldStr = '3天前';
+  } else if (now.getDate() - oldDate.getDate() == 2) {
+    oldStr = '2天前';
+  } else if (now.getDate() - oldDate.getDate() == 1) {
+    oldStr = '1天前';
+  }
+  else {
+    if (now.getHours() - oldDate.getHours() > 0) {
+
+      if (now.getHours() - oldDate.getHours() < 1) {
+        oldStr = (60 - oldDate.getMinutes() + now.getMinutes()) + '分钟前'
+      } else {
+        oldStr = now.getHours() - oldDate.getHours() + '小时前'
+      }
+    } else if (now.getMinutes() - oldDate.getMinutes() > 0) {
+      if (now.getMinutes() - oldDate.getMinutes() < 1) {
+        oldStr = (60 - oldDate.getSeconds() + now.getSeconds()) + '秒前'
+      } else {
+        oldStr = now.getMinutes() - oldDate.getMinutes() + '分钟前'
+      }
+    } else {
+      oldStr = (now.getSeconds() - oldDate.getSeconds()) + '秒前'
+    }
+  }
+
+  return oldStr;
+}
+
+//姓名处理
+function nickNameCon(nickName){
+  if(nickName==null) return ''
+  if(nickName.length>10){
+   return nickName.substring(0,15)+"..."
+  }
+  return nickName;
+}
+
+//话题标题处理
+function topicTitleCon(topicTitle){
+  // console.log("传进来的内容长度："+topicTitle.length)
+  if(topicTitle.length>16){
+   console.log("测试！！！"+topicTitle.substring(0,16));
+   return topicTitle.substring(0,16)+"..."
+  }
+  return topicTitle;
+}
+
+//文本内容处理
+function contextCon(text,setLength){
+  if(text==null) return ''
+  if(text.length>setLength){
+    return text.substring(0,setLength)+'...'
+  }
+  return text;
+}
+
+
+//通过话题内容判断是否显示更多
+function isMore(text,setLength){
+  if(text.length>setLength){
+    return true;
+  }
+  return false;
+}
+
+//数字显示处理
+function numCon(num) {
+  if(num>=10000){
+    return Math.round(num/1000) + 'K'
+  } else if(num>=1000){
+    return Number(num/1000).toFixed(1) + 'K'
+  }
+  return num || ''
+}
+
+//判断话题内容是否为null或者为空
+function notNull(text){
+  return text != null && text.trim().length!==0
+}
+
+/*导出模块 */
+module.exports = {
+  dateCon: dateCon,
+  nickNameCon:nickNameCon,
+  topicTitleCon:topicTitleCon,
+  contextCon:contextCon,
+  numCon:numCon,
+  isMore:isMore,
+  notNull:notNull
+}
