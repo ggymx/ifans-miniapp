@@ -9,7 +9,7 @@
       <listing arrowBtn clock final showTitle like post="{{comment.post}}" isLike="{{comment.post.isLike}}" style="border-width:1rpx">
         <text slot="user" class="item-name">{{comment.post.user.nickname}}</text>
         <text slot="title" class="item-title" catch:tap="bindViewTopic" data-tid="{{topic.post.id}}">
-          #{{con.contextCon(topic.post.title,16)}}#
+          #{{comment.post.refPost.title}}#
         </text>
         <view slot="context" class="item-context">{{comment.post.text}}</view>
         <text slot="date">{{con.dateCon(comment.post.createAt)}}</text>

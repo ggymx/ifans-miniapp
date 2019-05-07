@@ -50,7 +50,7 @@ Page({
         });
         const userId = wx.getStorageSync('userId');
         api.request({
-          url: '/v1/post/create',
+          url: '/v1/post/create-answer',
           data: {
             text: that.data.pushText,
             type: 2,

@@ -1,8 +1,8 @@
 //index.js
 //获取应用实例
 import { IMyApp } from '../../app'
-import api from '../../common/api';
 import { smartGotoPage } from '../../common/helper';
+import api from '../../common/api';
 
 const app = getApp<IMyApp>()
 
@@ -26,34 +26,34 @@ Page({
   /*options:获取url参数 */
   async onLoad(options: any) {
     // const tId = options.tid;
-
+    console.log('进入detail.ts中的onLoad事件')
     // const cId = options.refPostId;
     const id = options.id
     const that = this;
-    //获取话题详情
-    // api.request({
-    //   url: '/v1/post/detail',
 
-    //   method: 'GET',
+    api.request({
+      url: '/v1/post/detail',
 
-    //   data: {
-    //     id
-    //   },
+      method: 'GET',
 
-    //   success(res) {
-    //     //设置数据
-    //     console.table(res.data)
-    //     that.setData!({
-    //       topic: res.data
-    //     });
-    //   }
-    // });
+      data: {
+        id
+      },
 
-    const data = await api.getPost({ id })
-    console.table('详情', data)
-    this.setData!({
-      topic: data.post
-    })
+      success(res) {
+        //设置数据
+        console.table('获取到数据', res.data)
+        that.setData!({
+          comment: res.data
+        });
+      }
+    });
+
+    // const res = await api.getPost({ id })
+    // console.table('详情', res)
+    // this.setData!({
+    //   topic: res.post
+    // })
 
   },
 
