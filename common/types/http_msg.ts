@@ -1,6 +1,8 @@
 import { IPost, IThumbnail } from './posts'
 import { IReply } from './reply'
 import { IUser } from './user'
+import { Comment } from './comment';
+import { AbuseReport } from './abuseReport';
 
 /**
  * 错误返回
@@ -62,11 +64,11 @@ export interface ITrackTopicListResponse {
  * 发布话题/投稿参数
  */
 export interface IPostPublishParams {
-  banner?: string,          // 封面
-  refPostId?: number,       // 参与的话题（可以扩展为引用他人的文章
-  text?: string,             // 内容
-  thumbnails?: IThumbnail[], // 九宫格缩略图（视频/音频/图片）
-  title: string,            // 标题
+  banner?: string         // 封面
+  refPostId?: number     // 参与的话题（可以扩展为引用他人的文章
+  text?: string            // 内容
+  thumbnails?: IThumbnail[] // 九宫格缩略图（视频/音频/图片）
+  title: string            // 标题
 }
 
 /**
@@ -85,8 +87,8 @@ export interface ITopicDetailParams {
  * 话题详情页结果
  */
 export interface ITopicDetailResponse {
-  hasMore: boolean,
-  posts: IPost[],
+  hasMore: boolean
+  posts: IPost[]
   topic: IPost,
 }
 
@@ -108,7 +110,7 @@ export type IPostDetailResponse = IPost
 export interface IReplyListParams {
   limit?: number
   postId: number
-  sinceId?: number,
+  sinceId?: number
 }
 
 /**
@@ -273,29 +275,29 @@ export interface IGetPostIdByPostIdResponse {
  * 把post表中所有refPostId是请求⾥里里的id的有效数据都返回
  */
 export interface IGetAnswerListParams {
-  cursor: number,
-  id: number,
+  cursor: number
+  id: number
   limit: number
 }
 
 export interface IGetAnswerListResponse {
   cursor: number
-  posts?: IPost[],
-  user: IUser,
+  posts?: IPost[]
+  user: IUser
 }
 
 /**
  * 把post表中所有userID是请求⾥里里的id的有效数据都返回
  */
 export interface IGetMyListParams {
-  cursor: number,
+  cursor: number
   limit: number
-  userId: number,
+  userId: number
 }
 
 export interface IGetMyListResponse {
   cursor: number
-  posts?: IPost[],
+  posts?: IPost[]
 }
 
 /**
@@ -303,19 +305,19 @@ export interface IGetMyListResponse {
  */
 export interface IUpdateUserParams {
   avatar: string
-  id: number,
-  nickname: string,
+  id: number
+  nickname: string
 }
 
 export interface IUpdateUserResponse {
-  isUpdated: Promise<number>,
+  isUpdated: Promise<number>
 }
 
 /**
  * 点赞
  */
 export interface ILikeParams {
-  postId: number,
+  id: number
 }
 
 export interface ILikeResponse {
@@ -326,9 +328,99 @@ export interface ILikeResponse {
  * 取消点赞
  */
 export interface IDisLikeParams {
-  postId: number,
+  id: number
 }
 
 export interface IDisLikeResponse {
   memberCount: number
 }
+
+/**
+ * 举报
+ */
+export interface IAbuseReportParams {
+  postId: number
+  reason: string
+  reportUserId: number
+}
+
+export interface IAbuseReportResponse {
+  msg: string
+}
+
+/**
+ * 举报list
+ */
+export interface IAdminReportListParams {
+  cursor?: number
+  limit?: number
+}
+
+export interface IAdminReportListResponse {
+  reports: AbuseReport[]
+}
+
+/**
+ * 举报审核处理————“删除”数据
+ */
+export interface IAdminReportHandleParams {
+  postId: number
+}
+
+export interface IAdminReportHandleResponse {
+  msg: string
+}
+
+/**
+ * 用户评论
+ */
+export interface ICreateCommentParams {
+  media?: string
+  mediaType?: string
+  postId: number
+  text: string
+}
+
+export interface ICreateCommentResponese {
+  msg: string
+}
+
+/**
+ * 用户更新评论
+ */
+export interface IUpdateCommentParams {
+  id: number
+  media?: string
+  mediaType?: string
+  text: string
+}
+
+export interface IUpdateCommentResponese {
+  msg: string
+}
+
+/**
+ * 用户获取某个Post的评论列表
+ */
+export interface IGetCommetListParams {
+  cursor?: number
+  limit?: number
+  postId: number
+}
+
+export interface IGetCommetListResponse {
+  comments: Comment[]
+}
+
+/**
+ * 用户个人评论过哪些Psot?
+ */
+export interface IGetMyCommentListParams {
+  cursor?: number
+  limit?: number
+}
+
+export interface IGetMyCommentListResponese {
+  comments: Comment[]
+}
+

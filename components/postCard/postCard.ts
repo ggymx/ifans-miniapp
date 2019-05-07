@@ -233,14 +233,14 @@ Component({
         const instance = this as any;
         if (!instance.properties.isLike) {
           const res = await api.giveLike({
-            postId: instance.properties.post.id
+            id: instance.properties.post.id
           });
           instance.setData!({
             isLike: true
           });
         } else {
           const res = await api.disLike({
-            postId: instance.properties.post.id
+            id: instance.properties.post.id
           });
           instance.setData!({
             isLike: false

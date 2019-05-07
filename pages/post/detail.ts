@@ -5,11 +5,15 @@ import { smartGotoPage } from '../../common/helper';
 import api from '../../common/api';
 
 const app = getApp<IMyApp>()
+let id: number;
+let cursor: number = 0;
+let postId: number;
 
 Page({
   data: {
     topic: null,
-    comment: null
+    comment: null,
+    comments: [],
   },
   bindViewParti(event: any) {
     const tid = event.currentTarget.dataset.tid;
@@ -29,6 +33,7 @@ Page({
     console.log('进入detail.ts中的onLoad事件')
     // const cId = options.refPostId;
     const id = options.id
+    console.log('=====id====', id)
     const that = this;
 
     api.request({
@@ -49,11 +54,32 @@ Page({
       }
     });
 
+    postId = id
+    const data = await api.getCommentList({ postId, cursor, limit: 10 })
+  
+    console.log('评论列表', data)
+    that.setData!({
+      comments: data.comments
+    })
+    // api.request({
+    //   url: '/v1/comment/list',
+    //   method: 'GET',
+    //   data: {
+    //     postId: id
+    //   },
+    //   success(res) {
+    //     const data = res.data.comments
+    //     console.table({ data })
+    //   }
+    // })
+
     // const res = await api.getPost({ id })
     // console.table('详情', res)
     // this.setData!({
     //   topic: res.post
     // })
+    
+    
 
   },
 

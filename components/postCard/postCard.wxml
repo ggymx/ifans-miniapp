@@ -1,4 +1,3 @@
-<!-- components/postCard/postCard.wxml -->
 <wxs module="con" src="../../wxs/converter.wxs"></wxs>
 <view class="publisher-item {{card?'item-card':''}} slot1 slot2" catch:tap="bindRouter">
   <!-- <view class="publisher-item {{card?'item-card':''}} slot1 slot2" catch:tap="finalLink"> -->

@@ -21,11 +21,6 @@ const mocker = {
       title: faker.lorem.sentence(),
       type: EPostType.Normal,
       user: mocker.user(),
-      counter: {
-        view: faker.random.number(),
-        join: faker.random.number(),
-        hot: false,
-      }
     }
   },
   repeat<T>(n: number, fn: (id?: number) => T): T[] {

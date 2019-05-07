@@ -17,6 +17,7 @@
       </listing>
     </view>
   </view>
+  <view></view>
   <view class="opreate-underlying" style="position:fixed;bottom:0;margin-bottom:0;background-color:#FFF">
     <view class="container1">
       <view class="opreate-view">
@@ -34,6 +35,29 @@
             <text>分享文章</text>
           </button>
         </view>
+      </view>
+    </view>
+  </view>
+  <view>
+    <view class="opreate-underlying op">
+      <view class="container">
+        <block>
+          <block wx:for="{{comments}}">
+            <commentCard comment="{{item}}" />
+            <!-- <listing addClass="item-card" arr`owBtn clock like post="{{item}}" isLike="{{item.isLike}}">
+            <text slot="user" class="item-name">{{item.user.nickname}}</text>
+            <text slot="title" class="item-title">{{item.title}}</text>
+            <view slot="context" class="item-context">
+              {{con.contextCon(item.text,300)}}
+              <a slot="more" style="color:rgb(9,166,220)" wx:if="{{con.isMore(item.text,300)}}">
+                更多
+              </a>
+            </view>
+            <text slot="date">{{con.dateCon(item.createAt)}}</text>
+            <text slot="like">{{con.numCon(item.likeCount)}}</text>
+          </listing> -->
+          </block>
+        </block>
       </view>
     </view>
   </view>
