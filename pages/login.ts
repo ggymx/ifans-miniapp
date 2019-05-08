@@ -2,6 +2,7 @@
 //获取应用实例
 import { IMyApp } from '../app'
 import api from '../common/api';
+import { smartGotoPage } from '../common/helper';
 
 const app = getApp<IMyApp>()
 let loginCode: string
@@ -49,6 +50,7 @@ Page({
             key: 'userId',
             data: data.user.id
           });
+          
         }
       });
       wx.showLoading({
@@ -70,6 +72,7 @@ Page({
       })
     }
   },
+
   onLoad() {
     /*获取登录凭证*/
     wx.login({

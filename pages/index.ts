@@ -6,11 +6,48 @@ let cursor: number = 0;
 
 Page({
   data: {
-
+    isLoginStatus: false,
+    data: null
   },
-  // 加载
-  onLoad() {
 
+  async onShow() {
+    console.log('----index onload----')
+    const token = wx.getStorageSync('token');
+    if (token) {
+      console.log(this.data.isLoginStatus)
+      const userId = wx.getStorageSync('userId');
+      const data = await api.getUser({ id: userId })
+      console.log({ data })
+      this.setData!({
+        isLoginStatus: true,
+        data: data
+      })
+
+    }
+  },
+  Login() {
+
+    const token = wx.getStorageSync('token');
+    if (token) {
+      //获取用户Id
+      this.setData!({
+        isLoginStatus: true
+      })
+      const userId = wx.getStorageSync('userId');
+      setTimeout(() => {
+        smartGotoPage({
+          url: './user/detail?userId=' + userId
+        });
+      }, 100)
+    }
+    else {
+      wx.showToast({ title: '请先登录！' });
+      setTimeout(() => {
+        smartGotoPage({
+          url: './login'
+        });
+      }, 100)
+    }
   },
   manyTopic(event: any) {
     wx.navigateTo({

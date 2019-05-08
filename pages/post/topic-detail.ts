@@ -15,7 +15,7 @@ Page({
   bindViewParti(event: any) {
     const tid = event.currentTarget.dataset.tid;
     smartGotoPage({
-      url: './create?tid=' + tid
+      url: './createAnswer?tid=' + tid
     });
   },
 

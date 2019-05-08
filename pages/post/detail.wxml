@@ -17,7 +17,7 @@
       </listing>
     </view>
   </view>
-  <view class="opreate-underlying" style="position:fixed;bottom:0;margin-bottom:0;background-color:#FFF">
+  <view class="opreate-underlying" isCreateAnserPage="{{isCreateAnserPage}}" style="position:fixed;bottom:0;margin-bottom:0;background-color:#FFF">
     <view class="container1">
       <input type="text" value="" bindinput='inputValue' bindconfirm="commentEditor" value="{{commentValue}}"></input>
       <button bind:tap="bindComment" data-tid="{{comment.post.id}}">点我</button>

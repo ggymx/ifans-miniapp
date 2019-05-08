@@ -16,6 +16,13 @@ Page({
     comment: null,
     comments: [],
     commentValue: '',
+    isCreateAnserPage: false
+  },
+  isCreateAnserPage(event: any) {
+    console.log('=====event======', event)
+    this.setData!({
+      isCreateAnserPage: event.detail.value
+    })
   },
   commentEditor(event: any) {
     this.setData!({
@@ -85,14 +92,21 @@ Page({
   // },
   /*options:获取url参数 */
   async onLoad(options: any) {
+    const that = this;
+    // const isCreateAnserPage = options.query..isCreateAnserPage
+    // that.setData!({
+    //   isCreateAnserPage: isCreateAnserPage
+    // });
 
+    // console.log({isCreateAnserPage})
+    console.log('options.query', options.query)
     // const tId = options.tid;
     console.log('进入detail.ts中的onLoad事件')
     // const cId = options.refPostId;
     console.log('options', options)
     const id = options.id || { postId }
     console.log('=====id====', id)
-    const that = this;
+
 
     api.request({
       url: '/v1/post/detail',

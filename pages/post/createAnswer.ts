@@ -61,9 +61,11 @@ Page({
           success(res) {
             const data = res.data as any
             const cId = data.id;
+            console.log('=====createAnswer=====', data, cId)
             setTimeout(() => {
               wx.hideLoading({
                 success() {
+                  
                   wx.showToast({
                     title: '投稿成功！'
                   });
@@ -72,7 +74,7 @@ Page({
                   wx.removeStorageSync('draft');
                   setTimeout(() => {
                     wx.redirectTo({
-                      url: `./detail?tid=${tId}&cid=${cId}`
+                      url: `./detail?id=${cId}`
                     });
                   }, 200);
                 }
