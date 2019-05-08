@@ -1,129 +1,148 @@
 /* pages/index/index.wxss */
-
-.index-contant{
-  background-color: rgb(245,245,245);
-  padding-bottom: 50rpx;
+page {
+  height: 100%;
+  box-sizing: border-box;
 }
-.index-subscribe{
-  height: 98rpx;
-  text-align: right;
-  padding-right: 64rpx;
- background-color: rgb(245,245,245)
-	}
-.img-subcribe{
-  width: 30rpx;
-  height: 30rpx;
-  /* margin-top: 30rpx; */
-
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-sizing: border-box;
 }
-.index-subscribe text{
-  margin-left: 18rpx;
-  font-size: 32rpx;
-  font-family: PingFang-SC-Medium;
-  color: rgb(17, 17, 17);
- 
+.container .bg {
+  width: 100%;
+  height: 100%;
 }
-/* 修改样式 */
-.topic-name{
- font-weight: 500;
+.info {
+  width: 100%;
+  height: 90rpx;
+  position: absolute;
+  top: 140rpx;
+  left: 0;
 }
-.comment-name{
-  font-weight: 500;
-  color:rgb(51, 51, 51);
+.info .pic {
+  width: 90rpx;
+  height: 90rpx;
+  float: left;
+  border-radius: 50%;
+  margin-left: 28rpx;
+  border: 1px solid #000;
 }
-.text-weight{
-  font-size: 36rpx;
-  font-weight: bold;
-  color: rgb(51, 51, 51);
+.info .pic .user {
+  width: 100%;
+  height: 100%;
 }
-.topic-context{
- font-weight: 400;
- white-space: pre-line;
- display: -webkit-box;        
-word-break: break-all;
-text-overflow: ellipsis; 
-overflow: hidden;           
--webkit-box-orient: vertical;    
-/* -webkit-line-clamp: 5;  */
-}
-.conmment-weight{
-  font-weight: 400;
+.name {
   font-size: 30rpx;
-  color: rgb(153, 153, 153);
+  color: #000;
+  float: left;
+  margin-left: 40rpx;
+  line-height: 90rpx;
 }
-.item-name{
-  font-size: 28rpx;
-  font-weight: bold;
-   width: 500rpx;
-    color: rgb(51, 51, 51);
+.info .msg {
+  width: 38rpx;
+  height: 38rpx;
+  float: right;
+  margin-top: 23rpx;
+  margin-right: 32rpx;
+  position: relative;
 }
-.item-title{
- font-weight: 500;
+.info .msg .img {
+  width: 34rpx;
+  height: 35rpx;
+  float: left;
 }
-.item-context{
-  color: rgb(51, 51, 51);
-  font-weight: 300;
-  white-space: pre-line;
- display: -webkit-box;        
-word-break: break-all;
-text-overflow: ellipsis; 
-overflow: hidden;           
--webkit-box-orient: vertical;    
--webkit-line-clamp: 15; 
+.info .msg .pot {
+  width: 8rpx;
+  height: 8rpx;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #ff0000;
 }
-.subscribe-btn{
-  width:240rpx;
-height:40px;
-float:right;
-padding:0;
-display:flex;
-align-items:center;
-justify-content:center;
-margin-top: 16rpx;
-background-color:rgb(245, 245, 245);
+.bigImg {
+  width:560rpx;
+  height: 804rpx;
+  position: absolute;
+  top: 214rpx;
+  left: 95rpx;
+  box-sizing: border-box;
 }
-.subscribe-btn:after{
-  border-style: none;
+.lt,.rt {
+  width: 225rpx;
+  height: 315rpx;
+  position: absolute;
+  top: 661rpx;
 }
-
-/*异常时显示的样式*/
-.errView{
-  height:100%;
-display:flex;
-justify-content:center;
-/* align-items:center; */
-font-size:26rpx;
-color:rgb(153, 153, 153);
+.lt .myMsg,.rt .myMsg {
+  width: 100%;
+  height: 100%;
 }
-.err-img{
-  width:242rpx;
-  height:233rpx;
-  margin-left:30rpx;
-  margin-bottom:50rpx;
+.lt {
+  left: 6rpx;
 }
-.err-img+text{
-  display:block;
-  text-align:center
+.rt {
+  right: 6rpx;
 }
-
-/*没有更多信息时*/
-/* .no-more{
-  height:554px;
-font-size:13px;
-color:rgb(153, 153, 153);
-display:flex;
-flex-direction:column;
-align-items:center;
-border-top-style:solid;
-border-top-width:1rpx;
-border-top-color: rgb(153, 153, 153)
+.bigImg .myMsg {
+ width: 100%;
+ height: 100%;
 }
-.nomore-img{
-  width:293rpx;
-height:193rpx;
-margin-top:250rpx;
+.foot {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 36rpx;
+  padding: 0rpx 24rpx;
+  box-sizing: border-box;
 }
-.nomore-text{
-  margin-top:80rpx;
-  text-align:center;
+.topic{
+  width: 100%;
+  height: 100rpx;
+  padding: 0;
+  margin-bottom: 10rpx;
+  text-align: center;
+}
+.topic .msg {
+  font-size: 30rpx;
+  color: #000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%)
+}
+.topic .issure{
+  width: 100%;
+  height: 100%;
+}
+.footer {
+  width: 100%;
+  height: 185rpx;
+  display: flex;
+  justify-content: space-between
+}
+.left,.right {
+  width: 346rpx;
+  height: 100%;
+  position: relative;
+}
+/* .left .center,.right .center {
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  justify-content: center;
 } */
+.myFoot,.myMore {
+  width: 100%;
+
+}
+.text {
+  font-size: 30rpx;
+  color: #000;
+  position: absolute;
+  bottom: 70rpx;
+  left: 160rpx;
+}

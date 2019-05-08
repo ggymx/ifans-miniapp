@@ -1,49 +1,54 @@
 <!-- pages/index/index.wxml -->
 <wxs module="con" src="../wxs/converter.wxs"></wxs>
-<navbar gear text="首页" class="navbar-index"></navbar>
-<view class="underlying">
-  <view class='index-subscribe' wx:if="{{!isSubscribe}}">
-    <button class="subscribe-btn" bind:tap="bindSubscribe">
-      <block >
-        <image class="img-subcribe" src='../imgs/add.png'></image>
-        <text>订阅每日热点</text>
-      </block>
-      <!-- <block wx:else>
-        <image class="img-subcribe" src='../imgs/subed.png'></image>
-        <text>已订阅</text>
-      </block> -->
-    </button>
-  </view>
-  <view class="container" style="margin-top:20rpx;">
-    <block wx:for="{{topList}}" wx:for-index="index">
-      
-        <postCard wx:if="{{item.type=='1'}}" card showTitle showIssue post="{{item}}" showMore="{{con.isMore(item.text,50)}}"/>
-        <postCard wx:elif="{{item.type=='2'}}" card showTitle arrowBtn like post="{{item}}" isLike="{{item.isLike}}" showMore="{{con.isMore(item.text,50)}}"/>
-       
-        <!-- <listing card showTitle showIssue clock post="{{item}}" >
-          <text slot="user" class="topic-name">{{con.nickNameCon(item.user.nickname)}}</text>
-          <text slot="title" class="text-weight">{{con.contextCon(item.title,16)}}</text>
-          <view slot="context" class="topic-context">
-            {{con.contextCon(item.text,70)}}
-            <a slot="more" style="color:rgb(9,166,220)" wx:if="{{con.isMore(item.text,70)}}">更多</a>
-          </view>
-          <text slot="date">{{con.dateCon(item.createAt)}}</text>
-          <text slot="like">{{con.numCon(item.likeCount)}}</text>
-        </listing>  -->
-   
-        <!-- <listing card showTitle arrowBtn clock like post="{{item}}" isLike="{{item.isLike}}">
-          <text slot="user" class="comment-name">{{con.nickNameCon(item.user.nickname)}}</text>
-          <text slot="title" class="conmment-weight">
-            #{{con.contextCon(item.refPost.title,16)}}#
-          </text>
-          <view slot="context" class="topic-context">
-            {{con.contextCon(item.text,70)}}
-            <a slot="more" style="color:rgb(9,166,220)" wx:if="{{con.isMore(item.text,70)}}">更多</a>
-          </view>
-          <text slot="date">{{con.dateCon(item.createAt)}}</text>
-          <text slot="like">{{con.numCon(item.likeCount)}}</text>
-        </listing> -->
 
-    </block>
+<navbar text="首页" class="navbar-index"></navbar>
+<view class="container">
+  <image class="bg" src="../imgs/img/bg.png" mode="aspectFill" lazy-load="false" binderror="" bindload="" />
+
+  <view class="info">
+    <view class="pic">
+      <image class="user" src="../imgs/red-heart.png"></image>
+    </view>
+    <view class="name">未登录</view>
+    <view class="msg">
+      <image class="img" src="../imgs/img/msg.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" />
+      <view class="pot"></view>
+    </view>
+  </view>
+  <view class="bigImg">
+    <image class="myMsg" src="../imgs/img/mid.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror=""
+      bindload="" />
+  </view>
+
+  <view class="lt">
+    <image class="myMsg" src="../imgs/img/left.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror=""
+      bindload="" />
+
+  </view>
+  <view class="rt">
+    <image class="myMsg" src="../imgs/img/right.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror=""
+      bindload="" />
+
+  </view>
+
+
+  <view class="foot">
+    <button class="topic">
+      <view class="msg">发布话题</view>
+      <image class="issure" src="../imgs/img/topic.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false"
+        binderror="" bindload="" />
+
+    </button>
+    <view class="footer">
+      <view class="left">
+        <image class="myFoot" src="../imgs/img/foot.png" mode="widthFix" lazy-load="false" binderror="" bindload="" />
+        <view class="text">我的足迹</view>
+
+      </view>
+      <view class="right">
+        <image class="myMore" src="../imgs/img/more.png" mode="widthFix" lazy-load="false" binderror="" bindload="" />
+        <view class="text">更多话题</view>
+      </view>
+    </view>
   </view>
 </view>
