@@ -41,15 +41,15 @@ Page({
       }, 300);
 
     } else {
-      if (!this.data.pushText) {
+      if (!this.data.titleValue) {
         wx.showToast({
           icon: 'none',
-          title: '内容不能为空！'
+          title: '标题不能为空！'
         });
-      } else if (this.data.pushText.length < 5) {
+      } else if (this.data.titleValue.length < 5) {
         wx.showToast({
           icon: 'none',
-          title: '抱歉，发布话题不得低于五个字呦'
+          title: '抱歉，标题不得低于五个字呦'
         });
       } else {
         wx.showLoading({
@@ -115,29 +115,6 @@ Page({
     });
   },
   onLoad(options: any) {
-
-    console.table({ options })
-    const id = options.tid;
     this.data.id = options.tid;
-    const that = this;
-    api.request({
-      url: '/v1/post/answer-list',
-      data: {
-        id: id
-      },
-      method: 'GET',
-      success(res) {
-
-        that.setData!({
-          topic: res.data
-        });
-
-        //缓存话题
-        wx.setStorage({
-          key: 'topic',
-          data: res.data
-        });
-      }
-    });
   }
 })

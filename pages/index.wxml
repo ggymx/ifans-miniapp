@@ -1,10 +1,8 @@
 <!-- pages/index/index.wxml -->
 <wxs module="con" src="../wxs/converter.wxs"></wxs>
-
 <navbar text="首页" class="navbar-index"></navbar>
 <view class="container">
   <image class="bg" src="../imgs/img/bg.png" mode="aspectFill" lazy-load="false" binderror="" bindload="" />
-
   <view class="info">
     <view class="pic">
       <image class="user" src="../imgs/red-heart.png"></image>
@@ -16,37 +14,26 @@
     </view>
   </view>
   <view class="bigImg">
-    <image class="myMsg" src="../imgs/img/mid.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror=""
-      bindload="" />
+    <image class="myMsg" src="../imgs/img/mid.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" />
   </view>
-
   <view class="lt">
-    <image class="myMsg" src="../imgs/img/left.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror=""
-      bindload="" />
-
+    <image class="myMsg" src="../imgs/img/left.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" />
   </view>
   <view class="rt">
-    <image class="myMsg" src="../imgs/img/right.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror=""
-      bindload="" />
-
+    <image class="myMsg" src="../imgs/img/right.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" />
   </view>
-
-
   <view class="foot">
-    <button class="topic">
+    <button class="topic" bind:tap="createTopic">
+      <image class="issure"  src="../imgs/img/topic.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" />
       <view class="msg">发布话题</view>
-      <image class="issure" src="../imgs/img/topic.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false"
-        binderror="" bindload="" />
-
     </button>
     <view class="footer">
       <view class="left">
         <image class="myFoot" src="../imgs/img/foot.png" mode="widthFix" lazy-load="false" binderror="" bindload="" />
         <view class="text">我的足迹</view>
-
       </view>
       <view class="right">
-        <image class="myMore" src="../imgs/img/more.png" mode="widthFix" lazy-load="false" binderror="" bindload="" />
+        <image class="myMore" bind:tap="manyTopic" src="../imgs/img/more.png" mode="widthFix" lazy-load="false" binderror="" bindload="" />
         <view class="text">更多话题</view>
       </view>
     </view>
