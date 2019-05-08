@@ -5,7 +5,7 @@
     "pages/login",
     "pages/user/detail",
     "pages/post/topic-detail",
-     "pages/post/create",
+    "pages/post/create",
     "pages/post/detail",
     "pages/post/daily-hot",
     "pages/test/test"
