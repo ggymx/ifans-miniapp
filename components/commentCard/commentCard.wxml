@@ -1,0 +1,22 @@
+<wxs module="con" src="../../wxs/converter.wxs"></wxs>
+<view class="publisher-item">
+  <view>
+    <image src="{{comment.user.avatar}}" class="avatar" catch:tap="finalLink" />
+  </view>
+  <view>{{comment.user.nickname}}</view>
+  <view>{{comment.text}}</view>
+  <!-- 点赞  -->
+  <view class="heart-view" catch:tap="giveCommentLike">
+    <image src="{{comment.isLike && '../../imgs/button-like-dj@2x.png' || '../../imgs/home-button-like@2x.png' }}" class="like-img"/>
+    <view style="margin-left:20rpx;display:inline-block">
+      <text wx:if="{{ con.numCon(comment.likeCount) }}">{{con.numCon(comment.likeCount)}}</text>
+    </view>
+  </view>
+
+<!-- 日期 -->
+  <image src="../../imgs/button-time@2x.png" class="clock-icon" />
+    <view class="publisher-date">
+      <text>{{con.dateCon(comment.createAt)}}</text>
+    </view>
+
+</view>
