@@ -201,7 +201,7 @@ export interface IRemovePostResponse {
 /**
  * 用户参与话题
  */
-export interface IRefPostParams {
+export interface ICreateAnswerParams {
   refPostId: number
   text: string
   type: number
@@ -211,7 +211,7 @@ export interface IRefPostParams {
 /**
  * 用户参与话题返回值
  */
-export interface IRefPostResponse {
+export interface ICreateAnswerResponse {
   id: number
 }
 
