@@ -6,12 +6,12 @@
   <image class="bg" src="../imgs/img/bg.png" mode="aspectFill" lazy-load="false" binderror="" bindload="" />
 
   <view class="info">
-    <view class="pic">
+    <view class="pic fl">
       <image class="user" src="../imgs/red-heart.png"></image>
     </view>
-    <view class="name">未登录</view>
-    <view class="msg">
-      <image class="img" src="../imgs/img/msg.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" />
+    <view class="name fl">未登录</view>
+    <view class="msg fr">
+      <image class="img fl" src="../imgs/img/msg.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" />
       <view class="pot"></view>
     </view>
   </view>
@@ -23,12 +23,10 @@
   <view class="lt">
     <image class="myMsg" src="../imgs/img/left.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror=""
       bindload="" />
-
   </view>
   <view class="rt">
     <image class="myMsg" src="../imgs/img/right.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror=""
       bindload="" />
-
   </view>
 
 
