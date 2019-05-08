@@ -11,28 +11,86 @@ let postId: number;
 
 Page({
   data: {
+    postId: 0,
     topic: null,
     comment: null,
     comments: [],
+    commentValue: '',
   },
-  bindViewParti(event: any) {
-    const tid = event.currentTarget.dataset.tid;
-    smartGotoPage({
-      url: './create?tid=' + tid
+  commentEditor(event: any) {
+    this.setData!({
+
     });
   },
-  bindViewTopic(event: any) {
-    const tid = event.currentTarget.dataset.tid;
-    smartGotoPage({
-      url: `./topic-detail?tid=${tid}`
-    });
+  commentValue(event: any) {
+    this.setData!({
+      commentValue: event.detail.value
+    })
+
   },
+  inputValue: function (event: any) {
+    console.log('===inputValue event===', event.detail.value)
+    this.setData!({
+      commentValue: event.detail.value
+    })
+  },
+  bindComment(event: any) {
+    const that = this;
+    console.log('=====评论的postID=====', postId)
+    console.log('=======评论的text=======', that.data.commentValue)
+    const token = wx.getStorageSync("token");
+    if (!token) {
+      const pages = getCurrentPages();
+      const curPage = pages[pages.length - 1];
+      wx.showToast({ title: "请先登录！" });
+      setTimeout(() => {
+        if (curPage.route === "pages/index") {
+          smartGotoPage({
+            url: "./login"
+          });
+        } else {
+          smartGotoPage({
+            url: "../login"
+          });
+        }
+      }, 100);
+    } else {
+      if (that.data.commentValue) {
+        api.request({
+          url: '/v1/comment/create',
+          method: 'POST',
+          data: {
+            postId: postId,
+            text: that.data.commentValue
+          },
+          success(res) {
+            that.setData({
+              commentValue: ''
+            })
+            wx.redirectTo({ url: './detail?id=' + postId })
+          }
+        });
+      }
+    }
+
+  },
+  // bindViewTopic(event: any) {
+  //   const tid = event.currentTarget.dataset.tid;
+  //   this.setData!({
+  //     postId: tid
+  //   })
+  //   smartGotoPage({
+  //     url: `./topic-detail?tid=${tid}`
+  //   });
+  // },
   /*options:获取url参数 */
   async onLoad(options: any) {
+
     // const tId = options.tid;
     console.log('进入detail.ts中的onLoad事件')
     // const cId = options.refPostId;
-    const id = options.id
+    console.log('options', options)
+    const id = options.id || { postId }
     console.log('=====id====', id)
     const that = this;
 
@@ -40,11 +98,9 @@ Page({
       url: '/v1/post/detail',
 
       method: 'GET',
-
       data: {
         id
       },
-
       success(res) {
         //设置数据
         console.table('获取到数据', res.data)
@@ -56,7 +112,7 @@ Page({
 
     postId = id
     const data = await api.getCommentList({ postId, cursor, limit: 10 })
-  
+
     console.log('评论列表', data)
     that.setData!({
       comments: data.comments
@@ -78,8 +134,8 @@ Page({
     // this.setData!({
     //   topic: res.post
     // })
-    
-    
+
+
 
   },
 
