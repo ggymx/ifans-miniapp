@@ -9,15 +9,8 @@ Page({
   data: {
     topic: null,
     pushText: '',
-    id: null,
-    inputText: '390rpx',
-    titleValue: ''
-  },
-
-  titleInput(event: any) {
-    this.setData!({
-      titleValue: event.detail.value
-    })
+    refPostId: null,
+    inputText: '390rpx'
   },
   /*textarea输入时触发该函数-微信框架无双向绑定 */
   textAreaInput(event: any) {
@@ -49,38 +42,37 @@ Page({
       } else if (this.data.pushText.length < 5) {
         wx.showToast({
           icon: 'none',
-          title: '抱歉，发布话题不得低于五个字呦'
+          title: '抱歉客官，参与投稿不得低于五个字呦'
         });
       } else {
         wx.showLoading({
-          title: '发布中...'
+          title: '投稿中...'
         });
         const userId = wx.getStorageSync('userId');
         api.request({
-          url: '/v1/post/create',
+          url: '/v1/post/create-answer',
           data: {
             text: that.data.pushText,
-            title: that.data.titleValue,
-            type: 1,
+            type: 2,
             userid: userId,
+            refPostId: this.data.refPostId
           },
           method: 'POST',
           success(res) {
             const data = res.data as any
-            const id = data.id;
+            const cId = data.id;
             setTimeout(() => {
               wx.hideLoading({
                 success() {
                   wx.showToast({
-                    title: '发布成功！'
+                    title: '投稿成功！'
                   });
                   //投稿成功则清除缓存中的话题和草稿
                   wx.removeStorageSync('topic');
                   wx.removeStorageSync('draft');
-                  console.log('===tId=====', id)
                   setTimeout(() => {
                     wx.redirectTo({
-                      url: `./topic-detail?id=${id}`
+                      url: `./detail?tid=${tId}&cid=${cId}`
                     });
                   }, 200);
                 }
@@ -94,11 +86,6 @@ Page({
       }
     }
   },
-  titleFocus(event: any) {
-    this.setData!({
-      inputText: '370rpx'
-    });
-  },
   onEditText(event: any) {
     this.setData!({
       inputText: '370rpx'
@@ -109,21 +96,15 @@ Page({
       inputText: '890rpx'
     });
   },
-  editerConfirm(event: any) {
-    this.setData!({
-      inputText: '890rpx'
-    });
-  },
   onLoad(options: any) {
 
-    console.table({ options })
-    const id = options.tid;
-    this.data.id = options.tid;
+    tId = options.tid;
+    this.data.refPostId = options.tid;
     const that = this;
     api.request({
-      url: '/v1/post/answer-list',
+      url: '/v1/post/detail',
       data: {
-        id: id
+        id: tId
       },
       method: 'GET',
       success(res) {

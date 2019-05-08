@@ -39,7 +39,7 @@
       <block>
         <block wx:for="{{postArr}}">
           <postCard addClass="item-card" arrowBtn clock like post="{{item}}" isLike="{{item.isLike}}"/>
-          <!-- <listing addClass="item-card" arrowBtn clock like post="{{item}}" isLike="{{item.isLike}}">
+          <!-- <listing addClass="item-card" arr`owBtn clock like post="{{item}}" isLike="{{item.isLike}}">
             <text slot="user" class="item-name">{{item.user.nickname}}</text>
             <text slot="title" class="item-title">{{item.title}}</text>
             <view slot="context" class="item-context">

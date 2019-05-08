@@ -1,5 +1,5 @@
 // tslint:disable max-line-length
-import { IDisLikeParams, IDisLikeResponse, IHomeTopicListParams, IHomeTopicListResponse, ILikeParams, ILikeResponse, IPostDetailParams, IPostsDetailResponse, IUserPageParams, IUserPageResponse, IGetAnswerListParams, IGetAnswerListResponse } from "./types/http_msg";
+import { IDisLikeParams, IGetAnswerListParams, IGetAnswerListResponse, IHomeTopicListParams, IHomeTopicListResponse, ILikeParams, ILikeResponse, IPostDetailParams, IPostsDetailResponse, IUserPageParams, IUserPageResponse, IGetCommetListParams, IGetCommetListResponse, IDisLikeResponse } from "./types/http_msg";
 
 class Api {
   /**
@@ -25,14 +25,27 @@ class Api {
   getUser = this.makeApi<IUserPageParams, IUserPageResponse>('GET', '/v1/user/detail')
 
   /**
-   * 点赞
+   * 参与话题点赞
    */
   giveLike = this.makeApi<ILikeParams, ILikeResponse>('POST', '/v1/post/like')
 
   /**
-   * 取消点赞
+   * 参与话题取消点赞
    */
   disLike = this.makeApi<IDisLikeParams, IDisLikeResponse>('POST', '/v1/post/dislike')
+
+  /**
+   * 评论点赞
+   */
+  giveCommentLike = this.makeApi<ILikeParams, ILikeResponse>('POST', '/v1/comment/like')
+
+  /**
+   * 评论取消点赞
+   */
+  disCommentLike = this.makeApi<IDisLikeParams, IDisLikeResponse>('POST', '/v1/comment/dislike')
+
+  getCommentList = this.makeApi<IGetCommetListParams, IGetCommetListResponse>('GET', '/v1/comment/list')
+
 
   private host: string
   private token: string
