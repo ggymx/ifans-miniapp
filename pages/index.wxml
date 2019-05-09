@@ -5,9 +5,9 @@
     <image class="bg" src="../imgs/img/bg.png" mode="aspectFill" lazy-load="false" binderror="" bindload="" />
     <view class="info">
         <view class="pic fl">
-            <image class="user" src="../imgs/red-heart.png"></image>
+            <image class="user" bind:tap="Login" src="{{data.user.avatar}}"></image>
         </view>
-        <view class="name fl">未登录</view>
+        <view class="name fl">{{isLoginStatus?'':'未登录'}}</view>
         <view class="msg fr">
             <image class="img fl" src="../imgs/img/msg.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" />
             <view class="pot"></view>
