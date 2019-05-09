@@ -424,3 +424,16 @@ export interface IGetMyCommentListResponese {
   comments: Comment[]
 }
 
+
+/**
+ * 用户足迹
+ */
+export interface IGetUserFootPrintParams {
+  cursor?: number
+  limit?: number
+}
+
+export interface IGetUserFootPrintResponese {
+  cursor: number
+  posts: IPost[]
+}
