@@ -2,40 +2,46 @@
 <wxs module="con" src="../wxs/converter.wxs"></wxs>
 <navbar text="首页" class="navbar-index"></navbar>
 <view class="container">
-  <image class="bg" src="../imgs/img/bg.png" mode="aspectFill" lazy-load="false" binderror="" bindload="" />
-  <view class="info">
-    <view class="pic fl">
-      <image class="user" src="../imgs/red-heart.png"></image>
+    <image class="bg" src="../imgs/img/bg.png" mode="aspectFill" lazy-load="false" binderror="" bindload="" />
+    <view class="info">
+        <view class="pic fl">
+            <image class="user" src="../imgs/red-heart.png"></image>
+        </view>
+        <view class="name fl">未登录</view>
+        <view class="msg fr">
+            <image class="img fl" src="../imgs/img/msg.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" />
+            <view class="pot"></view>
+        </view>
     </view>
-    <view class="name fl">未登录</view>
-    <view class="msg fr">
-      <image class="img fl" src="../imgs/img/msg.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" />
-      <view class="pot"></view>
+    <view class="bigImg">
+        <image class="myMsg" src="../imgs/img/mid.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" />
     </view>
-  </view>
-  <view class="bigImg">
-    <image class="myMsg" src="../imgs/img/mid.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" />
-  </view>
-  <view class="lt">
-    <image class="myMsg" src="../imgs/img/left.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" />
-  </view>
-  <view class="rt">
-    <image class="myMsg" src="../imgs/img/right.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" />
-  </view>
-  <view class="foot">
-    <button class="topic" bind:tap="createTopic">
+    <view class="lt">
+        <image class="myMsg" src="../imgs/img/left.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" />
+    </view>
+    <view class="rt">
+        <image class="myMsg" src="../imgs/img/right.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" />
+    </view>
+    <view class="foot">
+        <button class="topic" bind:tap="createTopic">
       <image class="issure" src="../imgs/img/topic.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" />
       <view class="msg">发布话题</view>
     </button>
-    <view class="footer">
-      <view class="left">
-        <image class="myFoot" src="../imgs/img/foot.png" mode="widthFix" lazy-load="false" binderror="" bindload="" />
-        <view class="text">我的足迹</view>
-      </view>
-      <view class="right">
-        <image class="myMore" bind:tap="manyTopic" src="../imgs/img/more.png" mode="widthFix" lazy-load="false" binderror="" bindload="" />
-        <view class="text">更多话题</view>
-      </view>
+        <view class="footer">
+            <view class="left">
+                <button class="btn-l">
+          <image class="myFoot" src="../imgs/img/foot.png" mode="widthFix" lazy-load="false" binderror="" bindload="" />
+          <view class="text">我的足迹</view>
+        </button>
+
+            </view>
+            <view class="right">
+                <button class="btn-r">
+<image class="myMore" bind:tap="manyTopic" src="../imgs/img/more.png" mode="widthFix" lazy-load="false" binderror="" bindload="" />
+                <view class="text">更多话题</view>
+              </button>
+
+            </view>
+        </view>
     </view>
-  </view>
 </view>
