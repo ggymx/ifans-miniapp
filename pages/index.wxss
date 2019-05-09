@@ -1,7 +1,6 @@
 /* pages/index/index.wxss */
 page {
   height: 100%;
-  box-sizing: border-box;
 }
 .container {
   width: 100%;
@@ -25,26 +24,23 @@ page {
 .info .pic {
   width: 90rpx;
   height: 90rpx;
-  float: left;
   border-radius: 50%;
   margin-left: 28rpx;
   border: 1px solid #000;
+  overflow: hidden;
 }
 .info .pic .user {
   width: 100%;
   height: 100%;
 }
 .name {
-  font-size: 30rpx;
   color: #000;
-  float: left;
   margin-left: 40rpx;
   line-height: 90rpx;
 }
 .info .msg {
   width: 38rpx;
   height: 38rpx;
-  float: right;
   margin-top: 23rpx;
   margin-right: 32rpx;
   position: relative;
@@ -52,7 +48,6 @@ page {
 .info .msg .img {
   width: 34rpx;
   height: 35rpx;
-  float: left;
 }
 .info .msg .pot {
   width: 8rpx;
@@ -129,18 +124,10 @@ page {
   height: 100%;
   position: relative;
 }
-/* .left .center,.right .center {
-  width: 100%;
-  height: 80rpx;
-  display: flex;
-  justify-content: center;
-} */
 .myFoot,.myMore {
   width: 100%;
-
 }
 .text {
-  font-size: 30rpx;
   color: #000;
   position: absolute;
   bottom: 70rpx;

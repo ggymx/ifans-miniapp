@@ -14,6 +14,12 @@
   margin-right: auto;
 } 
 page{
+  font-size: 30rpx;
   Font-family:"Roboto","Noto Sans","San Francisco","PingFang","Microsof";
-
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
 }
