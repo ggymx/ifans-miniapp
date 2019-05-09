@@ -17,19 +17,12 @@
     <image class="myMsg" src="../imgs/img/mid.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" />
   </view>
   <view class="lt">
-<<<<<<< HEAD
-    <image class="myMsg" src="../imgs/img/left.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" />
-  </view>
-  <view class="rt">
-    <image class="myMsg" src="../imgs/img/right.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" />
-=======
     <image class="myMsg" src="../imgs/img/left.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror=""
       bindload="" />
   </view>
   <view class="rt">
     <image class="myMsg" src="../imgs/img/right.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror=""
       bindload="" />
->>>>>>> xuming
   </view>
   <view class="foot">
     <button class="topic" bind:tap="createTopic">

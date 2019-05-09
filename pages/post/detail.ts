@@ -3,6 +3,7 @@
 import { IMyApp } from '../../app'
 import { smartGotoPage } from '../../common/helper';
 import api from '../../common/api';
+import { EUserStatus } from '../../common/types/comment';
 
 const app = getApp<IMyApp>()
 let id: number;
@@ -68,7 +69,8 @@ Page({
           method: 'POST',
           data: {
             postId: postId,
-            text: that.data.commentValue
+            text: that.data.commentValue,
+            status: EUserStatus.Normal
           },
           success(res) {
             that.setData({
