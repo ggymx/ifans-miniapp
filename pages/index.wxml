@@ -28,7 +28,7 @@
       <view class="msg">发布话题</view>
     </button>
     <view class="footer">
-      <view class="left">
+      <view class="left" bind:tap="userFootPrint">
         <image class="myFoot" src="../imgs/img/foot.png" mode="widthFix" lazy-load="false" binderror="" bindload="" />
         <view class="text">我的足迹</view>
       </view>
