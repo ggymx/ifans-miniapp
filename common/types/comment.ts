@@ -13,7 +13,7 @@ export interface Comment {
 }
 
 export enum EUserStatus {
-  Normal = 0,
+  Normal = 0,//正常
   Ban = 1, // 被禁用
   Delete = 2, // 用户注销了自己账号
 }
