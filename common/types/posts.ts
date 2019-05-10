@@ -10,7 +10,7 @@ export interface IPost {
   banner?: string,          // 封面
   thumbnails?: IThumbnail[], // 九宫格缩略图（视频/音频/图片）
   user: IUser,               // 发布者
-
+  gallary?: string // /123/a.jpg,/123/b.jpg
   refPost?: IPost,           // 参与的话题（可以扩展为引用他人的文章）
   createAt: Date,            // 创建时间
   createAtStr: string,       //用于显示的时间
