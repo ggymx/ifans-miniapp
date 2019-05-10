@@ -4,12 +4,12 @@
 <view class="container">
   <image class="bg" src="../imgs/img/bg.png" mode="aspectFill" lazy-load="false" binderror="" bindload="" />
   <view class="info">
-    <view class="pic">
-      <image class="user" bind:tap="Login" src="{{data.user.avatar}}"></image>
+    <view class="pic fl">
+      <image class="user" bind:tap="Login" src="{{isLoginStatus ? data.user.avatar: '../imgs/img/tit.png' }}"></image>
     </view>
-    <view class="name">{{isLoginStatus?'':'未登录'}}</view>
-    <view class="msg">
-      <image class="img" src="../imgs/img/msg.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" />
+    <view class="name fl">{{isLoginStatus ? data.user.nickname : '未登录'}}</view>
+    <view class="msg fr">
+      <image class="img fl" src="../imgs/img/msg.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" />
       <view class="pot"></view>
     </view>
   </view>
@@ -28,13 +28,17 @@
       <view class="msg">发布话题</view>
     </button>
     <view class="footer">
-      <view class="left" bind:tap="userFootPrint">
-        <image class="myFoot" src="../imgs/img/foot.png" mode="widthFix" lazy-load="false" binderror="" bindload="" />
-        <view class="text">我的足迹</view>
+      <view class="left">
+        <button class="btn-l" bind:tap="userFootPrint">
+          <image class="myFoot" src="../imgs/img/foot.png" mode="widthFix" lazy-load="false" binderror="" bindload="" />
+          <view class="text">我的足迹</view>
+        </button>
       </view>
       <view class="right">
-        <image class="myMore" bind:tap="manyTopic" src="../imgs/img/more.png" mode="widthFix" lazy-load="false" binderror="" bindload="" />
-        <view class="text">更多话题</view>
+        <button class="btn-r" bind:tap="manyTopic">
+          <image class="myMore" src="../imgs/img/more.png" mode="widthFix" lazy-load="false" binderror="" bindload="" />
+          <view class="text">更多话题</view>
+        </button>
       </view>
     </view>
   </view>

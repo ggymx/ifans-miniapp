@@ -1,64 +1,69 @@
 /* pages/participate/participate.wxss */
 
 Page {
-  height: 100%;
+    height: 100%;
 }
 
 .body {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  padding-top: 128rpx;
-  box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding-top: 128rpx;
+    box-sizing: border-box;
 }
 
 .title {
-  width: 100%;
-  height: 115rpx;
-  position: absolute;
-  top: 128rpx;
-  left: 0;
-  border-bottom: 1rpx;
+    width: 100%;
+    height: 115rpx;
+    position: absolute;
+    top: 128rpx;
+    left: 0;
+    box-sizing: border-box;
+    border-bottom: 2rpx solid #f4f5f9;
 }
 
-.tit {
-  height: 115rpx;
-  width: 100%;
-  line-height: 115rpx;
-  font-size: 34rpx;
-  margin-left: 46rpx;
-  color: #999999;
+.title .tit {
+    display: block;
+    height: 100%;
+    width: 100%;
+    line-height: 115rpx;
+    font-size: 16px;
+    padding-left: 45rpx;
+    box-sizing: border-box;
+    color: #111;
 }
 
 .content {
-  width: 100%;
-  height: 958rpx;
-  margin-top: 128rpx;
-  padding: 0 45rpx;
-  box-sizing: border-box;
+    width: 100%;
+    height: 958rpx;
+    margin-top: 128rpx;
+    padding: 0 45rpx;
+    box-sizing: border-box;
 }
 
 .content .text {
-  width: 100%;
-  font-size: 16px;
-  font-family: PingFang-SC-Medium;
-  color: #C3C3C3;
+    width: 100%;
+    padding-top: 58rpx;
+    font-size: 16px;
+    font-family: PingFang-SC-Medium;
+    color: #333;
 }
 
 .foot {
-  width: 100%;
-  height: 80rpx;
-  position: absolute;
-  left: 0;
-  bottom: 26rpx;
-  padding: 0 23rpx;
-  box-sizing: border-box;
+    width: 100%;
+    height: 80rpx;
+    border-radius: 12rpx;
+    position: absolute;
+    left: 0;
+    bottom: 26rpx;
+    padding: 0 23rpx;
+    box-sizing: border-box;
 }
 
 .foot .btn {
-  width: 100%;
-  height: 100%;
-  line-height: 80rpx;
-  color: #fff;
-  background-color: #4ABABC;
+    width: 100%;
+    height: 100%;
+    line-height: 80rpx;
+    color: #fff;
+    background-color: #4ABABC;
 }
