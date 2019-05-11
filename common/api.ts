@@ -1,5 +1,5 @@
 // tslint:disable max-line-length
-import { IDisLikeParams, IGetAnswerListParams, IGetAnswerListResponse, IHomeTopicListParams, IHomeTopicListResponse, ILikeParams, ILikeResponse, IPostDetailParams, IPostsDetailResponse, IUserPageParams, IUserPageResponse, IGetCommetListParams, IGetCommetListResponse, IDisLikeResponse } from "./types/http_msg";
+import { IDisLikeParams, IGetAnswerListParams, IGetAnswerListResponse, IHomeTopicListParams, IHomeTopicListResponse, ILikeParams, ILikeResponse, IPostDetailParams, IPostsDetailResponse, IUserPageParams, IUserPageResponse, IGetCommetListParams, IGetCommetListResponse, IDisLikeResponse, IGetPostIdByPostIdParams, IGetUserFootPrintResponese, IGetUserFootPrintParams } from "./types/http_msg";
 
 class Api {
   /**
@@ -46,6 +46,10 @@ class Api {
 
   getCommentList = this.makeApi<IGetCommetListParams, IGetCommetListResponse>('GET', '/v1/comment/list')
 
+  /**
+   * 用户足迹
+   */
+  getFootPrint = this.makeApi<IGetUserFootPrintParams, IGetUserFootPrintResponese>('GET', '/v1/user/footprint')
 
   private host: string
   private token: string

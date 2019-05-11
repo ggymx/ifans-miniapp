@@ -7,7 +7,7 @@ let cursor: number = 0;
 Page({
   data: {
     isLoginStatus: false,
-    data: null
+    data: null,
   },
 
   async onShow() {
@@ -25,8 +25,31 @@ Page({
 
     }
   },
-  Login() {
+  //点击'我的足迹'按钮，执行跳转，传递当前的userId
+  userFootPrint(options: any) {
+    const token = wx.getStorageSync('token');
+    if (token) {
+       //获取用户Id
+       this.setData!({
+        isLoginStatus: true
+      })
+      const userId = wx.getStorageSync('userId')
+      console.log({ userId })
 
+      wx.navigateTo({
+        url: `./user/footPrint?userId=${userId}`
+      })
+    } else {
+      wx.showToast({ title: '请先登录！' });
+      setTimeout(() => {
+        smartGotoPage({
+          url: './login'
+        });
+      }, 100)
+    }
+
+  },
+  Login() {
     const token = wx.getStorageSync('token');
     if (token) {
       //获取用户Id

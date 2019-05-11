@@ -27,6 +27,7 @@
       <image class="issure" src="../imgs/img/topic.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" />
       <view class="msg">发布话题</view>
     </button>
+<<<<<<< HEAD
         <view class="footer">
             <view class="left">
                 <button class="btn-l">
@@ -43,5 +44,16 @@
 
             </view>
         </view>
+=======
+    <view class="footer">
+      <view class="left" bind:tap="userFootPrint">
+        <image class="myFoot" src="../imgs/img/foot.png" mode="widthFix" lazy-load="false" binderror="" bindload="" />
+        <view class="text">我的足迹</view>
+      </view>
+      <view class="right">
+        <image class="myMore" bind:tap="manyTopic" src="../imgs/img/more.png" mode="widthFix" lazy-load="false" binderror="" bindload="" />
+        <view class="text">更多话题</view>
+      </view>
+>>>>>>> xm
     </view>
 </view>

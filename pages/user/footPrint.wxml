@@ -1,0 +1,13 @@
+<!-- pages/my/my.wxml -->
+<wxs module="con" src="../../wxs/converter.wxs"></wxs>
+<navbar back text="我的足迹"></navbar>
+<view class="opreate-underlying op" wx:if="{{postArr.length>0}}">
+  <view class="container">
+    <block>
+      <block wx:for="{{postArr}}">
+        <text>{{item.text}}</text>
+        <text>{{con.dateCon(item.createAt)}}</text>
+      </block>
+    </block>
+  </view>
+</view>
