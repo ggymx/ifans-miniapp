@@ -286,13 +286,10 @@ page {
 .reply {
     width: 100%;
     height: 90rpx;
-    position: absolute;
     background-color: #fff;
     border-top: 2rpx solid #F4F5F9;
     padding: 15rpx 114rpx 15rpx 100rpx;
     box-sizing: border-box;
-    left: 0;
-    bottom: 0;
 }
 
 .reply .img {
