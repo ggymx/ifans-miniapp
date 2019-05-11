@@ -2,7 +2,7 @@ import { IMyApp } from '../app'
 import api from '../common/api';
 import { smartGotoPage } from '../common/helper';
 const app = getApp<IMyApp>()
-let cursor: number = 0;
+const cursor: number = 0;
 
 Page({
   data: {
@@ -20,7 +20,7 @@ Page({
       console.log({ data })
       this.setData!({
         isLoginStatus: true,
-        data: data
+        data
       })
 
     }
@@ -48,6 +48,13 @@ Page({
       }, 100)
     }
 
+  },
+
+  //消息通知
+  userNews(){
+    wx.navigateTo({
+      url: `./user/news`
+    })
   },
   Login() {
     const token = wx.getStorageSync('token');
