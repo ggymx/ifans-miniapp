@@ -1,5 +1,5 @@
 // tslint:disable max-line-length
-import { IDisLikeParams, IGetAnswerListParams, IGetAnswerListResponse, IHomeTopicListParams, IHomeTopicListResponse, ILikeParams, ILikeResponse, IPostDetailParams, IPostsDetailResponse, IUserPageParams, IUserPageResponse, IGetCommetListParams, IGetCommetListResponse, IDisLikeResponse, IGetPostIdByPostIdParams, IGetUserFootPrintResponese, IGetUserFootPrintParams } from "./types/http_msg";
+import { IDisLikeParams, IGetAnswerListParams, IGetAnswerListResponse, IHomeTopicListParams, IHomeTopicListResponse, ILikeParams, ILikeResponse, IPostDetailParams, IPostsDetailResponse, IUserPageParams, IUserPageResponse, IGetCommetListParams, IGetCommetListResponse, IDisLikeResponse, IGetPostIdByPostIdParams, IGetUserFootPrintResponese, IGetUserFootPrintParams, IUploadParams, IUploadResponese } from "./types/http_msg";
 
 class Api {
   /**
@@ -50,6 +50,11 @@ class Api {
    * 用户足迹
    */
   getFootPrint = this.makeApi<IGetUserFootPrintParams, IGetUserFootPrintResponese>('GET', '/v1/user/footprint')
+
+  /**
+   * 用户上传图片
+   */
+  getUploadToken = this.makeApi<IUploadParams, IUploadResponese>('POST', '/v1/upload/token')
 
   private host: string
   private token: string

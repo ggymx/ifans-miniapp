@@ -148,6 +148,7 @@ export interface IUserPostParams {
   title: string
   type: number
   userId: number
+  gallary?: string
 }
 
 /**
@@ -206,6 +207,7 @@ export interface ICreateAnswerParams {
   text: string
   type: number
   userId: number
+  gallary?: string
 }
 
 /**
@@ -436,4 +438,16 @@ export interface IGetUserFootPrintParams {
 export interface IGetUserFootPrintResponese {
   cursor: number
   posts: IPost[]
+}
+
+/**
+ * 用户上传图片
+ */
+// tslint:disable-next-line: no-empty-interface
+export interface IUploadParams {
+
+}
+
+export interface IUploadResponese {
+  uptoken: string
 }
