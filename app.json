@@ -1,19 +1,23 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/test/test",
-    "pages/participate/participate",
-    "pages/my/my",
-    "pages/publisher/publisher",
-    "pages/topic-detail/topic-detail",
-    "pages/hot/hot"
-    
+    "pages/index",
+    "pages/oldindex",
+    "pages/login",
+    "pages/user/detail",
+    "pages/post/topic-detail",
+    "pages/post/create",
+    "pages/post/detail",
+    "pages/post/daily-hot",
+    "pages/test/test"
   ],
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "轻话题",
     "navigationBarTextStyle": "black",
-    "navigationStyle": "custom"
-  }
+    "navigationStyle": "custom",
+    "onReachBottomDistance": 2,
+    "backgroundColor": "#F5F5F5"
+  },
+  "sitemapLocation": "sitemap.json"
 }

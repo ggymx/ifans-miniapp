@@ -22,19 +22,22 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    toplicList:[]
+    toplicList:[],
+    toplic:{},
+    comment:{}
   },
 
   onLoad() {
     console.log(this.data.toplicList);
     this.setData!({
-      toplicList:TestApi.getTopList()
+      toplicList:TestApi.getTopList(),
+      toplic:TestApi.getTopic(3)
     });
     // getTopic({id:1}).then((data)=>{
 
-    //  let creatAt=data.topic.createAt.toLocaleString()
+    //  let createAt=data.topic.createAt.toLocaleString()
 
-    //  this.setData!({data:data,creatAt:creatAt})
+    //  this.setData!({data:data,createAt:createAt})
     //  console.log(data)
     // }).catch();
     

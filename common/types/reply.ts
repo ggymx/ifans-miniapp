@@ -13,7 +13,7 @@ export interface IReply {
   }
   refPost?: IPost,           // 参与的话题（可以扩展为引用他人的文章）
 
-  creatAt: Date,            // 创建时间
+  createAt: Date,            // 创建时间
   delAt?: Date,             // 删除时间
   status?: EPostStatus,     // 投稿状态，
 }

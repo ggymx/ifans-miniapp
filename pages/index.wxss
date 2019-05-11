@@ -1,0 +1,183 @@
+/* pages/index/index.wxss */
+
+page {
+    height: 100%;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.container .bg {
+    width: 100%;
+    height: 100%;
+}
+
+.info {
+    width: 100%;
+    height: 90rpx;
+    position: absolute;
+    top: 140rpx;
+    left: 0;
+}
+
+.info .pic {
+    width: 90rpx;
+    height: 90rpx;
+    border-radius: 50%;
+    margin-left: 28rpx;
+    text-align: center;
+    border: 1px solid #000;
+    overflow: hidden;
+}
+
+.info .pic .user {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.name {
+    color: #000;
+    margin-left: 40rpx;
+    line-height: 90rpx;
+}
+
+.info .msg {
+    width: 38rpx;
+    height: 38rpx;
+    margin-top: 23rpx;
+    margin-right: 32rpx;
+    position: relative;
+}
+
+.info .msg .img {
+    width: 34rpx;
+    height: 35rpx;
+}
+
+.info .msg .pot {
+    width: 8rpx;
+    height: 8rpx;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #ff0000;
+}
+
+.bigImg {
+    width: 560rpx;
+    height: 804rpx;
+    position: absolute;
+    top: 214rpx;
+    left: 95rpx;
+    box-sizing: border-box;
+}
+
+.lt,
+.rt {
+    width: 225rpx;
+    height: 315rpx;
+    position: absolute;
+    top: 661rpx;
+}
+
+.lt .myMsg,
+.rt .myMsg {
+    width: 100%;
+    height: 100%;
+}
+
+.lt {
+    left: 6rpx;
+}
+
+.rt {
+    right: 6rpx;
+}
+
+.bigImg .myMsg {
+    width: 100%;
+    height: 100%;
+}
+
+.foot {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 36rpx;
+    padding: 0rpx 24rpx;
+    box-sizing: border-box;
+}
+
+.topic {
+    width: 100%;
+    height: 100rpx;
+    padding: 0;
+    margin-bottom: 10rpx;
+    text-align: center;
+}
+
+.topic .msg {
+    font-size: 30rpx;
+    color: #000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+
+.topic .issure {
+    width: 100%;
+    height: 100%;
+}
+
+.footer {
+    width: 100%;
+    height: 185rpx;
+    display: flex;
+    justify-content: space-between
+}
+
+.left,
+.right {
+    width: 346rpx;
+    height: 100%;
+    position: relative;
+}
+
+.btn-l,
+.btn-r {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    text-align: center;
+    position: relative;
+}
+
+.myFoot,
+.myMore {
+    width: 100%;
+}
+
+.text,
+.text-l {
+    color: #000;
+    font-size: 30rpx;
+    position: absolute;
+    left: 155rpx;
+}
+
+.text {
+    top: 55rpx;
+}
+
+.text-l {
+    top: 57rpx;
+}

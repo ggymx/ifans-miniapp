@@ -1,0 +1,53 @@
+<!-- pages/publisher/publisher.wxml -->
+<wxs module="con" src="../../wxs/converter.wxs"></wxs>
+<navbar back text="文章详情"></navbar>
+<!-- comment -->
+<view class="body">
+    <view class="opreate-underlying" style="border-style:none">
+        <view class="container">
+            <!-- <postCard arrowBtn clock final showTitle like post="{{comment.post}}" isLike="{{comment.post.isLike}}" style="border-width:1rpx" /> -->
+            <listing arrowBtn clock final showTitle like post="{{comment.post}}" isLike="{{comment.post.isLike}}" style="border-width:1rpx">
+                <text slot="user" class="item-name">{{comment.post.user.nickname}}</text>
+                <text slot="title" class="item-title" catch:tap="bindViewTopic" data-tid="{{topic.post.id}}">
+          #{{comment.post.refPost.title}}#
+        </text>
+                <view slot="context" class="item-context">{{comment.post.text}}</view>
+                <text slot="date">{{con.dateCon(comment.post.createAt)}}</text>
+                <text slot="like">{{con.numCon(comment.post.likeCount)}}</text>
+            </listing>
+        </view>
+    </view>
+
+
+    <view>
+        <view class="opreate-underlying op">
+            <view class="container">
+                <block>
+                    <block wx:for="{{comments}}">
+                        <commentCard comment="{{item}}" />
+                    </block>
+                </block>
+            </view>
+        </view>
+    </view>
+
+    <view class="noMore">
+        没有更多了
+    </view>
+    <view class="reply" style="position:fixed;bottom:0" isCreateAnserPage="{{isCreateAnserPage}}">
+        <view class="img">
+            <image class="" src="../../imgs/img/small.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
+            </image>
+        </view>
+        <input class="content" type="text" placeholder="写点评论吧" bindinput='inputValue' bindconfirm="commentEditor" value="{{commentValue}}" />
+        <button class="btn" type="button" bind:tap="bindComment" data-tid="{{comment.post.id}}">发送</button>
+    </view>
+
+</view>
+
+<!-- <view class="opreate-underlying" isCreateAnserPage="{{isCreateAnserPage}}" style="position:fixed;bottom:0;margin-bottom:0;background-color:#FFF">
+    <view class="container1">
+      <input type="text" value="" bindinput='inputValue' bindconfirm="commentEditor" value="{{commentValue}}"></input>
+      <button bind:tap="bindComment" data-tid="{{comment.post.id}}">点我</button>
+    </view>
+  </view> -->

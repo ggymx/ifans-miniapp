@@ -1,6 +1,6 @@
 .vscode
 # Only commit typescript
-# *.js
+*.js
 
 # Logs
 # logs

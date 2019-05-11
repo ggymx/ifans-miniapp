@@ -1,5 +1,8 @@
 import { IPost, IThumbnail } from './posts'
+import { IReply } from './reply'
 import { IUser } from './user'
+import { Comment } from './comment';
+import { AbuseReport } from './abuseReport';
 
 /**
  * 错误返回
@@ -35,10 +38,11 @@ export interface IHomeTopicListParams {
  * 首页话题列表结果
  */
 export interface IHomeTopicListResponse {
-  posts: IPost[]                // 话题/投稿列表
   // cursor 为0，则到达了尾页，没有更多数据。获取下一页的时候，将
   cursor: number                // 下一页标志，传入cursor。0表示无下一页。
+  posts: IPost[]                // 话题/投稿列表
 }
+
 /**
  * 足迹话题列表参数
  */
@@ -46,23 +50,25 @@ export interface ITrackTopicListParams {
   cursor?: number              // 从某个位置开始，默认0，从最上方开始
   limit?: number                // 最多几条，默认20个
 }
+
 /**
  * 足迹话题列表结果
  */
 export interface ITrackTopicListResponse {
-  posts: IPost[]                // 话题/投稿列表
   // cursor 为0，则到达了尾页，没有更多数据。获取下一页的时候，将
   cursor: number                // 下一页标志，传入cursor。0表示无下一页。
+  posts: IPost[]                // 话题/投稿列表
 }
+
 /**
  * 发布话题/投稿参数
  */
 export interface IPostPublishParams {
-  title: string,            // 标题
-  text: string,             // 内容
-  banner?: string,          // 封面
-  thumbnails?: IThumbnail[], // 九宫格缩略图（视频/音频/图片）
-  refPostId?: number,       // 参与的话题（可以扩展为引用他人的文章
+  banner?: string         // 封面
+  refPostId?: number     // 参与的话题（可以扩展为引用他人的文章
+  text?: string            // 内容
+  thumbnails?: IThumbnail[] // 九宫格缩略图（视频/音频/图片）
+  title: string            // 标题
 }
 
 /**
@@ -81,9 +87,9 @@ export interface ITopicDetailParams {
  * 话题详情页结果
  */
 export interface ITopicDetailResponse {
+  hasMore: boolean
+  posts: IPost[]
   topic: IPost,
-  posts: IPost[],
-  hasMore: boolean,
 }
 
 /**
@@ -102,15 +108,346 @@ export type IPostDetailResponse = IPost
  * 回复列表参数
  */
 export interface IReplyListParams {
-  postId: number
-  sinceId?: number,
   limit?: number
+  postId: number
+  sinceId?: number
 }
 
 /**
  * 回复列表结果
  */
 export interface IReplyListResponse {
-  replies: Reply[]
   hasMore: boolean
+  replies: IReply[]
+}
+
+/**
+ * 获取用户列表
+ */
+export interface IUserListParams {
+  cursor: number
+  limit: number
+}
+
+/**
+ *  获取用户列表的返回
+ */
+
+export interface IUserListResponse {
+  cursor: number
+  users: IUser[]
+}
+
+/**
+ * 使用某个用户发布话题
+ */
+export interface IUserPostParams {
+  banner: string
+  text: string
+  thumbnails: string
+  title: string
+  type: number
+  userId: number
+  gallary?: string
+}
+
+/**
+ * 使用某个用户发布话题,返回一个post
+ */
+export interface IUserPostResponse {
+  id: number
+}
+
+/**
+ * 使用某个用户获取话题列表
+ */
+export interface IPostListParams {
+  cursor: number
+  limit: number
+}
+
+/**
+ * 使用某个用户获取话题列表，返回一个Post话题集合
+ */
+export interface IPostListResponse {
+  cursor: number
+  posts: IPost[]
+}
+
+/**
+ * 删除话题(彻底删除)
+ */
+export interface IDeletePostParams {
+  postId: number
+}
+
+/**
+ * 删除话题返回值
+ */
+// tslint:disable-next-line:no-empty-interface
+export interface IDeletePostResponse {
+}
+
+/**
+ * 删除(状态,不彻底删除)
+ */
+export interface IRemovePostParams {
+  postId: number
+}
+
+export interface IRemovePostResponse {
+  isRemoved: number
+}
+
+/**
+ * 用户参与话题
+ */
+export interface ICreateAnswerParams {
+  refPostId: number
+  text: string
+  type: number
+  userId: number
+  gallary?: string
+}
+
+/**
+ * 用户参与话题返回值
+ */
+export interface ICreateAnswerResponse {
+  id: number
+}
+
+/**
+ * 话题详情
+ */
+export interface IPostsDetailParams {
+  id: number
+}
+
+/**
+ * 话题详情返回
+ */
+export interface IPostsDetailResponse {
+  post: IPost
+}
+/**
+ * 获取用户详情
+ */
+export interface IUserDetailParams {
+  cursor: number
+  id: number
+}
+
+/**
+ * 获取用户详情返回用户对象
+ */
+export interface IUserDetailResponse {
+  user: IUser
+}
+
+/**
+ * 通过RefPostId查询多个Post
+ */
+export interface IGetPostByRefPostIdParams {
+  id: number
+}
+
+/**
+ * 通过RefPostId查询多个Post，返回值为Post[]
+ */
+export interface IGetPostByRefPostIdResponse {
+  posts: IPost[]
+}
+
+/**
+ * 通过postId查询post对象
+ */
+export interface IGetPostIdByPostIdParams {
+  id: number
+}
+
+/**
+ * 通过postId查询refPostId，并且返回一个post对象
+ */
+export interface IGetPostIdByPostIdResponse {
+  post: IPost
+}
+
+/**
+ * 把post表中所有refPostId是请求⾥里里的id的有效数据都返回
+ */
+export interface IGetAnswerListParams {
+  cursor: number
+  id: number
+  limit: number
+}
+
+export interface IGetAnswerListResponse {
+  cursor: number
+  posts?: IPost[]
+  user: IUser
+}
+
+/**
+ * 把post表中所有userID是请求⾥里里的id的有效数据都返回
+ */
+export interface IGetMyListParams {
+  cursor: number
+  limit: number
+  userId: number
+}
+
+export interface IGetMyListResponse {
+  cursor: number
+  posts?: IPost[]
+}
+
+/**
+ * update对应⽤用户表的那条记录
+ */
+export interface IUpdateUserParams {
+  avatar: string
+  id: number
+  nickname: string
+}
+
+export interface IUpdateUserResponse {
+  isUpdated: Promise<number>
+}
+
+/**
+ * 点赞
+ */
+export interface ILikeParams {
+  id: number
+}
+
+export interface ILikeResponse {
+  memberCount: number
+}
+
+/**
+ * 取消点赞
+ */
+export interface IDisLikeParams {
+  id: number
+}
+
+export interface IDisLikeResponse {
+  memberCount: number
+}
+
+/**
+ * 举报
+ */
+export interface IAbuseReportParams {
+  postId: number
+  reason: string
+  reportUserId: number
+}
+
+export interface IAbuseReportResponse {
+  msg: string
+}
+
+/**
+ * 举报list
+ */
+export interface IAdminReportListParams {
+  cursor?: number
+  limit?: number
+}
+
+export interface IAdminReportListResponse {
+  reports: AbuseReport[]
+}
+
+/**
+ * 举报审核处理————“删除”数据
+ */
+export interface IAdminReportHandleParams {
+  postId: number
+}
+
+export interface IAdminReportHandleResponse {
+  msg: string
+}
+
+/**
+ * 用户评论
+ */
+export interface ICreateCommentParams {
+  media?: string
+  mediaType?: string
+  postId: number
+  text: string
+}
+
+export interface ICreateCommentResponese {
+  msg: string
+}
+
+/**
+ * 用户更新评论
+ */
+export interface IUpdateCommentParams {
+  id: number
+  media?: string
+  mediaType?: string
+  text: string
+}
+
+export interface IUpdateCommentResponese {
+  msg: string
+}
+
+/**
+ * 用户获取某个Post的评论列表
+ */
+export interface IGetCommetListParams {
+  cursor?: number
+  limit?: number
+  postId: number
+}
+
+export interface IGetCommetListResponse {
+  comments: Comment[]
+}
+
+/**
+ * 用户个人评论过哪些Psot?
+ */
+export interface IGetMyCommentListParams {
+  cursor?: number
+  limit?: number
+}
+
+export interface IGetMyCommentListResponese {
+  comments: Comment[]
+}
+
+
+/**
+ * 用户足迹
+ */
+export interface IGetUserFootPrintParams {
+  cursor?: number
+  limit?: number
+}
+
+export interface IGetUserFootPrintResponese {
+  cursor: number
+  posts: IPost[]
+}
+
+/**
+ * 用户上传图片
+ */
+// tslint:disable-next-line: no-empty-interface
+export interface IUploadParams {
+
+}
+
+export interface IUploadResponese {
+  uptoken: string
 }

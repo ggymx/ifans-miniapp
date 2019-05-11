@@ -1,0 +1,31 @@
+<!-- pages/hot/hot.wxml -->
+<navbar home text="每日热点" class="navbar"></navbar>
+<!-- pages/hot/hot.wxml -->
+<view class="underlying">
+  <view class='hot-subscribe'>
+    <view class='hot'>每日热点</view>
+    <view class='hot-subscribe-time'>
+      <text class='year'>2019.03.31</text>
+      <text class='week'>星期日</text>
+    </view>
+  </view>
+  <view class="container">
+    <block wx:for="{{toplicList}}">
+      <listing card showTitle showIssue clock like tId="{{item.tId}}" username="{{item.tName}}">
+        <text slot="user" class="topic-name">{{item.tName}}</text>
+        <text slot="title" class="text-weight">{{item.title}}</text>
+        <view slot="context" class="topic-context">{{item.context}}</view>
+        <text slot="date">{{item.tDate}}</text>
+        <text slot="like">{{item.tLike}}</text>
+      </listing>
+    </block>
+  </view>
+  <!-- 底部 -->
+  <view class='view-bottom'>
+    <button class='btn-share' bind:tap="" open-type="share">分享给朋友</button>
+    <button class='btn-subscribe' bind:tap="subscribe">
+      <image src="{{subImg}}" style="width:21rpx;height:21rpx;margin-right:18rpx;" />
+      {{subText}}
+    </button>
+  </view>
+</view>

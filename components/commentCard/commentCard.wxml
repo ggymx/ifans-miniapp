@@ -1,0 +1,79 @@
+<wxs module="con" src="../../wxs/converter.wxs"></wxs>
+<!-- <view class="publisher-item">
+    <view>
+        <image src="{{comment.user.avatar}}" class="avatar" catch:tap="finalLink" />
+    </view>
+    <view>{{comment.user.nickname}}</view>
+    <view>{{comment.text}}</view> -->
+<!-- 点赞  -->
+<!-- <view class="heart-view" catch:tap="giveCommentLike">
+        <image src="{{comment.isLike && '../../imgs/button-like-dj@2x.png' || '../../imgs/home-button-like@2x.png' }}" class="like-img" />
+        <view style="margin-left:20rpx;display:inline-block">
+            <text wx:if="{{ con.numCon(comment.likeCount) }}">{{con.numCon(comment.likeCount)}}</text>
+        </view>
+    </view> -->
+
+<!-- 日期 -->
+<!-- <image src="../../imgs/button-time@2x.png" class="clock-icon" />
+    <view class="publisher-date">
+        <text>{{con.dateCon(comment.createAt)}}</text>
+    </view>
+
+</view> -->
+
+<view class="commentBox">
+
+    <view class="com-item">
+        <image class="user" src="{{comment.user.avatar}}" catch:tap="finalLink"></image>
+        <view class="name">{{comment.user.nickname}}</view>
+        <view class="content">{{comment.text}}</view>
+        <view class="star" catch:tap="giveCommentLike">
+            <image class="stars" src="{{comment.isLike && '../../imgs/button-like-dj@2x.png' || '../../imgs/home-button-like@2x.png' }}"></image>
+            <view class="num" wx:if="{{ con.numCon(comment.likeCount) }}">{{con.numCon(comment.likeCount)}}</view>
+        </view>
+
+        <!-- 回复的假数据-->
+        <!-- <view class="reply">
+            <image class="user1"></image>
+            <navigator class="nama" target="" url="" hover-class="navigator-hover" open-type="navigate">
+                吴彦祖
+            </navigator>
+            <view class="content">同意!</view>
+            <view class="star">
+                <image class="stars"></image>
+                <view class="num"></view>
+            </view>
+            <view class="time">4分钟前</view>
+            <view class="more">
+                <navigator class="" target="" url="" hover-class="navigator-hover" open-type="navigate">
+                    展开99条回复
+                </navigator>
+                <navigator class="" target="" url="" hover-class="navigator-hover" open-type="navigate">
+                    收起
+                </navigator>
+            </view>
+        </view> -->
+
+        <view class="date">
+            <view class="time">{{con.dateCon(comment.createAt)}}</view>
+            <image class="icon" src="../../imgs/img/more1.png" mode="widthFix" style="width:30rpx;height:6rpx"></image>
+        </view>
+
+    </view>
+
+
+    <!-- <view class="com-item">
+        <image class="user" src="{{comment.user.avatar}}" catch:tap="finalLink"></image>
+        <view class="name">{{comment.user.nickname}}</view>
+        <view class="content">{{comment.text}}</view>
+        <view class="star" catch:tap="giveCommentLike">
+            <image class="stars" src="{{comment.isLike && '../../imgs/button-like-dj@2x.png' || '../../imgs/home-button-like@2x.png' }}"></image>
+            <view class="num" wx:if="{{ con.numCon(comment.likeCount) }}">{{con.numCon(comment.likeCount)}}</view>
+        </view>
+
+        <view class="date">
+            <view class="time">{{con.dateCon(comment.createAt)}}</view>
+            <image class="icon" src="../../imgs/img/more1.png" mode="widthFix" style="width:30rpx;height:6rpx"></image>
+        </view>
+    </view> -->
+</view>

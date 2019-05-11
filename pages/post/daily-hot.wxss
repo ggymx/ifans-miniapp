@@ -1,0 +1,112 @@
+/* pages/hot/hot.wxss */
+.container{
+  margin-bottom: 140rpx;
+}
+.hot-contant{
+  /* background-color: rgb(245,245,245); */
+  padding-bottom: 550rpx;
+  margin-bottom: 550rpx;
+}
+.hot-subscribe{
+display: flex;
+flex-direction: row;
+  /* background-color: rgb(245,245,245); */
+}
+.hot-subscribe-time{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+.hot{
+  width: 50%;
+  margin-top: 26rpx;
+  margin-left: 46rpx;
+  margin-bottom: 36rpx;
+   font-size: 64rpx;
+  font-family: PingFang-SC-Regular;
+  color: rgb(85, 85, 85);
+}
+.year{
+  margin-top: 28rpx;
+  margin-right: 40rpx;
+   font-size: 30rpx;
+  font-family: PingFang-SC-Regular;
+  color: rgb(102, 102, 102);
+}
+.week{
+    margin-top: 10rpx;
+  margin-right: 40rpx;
+    font-size: 30rpx;
+  font-family: PingFang-SC-Regular;
+  color: rgb(102, 102, 102);
+
+}
+
+.hot-subscribe>text{
+  margin-left: 16rpx;
+  font-size: 28rpx;
+  font-family: PingFang-SC-Bold;
+  color: rgb(51, 51, 51);
+}
+
+.view-bottom{
+    width: 100%;
+  position: fixed;
+  bottom:0px;
+  height: 110rpx;
+  display: flex;
+  justify-content: center;
+  margin-left: -25rpx;
+  margin-top: 30rpx;
+  flex-direction: row;
+  background-color: rgb(255,255,255);
+ 
+}
+.btn-share{
+  margin-top: 10px;
+  margin-left: 20px;
+  width: 352rpx;
+  height: 82rpx;
+  background-color: rgb(77, 113, 147);
+  font-family: PingFang-SC-Medium ;
+  padding-top: 10rpx;
+  font-size: 28rpx;
+  color: rgb(255,255,255)
+
+}
+.btn-subscribe{
+margin-top: 20rpx;
+margin-left: 16rpx;
+  width: 352rpx;
+  height: 82rpx;
+  border: 2px red solid;
+  border-color: rgb(77, 113, 147);
+  font-family: PingFang-SC-Medium ;
+  padding-top: 6rpx;
+  font-size: 28rpx;
+  color: rgb(77,113,147)
+
+}
+/* 修改 */
+
+.topic-name{
+ font-weight: 500;
+}
+.text-weight{
+  font-size: 36rpx;
+  font-weight: bold;
+  color: rgb(51, 51, 51);
+}
+.topic-context{
+ font-weight: 400;
+ white-space: pre-line;
+ display: -webkit-box;        
+word-break: break-all;
+text-overflow: ellipsis; 
+overflow: hidden;           
+-webkit-box-orient: vertical;    
+-webkit-line-clamp: 5; 
+}
+		
+		

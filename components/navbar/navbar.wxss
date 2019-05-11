@@ -34,18 +34,26 @@
 }
 
 .capsule>view {
-  width: 64rpx;
-  height: 60%;
+  /* width: 64rpx;
+  height: 60%; */
+  width:88rpx;
+  height:88rpx;
   position: relative;
 }
 
-.capsule>view:nth-child(2) {
+.capsule>view:nth-child(2){
+  border-left: 2rpx solid #777;
+}
+.capsule>view:nth-child(3){
   border-left: 2rpx solid #777;
 }
 
+
 .capsule image {
-  width: 60%;
-  height: 100%;
+  /* width: 60%;
+  height: 100%; */
+  width:38rpx;
+  height:38rpx;
   position: absolute;
   left: 50%;
   top: 50%;

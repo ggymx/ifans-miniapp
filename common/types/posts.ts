@@ -10,16 +10,12 @@ export interface IPost {
   banner?: string,          // 封面
   thumbnails?: IThumbnail[], // 九宫格缩略图（视频/音频/图片）
   user: IUser,               // 发布者
-  // --- statistics 统计信息 ---
-  counter?: {
-    view?: number,           // 浏览数
-    join?: number,           // 话题参与量
-    hot?: boolean,           // 是否热门
-  },
+  gallary?: string // /123/a.jpg,/123/b.jpg
   refPost?: IPost,           // 参与的话题（可以扩展为引用他人的文章）
   createAt: Date,            // 创建时间
   createAtStr: string,       //用于显示的时间
-
+  commentCount?: number,     //评论数量
+  likeCount?: number,       //点赞数量
   updateAt?: Date,          // 更新时间
   delAt?: Date,             // 删除时间
   status?: EPostStatus,     // 投稿状态，

@@ -1,13 +1,15 @@
-export const smartDate = (date:Date) => {
-    const delta = date.getTime()-Date.now();
-    if(delta < 60000) {
-        return 'Just now'
-    } else if(delta < 3600000) {
-        return Math.floor(delta / 60000)+'minutes ago';
-    } else if(delta < 259200000 ){
-        return '1 hours ago';
-    }else if(delta >= 259200000 ){
-        return '3 day ago';
-    }
-    return "NOW";
+export function isPostPage(page: string) {
+  return page.indexOf('publisher/publisher') >= 0 || page.indexOf('topic-detail/topic-detail') >= 0
 }
+
+export function smartGotoPage(option: wx.NavigateToOption) {
+  const pages = getCurrentPages();
+  if (pages.length === 10) {
+    wx.redirectTo(option)
+  } else {
+    wx.navigateTo(option)
+  }
+}
+ export function smartDate(option: any){
+  return option
+ }
