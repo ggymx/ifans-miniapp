@@ -46,6 +46,7 @@ Page({
       that.setData!({
         postArr: that.data.postArr.concat(data.posts)
       });
+      console.log('输入的postArr------',that.data.postArr);
       cursor = data.cursor
       wx.hideLoading({});
     } else {

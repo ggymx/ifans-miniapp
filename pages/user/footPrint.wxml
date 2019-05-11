@@ -18,16 +18,16 @@
 
       <view class="container" style="height:1200rpx;padding-top:10rpx;">
          <!--足迹列表-->
-        <block wx:for="{{res}}" wx:for-item="item" >
+        <block wx:for="{{postArr}}" wx:for-item="item" >
          <view class="item">
             <!--配图-->
               <image class="postImg" src="https://picsum.photos/200/300"/> 
                <!--附加信息-->
                <view class="itemRight">
                   <block wx:if="{{true}}">
-                      <text class="title" style="margin-top:24rpx">{{item.postTitle}}</text>
+                      <text class="title" style="margin-top:24rpx">{{item.title?item.title:'这个标题title为空'}}</text>
                   </block>
-                  <text class="date">2019/05/03</text>
+                  <text class="date">{{item.createAt}}</text>
                </view> 
          </view>
        </block>
