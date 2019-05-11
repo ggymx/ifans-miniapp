@@ -10,7 +10,27 @@ Page({
     topic: null,
     postArr: [],
     title: '',
-    userId: null
+    userId: null,
+    res:[
+      {
+        postTitle:'樱花季节到了，你想和谁一起去赏花呢?'
+      },
+      {
+        postTitle:'如果你要写一本书，书名会是什么？'
+      },
+      {
+        postTitle:'樱花季节到了，你想和谁一起去赏花呢?'
+      },
+      {
+        postTitle:'如果你要写一本书，书名会是什么？'
+      },
+      {
+        postTitle:'抗日英雄！'
+      },
+      {
+        postTitle:'众多人物最喜欢的动漫以及以前的童话世界，包括喜爱的人物和神兽'
+      }
+    ]
   },
   async onLoad(options: any) {
 
@@ -19,7 +39,7 @@ Page({
 
     const that = this;
 
-    //todo 获取缓存的路由------> 
+    //todo 获取缓存的路由------>
     const data = await api.getFootPrint({  })
     console.table(data)
     if (data.posts.length !== 0) {

@@ -1,9 +1,11 @@
 {
   "pages": [
+    
     "pages/index",
     "pages/oldindex",
     "pages/login",
     "pages/user/detail",
+    "pages/user/news",
     "pages/post/topic-detail",
     "pages/post/create",
     "pages/post/detail",
