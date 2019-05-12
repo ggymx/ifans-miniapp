@@ -3,10 +3,10 @@
 <navbar back text="文章详情"></navbar>
 <!-- comment -->
 <view class="body">
-    <!-- <view class="opreate-underlying" style="border-style:none">
+  <!-- <view class="opreate-underlying" style="border-style:none">
         <view class="container">
             <postCard arrowBtn clock final showTitle like post="{{comment.post}}" isLike="{{comment.post.isLike}}" style="border-width:1rpx" /> -->
-    <!-- <listing arrowBtn clock final showTitle like post="{{comment.post}}" isLike="{{comment.post.isLike}}" style="border-width:1rpx">
+  <!-- <listing arrowBtn clock final showTitle like post="{{comment.post}}" isLike="{{comment.post.isLike}}" style="border-width:1rpx">
                 <text slot="user" class="item-name">{{comment.post.user.nickname}}</text>
                 <text slot="title" class="item-title" catch:tap="bindViewTopic" data-tid="{{topic.post.id}}">
           #{{comment.post.refPost.title}}#
@@ -17,84 +17,64 @@
             </listing>
         </view>
     </view> -->
-
-    <view class="content">
-        <view class="title">
-            传说的大中华美食，四川的麻婆豆腐，淮南牛肉汤，哪个好吃？
+  <view class="content">
+    <view class="title">{{data.post.refPost.title}}</view>
+    <view class="userInfo">
+      <view class="user">
+        <image class="img fl" src="{{data.post.user.avatar}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
+        <view class="text fl" selectable="false" space="false" decode="false">
+          {{data.post.user.nickname}}
         </view>
-        <view class="userInfo">
-            <view class="user">
-                <image class="img fl" src="" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
-
-                </image>
-                <view class="text fl" selectable="false" space="false" decode="false">
-                    Rian
-                </view>
-            </view>
-            <view class="more fr">
-                <image class="" src="../../imgs/img/more1.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
-                </image>
-            </view>
-        </view>
-        <view class="article">
-            <text class="txt" selectable="false" space="false" decode="false">
-据我所知，这个Airpower经过多次大整改，甚至 重新design，却仍然达不到苹果公司的目标要求。 初版是个圆形直径约（两根手指长度）的大圆盘。<text> \n </text> <text> \n </text>那时只有两层线圈，厚度不薄。我进入公司的时候 这代已经跑完了，对其了解就这么多。<text> \n </text><text> \n </text>接过相关工作的时候已经是三层线圈呈现FSF点排 布，就十来个线圈，大概在一六年底的时候，只是 做了一下简单功能验证，也搁浅了。然后第三版就
-            是现在市面上所说的三层线圈，呈现SES排布，共 计二十多个个线圈，这个版本也跑了好多案子。 <text> \n </text><text> \n </text>不停改动，甚至连适配器都改动过。就是为了达到 极致的效果。为了功率达到目标功率并且温度。 <text> \n </text><text> \n </text>不知道还有其它什么功能苹果为此烧了不少钱，其 实目标的功能已经实现，适配器功率与效率基本达 到市面上无线充T1水准，并且可以同时为多个设备 充电，但是功率会被稀释掉。其实主要问题就是过
-            热，特别是有干扰的时候。 <text> \n </text><text> \n </text>其实看到这个消息，会想起曾经为此工作而结识的 那些朋友。想到一起吐槽一起工作一起抱怨的那些 场景，怅然若失。 <text> \n </text><text> \n </text>就此无数个工程师员工的努力，无数生产线的投入 就没从付诸东流。
-            </text>
-        </view>
-        <view class="bottom">
-            <view class="left">
-                <image class="block" src="../../imgs/time.png" mode="aspectFit|aspectFill|widthFix"></image>
-                <view class="time">3小时前</view>
-            </view>
-            <view class="right">
-                <view class="star">
-                    <image class="stars" src="../../imgs/myhome-love-sel@2x.png" mode="aspectFit|aspectFill|widthFix"></image>
-                    <view class="text">99</view>
-                </view>
-                <view class="msg">
-                    <image class="msgs" src="../../imgs/img/message.png" mode="aspectFit|aspectFill|widthFix"></image>
-                    <view class="text">99</view>
-                </view>
-                <view class="replys">
-                    <image class="rep" src="../../imgs/img/share.png" mode="aspectFit|aspectFill|widthFix"></image>
-
-                </view>
-            </view>
-
-        </view>
-
+      </view>
+      <view class="more fr">
+        <image class="" src="../../imgs/img/more1.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
+      </view>
     </view>
-
+    <view class="article">
+      <text class="txt" selectable="false" space="false" decode="false">{{data.post.text}}</text>
+    </view>
+    <view class="bottom">
+      <view class="left">
+        <image class="block" src="../../imgs/time.png" mode="aspectFit|aspectFill|widthFix"></image>
+        <view class="time">{{con.dateCon(data.post.createAt)}}</view>
+      </view>
+      <view class="right">
+        <view class="star">
+          <image class="stars" src="{{data.post.isLike && '../../imgs/button-like-dj@2x.png' || '../../imgs/home-button-like@2x.png' }}"  mode="aspectFit|aspectFill|widthFix" catch:tap="giveLike" ></image>
+          <view class="text">{{data.post.likeCount ||''}}</view>
+        </view>
+        <view class="msg">
+          <image class="msgs" src="../../imgs/img/message.png" mode="aspectFit|aspectFill|widthFix"></image>
+          <view class="text">{{data.post.commentCount||'' }}</view>
+        </view>
+        <view class="replys">
+          <image class="rep" src="../../imgs/img/share.png" mode="aspectFit|aspectFill|widthFix"></image>
+        </view>
+      </view>
+    </view>
+  </view>
 </view>
-
 <view>
-    <view class="opreate-underlying op">
-        <view class="container">
-            <block>
-                <block wx:for="{{comments}}">
-                    <commentCard comment="{{item}}" />
-                </block>
-            </block>
-        </view>
+  <view class="opreate-underlying op">
+    <view class="container">
+      <block>
+        <block wx:for="{{comments}}">
+          <commentCard comment="{{item}}" />
+        </block>
+      </block>
     </view>
+  </view>
 </view>
-
-<view class="noMore">
-    没有更多了
-</view>
+<view class="noMore">没有更多了</view>
 <view class="reply" style="position:fixed;bottom:0" isCreateAnserPage="{{isCreateAnserPage}}">
-    <view class="img">
-        <image class="" src="../../imgs/img/small.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
-        </image>
-    </view>
-    <input class="content" type="text" placeholder="写点评论吧" bindinput='inputValue' bindconfirm="commentEditor" value="{{commentValue}}" />
-    <button class="btn" type="button" bind:tap="bindComment" data-tid="{{comment.post.id}}">发送</button>
+  <view class="img">
+    <image class="" src="../../imgs/img/small.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
+  </view>
+  <input class="content" type="text" placeholder="写点评论吧" bindinput='inputValue' bindconfirm="commentEditor" value="{{commentValue}}" />
+  <button class="btn" type="button" bind:tap="bindComment" data-tid="{{comment.post.id}}">
+    发送
+  </button>
 </view>
-
-
-
 <!-- <view class="opreate-underlying" isCreateAnserPage="{{isCreateAnserPage}}" style="position:fixed;bottom:0;margin-bottom:0;background-color:#FFF">
     <view class="container1">
         <input type="text" value="" bindinput='inputValue' bindconfirm="commentEditor" value="{{commentValue}}"></input>
