@@ -13,10 +13,8 @@
   </view>
   <view class="container" style="margin-top:20rpx;">
     <block wx:for="{{topList}}" wx:for-index="index">
-      
-        <postCard wx:if="{{item.type=='1'}}" card showTitle showIssue like post="{{item}}" showMore="{{con.isMore(item.text,50)}}"/>
+        <postCard wx:if="{{item.type=='1'}}" card showTitle showIssue arrowBtn like post="{{item}}" showMore="{{con.isMore(item.text,50)}}"/>
         <postCard wx:elif="{{item.type=='2'}}" card showTitle arrowBtn like post="{{item}}" isLike="{{item.isLike}}" showMore="{{con.isMore(item.text,50)}}"/>
-
     </block>
   </view>
 </view>
