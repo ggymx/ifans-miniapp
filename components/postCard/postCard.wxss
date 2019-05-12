@@ -75,7 +75,8 @@ text {
   background: #fff;
   font-size: 30rpx;
   color: rgb(153, 153, 153);
-  margin-bottom: 26rpx;
+  margin-bottom: 18rpx;
+  padding-left: 26rpx;
 }
 
 .text-weight {
@@ -85,30 +86,21 @@ text {
 }
 
 .publisher-context {
-  letter-spacing: 3rpx;
-  line-height: 56rpx;
-  /* white-space: pre-line; */
-  display: -webkit-box;
-  word-break: normal;
-  /* word-break: break-all; */
-  text-overflow: ellipsis;
-  overflow: hidden;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 4;
-
   height: auto;
-  font-size: 30rpx;
-  color: rgb(51, 51, 51);
   padding-left: 26rpx;
   padding-right: 26rpx;
-  /* margin-bottom: 24rpx; */
   margin-bottom: 14rpx;
-  margin-top: -60rpx;
+  /* margin-top: -60rpx; */
 }
 
 .topic-context {
+  color: rgb(51, 51, 51);
+  font-size: 30rpx;
+  -webkit-line-clamp: 4;
+  letter-spacing: 3rpx;
+  line-height: 56rpx;
   font-weight:400;
-  white-space:pre-line;
+  /* white-space:pre-line; */
   display:-webkit-box;
   word-break:break-all;
   text-overflow:ellipsis;
