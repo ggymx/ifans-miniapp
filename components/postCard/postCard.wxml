@@ -29,25 +29,26 @@
     <view name="context" class="topic-context">
       {{con.contextCon(post.text,50)}}<a name="more" style="color:rgb(9,166,220)" wx:if="{{showMore}}">更多</a>
       <!--配图-->
-      <view style="display:flex;justify-content: space-between;flex-wrap:wrap;flex-shrink:0;">
+      <view style="display:flex;flex-wrap:wrap;flex-shrink:0;">
       <!--单图-->
       <block wx:if="{{[1,2,3].length==1}}">
        <image src="https://picsum.photos/200/300" style="background-color:gray;height:646rpx;width:646rpx;" />
       </block>
       <!--两图-->
-      <block wx:elif="{{[1,2,3].length==2}}">
-         <image src="https://picsum.photos/200/300" style="background-color:gray;height:322rpx;width:322rpx" />
-         <image src="https://picsum.photos/200/300" style="background-color:gray;height:322rpx;width:322rpx;" />
+      <block wx:elif="{{[1,2].length==2}}">
+         <block wx:for="{{[1,2]}}">
+         <image src="https://picsum.photos/200/300" style="background-color:gray;height:322rpx;width:322rpx;margin-left:2rpx;" />
+         </block>
       </block>
       <block wx:else>
-          <block wx:for="{{[1,2,3,4,5,6,7,8,9]}}" wx:for-index="i">
+          <block wx:for="{{[1,2,3,4,5]}}" wx:for-index="i">
          <!--三张图时-->
           <block wx:if="{{i<3}}">
-            <image src="https://picsum.photos/200/300" style="background-color:gray;height:214rpx;width:214rpx" />
+            <image src="https://picsum.photos/200/300" style="background-color:gray;height:214rpx;width:214rpx;margin-left:2rpx;" />
           </block>
           <!--多张图时-->
           <block wx:else>
-            <image src="https://picsum.photos/200/300" style="background-color:gray;height:214rpx;width:214rpx;margin-top:2rpx;"/>
+            <image src="https://picsum.photos/200/300" style="background-color:gray;height:214rpx;width:214rpx;margin-top:2rpx;margin-left:2rpx;"/>
           </block>
           </block>
       </block>
@@ -56,20 +57,18 @@
   </view>
   <!--该item的被评论等状态-->
   <view class="publisher-status">
+    <!--时钟-->
     <image src="../../imgs/button-time@2x.png" class="clock-icon" />
-    <view class="publisher-date">
-      <text>{{con.dateCon(post.createAt)}}</text>
-    </view>
-    <!--下方点赞：wx:if="{{post.type=='2'}}"-->
-    <view class="heart-view" catch:tap="giveLike">
-      <image src="{{isLike && '../../imgs/button-like-dj@2x.png' || '../../imgs/home-button-like@2x.png' }}" class="like-img" wx:if="{{like}}" />
-        <text wx:if="{{ con.numCon(post.likeCount) }}" style="margin-left:20rpx;display:inline-block">{{con.numCon(post.likeCount)}}</text>
+    <text class="publisher-date">{{con.dateCon(post.createAt)}}</text>
 
-    </view>
+    <view style="width:200rpx;height:100%;position:absolute;right:0;display:flex;justify-content:flex-end;padding-right:26rpx;padding-top:10rpx;">
+    <!--下方点赞：wx:if="{{post.type=='2'}}"-->
+      <image src="{{isLike && '../../imgs/button-like-dj@2x.png' || '../../imgs/home-button-like@2x.png' }}" class="like-img" wx:if="{{like}}" />
+      <text wx:if="{{true||post.likeCount}}" style="margin-left:13rpx;display:inline-block;line-height:12px;font-size:26rpx;font-family:PingFang-SC-Medium;font-weight:500;color:rgba(102,102,102,1);">22</text>
+
     <!--下方评论：wx:elif="{{post.type=='1'}}"-->
-    <view class="comment-view">
       <image src="{{ '../../imgs/home-button-Comment@2x.png' }}" class="comment-img" />
-      <text class="comment-count" style="padding-top:-10rpx">{{post.attendCount}}</text>
+      <text  wx:if="{{true||post.attendCount}}" style="margin-left:11rpx;line-height:25rpx;font-size:26rpx;font-family:PingFang-SC-Medium;font-weight:500;color:rgba(102,102,102,1);">22</text>
     </view>
   </view>
 

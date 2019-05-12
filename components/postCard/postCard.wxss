@@ -131,24 +131,6 @@ text {
   top: 8rpx;
 }
 
-.heart-view {
-  position: absolute;
-  right: 46rpx;
-  font-size: 26rpx;
-  color: rgb(102, 102, 102);
-  height: 60rpx;
-  width: auto;
-  top: 8rpx;
-}
-.comment-view {
-  position: absolute;
-  right: 46rpx;
-  font-size: 26rpx;
-  color: rgb(102, 102, 102);
-  height: 60rpx;
-  width: auto;
-  top: 8rpx;
-}
 
 /*卡片效果*/
 .item-card {
@@ -172,19 +154,19 @@ text {
 }
 
 .like-img {
-  width: 26rpx;
-  height: 22rpx;
-  margin-left: 20rpx;
+  width: 31rpx;
+  height: 26rpx;
+  /* margin-left: 20rpx; */
 }
 
 .comment-img {
   width: 32rpx;
   height: 31rpx;
-  margin-left: 20rpx;
-  margin-right: 20rpx;
+  margin-left: 38rpx;
 }
 
 .comment-count {
-  position: relative;
-  top: -5rpx;
+  /* position: relative;
+  top: -5rpx; */
+  margin-left: 11rpx;
 }
