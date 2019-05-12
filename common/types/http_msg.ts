@@ -149,7 +149,7 @@ export interface IUserPostParams {
   title: string
   type: number
   userId: number
-  gallary?: string
+  gallery?: string
 }
 
 /**
@@ -208,7 +208,7 @@ export interface ICreateAnswerParams {
   text: string
   type: number
   userId: number
-  gallary?: string
+  gallery?: string
 }
 
 /**

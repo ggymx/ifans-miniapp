@@ -56,8 +56,8 @@ export async function uploadMultiImg(count: number, options: IUploadImgOptions) 
     const { uptoken } = await api.getUploadToken({})
     wx.chooseImage({
       count,
-      sizeType: 'compressed',
-      sourceType: 'album',
+      sizeType: ['compressed'] as any,
+      sourceType: ['album','camera'] as any,
       success: async function (res) {
         try{
           const results = await Promise.all(res.tempFilePaths.map((item) => uploadTempFile(uptoken, item)))
@@ -65,6 +65,9 @@ export async function uploadMultiImg(count: number, options: IUploadImgOptions) 
         } catch(err) {
           options.fail(err)
         }
+      },
+      fail(err){
+        console.error('ChooseImage Fail:', err)
       }
     });
   }
