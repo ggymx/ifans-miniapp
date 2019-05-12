@@ -3,21 +3,74 @@
 
 /* pages/topic-detail/topic-detail.wxss */
 
-page {
-    height: 100%;
-}
-
 .body {
-    height: 100%;
+    width: 100%;
+    height: auto;
     padding-top: 128rpx;
-    padding-bottom: 90rpx;
+    padding-bottom: 30rpx;
     box-sizing: border-box;
     position: relative;
     background-color: rgb(255, 255, 255);
 }
 
-.context {
+.content {
     width: 100%;
+    height: auto;
+}
+
+.content .title {
+    width: 100%;
+    height: 87rpx;
+    line-height: 50rpx;
+    font-weight: bold;
+    padding: 0 31rpx 0 36rpx;
+    box-sizing: border-box;
+    margin-top: 33rpx;
+    font-size: 36rpx;
+    color: #333;
+}
+
+.userInfo {
+    width: 100%;
+    height: 64rpx;
+    padding: 0 34rpx;
+    margin-top: 58rpx;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.userInfo .user {
+    height: 100%;
+    width: auto;
+}
+
+.userInfo .img {
+    width: 64rpx;
+    height: 64rpx;
+    border-radius: 50%;
+    margin-right: 18rpx;
+}
+
+.user .text {
+    height: 100%;
+    text-align: center;
+    font-size: 28rpx;
+    font-weight: bold;
+    color: rgba(74, 186, 188, 1);
+    line-height: 64rpx;
+}
+
+.userInfo .more {
+    width: 32rpx;
+    height: 7rpx;
+    position: absolute;
+    right: 70rpx;
+    top: 10rpx;
+}
+
+.userInfo .more image {
+    width: 100%;
+    height: 100%;
 }
 
 .topic {
@@ -267,6 +320,83 @@ page {
     align-items: center;
 }
 
+.article {
+    width: 100%;
+    height: auto;
+    line-height: 60rpx;
+    font-size: 31rpx;
+    font-weight: 400;
+    color: rgba(51, 51, 51, 1);
+    padding-left: 40rpx;
+    box-sizing: border-box;
+    word-break: keep-all;
+    word-wrap: break-word;
+}
+
+.txt {
+    width: 100%;
+    height: auto;
+    display: inline-block;
+    margin-top: -50rpx;
+}
+
+.bottom {
+    width: 100%;
+    height: 31rpx;
+    line-height: 31rpx;
+    margin-top: 30rpx;
+    padding: 0 40rpx;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bottom .left,
+.bottom .right {
+    height: 100%;
+    width: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bottom .block {
+    width: 28rpx;
+    height: 28rpx;
+    margin-right: 16rpx;
+}
+
+.bottom .time,
+.right .text {
+    font-size: 26rpx;
+    color: #666;
+}
+
+.right .star,
+.right .msg {
+    margin-right: 38rpx;
+}
+
+.right .star,
+.right .msg,
+.right .replys {
+    width: auto;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.right .stars,
+.right .msgs {
+    margin-right: 12rpx;
+}
+
+.right .stars,
+.right .msgs,
+.right .rep {
+    width: 31rpx;
+    height: 31rpx;
+}
+
 
 /*覆盖微信默认样式*/
 
@@ -286,13 +416,10 @@ page {
 .reply {
     width: 100%;
     height: 90rpx;
-    position: absolute;
     background-color: #fff;
     border-top: 2rpx solid #F4F5F9;
     padding: 15rpx 114rpx 15rpx 100rpx;
     box-sizing: border-box;
-    left: 0;
-    bottom: 0;
 }
 
 .reply .img {

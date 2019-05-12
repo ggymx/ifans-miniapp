@@ -1,0 +1,213 @@
+<!-- pages/index/index.wxml -->
+<wxs module="con" src="../wxs/converter.wxs"></wxs>
+<navbar back text="话题社区" class="navbar-index"></navbar>
+<view class="underlying">
+
+    <view class="container" style="margin-top:20rpx;">
+        <view class="first">
+            <view class="user">
+                <image class="info fl"></image>
+                <view class="name fl">二次元盟主</view>
+                <text class="text fl">发布了话题</text>
+                <view class="more fr">
+                    <image class="pot" src="../imgs/img/more1.png"></image>
+                </view>
+            </view>
+            <view class="title">
+                #整蛊大行动#
+            </view>
+            <view class="content">
+                内容内容内容你人呢人呢人呢人呢 内容内容内容你人呢人呢人呢人呢 内容内容内容你人呢人呢人呢人呢 内容内容内容你人呢人呢人呢人呢 内容内容内容你人呢人呢人呢人呢
+            </view>
+            <view class="imgBox">
+                <image class="one" src=""></image>
+            </view>
+            <view class="bot">
+                <view class="left">
+                    <image class="block" src="../imgs/time.png"></image>
+                    <view class="time">3小时前</view>
+                </view>
+                <view class="right">
+                    <view class="star">
+                        <image class="stars" src="../imgs/img/star.png"></image>
+                        <view class="text">00</view>
+                    </view>
+                    <view class="msg">
+                        <image class="msgs" src="../imgs/img/message.png"></image>
+                        <view class="text">00</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+
+    </view>
+
+
+    <view class="container" style="margin-top:20rpx;">
+        <view class="first second">
+            <view class="user">
+                <image class="info fl"></image>
+                <view class="name fl">二次元盟主</view>
+                <text class="text fl">发布了话题</text>
+                <view class="more fr">
+                    <image class="pot" src="../imgs/img/more1.png"></image>
+                </view>
+            </view>
+            <view class="title">
+                #整蛊大行动#
+            </view>
+            <view class="content">
+                内容内容内容你人呢人呢人呢人呢 内容内容内容你人呢人呢人呢人呢 内容内容内容你人呢人呢人呢人呢 内容内容内容你人呢人呢人呢人呢 内容内容内容你人呢人呢人呢人呢
+            </view>
+            <view class="imgBox">
+                <image class="one fl" src=""></image>
+                <image class="two fl" src=""></image>
+            </view>
+            <view class="bot">
+                <view class="left">
+                    <image class="block" src="../imgs/time.png"></image>
+                    <view class="time">3小时前</view>
+                </view>
+                <view class="right">
+                    <view class="star">
+                        <image class="stars" src="../imgs/img/star.png"></image>
+                        <view class="text"></view>
+                    </view>
+                    <view class="msg">
+                        <image class="msgs" src="../imgs/img/message.png"></image>
+                        <view class="text"></view>
+                    </view>
+                </view>
+            </view>
+        </view>
+
+    </view>
+
+    <view class="container" style="margin-top:20rpx;">
+        <view class="first third">
+            <view class="user">
+                <image class="info fl"></image>
+                <view class="name fl">二次元盟主</view>
+                <text class="text fl">发布了话题</text>
+                <view class="more fr">
+                    <image class="pot" src="../imgs/img/more1.png"></image>
+                </view>
+            </view>
+            <view class="title">
+                #整蛊大行动#
+            </view>
+            <view class="content">
+                内容内容内容你人呢人呢人呢人呢 内容内容内容你人呢人呢人呢人呢 内容内容内容你人呢人呢人呢人呢 内容内容内容你人呢人呢人呢人呢 内容内容内容你人呢人呢人呢人呢
+            </view>
+            <view class="imgBox">
+                <image class="one fl" src=""></image>
+                <image class="two fl" src=""></image>
+                <image class="two fl" src=""></image>
+            </view>
+            <view class="bot">
+                <view class="left">
+                    <image class="block" src="../imgs/time.png"></image>
+                    <view class="time">3小时前</view>
+                </view>
+                <view class="right">
+                    <view class="star">
+                        <image class="stars" src="../imgs/img/star.png"></image>
+                        <view class="text"></view>
+                    </view>
+                    <view class="msg">
+                        <image class="msgs" src="../imgs/img/message.png"></image>
+                        <view class="text"></view>
+                    </view>
+                </view>
+            </view>
+        </view>
+
+
+    </view>
+    <view class="container" style="margin-top:20rpx;">
+        <view class="first sex">
+            <view class="user">
+                <image class="info fl"></image>
+                <view class="name fl">二次元盟主</view>
+                <text class="text fl">发布了话题</text>
+                <view class="more fr">
+                    <image class="pot" src="../imgs/img/more1.png"></image>
+                </view>
+            </view>
+            <view class="title">
+                #整蛊大行动#
+            </view>
+            <view class="content">
+                内容内容内容你人呢人呢人呢人呢 内容内容内容你人呢人呢人呢人呢 内容内容内容你人呢人呢人呢人呢 内容内容内容你人呢人呢人呢人呢 内容内容内容你人呢人呢人呢人呢
+            </view>
+            <view class="imgBox">
+                <view class="top">
+                    <image class="one fl" src=""></image>
+                    <image class="two fl" src=""></image>
+                    <image class="two fl" src=""></image>
+                </view>
+                <view class="bott">
+                    <image class="two fl" src=""></image>
+                    <image class="two fl" src=""></image>
+                    <image class="two fl" src=""></image>
+                </view>
+
+            </view>
+
+            <view class="bot">
+                <view class="left">
+                    <image class="block" src="../imgs/time.png"></image>
+                    <view class="time">3小时前</view>
+                </view>
+                <view class="right">
+                    <view class="star">
+                        <image class="stars" src="../imgs/img/star.png"></image>
+                        <view class="text"></view>
+                    </view>
+                    <view class="msg">
+                        <image class="msgs" src="../imgs/img/message.png"></image>
+                        <view class="text"></view>
+                    </view>
+                </view>
+            </view>
+        </view>
+
+    </view>
+
+    <view class="container" style="margin-top:20rpx;">
+        <view class="first last">
+            <view class="user">
+                <image class="info fl"></image>
+                <view class="name fl">二次元盟主</view>
+                <text class="text fl">发布了话题</text>
+                <view class="more fr">
+                    <image class="pot" src="../imgs/img/more1.png"></image>
+                </view>
+            </view>
+            <view class="title">
+                #整蛊大行动#
+            </view>
+            <view class="content">
+                内容内容内容你人呢人呢人呢人呢 内容内容内容你人呢人呢人呢人呢 内容内容内容你人呢人呢人呢人呢 内容内容内容你人呢人呢人呢人呢 内容内容内容你人呢人呢人呢人呢
+            </view>
+
+            <view class="bot">
+                <view class="left">
+                    <image class="block" src="../imgs/time.png"></image>
+                    <view class="time">3小时前</view>
+                </view>
+                <view class="right">
+                    <view class="star">
+                        <image class="stars" src="../imgs/img/star.png"></image>
+                        <view class="text"></view>
+                    </view>
+                    <view class="msg">
+                        <image class="msgs" src="../imgs/img/message.png"></image>
+                        <view class="text"></view>
+                    </view>
+                </view>
+            </view>
+        </view>
+
+    </view>
+</view>

@@ -1,25 +1,36 @@
 /**app.wxss**/
-.underlying{
-  height:auto;
-  width:100%;
-  background-color:rgb(245, 245, 245);
-  top:128rpx;
-  position:absolute;
+
+.underlying {
+    height: auto;
+    width: 100%;
+    background-color: rgb(245, 245, 245);
+    top: 128rpx;
+    position: absolute;
 }
+
+
 /*居中容器*/
+
 .container {
-  height:auto;
-  width:702rpx;
-  margin-left:auto;
-  margin-right: auto;
-} 
-page{
-  font-size: 30rpx;
-  Font-family:"Roboto","Noto Sans","San Francisco","PingFang","Microsof";
+    height: auto;
+    width: 702rpx;
+    margin-left: auto;
+    margin-right: auto;
 }
+
+page {
+    font-size: 30rpx;
+    Font-family: "Roboto", "Noto Sans", "San Francisco", "PingFang", "Microsof";
+}
+
 .fl {
-  float: left;
+    float: left;
 }
+
 .fr {
-  float: right;
+    float: right;
+}
+
+button::after {
+    border: none;
 }
