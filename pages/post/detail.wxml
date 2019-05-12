@@ -16,7 +16,7 @@
                 <text slot="like">{{con.numCon(comment.post.likeCount)}}</text>
             </listing>
         </view>
-    </view> -->
+    </view>   -->
 
     <view class="content">
         <view class="title">
@@ -24,7 +24,7 @@
         </view>
         <view class="userInfo">
             <view class="user">
-                <image class="img fl" src="" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
+                <image class="img fl" src="{{comment.post.user.avatar}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
 
                 </image>
                 <view class="text fl" selectable="false" space="false" decode="false">
