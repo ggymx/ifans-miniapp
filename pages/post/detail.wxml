@@ -3,10 +3,10 @@
 <navbar back text="文章详情"></navbar>
 <!-- comment -->
 <view class="body">
-    <view class="opreate-underlying" style="border-style:none">
+  <!-- <view class="opreate-underlying" style="border-style:none">
         <view class="container">
-            <!-- <postCard arrowBtn clock final showTitle like post="{{comment.post}}" isLike="{{comment.post.isLike}}" style="border-width:1rpx" /> -->
-            <listing arrowBtn clock final showTitle like post="{{comment.post}}" isLike="{{comment.post.isLike}}" style="border-width:1rpx">
+            <postCard arrowBtn clock final showTitle like post="{{comment.post}}" isLike="{{comment.post.isLike}}" style="border-width:1rpx" /> -->
+  <!-- <listing arrowBtn clock final showTitle like post="{{comment.post}}" isLike="{{comment.post.isLike}}" style="border-width:1rpx">
                 <text slot="user" class="item-name">{{comment.post.user.nickname}}</text>
                 <text slot="title" class="item-title" catch:tap="bindViewTopic" data-tid="{{topic.post.id}}">
           #{{comment.post.refPost.title}}#
@@ -16,38 +16,68 @@
                 <text slot="like">{{con.numCon(comment.post.likeCount)}}</text>
             </listing>
         </view>
-    </view>
-
-
-    <view>
-        <view class="opreate-underlying op">
-            <view class="container">
-                <block>
-                    <block wx:for="{{comments}}">
-                        <commentCard comment="{{item}}" />
-                    </block>
-                </block>
-            </view>
+    </view> -->
+  <view class="content">
+    <view class="title">{{data.post.refPost.title}}</view>
+    <view class="userInfo">
+      <view class="user">
+        <image class="img fl" src="{{data.post.user.avatar}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
+        <view class="text fl" selectable="false" space="false" decode="false">
+          {{data.post.user.nickname}}
         </view>
+      </view>
+      <view class="more fr">
+        <image class="" src="../../imgs/img/more1.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
+      </view>
     </view>
-
-    <view class="noMore">
-        没有更多了
+    <view class="article">
+      <text class="txt" selectable="false" space="false" decode="false">{{data.post.text}}</text>
     </view>
-    <view class="reply" style="position:fixed;bottom:0" isCreateAnserPage="{{isCreateAnserPage}}">
-        <view class="img">
-            <image class="" src="../../imgs/img/small.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
-            </image>
+    <view class="bottom">
+      <view class="left">
+        <image class="block" src="../../imgs/time.png" mode="aspectFit|aspectFill|widthFix"></image>
+        <view class="time">{{con.dateCon(data.post.createAt)}}</view>
+      </view>
+      <view class="right">
+        <view class="star">
+          <image class="stars" src="{{data.post.isLike && '../../imgs/button-like-dj@2x.png' || '../../imgs/home-button-like@2x.png' }}"  mode="aspectFit|aspectFill|widthFix" catch:tap="giveLike" ></image>
+          <view class="text">{{data.post.likeCount ||''}}</view>
         </view>
-        <input class="content" type="text" placeholder="写点评论吧" bindinput='inputValue' bindconfirm="commentEditor" value="{{commentValue}}" />
-        <button class="btn" type="button" bind:tap="bindComment" data-tid="{{comment.post.id}}">发送</button>
+        <view class="msg">
+          <image class="msgs" src="../../imgs/img/message.png" mode="aspectFit|aspectFill|widthFix"></image>
+          <view class="text">{{data.post.commentCount||'' }}</view>
+        </view>
+        <view class="replys">
+          <image class="rep" src="../../imgs/img/share.png" mode="aspectFit|aspectFill|widthFix"></image>
+        </view>
+      </view>
     </view>
-
+  </view>
 </view>
-
+<view>
+  <view class="opreate-underlying op">
+    <view class="container">
+      <block>
+        <block wx:for="{{comments}}">
+          <commentCard comment="{{item}}" />
+        </block>
+      </block>
+    </view>
+  </view>
+</view>
+<view class="noMore">没有更多了</view>
+<view class="reply" style="position:fixed;bottom:0" isCreateAnserPage="{{isCreateAnserPage}}">
+  <view class="img">
+    <image class="" src="../../imgs/img/small.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
+  </view>
+  <input class="content" type="text" placeholder="写点评论吧" bindinput='inputValue' bindconfirm="commentEditor" value="{{commentValue}}" />
+  <button class="btn" type="button" bind:tap="bindComment" data-tid="{{comment.post.id}}">
+    发送
+  </button>
+</view>
 <!-- <view class="opreate-underlying" isCreateAnserPage="{{isCreateAnserPage}}" style="position:fixed;bottom:0;margin-bottom:0;background-color:#FFF">
     <view class="container1">
-      <input type="text" value="" bindinput='inputValue' bindconfirm="commentEditor" value="{{commentValue}}"></input>
-      <button bind:tap="bindComment" data-tid="{{comment.post.id}}">点我</button>
+        <input type="text" value="" bindinput='inputValue' bindconfirm="commentEditor" value="{{commentValue}}"></input>
+        <button bind:tap="bindComment" data-tid="{{comment.post.id}}">点我</button>
     </view>
-  </view> -->
+</view> -->

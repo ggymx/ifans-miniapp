@@ -1,75 +1,29 @@
-<wxs module="converter" src="../../wxs/converter.wxs"></wxs>
+<wxs module="converter" src="../.././wxs/converter.wxs"></wxs>
+>
 <wxs module="ani" src="../../wxs/animation.wxs"></wxs>
 <navbar back text="消息"></navbar>
 <view class="underlying" style="background:#FFF">
-
-      <view class="container" style="height:1200rpx;padding-top:10rpx;">
-         <!--消息列表-->
-         <block wx:for="{{res}}">
-         <view class="item">
-               <view style="width:auto;display:flex">
-
-               <view style="height:100%;width:auto;">
-                     <image class="avatar" src="https://picsum.photos/200/300"/>
-               </view>
-
-               <view class="itemRight">
-                  <!--关于作品：投稿/话题-->
-                  <block wx:if="{{item.type===1}}">
-                    <!--点赞-->
-                   <block wx:if="{{item.ttype===1}}">
-                   <view style="height:auto;padding:0;margin-top:26rpx;"><!--
-                      --><text class="username">{{item.user.nickname}}</text><!--      
-                   --><text>等{{item.like}}人赞了你的作品</text>
-                   </view><!--
-                   --><text class="title" style="margin-bottom:0;">#{{item.post.title}}#</text>
-                   </block>
-                   <!--回复-->
-                   <block wx:if="{{item.ttype===2}}">
-                  <view style="height:auto;padding:0;margin-top:26rpx;"><!--
-                      --><text class="username">{{item.user.nickname}}</text><!--      
-                   --><text>评论了你的作品</text>
-                   </view><!--
-                   --><text class="title">#{{item.post.title}}#</text>
-                  <text class="comment">{{item.comment}}</text>  
-                   </block>
-                   <!--参与-->
-                    <block wx:if="{{item.ttype===4}}">
-                  <view style="height:auto;padding:0;margin-top:26rpx;"><!--
-                      --><text class="username">{{item.user.nickname}}</text><!--      
-                   --><text>参与了你的话题</text>
-                   </view><!--
-                   --><text class="title">#{{item.post.title}}#</text>
-                  <text class="comment">{{item.attend}}</text>  
-                   </block>
-                  </block>
-                  <!--关于评论-->
-                  <block wx:if="{{item.type===2}}">
-                       <!--点赞-->
-                       <block wx:if="{{item.ttype===1}}">
-                           <view style="height:auto;padding:0;margin-top:26rpx;"><!--
-                      --><text class="username">{{item.user.nickname}}</text><!--      
-                       --><text>等{{item.like}}人赞了你的评论</text>
-                      </view><!--
-                    --><text class="comment" style="font-weight:400;margin-top:16rpx;">{{item.post.text}}</text>
-                       </block>
-                       <!--回复-->
-                       <block wx:if="{{item.ttype===3}}">
-                                <view style="height:auto;padding:0;margin-top:26rpx;"><!--
-                      --><text class="username">{{item.user.nickname}}</text><!--      
-                       --><text>回复了你的评论</text>
-                      </view><!--
-                      --><text class="comment" style="margin-top:16rpx">{{item.replay}}</text>
-                       </block>
-                  </block>
-              </view>
-                  
-               </view>
-
-               <view style="width:auto;display:flex"><!--
-                  --><text class="date">{{item.date}}</text>
-               </view>
-         </view>
-         </block>
+  <view class="container" style="height:1200rpx;padding-top:10rpx;">
+    <!-- 消息列表 -->
+    <block wx:for="{{notices}}">
+      <view class="item" bind:tap="redirectDetail" data-notice-tid="{{item.tid}}">
+        <view style="width:auto;display:flex">
+          <view style="height:100%;width:auto;">
+            <image class="avatar" src="{{item.avatar}}" />
+          </view>
+          <view class="itemRight">
+            <view style="height:auto;padding:0;margin-top:26rpx;">
+              <text class="username">{{item.nickname}}</text>
+              <text>{{item.noticeMessage}}</text>
+            </view>
+            <text class="title" style="margin-bottom:0;">#{{item.title}}#</text>
+            <text class="comment">{{item.text}}</text>
+          </view>
+        </view>
+        <view style="width:auto;display:flex">
+          <text class="date">{{converter.dateCon(item.createAt)}}</text>
+        </view>
       </view>
+    </block>
+  </view>
 </view>

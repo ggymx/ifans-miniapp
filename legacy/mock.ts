@@ -44,7 +44,7 @@ const mocker = {
     return {
       avatar: faker.image.avatar(),
       id: id || faker.random.number(),
-      name: faker.name.findName(),
+      nickname: faker.name.findName(),
       followStatus: 0,
       status: 0
     }

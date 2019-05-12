@@ -32,6 +32,8 @@ Page({
   // 加载
   onLoad() {
     const that = this;
+
+    cursor = 0
     wx.showLoading({
       title: '请稍候'
     });

@@ -2,21 +2,71 @@
 <wxs module="con" src="../../wxs/converter.wxs"></wxs>
 <navbar back text="我的首页"></navbar>
 <view class="underlying">
-  <view class="my-view">
+
+
+
+    <view class="header">
+
+        <view class="userImg">
+            <image class="user" src="{{userData.user.avatar}}"></image>
+        </view>
+        <text class="name" style='font-weight: 400;'>{{userData.user.nickname}}</text>
+    </view>
+
+    <!-- 内容 -->
+    <view class="container" style="margin-top:20rpx;">
+        <view class="first">
+            <view class="user">
+                <image class="info fl"></image>
+                <view class="name fl">二次元盟主</view>
+                <text class="text fl">发布了话题</text>
+                <view class="more fr">
+                    <image class="pot" src="../../imgs/img/more1.png"></image>
+                </view>
+            </view>
+            <view class="title">
+                #整蛊大行动#
+            </view>
+            <view class="content">
+                内容内容内容你人呢人呢人呢人呢 内容内容内容你人呢人呢人呢人呢 内容内容内容你人呢人呢人呢人呢 内容内容内容你人呢人呢人呢人呢 内容内容内容你人呢人呢人呢人呢
+            </view>
+            <view class="imgBox">
+                <image class="one" src=""></image>
+            </view>
+            <view class="bot">
+                <view class="left">
+                    <image class="block" src="../../imgs/time.png"></image>
+                    <view class="time">3小时前</view>
+                </view>
+                <view class="right">
+                    <view class="star">
+                        <image class="stars" src="../../imgs/img/star.png"></image>
+                        <view class="text">00</view>
+                    </view>
+                    <view class="msg">
+                        <image class="msgs" src="../../imgs/img/message.png"></image>
+                        <view class="text">00</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+
+    </view>
+    <!-- <view class="my-view">
     <image src="{{userData.user.avatar}}" class="big-avatar" />
-    <text class="big-name" style='font-weight: 400;'>{{userData.user.nickname}}</text>
+    <text class="big-name" style='font-weight: 400;'>{{userData.user.nickname}}</text> -->
     <!-- <image src="../../imgs/zhuangfa@2x.png" class="share-ico" /> -->
     <!-- <button class="share-btn" open-type="share">
       <image src="../../imgs/zhuangfa@2x.png" class="share-ico" />
     </button> -->
-  </view>
-  <!-- 第一部分 -->
-  <view class="container" bind:tap="test">
-    <block wx:if="{{userData.posts.length!=0}}">
-      <block wx:for="{{userData.posts}}" wx:for-item="partiItem">
-        <postCard card arrowBtn showTitle showIssue post="{{partiItem}}" wx:if="{{partiItem.type==1}}"></postCard>
-        <postCard card arrowBtn showTitle clock like post="{{partiItem}}" wx:elif="{{partiItem.type==2}}"></postCard>
-        <!-- <block wx:if="{{partiItem.type==1}}">
+    <!-- </view>  -->
+    <!-- 第一部分
+    <view class="container" bind:tap="test">
+        <block wx:if="{{userData.posts.length!=0}}">
+            <block wx:for="{{userData.posts}}" wx:for-item="partiItem">
+                <postCard card arrowBtn showTitle showIssue post="{{partiItem}}" wx:if="{{partiItem.type==1}}"></postCard>
+                <postCard card arrowBtn showTitle clock like post="{{partiItem}}" wx:elif="{{partiItem.type==2}}"></postCard>
+                <!-- <block wx:if="{{partiItem.type==1}}">
           <listing card arrowBtn showTitle showIssue finalMy clock post="{{partiItem}}">
             <text slot="user" class="item-name">{{con.nickNameCon(userData.user.nickname)}}</text>
             <text slot="title" class="item-title">{{partiItem.title}}</text>
@@ -34,34 +84,6 @@
             <text slot="like">{{partiItem.likeCount}}</text>
           </listing>
         </block> -->
-      </block>
-    </block>
-    <block wx:else>
-      <view class="no-info">
-        <!-- <text>您的空间空空如也，赶快发布投稿，让更多的人知道你的想法吧~</text> -->
-        <image src="../../imgs/img-quesheng@2x.png" class='queshen' />
-        <text class="topic-info">您暂未参加话题讨论</text>
-        <view class="recommend">
-          <text class="recommend-text">你可能感兴趣的</text>
-          <view class='more-container'>
-            <text class="more-topic">更多话题</text>
-            <image src="../../imgs/button-gd@2x.png" class="more-button" />
-          </view>
-        </view>
-        <view class="recommend-list-container">
-          <block wx:for="{{recommendList}}">
-            <view class="recommend-list" wx:if="{{item.title}}">
-              {{item.title}}
-              <!-- <text class="title" wx:if="{{item.title}}">{{item.title}}</text> -->
-              <!-- <text class="title" wx:if="{{item.title}}">{{item.title}}</text> -->
-            </view>
-          </block>
-        </view>
-        <!-- <button style="font-size:20rpx;" bind:tap="bindViewIndex">
-          <image src="../../imgs/home-Fixedbutton-canyu@2x.png" style="height:24rpx;width:24rpx;margin-bottom:6rpx;" />
-          赶快参与
-        </button> -->
-      </view>
-    </block>
-  </view>
+
+
 </view>
