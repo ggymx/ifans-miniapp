@@ -5,19 +5,16 @@ import { smartGotoPage } from "../../common/helper";
 Component({
 
   properties: {
-    comment: {
-      type: Object,
+    isLike: {
+      type: Boolean,
       value: false
-    }
+    },
   },
 
   data: {
 
   },
 
-  /**
-   * 组件的方法列表
-   */
   methods: {
     /*点赞 */
     async giveCommentLike(event: any) {
