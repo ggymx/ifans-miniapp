@@ -2,12 +2,12 @@ import { IMyApp } from '../app'
 import api from '../common/api';
 import { smartGotoPage } from '../common/helper';
 const app = getApp<IMyApp>()
-let cursor: number = 0;
+const cursor: number = 0;
 
 Page({
   data: {
     isLoginStatus: false,
-    data: null
+    data: null,
   },
 
   async onShow() {
@@ -20,13 +20,43 @@ Page({
       console.log({ data })
       this.setData!({
         isLoginStatus: true,
-        data: data
+        data
       })
 
     }
   },
-  Login() {
+  //点击'我的足迹'按钮，执行跳转，传递当前的userId
+  userFootPrint(options: any) {
+    const token = wx.getStorageSync('token');
+    if (token) {
+       //获取用户Id
+       this.setData!({
+        isLoginStatus: true
+      })
+      const userId = wx.getStorageSync('userId')
+      console.log({ userId })
 
+      wx.navigateTo({
+        url: `./user/footPrint?userId=${userId}`
+      })
+    } else {
+      wx.showToast({ title: '请先登录！' });
+      setTimeout(() => {
+        smartGotoPage({
+          url: './login'
+        });
+      }, 100)
+    }
+
+  },
+
+  //消息通知
+  userNews(){
+    wx.navigateTo({
+      url: `./user/news`
+    })
+  },
+  Login() {
     const token = wx.getStorageSync('token');
     if (token) {
       //获取用户Id

@@ -3,6 +3,7 @@ import { IReply } from './reply'
 import { IUser } from './user'
 import { Comment } from './comment';
 import { AbuseReport } from './abuseReport';
+import { INoticeReply } from './notice_reply';
 
 /**
  * 错误返回
@@ -148,6 +149,7 @@ export interface IUserPostParams {
   title: string
   type: number
   userId: number
+  gallery?: string
 }
 
 /**
@@ -206,6 +208,7 @@ export interface ICreateAnswerParams {
   text: string
   type: number
   userId: number
+  gallery?: string
 }
 
 /**
@@ -424,3 +427,40 @@ export interface IGetMyCommentListResponese {
   comments: Comment[]
 }
 
+
+/**
+ * 用户足迹
+ */
+export interface IGetUserFootPrintParams {
+  cursor?: number
+  limit?: number
+}
+
+export interface IGetUserFootPrintResponese {
+  cursor: number
+  posts: IPost[]
+}
+
+/**
+ * 用户上传图片
+ */
+// tslint:disable-next-line: no-empty-interface
+export interface IUploadParams {
+
+}
+
+export interface IUploadResponese {
+  uptoken: string
+}
+
+
+/**
+ * 获取该用户的所有通知
+ */
+export interface INoticeListParams {
+  cursor?: number
+  limit?: number
+}
+export interface INoticeListResponese {
+  notices: INoticeReply[]
+}

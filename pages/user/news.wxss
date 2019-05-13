@@ -1,0 +1,33 @@
+/* pages/test/test.wxss */
+.text-weight{
+   font-weight:bold;
+   color: red;
+}
+
+.item{
+   height:auto;width:100%;display:flex; justify-content: space-between;border-bottom-style:solid;border-width:2rpx;border-color:rgba(245,245,245,1);padding-bottom:30rpx;
+}
+.avatar{
+   width:68rpx;height:68rpx;border-radius:50%;background-color:gray;margin-top:44rpx;margin-left:6rpx;margin-right:21rpx;
+}
+
+.itemRight{
+   width:auto;height:100%;display:flex;flex-direction:column;
+}
+.username{
+   font-size:28rpx;font-family:PingFang-SC-Medium;font-weight:500;color:rgba(51,51,51,1);margin-right:15rpx;
+}
+
+.username+text{
+   font-size:28rpx;font-family:PingFang-SC-Regular;font-weight:400;color:rgba(102,102,102,1);
+}
+.title{
+   font-size:28rpx;font-family:PingFang-SC-Regular;font-weight:400;color:rgba(9,166,220,1);margin-top:16rpx;margin-bottom:16rpx;
+}
+
+.comment{
+   font-size:28rpx;font-family:PingFang-SC-Medium;font-weight:500;color:rgba(51,51,51,1);
+}
+.date{
+   font-size:24rpx;font-family:PingFang-SC-Medium;font-weight:500;color:rgba(171,171,171,1);margin-top:30rpx;margin-right:13rpx;
+}

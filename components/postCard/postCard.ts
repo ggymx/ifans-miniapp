@@ -102,39 +102,6 @@ Component({
             url:'./post/detail?id=' + id
           })
         }
-
-        // //判断，如果为true
-        // if (instance.properties.showIssue) {
-
-        //   console.table(instance.properties)
-        //   console.log('instance.properties.showIssue', instance.properties.showIssue)
-        //   const id = instance.properties.post.id;
-        //   if (curPage.route === "pages/index") {
-
-        //     smartGotoPage({
-        //       url: "./post/topic-detail?tid=" + id
-        //     });
-        //   } else if (curPage.route === "pages/user/detail") {
-        //     smartGotoPage({ url: "../post/topic-detail?tid=" + id });
-        //   } else {
-        //     smartGotoPage({ url: "./topic-detail?tid=" + id });
-        //   }
-        // } else {
-        //   /*不存在则跳转到文章详情 */
-        //   const cId = instance.properties.post.id;
-        //   const tId = instance.properties.post.refPostId;
-        //   if (curPage.route === "pages/index") {
-        //     smartGotoPage({
-        //       url: "./post/detail?tid=" + tId + "&cid=" + cId
-        //     });
-        //   } else if (curPage.route === "pages/user/detail") {
-        //     smartGotoPage({ url: "../post/detail?tid=" + tId + "&cid=" + cId });
-        //   } else {
-        //     smartGotoPage({
-        //       url: "./detail?tid=" + tId + "&cid=" + cId
-        //     });
-        //   }
-        // }
       }
     },
     finalRouter(event: any) {
