@@ -1,14 +1,30 @@
 import api from "../../common/api";
 import { smartGotoPage } from "../../common/helper";
+import { ETableType } from "../../common/types/notice_reply";
 
 // @ts-ignorets
 Component({
 
   properties: {
+    //是否已经点赞
     isLike: {
       type: Boolean,
       value: false
     },
+    //点赞的类型：1.Post(话题和投稿)=>同一张表 2.Comment评论
+    likeType: {
+      type: ETableType,
+      value: 0
+    },
+    //id: postId 或者是 commentId
+    id: {
+      type: Number,
+      value: 0
+    },
+    likeCount: {
+      type: Number,
+      value: 0
+    }
   },
 
   data: {
@@ -17,7 +33,7 @@ Component({
 
   methods: {
     /*点赞 */
-    async giveCommentLike(event: any) {
+    async giveLike(event: any) {
       //获取token
       const token = wx.getStorageSync("token");
       if (!token) {
@@ -38,18 +54,37 @@ Component({
       } else {
         const instance = this as any;
         if (!instance.properties.isLike) {
-          const res = await api.giveCommentLike({
-            id: instance.data.comment.id
-          });
+          if (instance.properties.likeType === ETableType.Post) {
+            const res = await api.giveLike({
+              id: instance.data.id
+            })
+          }
+          if (instance.properties.likeType === ETableType.Comment) {
+            const res = await api.giveCommentLike({
+              id: instance.data.id
+            })
+          }
+
           instance.setData!({
-            isLike: true
+            isLike: true,
+            likeCount: instance.properties.likeCount + 1
           });
+
         } else {
-          const res = await api.disCommentLike({
-            id: instance.data.comment.id
-          });
+          if (instance.properties.likeType === ETableType.Post) {
+            const res = await api.disLike({
+              id: instance.data.id
+            })
+          }
+          if (instance.properties.likeType === ETableType.Comment) {
+            const res = await api.disCommentLike({
+              id: instance.data.id,
+            });
+          }
+
           instance.setData!({
-            isLike: false
+            isLike: false,
+            likeCount: instance.properties.likeCount - 1
           });
         }
       }
