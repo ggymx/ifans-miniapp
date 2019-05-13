@@ -1,260 +1,325 @@
 /* pages/topic-detail/topic-detail.wxss */
-.underlying,
+
+.underlying {
+    width: 100%;
+    height: auto;
+    margin-top: 2rpx;
+    letter-spacing: 5rpx;
+    background-color: #f4f5f9;
+}
+
+.first {
+    width: 100%;
+    height: auto;
+    padding: 10rpx 40rpx;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+.title {
+    width: 100%;
+    height: 60rpx;
+}
+
+.title1 {
+    font-size: 36rpx;
+    color: #333;
+    font-weight: bold;
+    line-height: 60rpx;
+    letter-spacing: normal;
+}
+
+.title .more {
+    width: 32rpx;
+    height: 100%;
+}
+
+.title .more .pot {
+    width: 100%;
+    height: 7rpx;
+}
+
+.user {
+    width: 100%;
+    height: 63rpx;
+    line-height: 63rpx;
+    font-size: 28rpx;
+    margin-top: 30rpx;
+}
+
+.info {
+    width: 63rpx;
+    height: 63rpx;
+    border-radius: 50%;
+}
+
+.user .name {
+    color: #4ABABC;
+    margin: 0 18rpx;
+    line-height: 63rpx;
+}
+
+.user .text {
+    color: #999;
+    line-height: 45rpx;
+}
+
+.content {
+    width: 100%;
+    height: auto;
+    margin-top: 34rpx;
+    line-height: 50rpx;
+    color: #333;
+    font-size: 30rpx;
+    font-weight: 500;
+    color: #333;
+}
+
+.imgBox {
+    width: 100%;
+    height: 670rpx;
+    margin-top: 27rpx;
+    background-color: #666666;
+}
+
+.imgBox .one {
+    width: 100%;
+    height: 100%;
+}
+
+.first .bot {
+    width: 100%;
+    height: 31rpx;
+    line-height: 31rpx;
+    margin: 36rpx 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.left .block {
+    width: 31rpx;
+    height: 31rpx;
+    margin-right: 12rpx;
+}
+
+.left .time {
+    font-size: 28rpx;
+    color: #666;
+}
+
+.bot .right,
+.bot .left {
+    height: 100%;
+    width: auto;
+}
+
+.bot .right,
+.bot .left {
+    display: flex;
+    justify-content: space-around;
+}
+
+.star,
+.msg {
+    margin-right: 36rpx;
+}
+
+.stars,
+.msgs {
+    margin-right: 12rpx;
+}
+
+.star .stars {
+    width: 31rpx;
+    height: 25rpx;
+    margin-top: 2rpx;
+}
+
+.msg .msgs {
+    width: 31rpx;
+    height: 31rpx;
+}
+
+.share .shares {
+    width: 28rpx;
+    height: 28rpx;
+}
+
+.moreTop {
+    width: 100%;
+    height: 74rpx;
+    line-height: 74rpx;
+    padding: 0 40rpx;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    font-size: 28rpx;
+    font-weight: 500;
+    background-color: #f4f5f9;
+}
+
+.moreTop .right-r {
+    width: 155rpx;
+    height: auto;
+    position: relative;
+}
+
+.moreTop .right-r .txt {
+    margin-right: 15rpx;
+    color: #09A6DC;
+}
+
+.moreTop .txt {
+    width: auto;
+    color: #666;
+}
+
+.moreTop .txt,
+.moreTop .right-r {
+    height: 100%;
+    line-height: 74rpx;
+}
+
+.moreTop .right-r .row {
+    width: 10rpx;
+    height: 18rpx;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-top: -6rpx;
+}
+
 .container {
-  background-color: #fff;
-}
-.publisher-contant {
-  font-weight: 300;
-  padding: 0 auto;
-  white-space: pre-line;
-  display: -webkit-box;
-  word-break: break-all;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 17;
-}
-.topic {
-  width: 100%;
-  height: auto;
-  /* background-color: pink; */
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    width: 100%;
 }
 
-.topic-title {
-  /* background-color: green; */
-  font-size: 28rpx;
-  margin-top: -20rpx;
+.first.second {
+    padding: 10rpx 30rpx;
 }
 
-/* .topic-context {
-  font-size:30rpx;
-  line-height: 48rpx;
-  margin-bottom: 36rpx;
-
-} */
-
-.topic-title,
-.topic-context {
-  width: 670rpx;
+.first.second .content {
+    font-weight: 400;
+    font-size: 28rpx;
+    line-height: 60rpx;
+    width: 100%;
 }
 
-.opreate-view {
-  width: 100%;
-  /* height: auto; */
-  height: 72rpx;
-  /* background-color: yellow; */
-  display: flex;
-  align-items: center;
+.first.second .user {
+    width: 100%;
 }
 
-.opreate-item {
-  height: 40rpx;
-  width: 260rpx;
-  border-left-style: solid;
-  border-width: 2rpx;
-  border-color: rgb(234, 234, 234);
-  /* position: relative; */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.first.second .imgBox {
+    width: 100%;
+    height: 343rpx;
 }
 
-/**/
-.publisher-item {
-  width: 702rpx;
-  height: auto;
-  /* background-color: green; */
-  border-bottom-style: solid;
-  border-width: 4rpx;
-  border-color: rgb(250, 250, 250);
-  position: relative;
+.first.second .imgBox image {
+    width: 343rpx;
+    height: 343rpx;
 }
 
-.opreate-underlying {
-  width: 100%;
-  height: auto;
-  margin-bottom: 20rpx;
-  border-top-style: solid;
-  border-bottom-style: solid;
-  border-width: 4rpx;
-  border-color: rgb(250, 250, 250);
+.first.second .imgBox .one {
+    margin-right: 2rpx;
 }
 
-.op {
-  margin-top: -20rpx;
+.bot .text,
+.bot .time {
+    font-size: 26rpx;
+    color: rgba(102, 102, 102, 1);
 }
 
-.avatar {
-  height: 60rpx;
-  width: 60rpx;
-  border-radius: 50%;
-  background-color: gray;
-  position: absolute;
-  top: 20rpx;
-  left: 26rpx;
+.first.second .msg {
+    margin-right: 0;
 }
 
-.username {
-  font-size: 28rpx;
-  color: rgb(51, 51, 51);
-  position: absolute;
-  top: 34rpx;
-  left: 102rpx;
+.bot .right {
+    display: flex;
+    justify-content: space-between;
 }
 
-/*右侧箭头按钮*/
-.arrow-btn {
-  width: 32rpx;
-  height: 6rpx;
-  position: absolute;
-  top: 44rpx;
-  right: 44rpx;
+.reply {
+    width: 100%;
+    height: 180rpx;
+    display: flex;
+    margin-top: 2rpx;
+    padding: 28rpx 30rpx;
+    background-color: #fff;
+    box-sizing: border-box;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
-.publisher-topic {
-  height: auto;
-  width: 100%;
-  background: #fff;
-  font-size: 30rpx;
-  color: rgb(153, 153, 153);
-  margin-bottom: 26rpx;
+.reply .con {
+    width: 100%;
+    height: 50rpx;
+    line-height: 50rpx;
 }
 
-.publisher-context {
-  height: auto;
-  font-size: 30rpx;
-  color: rgb(51, 51, 51);
-  line-height: 48rpx;
-  padding-left: 26rpx;
-  padding-right: 26rpx;
-  overflow: hidden;
-  margin-bottom: 24rpx;
+.reply .name {
+    margin-right: 4rpx;
+    color: #4ABABC;
 }
 
-.publisher-status {
-  height: 80rpx;
-  width: 100%;
-  /* background:pink; */
-  position: relative;
+
+/* 三张样式 */
+
+.first.third .imgBox {
+    width: 646rpx;
+    height: 214rpx;
 }
 
-.clock-icon {
-  width: 28rpx;
-  height: 28rpx;
-  position: absolute;
-  left: 26rpx;
-  top: 10rpx;
+.first.third .imgBox image {
+    width: 214rpx;
+    height: 100%;
+    margin-right: 2rpx;
+    background-color: #999;
 }
 
-.publisher-date {
-  position: absolute;
-  font-size: 24rpx;
-  color: rgb(102, 102, 102);
-  left: 68rpx;
-  top: 8rpx;
+.first.third .imgBox image:last-child {
+    margin-right: 0;
 }
 
-.heart-icon {
-  width: 26rpx;
-  height: 22rpx;
-  position: absolute;
-  right: 86rpx;
-  top: 8rpx;
+.first.sex .imgBox {
+    width: 646rpx;
+    height: 430rpx;
 }
 
-.heart-view {
-  position: absolute;
-  right: 46rpx;
-  font-size: 26rpx;
-  color: rgb(102, 102, 102);
-  height: 30rpx;
-  width: auto;
-  top: 8rpx;
+.first.sex .imgBox .top,
+.first.sex .imgBox .bott {
+    display: flex;
+    justify-content: space-between;
 }
 
-.publisher-person {
-  height: 100rpx;
-  width: 100%;
-  /* background:pink; */
+.first.sex.top,
+.first.sex.bott {
+    width: 100%;
+    height: 214rpx;
 }
 
-.topic-context {
-  /* background-color: red; */
-
-  /* margin-top: 30rpx; */
-
-  margin-bottom: 30rpx;
-  /* text-align: center; */
-  color: rgb(51, 51, 51);
-  font-family: "Roboto", "Noto Sans", "San Francisco", "PingFang", "Microsof";
-  font-size: 30rpx;
-  letter-spacing: 3rpx;
-  line-height: 56rpx;
-  font-weight: 400;
-  /* white-space: pre-line; */
-  display: -webkit-box;
-  word-break: break-all;
-  text-overflow: ellipsis;
-  padding-left: 20rpx;
-  padding-right: 10rpx;
-  overflow: hidden;
-  -webkit-box-orient: vertical;
-  /* -webkit-line-clamp: 15;   */
+.first.sex .imgBox image {
+    width: 214rpx;
+    height: 214rpx;
+    margin-right: 2rpx;
+    background-color: #999;
 }
 
-/* 修改 */
-.item-name {
-  font-size: 28rpx;
-  font-weight: bold;
-  width: 500rpx;
-  color: rgb(51, 51, 51);
-}
-.item-title {
-  font-weight: 500;
-}
-.item-context {
-  font-weight: 300;
-  white-space: pre-line;
-  display: -webkit-box;
-  word-break: break-all;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  -webkit-box-orient: vertical;
-  /* -webkit-line-clamp: 15;  */
+.first.sex .top:last-child {
+    margin-right: 0;
 }
 
-/*内容为空时提示图片*/
-.null-img {
-  width: 293rpx;
-  height: 193rpx;
-  margin: auto;
-  display: block;
-  margin-top: 200rpx;
-  margin-bottom: 60rpx;
+.first.sex .bott {
+    margin-top: 2rpx;
 }
 
-.null-text {
-  display: block;
-  font-size: 26rpx;
-  color: rgb(153, 153, 153);
-  text-align: center;
+.first.sex .bott:last-child {
+    margin-right: 0;
 }
-.operate-btn {
-  width: 200rpx;
-  height: 40rpx;
-  background-color: #fff;
-  color: rgb(102, 102, 102);
-  font-size: 24rpx;
-  padding: 0px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+.first.last {
+    margin-bottom: 114rpx;
 }
-/*覆盖微信默认样式*/
-.operate-btn:after {
-  border-style: none;
+
+.more3 {
+    display: inline-block;
+    color: #09A6DC;
 }
