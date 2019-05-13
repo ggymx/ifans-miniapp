@@ -191,12 +191,12 @@
             </view>
         </view>
     </view> -->
-    <view class="opreate-underlying op" wx:if="{{postArr.length>0}}">
+    <!-- <view class="opreate-underlying op" wx:if="{{postArr.length>0}}">
         <view class="container">
             <block>
                 <block wx:for="{{postArr}}">
-                    <postCard addClass="item-card" arrowBtn clock like post="{{item}}" isLike="{{item.isLike}}" />
-                    <!-- <listing addClass="item-card" arr`owBtn clock like post="{{item}}" isLike="{{item.isLike}}">
+                    <postCard addClass="item-card" arrowBtn clock like post="{{item}}" isLike="{{item.isLike}}" /> -->
+    <!-- <listing addClass="item-card" arr`owBtn clock like post="{{item}}" isLike="{{item.isLike}}">
             <text slot="user" class="item-name">{{item.user.nickname}}</text>
             <text slot="title" class="item-title">{{item.title}}</text>
             <view slot="context" class="item-context">
@@ -208,9 +208,50 @@
             <text slot="date">{{con.dateCon(item.createAt)}}</text>
             <text slot="like">{{con.numCon(item.likeCount)}}</text>
           </listing> -->
-                </block>
+    <!-- </block>
             </block>
         </view>
+    </view> -->
+
+
+    <!-- 发布按钮 -->
+    <view class="fixbtn">
+        <button type="button" class="btn back">返回修改</button>
+        <button type="button" class="btn sure">确认发布</button>
+    </view>
+
+
+    <view class="mask">
+
+    </view>
+    <!-- 发布分享页 -->
+    <view class="share2">
+        <view class="false">
+            <image class="fs" src="../../imgs/img/fs.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
+
+            </image>
+        </view>
+        <view class="top">
+
+            <image class="ok" src="../../imgs/img/ok.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
+
+            </image>
+            <text class="txt">发布成功</text>
+
+
+        </view>
+        <view class="mid">
+            <image class="pic" src="../../imgs/meinv.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
+
+            </image>
+            <text class="txt">恭喜你成功发布一个话题</text>
+            <text class="txt">快去和朋友们一起展开讨论吧!</text>
+        </view>
+        <button type="button" value="分享">
+          <image class="btnimg" src="../../imgs/img/sharebtn.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
+          </image>
+          <text class="txt" selectable="false" space="false" decode="false">分享</text>
+        </button>
     </view>
     <!-- <view wx:else>
         <view class="container">
@@ -218,4 +259,5 @@
             <text class="null-text">评论区空空去也，客官赏脸给个评论吧~</text>
         </view>
     </view> -->
+
 </view>
