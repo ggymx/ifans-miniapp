@@ -1,0 +1,44 @@
+<!-- pages/topic-detail/topic-detail.wxml -->
+<wxs module="con" src="../../wxs/converter.wxs"></wxs>
+<navbar back text="确认话题"></navbar>
+<view class="underlying">
+    <view class="first">
+        <view class="title">
+            <text class="title1 fl">#{{post.title}}#</text>
+            <view class="more fr">
+                <image class="pot" src="../../imgs/img/more1.png"></image>
+            </view>
+        </view>
+        <view class="user">
+            <image class="info fl" src="{{post.user.avatar}}"></image>
+            <view class="name fl">{{post.user.nickname}}</view>
+        </view>
+        <view class="content">{{post.text}}</view>
+        <view class="imgBox">
+            <image class="one" src="{{post.gallery}}"></image>
+        </view>
+        <view class="bot">
+            <view class="left">
+                <image class="block" src="../../imgs/time.png"></image>
+                <view class="time">{{con.dateCon(post.createAt)}}</view>
+            </view>
+            <view class="right">
+                <view class="star">
+                    <image class="stars" src="../../imgs/img/stars.png"></image>
+                </view>
+                <view class="msg">
+                    <image class="msgs" src="../../imgs/img/message.png"></image>
+                    {{post.attendCount ||''}}
+                </view>
+                <view class="share">
+                    <image class="shares" src="../../imgs/img/share.png"></image>
+                </view>
+            </view>
+        </view>
+        <!-- 发布按钮 -->
+        <view class="fixbtn">
+            <button type="button" class="btn back" bind:tap="backToCreate">返回修改</button>
+            <button type="button" class="btn sure" bind:tap="confirmPublish">确认发布</button>
+        </view>
+    </view>
+</view>

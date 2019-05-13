@@ -1,0 +1,466 @@
+/* pages/topic-detail/topic-detail.wxss */
+
+.underlying {
+    width: 100%;
+    height: auto;
+    margin-top: 2rpx;
+    letter-spacing: 5rpx;
+    padding-bottom: 130rpx;
+    background-color: #f4f5f9;
+}
+
+.first {
+    width: 100%;
+    height: auto;
+    padding: 10rpx 40rpx;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+.title {
+    width: 100%;
+    height: 60rpx;
+}
+
+.title1 {
+    font-size: 36rpx;
+    color: #333;
+    font-weight: bold;
+    line-height: 60rpx;
+    letter-spacing: normal;
+}
+
+.title .more {
+    width: 32rpx;
+    height: 100%;
+}
+
+.title .more .pot {
+    width: 100%;
+    height: 7rpx;
+}
+
+.user {
+    width: 100%;
+    height: 63rpx;
+    line-height: 63rpx;
+    font-size: 28rpx;
+    margin-top: 30rpx;
+}
+
+.info {
+    width: 63rpx;
+    height: 63rpx;
+    border-radius: 50%;
+}
+
+.user .name {
+    color: #4ABABC;
+    margin: 0 18rpx;
+    line-height: 63rpx;
+}
+
+.user .text {
+    color: #999;
+    line-height: 45rpx;
+}
+
+.content {
+    width: 100%;
+    height: auto;
+    margin-top: 34rpx;
+    line-height: 50rpx;
+    color: #333;
+    font-size: 30rpx;
+    font-weight: 500;
+    color: #333;
+}
+
+.imgBox {
+    width: 100%;
+    height: 670rpx;
+    margin-top: 27rpx;
+    background-color: #666666;
+}
+
+.imgBox .one {
+    width: 100%;
+    height: 100%;
+}
+
+.first .bot {
+    width: 100%;
+    height: 31rpx;
+    line-height: 31rpx;
+    margin: 36rpx 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.left .block {
+    width: 31rpx;
+    height: 31rpx;
+    margin-right: 12rpx;
+}
+
+.left .time {
+    font-size: 28rpx;
+    color: #666;
+}
+
+.bot .right,
+.bot .left {
+    height: 100%;
+    width: auto;
+}
+
+.bot .right,
+.bot .left {
+    display: flex;
+    justify-content: space-around;
+}
+
+.star,
+.msg {
+    margin-right: 36rpx;
+}
+
+.stars,
+.msgs {
+    margin-right: 12rpx;
+}
+
+.star .stars {
+    width: 31rpx;
+    height: 25rpx;
+    margin-top: 2rpx;
+}
+
+.msg .msgs {
+    width: 31rpx;
+    height: 31rpx;
+}
+
+.share .shares {
+    width: 28rpx;
+    height: 28rpx;
+}
+
+.moreTop {
+    width: 100%;
+    height: 74rpx;
+    line-height: 74rpx;
+    padding: 0 40rpx;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    font-size: 28rpx;
+    font-weight: 500;
+    background-color: #f4f5f9;
+}
+
+.moreTop .right-r {
+    width: 155rpx;
+    height: auto;
+    position: relative;
+}
+
+.moreTop .right-r .txt {
+    margin-right: 15rpx;
+    color: #09A6DC;
+}
+
+.moreTop .txt {
+    width: auto;
+    color: #666;
+}
+
+.moreTop .txt,
+.moreTop .right-r {
+    height: 100%;
+    line-height: 74rpx;
+}
+
+.moreTop .right-r .row {
+    width: 10rpx;
+    height: 18rpx;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-top: -9rpx;
+}
+
+.container {
+    width: 100%;
+}
+
+.first.second {
+    padding: 10rpx 30rpx;
+}
+
+.first.second .content {
+    font-weight: 400;
+    font-size: 28rpx;
+    line-height: 60rpx;
+    width: 100%;
+}
+
+.first.second .user {
+    width: 100%;
+}
+
+.first.second .imgBox {
+    width: 100%;
+    height: 343rpx;
+}
+
+.first.second .imgBox image {
+    width: 343rpx;
+    height: 343rpx;
+}
+
+.first.second .imgBox .one {
+    margin-right: 2rpx;
+}
+
+.bot .text,
+.bot .time {
+    font-size: 26rpx;
+    color: rgba(102, 102, 102, 1);
+}
+
+.first.second .msg {
+    margin-right: 0;
+}
+
+.bot .right {
+    display: flex;
+    justify-content: space-between;
+}
+
+.reply {
+    width: 100%;
+    height: 180rpx;
+    display: flex;
+    margin-top: 2rpx;
+    padding: 28rpx 30rpx;
+    background-color: #fff;
+    box-sizing: border-box;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.reply .con {
+    width: 100%;
+    height: 50rpx;
+    line-height: 50rpx;
+}
+
+.reply .name {
+    margin-right: 4rpx;
+    color: #4ABABC;
+}
+
+
+/* 三张样式 */
+
+.first.third .imgBox {
+    width: 646rpx;
+    height: 214rpx;
+}
+
+.first.third .imgBox image {
+    width: 214rpx;
+    height: 100%;
+    margin-right: 2rpx;
+    background-color: #999;
+}
+
+.first.third .imgBox image:last-child {
+    margin-right: 0;
+}
+
+.first.sex .imgBox {
+    width: 646rpx;
+    height: 430rpx;
+}
+
+.first.sex .imgBox .top,
+.first.sex .imgBox .bott {
+    display: flex;
+    justify-content: space-between;
+}
+
+.first.sex.top,
+.first.sex.bott {
+    width: 100%;
+    height: 214rpx;
+}
+
+.first.sex .imgBox image {
+    width: 214rpx;
+    height: 214rpx;
+    margin-right: 2rpx;
+    background-color: #999;
+}
+
+.first.sex .top:last-child {
+    margin-right: 0;
+}
+
+.first.sex .bott {
+    margin-top: 2rpx;
+}
+
+.first.sex .bott:last-child {
+    margin-right: 0;
+}
+
+.first.last {
+    margin-bottom: 114rpx;
+}
+
+.more3 {
+    display: inline-block;
+    color: #09A6DC;
+}
+
+
+/* 发布按钮 */
+
+.fixbtn {
+    width: 100%;
+    height: 130rpx;
+    padding: 25rpx;
+    position: fixed;
+    bottom: 0;
+    background-color: #fff;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    border-top: 2rpx solid #f4f5f9;
+}
+
+.fixbtn .btn {
+    width: 342rpx;
+    height: 100%;
+    line-height: 80rpx;
+    font-size: 28rpx;
+    text-align: center;
+    border-radius: 12rpx;
+}
+
+.fixbtn .back {
+    color: #333;
+    border: 2rpx solid #4ABABC;
+    box-sizing: border-box;
+}
+
+.fixbtn .sure {
+    color: #fff;
+    background-color: #4ABABC;
+}
+
+
+/* 发布分享层 */
+
+.mask {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.3;
+    position: absolute;
+    top: 0;
+}
+
+.share2 {
+    width: 550rpx;
+    height: 580rpx;
+    position: fixed;
+    background-color: #fff;
+    top: 337rpx;
+    left: 100rpx;
+    z-index: 333;
+}
+
+.false {
+    width: 83rpx;
+    height: 83rpx;
+    padding: 23rpx;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.false .fs {
+    width: 100%;
+    height: 100%;
+}
+
+.share2 .top {
+    width: 164rpx;
+    height: 42rpx;
+    margin: 26rpx auto 0;
+    font-size: 28rpx;
+    color: #333;
+    text-align: center;
+}
+
+.top .ok {
+    width: 42rpx;
+    height: 42rpx;
+    margin-right: 13rpx;
+}
+
+.top .txt {
+    line-height: 42rpx;
+}
+
+.mid {
+    width: 365rpx;
+    height: 428rpx;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.mid .txt {
+    font-size: 26rpx;
+    color: #666;
+    text-align: center;
+    letter-spacing: normal;
+}
+
+.mid .pic {
+    width: 100%;
+    height: 268rpx;
+}
+
+.share2 .top {
+    width: 100%;
+    height: 42rpx;
+    display: flex;
+    justify-content: center;
+}
+
+.share2 button {
+    width: 100%;
+    height: 90rpx;
+    padding: 0;
+}
+
+.share2 button .btnimg {
+    width: 100%;
+    height: 100%;
+}
+
+.share2 button .txt {
+    font-size: 28rpx;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
