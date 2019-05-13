@@ -1,5 +1,5 @@
-import api from "../../common/api";
-import { smartGotoPage } from "../../common/helper";
+import api from '../../common/api';
+import { smartGotoPage } from '../../common/helper';
 
 // @ts-ignorets
 Component({
@@ -8,7 +8,7 @@ Component({
    * card:添加类-只允许添加item-card 卡片样式
    * arrowBtn：是否显示右侧的三点按钮
    * showTopic：是否显示关联的话题
-   * showIssue：是否显示发布文本
+   * showIssue：显示发布了话题字样
    * final:确定是否是最终页面
    * noBorder:是否有边框
    * like：是否显示心形按钮
@@ -112,46 +112,28 @@ Component({
       const curPage = pages[pages.length - 1];
       if (instance.properties.showIssue) {
         const id = instance.properties.post.id;
-        if (curPage.route === "pages/index") {
+        if (curPage.route === 'pages/index') {
           smartGotoPage({
-            url: "./post/topic-detail?tid=" + id
+            url: './post/topic-detail?tid=' + id
           });
-        } else if (curPage.route === "pages/user/detail") {
-          smartGotoPage({ url: "../post/topic-detail?tid=" + id });
+        } else if (curPage.route === 'pages/user/detail') {
+          smartGotoPage({ url: '../post/topic-detail?tid=' + id });
         } else {
-          smartGotoPage({ url: "./topic-detail?tid=" + id });
+          smartGotoPage({ url: './topic-detail?tid=' + id });
         }
       } else {
         /*不存在则跳转到文章详情 单个的投稿 */
         const cId = instance.properties.post.id;
         const tId = instance.properties.post.refPostId;
-        if (curPage.route === "pages/index") {
+        if (curPage.route === 'pages/index') {
           smartGotoPage({
-            url: "./post/detail?tid=" + tId + "&cid=" + cId
+            url: './post/detail?tid=' + tId + '&cid=' + cId
           });
-        } else if (curPage.route === "pages/user/detail") {
-          smartGotoPage({ url: "../post/detail?tid=" + tId + "&cid=" + cId });
+        } else if (curPage.route === 'pages/user/detail') {
+          smartGotoPage({ url: '../post/detail?tid=' + tId + '&cid=' + cId });
         } else {
           smartGotoPage({
-            url: "./detail?tid=" + tId + "&cid=" + cId
-          });
-        }
-      }
-    },
-    bindMy(event: any) {
-      const instance = this as any;
-      if (!instance.properties.finalMy) {
-        //获取当前页面
-        const pages = getCurrentPages();
-        const curPage = pages[pages.length - 1];
-        const userId = instance.properties.post.user.id;
-        if (curPage.route === "pages/index") {
-          smartGotoPage({
-            url: "./user/detail?userId=" + userId
-          });
-        } else {
-          smartGotoPage({
-            url: "../user/detail?userId=" + userId
+            url: './detail?tid=' + tId + '&cid=' + cId
           });
         }
       }
@@ -164,35 +146,35 @@ Component({
       const curPage = pages[pages.length - 1];
       const userId = instance.properties.post.user.id;
       // 判断跳转页面和当前页面一致
-      if (curPage.route === "pages/user/detail") {
+      if (curPage.route === 'pages/user/detail') {
         return
       }
-      if (curPage.route === "pages/index") {
+      if (curPage.route === 'pages/index'||curPage.route==='pages/oldindex') {
         smartGotoPage({
-          url: "./user/detail?userId=" + userId
+          url: './user/detail?userId=' + userId
         });
       } else {
         smartGotoPage({
-          url: "../user/detail?userId=" + userId
+          url: '../user/detail?userId=' + userId
         });
       }
     },
     /*点赞 */
     async giveLike(event: any) {
       //获取token
-      const token = wx.getStorageSync("token");
+      const token = wx.getStorageSync('token');
       if (!token) {
         const pages = getCurrentPages();
         const curPage = pages[pages.length - 1];
-        wx.showToast({ title: "请先登录！" });
+        wx.showToast({ title: '请先登录！' });
         setTimeout(() => {
-          if (curPage.route === "pages/index") {
+          if (curPage.route === 'pages/index') {
             smartGotoPage({
-              url: "./login"
+              url: './login'
             });
           } else {
             smartGotoPage({
-              url: "../login"
+              url: '../login'
             });
           }
         }, 100);
@@ -218,32 +200,32 @@ Component({
 
     popBox() {
       const instance = this as any;
-      const token = wx.getStorageSync("token");
+      const token = wx.getStorageSync('token');
       if (token) {
-        const ownId = wx.getStorageSync("userId");
+        const ownId = wx.getStorageSync('userId');
         const userId = instance.properties.post.user.id;
         const cId = instance.properties.post.id;
         if (ownId === userId) {
           wx.showActionSheet({
-            itemList: ["删除"],
+            itemList: ['删除'],
             success(res) {
               switch (res.tapIndex) {
                 case 0:
                   wx.showModal({
-                    title: "删除投稿",
-                    content: "确定删除这则投稿吗？",
+                    title: '删除投稿',
+                    content: '确定删除这则投稿吗？',
                     success(res) {
                       if (res.confirm) {
                         api.request({
-                          url: "/v1/post/delete",
+                          url: '/v1/post/delete',
                           data: {
                             postId: cId
                           },
-                          method: "POST",
+                          method: 'POST',
                           success(res) {
                             wx.showToast({
-                              title: "删除成功",
-                              success: function () {
+                              title: '删除成功',
+                              success() {
                                 wx.navigateBack({
                                   delta: 1
                                 })
@@ -258,7 +240,7 @@ Component({
                             // });
                           },
                           fail(res) {
-                            wx.showToast({ title: "删除成功" });
+                            wx.showToast({ title: '删除成功' });
                           }
                         });
                       }
@@ -270,26 +252,26 @@ Component({
           });
         } else {
           wx.showActionSheet({
-            itemList: ["举报"],
+            itemList: ['举报'],
             success(res) {
               switch (res.tapIndex) {
                 case 0:
                   wx.showModal({
-                    title: "举报",
-                    content: "确定举报这则投稿吗？",
+                    title: '举报',
+                    content: '确定举报这则投稿吗？',
                     success(res) {
                       if (res.confirm) {
                         api.request({
-                          url: "/v1/post/abuse-report",
+                          url: '/v1/post/abuse-report',
                           data: {
                             postId: cId
                           },
-                          method: "POST",
+                          method: 'POST',
                           success(res) {
                             const data = res.data as any;
-                            data.msg === "ok"
-                              ? wx.showToast({ title: "举报成功" })
-                              : "";
+                            data.msg === 'ok'
+                              ? wx.showToast({ title: '举报成功' })
+                              : '';
                           }
                         });
                       }
@@ -303,15 +285,15 @@ Component({
       } else {
         const pages = getCurrentPages();
         const curPage = pages[pages.length - 1];
-        wx.showToast({ title: "请先登录！" });
+        wx.showToast({ title: '请先登录！' });
         setTimeout(() => {
-          if (curPage.route === "pages/index") {
+          if (curPage.route === 'pages/index') {
             smartGotoPage({
-              url: "./login"
+              url: './login'
             });
           } else {
             smartGotoPage({
-              url: "../login"
+              url: '../login'
             });
           }
         }, 100);
@@ -323,5 +305,5 @@ Component({
     multipleSlots: true // 在组件定义时的选项中启用多slot支持
   },
   /*接受的外部样式类,通过slot1/slot2两个属性获取 */
-  externalClasses: ["slot1", "slot2"]
+  externalClasses: ['slot1', 'slot2']
 });
