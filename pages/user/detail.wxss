@@ -8,7 +8,7 @@
 
 .header {
     width: 100%;
-    height: 343rpx;
+    height: auto;
 }
 
 .header .userImg {
@@ -25,6 +25,8 @@
 
 .header .name {
     text-align: center;
+    display: block;
+    margin-bottom:39rpx;
 }
 
 .first {

@@ -29,7 +29,7 @@
       <text class="attendCmt">{{con.contextCon(post.text,50)}}</text><a name="more" style="color:#4ABABC;font-size:30rpx;" wx:if="{{showMore}}">更多</a>
       </view>
       <!--配图-->
-      <view class="postImg">
+      <view class="postImg" wx:if="{{true}}">
       <!--单图-->
       <block wx:if="{{[1,2,3].length==1}}">
        <image src="https://picsum.photos/200/300" class="one" />

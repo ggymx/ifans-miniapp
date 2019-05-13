@@ -14,6 +14,7 @@ Page({
 
   onLoad(options: any) {
     const userId = options.userId;
+    console.log('传进来的userId-----------',options.userId);
     const that = this;
     api.request({
       url: '/v1/user/detail',
@@ -22,26 +23,13 @@ Page({
       },
       method: 'GET',
       success(res) {
+        const data=res.data as any;
         that.setData!({
-          userData: res.data
+          userData: data.user,
+          recommendList:data.posts
         });
       }
     });
-    api.request({
-      url: '/v1/post/home-list',
-      data: {
-        cursor: 0,
-        limit: 10
-      },
-      method: 'GET',
-      success(res) {
-        console.log('111')
-        const data = res.data as any
-        that.setData!({
-          recommendList: that.data.recommendList.concat(data.posts)
-        });
-      }
-    })
   },
 
   onShareAppMessage() {
