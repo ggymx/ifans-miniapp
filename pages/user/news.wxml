@@ -1,12 +1,12 @@
 <wxs module="converter" src="../.././wxs/converter.wxs"></wxs>
->
 <wxs module="ani" src="../../wxs/animation.wxs"></wxs>
 <navbar back text="消息"></navbar>
 <view class="underlying" style="background:#FFF">
   <view class="container" style="height:1200rpx;padding-top:10rpx;">
     <!-- 消息列表 -->
-    <block wx:for="{{notices}}">
-      <view class="item" bind:tap="redirectDetail" data-notice-tid="{{item.tid}}">
+    <block wx:if="{{notErr}}">
+    <!-- <block wx:for="{{notices}}"> -->
+      <view wx:if="{{notices.length!=0}}" class="item" wx:for="{{notices}}" bind:tap="redirectDetail" data-notice-tid="{{item.tid}}">
         <view style="width:auto;display:flex">
           <view style="height:100%;width:auto;">
             <image class="avatar" src="{{item.avatar}}" />
@@ -24,6 +24,18 @@
           <text class="date">{{converter.dateCon(item.createAt)}}</text>
         </view>
       </view>
+      <!--缺省页面-->
+      <view else class="default">
+             <image src="../../imgs/img/pangxie.png" class="tipImg"/>
+             <text class="tip">您暂未收到任何痕迹</text>
+             <a class="tip" bind:tap="findOldIndex">话题社区 ></a>
+      </view>
+    <!-- </block> -->
+    </block>
+    <!--页面崩溃-->
+    <block wx:else>
+          <image src="../../imgs/img/err.png" class="err"/>
+          <text class="err">页面崩溃，请尝试重新刷新页面</text>
     </block>
   </view>
 </view>

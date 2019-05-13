@@ -3,27 +3,29 @@
 import { IMyApp } from '../../app';
 import api from '../../common/api';
 import { smartGotoPage } from '../../common/helper';
-import { INoticeListResponese } from '../../common/types/http_msg';
-import { INoticeReply, ETableType, ENoticeType } from '../../common/types/notice_reply';
 import { FontNotice } from '../../common/types/font_notice';
+import { INoticeListResponese } from '../../common/types/http_msg';
+import { ENoticeType, ETableType, INoticeReply } from '../../common/types/notice_reply';
 
 const app = getApp<IMyApp>()
 
 Page({
   data: {
-    notices: []
+    notices: [],
+     //当页面正常时
+     notErr:true,
   },
   httpDataProcessing(iNotice: INoticeReply[]): FontNotice[] {
     return iNotice.map(notice => this.getFontNotice(notice))
   },
   getFontNotice(notice: INoticeReply) {
-    let userId = notice.fromUsers[0].id
-    let nickname = notice.fromUsers[0].nickname
-    let avatar = notice.fromUsers[0].avatar
-    let noticeMessage = '' //等2人赞了你的作品 || 评论了你的作品 
+    const userId = notice.fromUsers[0].id
+    const nickname = notice.fromUsers[0].nickname
+    const avatar = notice.fromUsers[0].avatar
+    let noticeMessage = '' //等2人赞了你的作品 || 评论了你的作品
     let title = ''
     let text = ''
-    let userCount = notice.fromUsers.length
+    const userCount = notice.fromUsers.length
 
     //判断传入的类型是否为Post类型,post类型包含作品和话题。该判断逻辑有三种：1.点赞作品 2.评论作品 3.参与话题
     if (notice.ttype === ETableType.Post) {
@@ -85,14 +87,12 @@ Page({
 
       const data = await api.getUserNotice({})
 
-
       const notices = this.httpDataProcessing(data.notices)
       console.table({ notices })
 
       this.setData!({
         notices,
       });
-
 
     } else {
       wx.showToast({ title: '请先登录！' });
@@ -107,6 +107,11 @@ Page({
   redirectDetail(options: any) {
     console.log('点击了跳转')
     console.log(options.currentTarget.dataset.noticeTid)
+  },
+   /*跳转到话题社区 */
+  findOldIndex(){
+    smartGotoPage({
+      url:'../oldindex'
+    });
   }
-
 })

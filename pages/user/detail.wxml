@@ -27,7 +27,7 @@
        <view class="container default" style="margin-top:20rpx;">
             <view style="overflow:hidden;">
                 <image src="../../imgs/img/pangxie.png" class="backImg"/>
-                <text class="defText">您暂未参加话题讨论</text>
+                <text class="defText">客官暂未参加话题讨论</text>
             </view>
        </view>
        <view class="pushMore">
@@ -45,7 +45,8 @@
     <!--页面崩溃-->
     <block wx:else>
         <view>
-
+         <image src="../../imgs/img/err.png" class="err"/>
+         <text class="err">页面崩溃，请尝试重新刷新页面</text>
         </view>
     </block>
 </view>

@@ -2,6 +2,7 @@
 //获取应用实例
 import { IMyApp } from '../../app';
 import api from '../../common/api';
+import { smartGotoPage } from '../../common/helper';
 
 const app = getApp<IMyApp>()
 let cursor: number = 0;
@@ -11,24 +12,32 @@ Page({
     postArr: [],
     title: '',
     userId: null,
+    //当页面正常时
+    notErr:true,
     res:[
       {
-        postTitle:'樱花季节到了，你想和谁一起去赏花呢?'
+        title:'樱花季节到了，你想和谁一起去赏花呢?',
+        createAt:'2019/05/03'
       },
       {
-        postTitle:'如果你要写一本书，书名会是什么？'
+        title:'如果你要写一本书，书名会是什么？',
+        createAt:'2019/05/03'
       },
       {
-        postTitle:'樱花季节到了，你想和谁一起去赏花呢?'
+        title:'樱花季节到了，你想和谁一起去赏花呢?',
+        createAt:'2019/05/03'
       },
       {
-        postTitle:'如果你要写一本书，书名会是什么？'
+        title:'如果你要写一本书，书名会是什么？',
+        createAt:'2019/05/03'
       },
       {
-        postTitle:'抗日英雄！'
+        title:'抗日英雄！',
+        createAt:'2019/05/03'
       },
       {
-        postTitle:'众多人物最喜欢的动漫以及以前的童话世界，包括喜爱的人物和神兽'
+        title:'众多人物最喜欢的动漫以及以前的童话世界，包括喜爱的人物和神兽',
+        createAt:'2019/05/03'
       }
     ]
   },
@@ -57,6 +66,12 @@ Page({
       })
     }
 
+  },
+   /*跳转到话题社区 */
+   findOldIndex(){
+    smartGotoPage({
+      url:'../oldindex'
+    });
   }
 
 })

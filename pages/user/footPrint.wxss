@@ -23,19 +23,89 @@
   margin-top: 2rpx;
 }
 
-.itemRight{
-   display:flex;flex-direction:column;align-items: flex-start;height:100%;width:498rpx;
+.itemRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 100%;
+  width: 498rpx;
 }
 
-.title{
-   font-size:28rpx;font-family:PingFang-SC-Medium;font-weight:500;color:rgba(51,51,51,1);margin-left:28rpx;line-height:42rpx;
+.title {
+  font-size: 28rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(51, 51, 51, 1);
+  margin-left: 28rpx;
+  line-height: 42rpx;
 }
-.date{
-   font-size:24rpx;font-family:PingFang-SC-Medium;font-weight:500;color:rgba(153,153,153,1);margin-left:30rpx;margin-top:31rpx;
+
+.date {
+  font-size: 24rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(153, 153, 153, 1);
+  margin-left: 30rpx;
+  margin-top: 31rpx;
 }
 
 /*投稿配图*/
-.postImg{
-   width:215rpx;height:165rpx;background-color:gray
+.postImg {
+  width: 215rpx;
+  height: 165rpx;
+  background-color: gray
 }
 
+
+/*缺省页面*/
+.default {
+  display: flex;
+  flex-direction: column;
+}
+
+.default .tipImg {
+  width: 281rpx;
+  height: 185rpx;
+  margin: 0 auto;
+  margin-top:281rpx;
+}
+
+.default text.tip {
+  font-size: 30rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(153, 153, 153, 1);
+  text-align: center;
+  margin-top:42rpx;
+  margin-bottom:16rpx; 
+  /* line-height: 50px; */
+}
+
+.default a.tip {
+  font-size: 28rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(9, 166, 220, 1);
+  text-align: center;
+  /* line-height: 40px; */
+}
+
+/*页面崩溃*/
+image.err {
+  width: 302rpx;
+  height: 291rpx;
+  margin: 0 auto;
+  display: block;
+  margin-top: 197rpx;
+}
+
+text.err {
+  font-size: 30rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(153, 153, 153, 0.5);
+  line-height: 50px;
+  margin-top: 46rpx;
+  display: block;
+  text-align: center;
+}
