@@ -25,7 +25,8 @@
   <view class="publisher-context">
     <!-- 评论话题的内容 -->
     <view name="context" class="topic-context">
-      <view class="textView">
+      <!--话题没有内容时不显示-->
+      <view class="textView" wx:if="{{post.text.trim().length}}">
       <text class="attendCmt">{{con.contextCon(post.text,50)}}</text><a name="more" style="color:#4ABABC;font-size:30rpx;" wx:if="{{showMore}}">更多</a>
       </view>
       <!--配图-->
