@@ -1,0 +1,4 @@
+<view>
+  <image src="{{isLike && '../../imgs/button-like-dj@2x.png' || '../../imgs/home-button-like@2x.png' }}" class="like-img" />
+  <text wx:if="{{post.likeCount}}" class="count like">{{likeCount}}</text>
+</view>
