@@ -8,7 +8,9 @@ let id: number;
 let cursor: number = 0;
 Page({
   data: {
-    topic: null,
+    isPreview: false, // 预览状态
+    isPublished: false, // 发布成功
+    post: null,
     postArr: [],
     title: ''
   },
@@ -22,19 +24,18 @@ Page({
   //options:获取url参数
   async onLoad(options: any) {
     const that = this;
-    if (!that.data.topic) {
+    if (!that.data.post) {
       id = options.id;
       const data = await api.getPost({ id })
-      console.table({data})
+
       this.setData!({
-        topic: data.post,
-        text: data.post.text
+        post: data.post
       })
 
       cursor = 0;
     }
-
     //根据参与id获取参与的列表
+
     const data = await api.getRefPostList({ id, cursor, limit: 10 })
     console.log('获取post列表---topic-detail', data)
     if (data.posts.length !== 0) {
@@ -58,7 +59,7 @@ Page({
     const that = this
 
     return {
-      title: `#${this.data.topic.post.title}#`,
+      title: `#${this.data.post.post.title}#`,
       success(e: any) {
 
         wx.showShareMenu({

@@ -1,235 +1,308 @@
 /* pages/my/my.wxss */
 
 .underlying {
-    background-color: #f5f5f5;
-    height: 100%;
-    margin: 0;
+  background-color: #f5f5f5;
+  height: 100%;
+  margin: 0;
+}
+
+/*缺省页面背景设置*/
+.undefault {
+  background-color: #FFF;
+  /* height:auto; */
 }
 
 .header {
-    width: 100%;
-    height: 343rpx;
+  width: 100%;
+  height: auto;
+  position: relative;
 }
 
 .header .userImg {
-    width: 182rpx;
-    height: 182rpx;
-    margin: 40rpx auto 37rpx;
+  width: 182rpx;
+  height: 182rpx;
+  margin: 40rpx auto 37rpx;
 }
 
 .header .userImg .user {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
 }
 
 .header .name {
-    text-align: center;
+  text-align: center;
+  display: block;
+  margin-bottom: 39rpx;
+}
+
+.header .shareBtn {
+  position: absolute;
+  right: 22rpx;
+  top: 0;
+  background-color: transparent;
+  padding: 0;
+  line-height: 0;
+  /* background-image: url('') */
+}
+
+.header .shareBtn .bkimg {
+  width: 34rpx;
+  height: 34rpx;
 }
 
 .first {
-    width: 100%;
-    height: auto;
-    padding: 22rpx 28rpx;
-    box-sizing: border-box;
-    background-color: #fff;
+  width: 100%;
+  height: auto;
+  padding: 22rpx 28rpx;
+  box-sizing: border-box;
+  background-color: #fff;
 }
 
 .user {
-    width: 100%;
-    height: 52rpx;
-    line-height: 50rpx;
-    font-size: 26rpx;
+  width: 100%;
+  height: 52rpx;
+  line-height: 50rpx;
+  font-size: 26rpx;
 }
 
 .info {
-    width: 52rpx;
-    height: 52rpx;
-    border-radius: 50%;
+  width: 52rpx;
+  height: 52rpx;
+  border-radius: 50%;
 }
 
 .user .name {
-    color: #4ABABC;
-    margin: 0 16rpx;
-    line-height: 45rpx;
+  color: #4ABABC;
+  margin: 0 16rpx;
+  line-height: 45rpx;
 }
 
 .user .text {
-    color: #999;
-    line-height: 45rpx;
+  color: #999;
+  line-height: 45rpx;
 }
 
 .user .more {
-    width: 32rpx;
-    height: 7rpx;
-    line-height: 26rpx;
+  width: 32rpx;
+  height: 7rpx;
+  line-height: 26rpx;
 }
 
 .user .more .pot {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .title {
-    font-size: 36rpx;
-    color: #333;
-    margin-top: 26rpx;
-    font-weight: bold;
+  font-size: 36rpx;
+  color: #333;
+  margin-top: 26rpx;
+  font-weight: bold;
 }
 
 .content {
-    width: 100%;
-    height: auto;
-    margin-top: 30rpx;
-    line-height: 50rpx;
-    color: #333;
+  width: 100%;
+  height: auto;
+  margin-top: 30rpx;
+  line-height: 50rpx;
+  color: #333;
 }
 
 .imgBox {
-    width: 646rpx;
-    height: 646rpx;
-    margin-top: 27rpx;
-    background-color: #666666;
+  width: 646rpx;
+  height: 646rpx;
+  margin-top: 27rpx;
+  background-color: #666666;
 }
 
 .first.second .imgBox {
-    width: 646rpx;
-    height: 322rpx;
+  width: 646rpx;
+  height: 322rpx;
 }
 
 .first.second .imgBox image {
-    width: 322rpx;
-    height: 322rpx;
+  width: 322rpx;
+  height: 322rpx;
 }
 
 .first.second .one {
-    margin-right: 2rpx;
+  margin-right: 2rpx;
 }
 
 .imgBox .one {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .bot {
-    width: 100%;
-    height: 31rpx;
-    line-height: 31rpx;
-    margin-top: 30rpx;
-    display: flex;
-    justify-content: space-between;
+  width: 100%;
+  height: 31rpx;
+  line-height: 31rpx;
+  margin-top: 30rpx;
+  display: flex;
+  justify-content: space-between;
 }
 
 .left .block {
-    width: 31rpx;
-    height: 31rpx;
-    margin-right: 12rpx;
+  width: 31rpx;
+  height: 31rpx;
+  margin-right: 12rpx;
 }
 
 .left .time {
-    font-size: 28rpx;
-    color: #666;
+  font-size: 28rpx;
+  color: #666;
 }
 
 .bot .right,
 .bot .left {
-    height: 100%;
-    width: auto;
+  height: 100%;
+  width: auto;
 }
 
 .bot .right,
 .bot .left {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 
 .right .text {
-    font-size: 26rpx;
-    color: #666;
+  font-size: 26rpx;
+  color: #666;
 }
 
 .star,
 .msg {
-    height: 100%;
-    width: auto;
-    display: flex;
+  height: 100%;
+  width: auto;
+  display: flex;
 }
 
 .star {
-    margin-right: 36rpx;
+  margin-right: 36rpx;
 }
 
 .stars,
 .msgs {
-    margin-right: 12rpx;
+  margin-right: 12rpx;
 }
 
 .star .stars {
-    width: 31rpx;
-    height: 25rpx;
-    margin-top: 2rpx;
+  width: 31rpx;
+  height: 25rpx;
+  margin-top: 2rpx;
 }
 
 .msg .msgs {
-    width: 31rpx;
-    height: 31rpx;
+  width: 31rpx;
+  height: 31rpx;
 }
 
 
 /* 三张样式 */
 
 .first.third .imgBox {
-    width: 646rpx;
-    height: 214rpx;
+  width: 646rpx;
+  height: 214rpx;
 }
 
 .first.third .imgBox image {
-    width: 214rpx;
-    height: 100%;
-    margin-right: 2rpx;
-    background-color: #999;
+  width: 214rpx;
+  height: 100%;
+  margin-right: 2rpx;
+  background-color: #999;
 }
 
 .first.third .imgBox image:last-child {
-    margin-right: 0;
+  margin-right: 0;
 }
 
 .first.sex .imgBox {
-    width: 646rpx;
-    height: 430rpx;
+  width: 646rpx;
+  height: 430rpx;
 }
 
 .first.sex .imgBox .top,
 .first.sex .imgBox .bott {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .first.sex.top,
 .first.sex.bott {
-    width: 100%;
-    height: 214rpx;
+  width: 100%;
+  height: 214rpx;
 }
 
 .first.sex .imgBox image {
-    width: 214rpx;
-    height: 214rpx;
-    margin-right: 2rpx;
-    background-color: #999;
+  width: 214rpx;
+  height: 214rpx;
+  margin-right: 2rpx;
+  background-color: #999;
 }
 
 .first.sex .top:last-child {
-    margin-right: 0;
+  margin-right: 0;
 }
 
 .first.sex .bott {
-    margin-top: 2rpx;
+  margin-top: 2rpx;
 }
 
 .first.sex .bott:last-child {
-    margin-right: 0;
+  margin-right: 0;
 }
 
 .first.last {
-    margin-bottom: 114rpx;
+  margin-bottom: 114rpx;
+}
+
+.default .backImg {
+  width: 416rpx;
+  height: 273rpx;
+  display: block;
+  margin: 0 auto;
+  margin-top: 57rpx;
+  margin-bottom: 68rpx;
+
+}
+
+/*缺省文本*/
+.default .defText {
+  display: block;
+  text-align: center;
+  font-size: 30rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(153, 153, 153, 1);
+  line-height: 40px;
+  margin-bottom: 121rpx;
+}
+
+.pushMore{
+  background-color:#F4F5F9;
+  padding-bottom:32rpx;
+}
+
+text.moreTip{
+  font-size:26rpx;font-family:PingFang-SC-Medium;font-weight:500;color:rgba(102,102,102,1);margin-left:38rpx;
+}
+a.moreTip{
+  font-size:26rpx;font-family:PingFang-SC-Medium;font-weight:500;color:rgba(9,166,220,1);line-height:40px;margin-left:370rpx;
+}
+
+view.push{
+  overflow:hidden;margin-bottom:20rpx;box-shadow:0px 0px 7px 2px rgba(6,0,1,0.03);border-radius:2px;background:#FFF
+}
+
+text.push {
+  font-size: 32rpx;
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
+  color: rgba(102, 102, 102, 1);
+  margin-top: 40rpx;
+  margin-bottom: 40rpx;
+  display:inline-block;
+  margin-left:38rpx;
 }
