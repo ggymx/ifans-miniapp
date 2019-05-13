@@ -1,0 +1,29 @@
+<wxs module="converter" src="../.././wxs/converter.wxs"></wxs>
+>
+<wxs module="ani" src="../../wxs/animation.wxs"></wxs>
+<navbar back text="消息"></navbar>
+<view class="underlying" style="background:#FFF">
+  <view class="container" style="height:1200rpx;padding-top:10rpx;">
+    <!-- 消息列表 -->
+    <block wx:for="{{notices}}">
+      <view class="item" bind:tap="redirectDetail" data-notice-tid="{{item.tid}}">
+        <view style="width:auto;display:flex">
+          <view style="height:100%;width:auto;">
+            <image class="avatar" src="{{item.avatar}}" />
+          </view>
+          <view class="itemRight">
+            <view style="height:auto;padding:0;margin-top:26rpx;">
+              <text class="username">{{item.nickname}}</text>
+              <text>{{item.noticeMessage}}</text>
+            </view>
+            <text class="title" style="margin-bottom:0;">#{{item.title}}#</text>
+            <text class="comment">{{item.text}}</text>
+          </view>
+        </view>
+        <view style="width:auto;display:flex">
+          <text class="date">{{converter.dateCon(item.createAt)}}</text>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

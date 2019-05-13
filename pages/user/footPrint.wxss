@@ -1,0 +1,41 @@
+/* .opreate-underlying {
+  padding-top: 128rpx;
+  box-sizing: border-box;
+} */
+
+/* pages/test/test.wxss */
+.text-weight {
+  font-weight: bold;
+  color: red;
+
+}
+
+.item {
+  height: auto;
+  display: flex;
+  border-bottom-style: solid;
+  border-width: 2rpx;
+  border-color: rgba(245, 245, 245, 1);
+  padding-left: 1rpx;
+  padding-top: 15rpx;
+  padding-bottom: 15rpx;
+  padding-right: 12rpx;
+  margin-top: 2rpx;
+}
+
+.itemRight{
+   display:flex;flex-direction:column;align-items: flex-start;height:100%;width:498rpx;
+}
+
+.title{
+   font-size:28rpx;font-family:PingFang-SC-Medium;font-weight:500;color:rgba(51,51,51,1);margin-left:28rpx;line-height:42rpx;
+}
+.date{
+   font-size:24rpx;font-family:PingFang-SC-Medium;font-weight:500;color:rgba(153,153,153,1);margin-left:30rpx;margin-top:31rpx;
+}
+
+/*投稿配图*/
+.postImg{
+   width:215rpx;height:165rpx;background-color:gray
+}
+

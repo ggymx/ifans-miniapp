@@ -14,13 +14,12 @@ Page({
   data: {
     postId: 0,
     topic: null,
-    comment: null,
+    data: null,
     comments: [],
     commentValue: '',
     isCreateAnserPage: false
   },
   isCreateAnserPage(event: any) {
-    console.log('=====event======', event)
     this.setData!({
       isCreateAnserPage: event.detail.value
     })
@@ -44,8 +43,6 @@ Page({
   },
   bindComment(event: any) {
     const that = this;
-    console.log('=====评论的postID=====', postId)
-    console.log('=======评论的text=======', that.data.commentValue)
     const token = wx.getStorageSync("token");
     if (!token) {
       const pages = getCurrentPages();
@@ -83,31 +80,50 @@ Page({
     }
 
   },
-  // bindViewTopic(event: any) {
-  //   const tid = event.currentTarget.dataset.tid;
-  //   this.setData!({
-  //     postId: tid
-  //   })
-  //   smartGotoPage({
-  //     url: `./topic-detail?tid=${tid}`
-  //   });
-  // },
-  /*options:获取url参数 */
+  /*点赞 */
+  async giveLike(event: any) {
+    //获取token
+    const token = wx.getStorageSync("token");
+    if (!token) {
+      const pages = getCurrentPages();
+      const curPage = pages[pages.length - 1];
+      wx.showToast({ title: "请先登录！" });
+      setTimeout(() => {
+        if (curPage.route === "pages/index") {
+          smartGotoPage({
+            url: "./login"
+          });
+        } else {
+          smartGotoPage({
+            url: "../login"
+          });
+        }
+      }, 100);
+    } else {
+      const instance = this as any;
+      if (!instance.properties.isLike) {
+        const res = await api.giveLike({
+          id: instance.properties.post.id
+        });
+        instance.setData!({
+          isLike: true
+        });
+      } else {
+        const res = await api.disLike({
+          id: instance.properties.post.id
+        });
+        instance.setData!({
+          isLike: false
+        });
+      }
+    }
+  },
+
+
   async onLoad(options: any) {
     const that = this;
-    // const isCreateAnserPage = options.query..isCreateAnserPage
-    // that.setData!({
-    //   isCreateAnserPage: isCreateAnserPage
-    // });
 
-    // console.log({isCreateAnserPage})
-    console.log('options.query', options.query)
-    // const tId = options.tid;
-    console.log('进入detail.ts中的onLoad事件')
-    // const cId = options.refPostId;
-    console.log('options', options)
     const id = options.id || { postId }
-    console.log('=====id====', id)
 
 
     api.request({
@@ -118,10 +134,8 @@ Page({
         id
       },
       success(res) {
-        //设置数据
-        console.table('获取到数据', res.data)
         that.setData!({
-          comment: res.data
+          data: res.data
         });
       }
     });
@@ -133,33 +147,15 @@ Page({
     that.setData!({
       comments: data.comments
     })
-    // api.request({
-    //   url: '/v1/comment/list',
-    //   method: 'GET',
-    //   data: {
-    //     postId: id
-    //   },
-    //   success(res) {
-    //     const data = res.data.comments
-    //     console.table({ data })
-    //   }
-    // })
-
-    // const res = await api.getPost({ id })
-    // console.table('详情', res)
-    // this.setData!({
-    //   topic: res.post
-    // })
-
 
 
   },
 
   /*转发分享监听事件 */
   onShareAppMessage(res: any) {
-    let text = this.data.comment!.post.text;
-    if (this.data.comment!.post.text.length > 10) {
-      text = this.data.comment!.post.text.substring(0, 10) + '...'
+    let text = this.data.data!.post.text;
+    if (this.data.data!.post.text.length > 10) {
+      text = this.data.data!.post.text.substring(0, 10) + '...'
     }
     return {
       title: `#${this.data.topic.post.title}#${text}`,

@@ -1,0 +1,9 @@
+<!-- index.wxml -->
+<view class="main">
+  <button bind:tap='didPressChooesImage'>上传图片</button>
+  <view class="image-container">
+  </view>
+  <view class="data" wx:for="{{imageArr}}">
+    <text>{{imageArr.item.imageURL}}</text>
+  </view>
+</view>

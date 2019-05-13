@@ -85,3 +85,55 @@ margin-top: 48rpx;  */
   justify-content: space-between;
   overflow-y:hidden;
 }
+
+.uploadPicArea {
+  width: 100%;
+  height: 608rpx;
+  max-height: 608rpx;
+  /* background-color: lightsalmon; */
+  overflow: hidden;
+}
+
+.picUploadBtn, .pic {
+  margin-left: 10rpx;
+  margin-top: 10rpx;
+  height: 196rpx;
+  width: 196rpx;
+  background-color: #f4f5f9;
+  position: relative;
+  float: left;
+}
+
+.picShow {
+  height: 196rpx;
+  width: 196rpx;
+  background-color: lightgrey;
+}
+
+.delBg {
+  float: right;
+  width: 32rpx;
+  height: 32rpx;
+  background: rgba(3, 3, 3, 1);
+  opacity: 0.5;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.delBtn {
+  height: 18rpx;
+  width: 18rpx;
+}
+
+.delBtnPic {
+  height: 18rpx;
+  width: 18rpx;
+  padding: 7rpx;
+}
+
+.addBtnPic {
+  height: 65rpx;
+  width: 65rpx;
+  padding: 65.5rpx;
+}

@@ -1,5 +1,5 @@
 // tslint:disable max-line-length
-import { IDisLikeParams, IGetAnswerListParams, IGetAnswerListResponse, IHomeTopicListParams, IHomeTopicListResponse, ILikeParams, ILikeResponse, IPostDetailParams, IPostsDetailResponse, IUserPageParams, IUserPageResponse, IGetCommetListParams, IGetCommetListResponse, IDisLikeResponse } from "./types/http_msg";
+import { IDisLikeParams, IGetAnswerListParams, IGetAnswerListResponse, IHomeTopicListParams, IHomeTopicListResponse, ILikeParams, ILikeResponse, IPostDetailParams, IPostsDetailResponse, IUserPageParams, IUserPageResponse, IGetCommetListParams, IGetCommetListResponse, IDisLikeResponse, IGetPostIdByPostIdParams, IGetUserFootPrintResponese, IGetUserFootPrintParams, IUploadParams, IUploadResponese, INoticeListParams, INoticeListResponese } from "./types/http_msg";
 
 class Api {
   /**
@@ -45,6 +45,21 @@ class Api {
   disCommentLike = this.makeApi<IDisLikeParams, IDisLikeResponse>('POST', '/v1/comment/dislike')
 
   getCommentList = this.makeApi<IGetCommetListParams, IGetCommetListResponse>('GET', '/v1/comment/list')
+
+  /**
+   * 用户足迹
+   */
+  getFootPrint = this.makeApi<IGetUserFootPrintParams, IGetUserFootPrintResponese>('GET', '/v1/user/footprint')
+
+  /**
+   * 用户上传图片
+   */
+  getUploadToken = this.makeApi<IUploadParams, IUploadResponese>('POST', '/v1/upload/token')
+
+  /**
+   * 用户通知
+   */
+  getUserNotice = this.makeApi<INoticeListParams, INoticeListResponese>('GET', '/v1/notice/list')
 
 
   private host: string
