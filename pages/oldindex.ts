@@ -30,10 +30,8 @@ Page({
     }
   },
   // 加载
-  onLoad() {
+  loadMore() {
     const that = this;
-
-    cursor = 0
     wx.showLoading({
       title: '请稍候'
     });
@@ -49,7 +47,7 @@ Page({
         console.log('=======测试首页展示数据=======', res.data)
         const data = res.data as any
         if (data.posts.length === 0) {
-          setTimeout(() =>  {
+          setTimeout(() => {
             wx.showToast({
               icon: 'none',
               title: '已经到底了。。。'
@@ -76,13 +74,13 @@ Page({
     });
     wx.hideLoading({});
   },
-  // 下拉刷新功能
-  onPullDownRefresh() {
+  onLoad() {
+    cursor = 0
     const that = this;
     api.request({
       url: '/v1/post/home-list',
       data: {
-        cursor: 0,
+        cursor,
         limit: 10
       },
       method: 'GET',
@@ -98,6 +96,10 @@ Page({
       }
     });
   },
+  // 下拉刷新功能
+  onPullDownRefresh() {
+    this.onLoad()
+  },
   // 浏览到底端功能
   onReachBottom() {
     const that = this;
@@ -108,7 +110,7 @@ Page({
       //重新加载
       wx.hideLoading({});
       // 获取数据
-      that.onLoad();
+      that.loadMore();
     }, 500)
   }
 })
