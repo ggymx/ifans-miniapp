@@ -9,7 +9,9 @@ const app = getApp<IMyApp>()
 Page({
   data: {
     userData: null,
-    recommendList: []
+    recommendList: [],
+    //页面正常时
+    notErr:false
   },
 
   onLoad(options: any) {
@@ -45,12 +47,10 @@ Page({
     }
   },
 
-  bindViewIndex(){
+  /*跳转到话题社区 */
+  findOldIndex(){
     smartGotoPage({
-      url:'../index'
+      url:'../oldindex'
     });
-  },
-  test(){
-    console.log('冒泡触发---------');
   }
 })
