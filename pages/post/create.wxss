@@ -26,11 +26,13 @@ Page {
   display: block;
   height: 100%;
   width: 100%;
-  line-height: 115rpx;
-  font-size: 16px;
+  font-size: 32rpx;
   padding-left: 45rpx;
   box-sizing: border-box;
-  color: #111;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(153, 153, 153, 1);
+  line-height: 40rpx;
 }
 
 .content {
@@ -44,10 +46,12 @@ Page {
 .content .text {
   width: 100%;
   padding-top: 58rpx;
-  font-size: 16px;
   font-family: PingFang-SC-Medium;
-  color: #333;
   height: 212rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  color: rgba(195, 195, 195, 1);
+  line-height: 40rpx;
 }
 
 .uploadPicArea {
