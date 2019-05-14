@@ -2,192 +2,98 @@
 <wxs module="con" src="../../wxs/converter.wxs"></wxs>
 <navbar back text="话题详情"></navbar>
 <view class="underlying">
-  <view class="first">
-    <view class="title">
-      <text class="title1 fl">#{{post.title}}#</text>
-      <view class="more fr">
-        <image class="pot" src="../../imgs/img/more1.png"></image>
-      </view>
-    </view>
-    <view class="user">
-      <image class="info fl" src="{{post.user.avatar}}"></image>
-      <view class="name fl">{{post.user.nickname}}</view>
-    </view>
-    <view class="content">{{post.text}}</view>
-    <view class="imgBox">
-      <image class="one" src="{{post.gallery}}"></image>
-    </view>
-    <view class="bot">
-      <view class="left">
-        <image class="block" src="../../imgs/time.png"></image>
-        <view class="time">{{con.dateCon(post.createAt)}}</view>
-      </view>
-      <view class="right">
-        <view class="star">
-          <image class="stars" src="../../imgs/img/stars.png"></image>
+    <view class="first">
+        <view class="title">
+            <text class="title1 fl">#{{post.title}}#</text>
+            <view class="more fr">
+                <image class="pot" src="../../imgs/img/more1.png"></image>
+            </view>
         </view>
-        <view class="msg">
-          <image class="msgs" src="../../imgs/img/message.png"></image>
-          {{post.attendCount ||''}}
-        </view>
-        <view class="share">
-          <image class="shares" src="../../imgs/img/share.png"></image>
-        </view>
-      </view>
-    </view>
-  </view>
-  <!-- 中间更多 -->
-  <view class="moreTop">
-    <view class="txt" selectable="false" space="false" decode="false">{{post.attendCount}}个投稿</view>
-    <view class="right-r">
-      <view class="txt" selectable="false" space="false" decode="false">更多话题</view>
-      <image class="row" src="../../imgs/button-gd@2x.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
-    </view>
-  </view>
-  <!-- <view class="container" style="margin-top: 0">
-    <view class="first second">
-      <view class="title">
         <view class="user">
-          <image class="info fl" src=""></image>
-          <view class="name fl">有哈哈</view>
-          <view class="more fr">
-            <image class="pot" src="../../imgs/img/more1.png"></image>
-          </view>
+            <image class="info fl" src="{{post.user.avatar}}"></image>
+            <view class="name fl">{{post.user.nickname}}</view>
         </view>
-      </view>
-      <view class="content">为什么总是以酒，以餐，以娱乐交际会友？以茶会 友也是一种不错的交流方式，是传统文化一直流传 下来为什么总是以酒</view>
-      <view class="imgBox">
-        <image class="one fl" src=""></image>
-        <image class="two fl" src=""></image>
-      </view>
-      <view class="bot">
-        <view class="left">
-          <image class="block" src="../../imgs/time.png"></image>
-          <view class="time">2019/05/12</view>
+        <view class="content">{{post.text}}</view>
+        <view class="imgBox">
+            <image class="one" src="{{post.gallery}}"></image>
         </view>
-        <view class="right">
-          <view class="star">
-            <image class="stars" src="../../imgs/button-like-dj@2x.png"></image>
-            <view class="text fr">99</view>
-          </view>
-          <view class="msg">
-            <image class="msgs" src="../../imgs/img/message.png"></image>
-            <view class="text fr">99</view>
-          </view>
-        </view>
-      </view>
-    </view>
-    <!-- 回复 -->
-    <!-- <view class="reply">
-      <view class="con">
-        <view class="name fl">哈哈哈:</view>
-        <view class="fl" selectable="false" space="false" decode="false">个人喜欢红茶</view>
-      </view>
-      <view class="con">
-        <view class="name fl">哈哈哈:</view>
-        <view class="fl" selectable="false" space="false" decode="false">个人喜欢红茶</view>
-      </view>
-      <view class="con">
-        <view class="name fl">哈哈哈:</view>
-        <view class="fl" selectable="false" space="false" decode="false">个人喜欢红茶</view>
-      </view>
-    </view>
-  </view>
-  <view>
-      <view class="title">
-        <view class="user">
-          <image class="info fl" src=""></image>
-          <view class="name fl">有哈哈</view>
-          <view class="more fr">
-            <image class="pot" src="../../imgs/img/more1.png"></image>
-          </view>
-        </view>
-      </view>
-      <view class="content">
-        为什么总是以酒，以餐，以娱乐交际会友？以茶会 友也是一种不错的交流方式，是传统文化一直流传 下来为什么总是以酒...
-        <view class="more3">更多</view>
-      </view>
-      <view class="imgBox">
-        <image class="one fl" src=""></image>
-        <image class="two fl" src=""></image>
-      </view>
-      <view class="bot">
-        <view class="left">
-          <image class="block" src="../../imgs/time.png"></image>
-          <view class="time">2019/05/12</view>
-        </view>
-        <view class="right">
-          <view class="star">
-            <image class="stars" src="../../imgs/button-like-dj@2x.png"></image>
-            <view class="text fr">99</view>
-          </view>
-          <view class="msg">
-            <image class="msgs" src="../../imgs/img/message.png"></image>
-            <view class="text fr">99</view>
-          </view>
-        </view>
-      </view>
-    </view>
-    <!-- 回复 -->
-    <!--<view class="reply">
-      <view class="con">
-        <view class="name fl">哈哈哈:</view>
-        <view class="fl" selectable="false" space="false" decode="false">个人喜欢红茶</view>
-      </view>
-      <view class="con">
-        <view class="name fl">哈哈哈:</view>
-        <view class="fl" selectable="false" space="false" decode="false">个人喜欢红茶</view>
-      </view>
-      <view class="con">
-        <view class="name fl">哈哈哈:</view>
-        <view class="fl" selectable="false" space="false" decode="false">个人喜欢红茶</view>
-      </view>
-    </view> -->
-    <!-- <view class="opreate-underlying">
-        <view class="container1">
-            <view class="opreate-view">
-                <view class="opreate-item" style="border-style:none">
-                    <image src="../../imgs/home-button-Comment@2x.png" style="width:32rpx;height:32rpx;margin-right:16rpx;" />
-                    <text style="font-size:24rpx;color:rgb(102,102,102);">{{topic.attendCount}}参与</text>
+        <view class="bot">
+            <view class="left">
+                <image class="block" src="../../imgs/time.png"></image>
+                <view class="time">{{con.dateCon(post.createAt)}}</view>
+            </view>
+            <view class="right">
+                <view class="star">
+                    <image class="stars" src="../../imgs/img/stars.png"></image>
                 </view>
-                <view class="opreate-item" bind:tap="bindViewParti" data-tid="{{topic.id}}">
-                    <image src="../../imgs/fabu@2x.png" style="width:27rpx;height:27rpx;margin-right:16rpx;" />
-                    <text style="font-size:24rpx;color:rgb(102,102,102);">投稿</text>
+                <view class="msg" bind:tap="createAnswer">
+                    <image class="msgs" src="../../imgs/img/message.png"></image>
+                    {{post.attendCount ||''}}
                 </view>
-                <view class="opreate-item">
-                    <button class="operate-btn" open-type="share">
-            <image src="../../imgs/zhuangfa@2x.png" style="width:29rpx;height:27rpx;margin-right:16rpx;" />
-            <text>分享话题</text>
-          </button>
+                <view class="share">
+                    <image class="shares" src="../../imgs/img/share.png"></image>
                 </view>
             </view>
         </view>
-    </view> -->
-  <view class="opreate-underlying op" wx:if="{{postArr.length>0}}">
-    <view class="container">
-      <block>
-        <block wx:for="{{postArr}}">
-          <postCard addClass="item-card" arrowBtn clock like post="{{item}}" isLike="{{item.isLike}}" />
-          <!-- <listing addClass="item-card" arr`owBtn clock like post="{{item}}" isLike="{{item.isLike}}">
-            <text slot="user" class="item-name">{{item.user.nickname}}</text>
-            <text slot="title" class="item-title">{{item.title}}</text>
-            <view slot="context" class="item-context">
-              {{con.contextCon(item.text,300)}}
-              <a slot="more" style="color:rgb(9,166,220)" wx:if="{{con.isMore(item.text,300)}}">
-                更多
-              </a>
-            </view>
-            <text slot="date">{{con.dateCon(item.createAt)}}</text>
-            <text slot="like">{{con.numCon(item.likeCount)}}</text>
-          </listing> -->
-        </block>
-      </block>
+        <!-- 发布按钮 -->
+        <view class="fixbtn" wx:if="{{isPreview}}">
+            <button type="button" class="btn back">返回修改</button>
+            <button type="button" class="btn sure">确认发布</button>
+        </view>
     </view>
-  </view>
-  <!-- <view wx:else>
+    <!-- 中间更多 -->
+    <view class="moreTop" wx:if="{{!isPreview}}">
+        <view class="txt" selectable="false" space="false" decode="false">{{post.attendCount}}个投稿</view>
+        <view class="right-r">
+            <view class="txt" selectable="false" space="false" decode="false">更多话题</view>
+            <image class="row" src="../../imgs/button-gd@2x.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
+        </view>
+    </view>
+    <view class="opreate-underlying op" wx:if="{{postArr.length>0}}">
         <view class="container">
-            <image src="../../imgs/null.png" class="null-img" />
-            <text class="null-text">评论区空空去也，客官赏脸给个评论吧~</text>
+            <block>
+                <block wx:for="{{postArr}}">
+                    <postCard addClass="item-card" arrowBtn clock like post="{{item}}" isLike="{{item.isLike}}" />
+                </block>
+            </block>
+
         </view>
-    </view> -->
+    </view>
+    <!-- 发布预览状态 -->
+    <view class="opreate-underlying op" wx:if="{{isPublished}}">
+        <view class="container">
+
+
+            <!-- 发布分享页 弹出层 -->
+            <view class="mask"></view>
+            <view class="share2">
+                <view class="false">
+                    <image class="fs" src="../../imgs/img/fs.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
+
+                    </image>
+                </view>
+                <view class="top">
+
+                    <image class="ok" src="../../imgs/img/ok.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
+
+                    </image>
+                    <text class="txt">发布成功</text>
+
+
+                </view>
+                <view class="mid">
+                    <image class="pic" src="../../imgs/meinv.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
+
+                    </image>
+                    <text class="txt">恭喜你成功发布一个话题</text>
+                    <text class="txt">快去和朋友们一起展开讨论吧!</text>
+                </view>
+                <button type="button" value="分享">
+                  <image class="btnimg" src="../../imgs/img/sharebtn.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
+                  </image>
+                  <text class="txt" selectable="false" space="false" decode="false">分享</text>
+                </button>
+            </view>
+        </view>
+    </view>
 </view>

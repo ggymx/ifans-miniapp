@@ -8,14 +8,16 @@ let id: number;
 let cursor: number = 0;
 Page({
   data: {
+    isPreview: false, // 预览状态
+    isPublished: false, // 发布成功
     post: null,
     postArr: [],
     title: ''
   },
-  bindViewParti(event: any) {
-    const tid = event.currentTarget.dataset.tid;
+  createAnswer(event: any) {
+    const topic = this.data.post
     smartGotoPage({
-      url: './createAnswer?tid=' + tid
+      url: './createAnswer?topic=' + encodeURIComponent(JSON.stringify(topic))
     });
   },
 

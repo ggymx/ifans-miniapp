@@ -175,28 +175,17 @@ Page({
     });
   },
   onLoad(options: any) {
-
-    tId = options.tid;
-    this.data.refPostId = options.tid;
-    const that = this;
-    api.request({
-      url: '/v1/post/detail',
-      data: {
-        id: tId
+    let topic = JSON.parse(decodeURIComponent(options.topic))
+    this.setData!({
+      topic: {
+        post: topic,
       },
-      method: 'GET',
-      success(res) {
-
-        that.setData!({
-          topic: res.data
-        });
-
-        //缓存话题
-        wx.setStorage({
-          key: 'topic',
-          data: res.data
-        });
-      }
+    });
+    this.data.refPostId = topic.id
+    //缓存话题
+    wx.setStorage({
+      key: 'topic',
+      data: topic
     });
   }
 })
