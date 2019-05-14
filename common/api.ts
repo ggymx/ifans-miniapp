@@ -1,5 +1,5 @@
 // tslint:disable max-line-length
-import { IDisLikeParams, IGetAnswerListParams, IGetAnswerListResponse, IHomeTopicListParams, IHomeTopicListResponse, ILikeParams, ILikeResponse, IPostDetailParams, IPostsDetailResponse, IUserPageParams, IUserPageResponse, IGetCommetListParams, IGetCommetListResponse, IDisLikeResponse, IGetPostIdByPostIdParams, IGetUserFootPrintResponese, IGetUserFootPrintParams, IUploadParams, IUploadResponese, INoticeListParams, INoticeListResponese } from "./types/http_msg";
+import { IDisLikeParams, IDisLikeResponse, IEmptyParams, IGetAnswerListParams, IGetAnswerListResponse, IGetCommetListParams, IGetCommetListResponse, IGetPostIdByPostIdParams, IGetUserFootPrintParams, IGetUserFootPrintResponese, IHomeTopicListParams, IHomeTopicListResponse, ILikeParams, ILikeResponse, INoticeListParams, INoticeListResponese, IPostDetailParams, IPostsDetailResponse, IUploadParams, IUploadResponese, IUserPageParams, IUserPageResponse, IUserResponse } from './types/http_msg'
 
 class Api {
   /**
@@ -7,9 +7,7 @@ class Api {
    */
   getHomeTopicList = this.makeApi<IHomeTopicListParams, IHomeTopicListResponse>('GET', '/v1/post/home-list')
 
-
   /**
-   * 
    * 根据参与id获取参与的列表
    */
   getRefPostList = this.makeApi<IGetAnswerListParams, IGetAnswerListResponse>('GET', '/v1/post/answer-list')
@@ -23,6 +21,11 @@ class Api {
    * 获取用户信息
    */
   getUser = this.makeApi<IUserPageParams, IUserPageResponse>('GET', '/v1/user/detail')
+
+  /**
+   * 获取个人信息
+   */
+  getUserProfile = this.makeApi<IEmptyParams, IUserResponse>('GET', '/v1/user/profile')
 
   /**
    * 参与话题点赞
@@ -60,7 +63,6 @@ class Api {
    * 用户通知
    */
   getUserNotice = this.makeApi<INoticeListParams, INoticeListResponese>('GET', '/v1/notice/list')
-
 
   private host: string
   private token: string
@@ -121,8 +123,8 @@ class Api {
     return this.httpRequest('POST', path, data)
   }
 
-  private makeApi<Q extends object, R>(method: 'GET' | 'POST', path: string): (params: Q) => Promise<R> {
-    return (params: Q): Promise<R> => {
+  private makeApi<Q extends object, R>(method: 'GET' | 'POST', path: string): (params?: Q) => Promise<R> {
+    return (params?: Q): Promise<R> => {
       return this.httpRequest(method, path, params).then(res => res.data as R)
     }
   }
