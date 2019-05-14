@@ -34,9 +34,16 @@ Page({
 
   //消息通知
   userNews(){
-    wx.navigateTo({
-      url: `./user/news`
-    })
+    if (this.data.user) {
+      const userId = wx.getStorageSync('userId');
+      smartGotoPage({
+        url: './user/detail?userId=' + userId
+      });
+    } else {
+      wx.navigateTo({
+        url: `./user/news`
+      })
+    }
   },
   Login() {
     if (this.data.user) {
