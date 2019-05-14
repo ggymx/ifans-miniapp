@@ -17,7 +17,7 @@ Page({
   createAnswer(event: any) {
     const topic = this.data.post
     smartGotoPage({
-      url: './createAnswer?topic=' + encodeURIComponent(JSON.stringify(topic))
+      url: '/pages/post/createAnswer?topic=' + encodeURIComponent(JSON.stringify(topic))
     });
   },
 
@@ -37,7 +37,6 @@ Page({
     //根据参与id获取参与的列表
 
     const data = await api.getRefPostList({ id, cursor, limit: 10 })
-    console.log('获取post列表---topic-detail', data)
     if (data.posts.length !== 0) {
       that.setData!({
         postArr: that.data.postArr.concat(data.posts)
