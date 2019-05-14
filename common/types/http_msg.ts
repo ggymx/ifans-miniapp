@@ -1,9 +1,9 @@
+import { AbuseReport } from './abuseReport';
+import { Comment } from './comment'
+import { INoticeReply } from './notice_reply';
 import { IPost, IThumbnail } from './posts'
 import { IReply } from './reply'
 import { IUser } from './user'
-import { Comment } from './comment';
-import { AbuseReport } from './abuseReport';
-import { INoticeReply } from './notice_reply';
 
 /**
  * 错误返回
@@ -427,7 +427,6 @@ export interface IGetMyCommentListResponese {
   comments: Comment[]
 }
 
-
 /**
  * 用户足迹
  */
@@ -449,10 +448,21 @@ export interface IUploadParams {
 
 }
 
+/**
+ * 用户详情
+ */
+// tslint:disable-next-line: no-empty-interface
+export interface IEmptyParams {
+
+}
+
+export interface IUserResponse {
+  user: IUser
+}
+
 export interface IUploadResponese {
   uptoken: string
 }
-
 
 /**
  * 获取该用户的所有通知

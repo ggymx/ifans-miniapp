@@ -259,8 +259,8 @@
 }
 
 .default .backImg {
-  width: 416rpx;
-  height: 273rpx;
+  width: 280rpx;
+  height: 280rpx;
   display: block;
   margin: 0 auto;
   margin-top: 57rpx;
@@ -323,8 +323,8 @@ text.push {
 
 /*页面崩溃*/
 image.err {
-  width: 302rpx;
-  height: 291rpx;
+  width: 250rpx;
+  height: 250rpx;
   margin: 0 auto;
   display: block;
   margin-top: 197rpx;

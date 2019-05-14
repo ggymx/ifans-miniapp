@@ -1,9 +1,9 @@
 <wxs module="con" src="../../wxs/converter.wxs"></wxs>
-<view class="publisher-item {{card?'item-card':''}} slot1 slot2" catch:tap="bindRouter">
+<view class="publisher-item {{card?'item-card':''}} slot1 slot2" catch:tap="findDetail">
   <!-- <view class="publisher-item {{card?'item-card':''}} slot1 slot2" catch:tap="finalLink"> -->
   <!--顶部-->
   <view class="publisher-person">
-    <image src="{{post.user.avatar}}" class="avatar" catch:tap="finalLink" />
+    <image src="{{post.user.avatar}}" class="avatar" catch:tap="findMy" />
     <view class="user-view">
       <!-- 用户名 -->
         <text class="username">{{con.nickNameCon(post.user.nickname)}}</text>
@@ -30,26 +30,26 @@
       <text class="attendCmt">{{con.contextCon(post.text,50)}}</text><a name="more" style="color:#4ABABC;font-size:30rpx;" wx:if="{{showMore}}">更多</a>
       </view>
       <!--配图-->
-      <view class="postImg" wx:if="{{true}}">
+      <view class="postImg" wx:if="{{post.thumbnails}}">
       <!--单图-->
-      <block wx:if="{{[1,2,3].length==1}}">
-       <image src="https://picsum.photos/200/300" class="one" />
+      <block wx:if="{{post.thumbnails.length==1}}">
+       <image src="{{post.thumbnails[0].image}}" class="one" catch:tap="imgPre" data-src="{{item.url}}"/>
       </block>
       <!--两图-->
-      <block wx:elif="{{[1,2].length==5}}">
-         <block wx:for="{{[1,2]}}">
-         <image src="https://picsum.photos/200/300" class="two" />
+      <block wx:elif="{{post.thumbnails.length==2}}">
+         <block wx:for="{{post.thumbnails}}">
+         <image src="{{item.image}}" class="two" catch:tap="imgPre" data-src="{{item.url}}"/>
          </block>
       </block>
       <block wx:else>
-          <block wx:for="{{[1,2,3,4,5]}}" wx:for-index="i">
+          <block wx:for="{{post.thumbnails}}" wx:for-index="i">
          <!--三张图时-->
           <block wx:if="{{i<3}}">
-            <image src="https://picsum.photos/200/300" class="three"/>
+            <image src="{{item.image}}" class="three" catch:tap="imgPre" data-src="{{item.url}}"/>
           </block>
           <!--多张图时-->
           <block wx:else>
-            <image src="https://picsum.photos/200/300" class="more"/>
+            <image src="{{item.image}}" class="more" catch:tap="imgPre" data-src="{{item.url}}"/>
           </block>
           </block>
       </block>
@@ -64,12 +64,12 @@
 
     <view class="likeComment">
     <!--下方点赞：wx:if="{{post.type=='2'}}"-->
-      <image src="{{isLike && '../../imgs/button-like-dj@2x.png' || '../../imgs/home-button-like@2x.png' }}" class="like-img" wx:if="{{like}}" />
+      <image src="{{isLike && '../../imgs/button-like-dj@2x.png' || '../../imgs/home-button-like@2x.png' }}" class="like-img" wx:if="{{like}}" catch:tap="giveLike"/>
       <text wx:if="{{true||post.likeCount}}" class="count like">22</text>
 
     <!--下方评论：wx:elif="{{post.type=='1'}}"-->
       <image src="{{ '../../imgs/home-button-Comment@2x.png' }}" class="comment-img" />
-      <text  wx:if="{{true||post.attendCount}}" class="count cmt">22</text>
+      <text  wx:if="{{true||post.attendCount}}" class="count cmt">{{post.attendCount}}</text>
     </view>
   </view>
 
