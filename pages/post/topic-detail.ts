@@ -14,10 +14,10 @@ Page({
     postArr: [],
     title: ''
   },
-  bindViewParti(event: any) {
-    const tid = event.currentTarget.dataset.tid;
+  createAnswer(event: any) {
+    const topic = this.data.post
     smartGotoPage({
-      url: './createAnswer?tid=' + tid
+      url: './createAnswer?topic=' + encodeURIComponent(JSON.stringify(topic))
     });
   },
 

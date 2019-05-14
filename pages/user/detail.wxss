@@ -280,20 +280,34 @@
   margin-bottom: 121rpx;
 }
 
-.pushMore{
-  background-color:#F4F5F9;
-  padding-bottom:32rpx;
+.pushMore {
+  background-color: #F4F5F9;
+  padding-bottom: 32rpx;
 }
 
-text.moreTip{
-  font-size:26rpx;font-family:PingFang-SC-Medium;font-weight:500;color:rgba(102,102,102,1);margin-left:38rpx;
-}
-a.moreTip{
-  font-size:26rpx;font-family:PingFang-SC-Medium;font-weight:500;color:rgba(9,166,220,1);line-height:40px;margin-left:370rpx;
+text.moreTip {
+  font-size: 26rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(102, 102, 102, 1);
+  margin-left: 38rpx;
 }
 
-view.push{
-  overflow:hidden;margin-bottom:20rpx;box-shadow:0px 0px 7px 2px rgba(6,0,1,0.03);border-radius:2px;background:#FFF
+a.moreTip {
+  font-size: 26rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(9, 166, 220, 1);
+  line-height: 40px;
+  margin-left: 370rpx;
+}
+
+view.push {
+  overflow: hidden;
+  margin-bottom: 20rpx;
+  box-shadow: 0px 0px 7px 2px rgba(6, 0, 1, 0.03);
+  border-radius: 2px;
+  background: #FFF
 }
 
 text.push {
@@ -303,6 +317,26 @@ text.push {
   color: rgba(102, 102, 102, 1);
   margin-top: 40rpx;
   margin-bottom: 40rpx;
-  display:inline-block;
-  margin-left:38rpx;
+  display: inline-block;
+  margin-left: 38rpx;
+}
+
+/*页面崩溃*/
+image.err {
+  width: 302rpx;
+  height: 291rpx;
+  margin: 0 auto;
+  display: block;
+  margin-top: 197rpx;
+}
+
+text.err {
+  font-size: 30rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(153, 153, 153, 0.5);
+  line-height: 50px;
+  margin-top: 46rpx;
+  display: block;
+  text-align: center;
 }
