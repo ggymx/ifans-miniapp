@@ -33,23 +33,23 @@
       <view class="postImg" wx:if="{{post.thumbnails}}">
       <!--单图-->
       <block wx:if="{{post.thumbnails.length==1}}">
-       <image src="{{post.thumbnails[0].image}}" class="one" />
+       <image src="{{post.thumbnails[0].image}}" class="one" catch:tap="imgPre" data-src="{{item.url}}"/>
       </block>
       <!--两图-->
       <block wx:elif="{{post.thumbnails.length==2}}">
          <block wx:for="{{post.thumbnails}}">
-         <image src="{{item.image}}" class="two" />
+         <image src="{{item.image}}" class="two" catch:tap="imgPre" data-src="{{item.url}}"/>
          </block>
       </block>
       <block wx:else>
           <block wx:for="{{post.thumbnails}}" wx:for-index="i">
          <!--三张图时-->
           <block wx:if="{{i<3}}">
-            <image src="{{item.image}}" class="three"/>
+            <image src="{{item.image}}" class="three" catch:tap="imgPre" data-src="{{item.url}}"/>
           </block>
           <!--多张图时-->
           <block wx:else>
-            <image src="{{item.image}}" class="more"/>
+            <image src="{{item.image}}" class="more" catch:tap="imgPre" data-src="{{item.url}}"/>
           </block>
           </block>
       </block>
