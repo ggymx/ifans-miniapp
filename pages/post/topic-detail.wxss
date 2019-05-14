@@ -4,7 +4,6 @@
     width: 100%;
     height: auto;
     margin-top: 2rpx;
-    letter-spacing: 5rpx;
     padding-bottom: 130rpx;
     background-color: #f4f5f9;
 }
@@ -71,6 +70,7 @@
     margin-top: 34rpx;
     line-height: 50rpx;
     color: #333;
+    letter-spacing: 5rpx;
     font-size: 30rpx;
     font-weight: 500;
     color: #333;
@@ -78,7 +78,7 @@
 
 .imgBox {
     width: 100%;
-    height: 670rpx;
+    height: auto;
     margin-top: 27rpx;
     background-color: #666666;
 }
@@ -122,7 +122,18 @@
 
 .star,
 .msg {
-    margin-right: 36rpx;
+    width: auto;
+    margin-right: 32rpx;
+    position: relative;
+    display: flex;
+}
+
+.star {
+    margin-right: 32rpx;
+}
+
+.msg {
+    margin-right: 20rpx;
 }
 
 .stars,
@@ -141,7 +152,26 @@
     height: 31rpx;
 }
 
-.share .shares {
+.right .star::before,
+.right .msg::before,
+.right .share::before {
+    content: '';
+    position: absolute;
+    top: -10rpx;
+    bottom: -10rpx;
+    left: -15rpx;
+    right: -15rpx;
+}
+
+.right .share {
+    padding: 0;
+    width: 50rpx;
+    height: 50rpx;
+    border: none;
+    line-height: 0;
+}
+
+.share .shareImg {
     width: 28rpx;
     height: 28rpx;
 }
@@ -160,7 +190,7 @@
 }
 
 .moreTop .right-r {
-    width: 155rpx;
+    width: 140rpx;
     height: auto;
     position: relative;
 }
@@ -187,7 +217,7 @@
     position: absolute;
     top: 50%;
     right: 0;
-    margin-top: -9rpx;
+    margin-top: -7rpx;
 }
 
 

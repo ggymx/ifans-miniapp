@@ -9,7 +9,7 @@
                 <image class="pot" src="../../imgs/img/more1.png"></image>
             </view>
         </view>
-        <view class="user">
+        <view class="user" bind:tap="userInfo">
             <image class="info fl" src="{{post.user.avatar}}"></image>
             <view class="name fl">{{post.user.nickname}}</view>
         </view>
@@ -30,16 +30,14 @@
                     <image class="msgs" src="../../imgs/img/message.png"></image>
                     {{post.attendCount ||''}}
                 </view>
-                <view class="share">
-                    <image class="shares" src="../../imgs/img/share.png"></image>
-                </view>
+                <button open-type="share" class="share" plain=""><image class="shareImg" src="../../imgs/img/share.png"></image></button>
             </view>
         </view>
     </view>
     <!-- 中间更多 -->
-    <view class="moreTop" wx:if="{{!isPreview}}">
+    <view class="moreTop" wx:if="{{isPreview}}">
         <view class="txt" selectable="false" space="false" decode="false">{{post.attendCount}}个投稿</view>
-        <view class="right-r">
+        <view class="right-r" bind:tap="topicArea">
             <view class="txt" selectable="false" space="false" decode="false">更多话题</view>
             <image class="row" src="../../imgs/button-gd@2x.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
         </view>
@@ -83,7 +81,7 @@
             </view>
         </view>
     </view>
-    <view class="pen">
+    <view class="pen" bind:tap="createAnswer">
         <image class="" src="../../imgs/img/pen.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
         </image>
     </view>

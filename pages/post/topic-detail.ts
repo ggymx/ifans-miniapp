@@ -14,13 +14,23 @@ Page({
     postArr: [],
     title: ''
   },
+  
   createAnswer(event: any) {
     const topic = this.data.post
     smartGotoPage({
-      url: './createAnswer?topic=' + encodeURIComponent(JSON.stringify(topic))
+      url: '/pages/post/createAnswer'
     });
   },
-
+  userInfo(event: any) {
+    smartGotoPage({
+      url: '/pages/user/detail'
+    });
+  },
+  topicArea(event: any) {
+    smartGotoPage({
+      url: '/pages/oldindex'
+    });
+  },
   //options:获取url参数
   async onLoad(options: any) {
     const that = this;

@@ -39,10 +39,10 @@ Page({
   inputValue: function (event: any) {
     console.log('===inputValue event===', event.detail.value)
     this.setData!({
-      commentValue: event.detail.value,
-      showMask: true
+      showMask: !this.data.showMask,
     })
   },
+ 
   bindComment(event: any) {
     const that = this;
     const token = wx.getStorageSync("token");

@@ -17,24 +17,6 @@
         <view class="imgBox">
             <image class="one" src="{{post.gallery}}"></image>
         </view>
-        <view class="bot">
-            <view class="left">
-                <image class="block" src="../../imgs/time.png"></image>
-                <view class="time">{{con.dateCon(post.createAt)}}</view>
-            </view>
-            <view class="right">
-                <view class="star">
-                    <image class="stars" src="../../imgs/img/stars.png"></image>
-                </view>
-                <view class="msg">
-                    <image class="msgs" src="../../imgs/img/message.png"></image>
-                    {{post.attendCount ||''}}
-                </view>
-                <view class="share">
-                    <image class="shares" src="../../imgs/img/share.png"></image>
-                </view>
-            </view>
-        </view>
         <!-- 发布按钮 -->
         <view class="fixbtn">
             <button type="button" class="btn back" bind:tap="backToCreate">返回修改</button>

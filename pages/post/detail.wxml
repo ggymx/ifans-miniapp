@@ -54,6 +54,8 @@
         </view>
     </view>
 </view>
+<view class="mask" wx:if="{{showMask}}"></view>
+
 <view>
     <view class="opreate-underlying op">
         <view class="container">
@@ -70,12 +72,11 @@
     <view class="img">
         <image class="" src="../../imgs/img/small.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
     </view>
-    <input class="content" type="text" placeholder="写点评论吧" bindinput='inputValue' bindconfirm="commentEditor" value="{{commentValue}}" />
+    <input class="content" type="text" placeholder="写点评论吧" bindfocus='inputValue' bindblur="inputValue" bindconfirm="commentEditor" value="{{commentValue}}" />
     <button class="btn" type="button" bind:tap="bindComment" data-tid="{{comment.post.id}}">
     发送
   </button>
 </view>
-<view class="mask"></view>
 
 
 <!-- <view class="opreate-underlying" isCreateAnserPage="{{isCreateAnserPage}}" style="position:fixed;bottom:0;margin-bottom:0;background-color:#FFF">
