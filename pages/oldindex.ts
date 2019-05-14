@@ -89,6 +89,7 @@ Page({
         that.setData!({
           topList: data.posts
         });
+        console.log('初始化首页列表',that.data.topList);
         setTimeout(() => {
           wx.stopPullDownRefresh({});
         }, 500);
