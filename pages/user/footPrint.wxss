@@ -64,8 +64,8 @@
 }
 
 .default .tipImg {
-  width: 281rpx;
-  height: 185rpx;
+  width: 250rpx;
+  height: 250rpx;
   margin: 0 auto;
   margin-top:281rpx;
 }
@@ -92,8 +92,8 @@
 
 /*页面崩溃*/
 image.err {
-  width: 302rpx;
-  height: 291rpx;
+  width: 250rpx;
+  height: 250rpx;
   margin: 0 auto;
   display: block;
   margin-top: 197rpx;
