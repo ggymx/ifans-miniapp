@@ -3,12 +3,12 @@
 <navbar text="首页" class="navbar-index"></navbar>
 <view class="container">
   <image class="bg" src="../imgs/img/bg.png" mode="aspectFill" lazy-load="false" binderror="" bindload="" />
-  <view class="info">
+  <view class="info" wx:if="{{data.user}}">
     <view class="pic fl">
       <image class="user" bind:tap="Login" src="{{data.user ? data.user.avatar: '../imgs/img/tit.png' }}"></image>
     </view>
-    <view class="name fl">{{data.user ? data.user.nickname : '未登录'}}</view>
-    <view class="msg fr"  bind:tap="userNews">
+    <view class="name fl">{{data.user ? data.user.nickname : ''}}</view>
+    <view class="msg fr"  bind:tap="userNews" wx:if="{{data.user}}">
       <image class="img fl" src="../imgs/img/msg.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""/>
       <view class="pot"></view>
     </view>
