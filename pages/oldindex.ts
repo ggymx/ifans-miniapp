@@ -89,7 +89,7 @@ Page({
         that.setData!({
           topList: data.posts
         });
-        // console.log('初始化首页列表',that.data.topList);
+        console.log('初始化首页列表',that.data.topList);
         // that.data.topList.map((item)=>{
         //   console.log('item的text',typeof item.text.trim().length)
         // })

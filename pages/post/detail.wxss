@@ -18,14 +18,15 @@
     height: auto;
 }
 
+/*关联的话题标题*/
 .content .title {
     width: 100%;
-    height: 87rpx;
+    /* height: 87rpx; */
     line-height: 50rpx;
     font-weight: bold;
     padding: 0 31rpx 0 36rpx;
     box-sizing: border-box;
-    margin-top: 33rpx;
+    margin-top: 30rpx;
     font-size: 36rpx;
     color: #333;
 }
@@ -34,7 +35,7 @@
     width: 100%;
     height: 64rpx;
     padding: 0 34rpx;
-    margin-top: 58rpx;
+    /* margin-top: 58rpx; */
     position: relative;
     box-sizing: border-box;
 }
@@ -83,27 +84,17 @@
     align-items: center;
 }
 
-.topic-title {
-    /* background-color: green; */
-    margin-left: 30rpx;
-    margin-right: 30rpx;
-    font-size: 36rpx;
-    font-weight: bold;
-    color: rgb(51, 51, 51);
-    Font-family: "Roboto", "Noto Sans", "San Francisco", "PingFang", "Microsof";
-}
-
-.topic-context {
-    /* background-color: red; */
-    margin-top: 30rpx;
-    margin-bottom: 36rpx;
+/*关联的话题内容*/
+.content .context {
+    font-size:30rpx;
+   font-family:PingFang-SC-Medium;
+   font-weight:500;
+   color:rgba(51,51,51,1);
+   margin-top:26rpx;
+   margin-bottom:26rpx;   
     /* text-align: center; */
-    color: rgb(51, 51, 51);
-    Font-family: "Roboto", "Noto Sans", "San Francisco", "PingFang", "Microsof";
-    font-size: 30rpx;
     letter-spacing: 3rpx;
-    line-height: 56rpx;
-    font-weight: 400;
+    /* line-height: 56rpx; */
     white-space: pre-line;
     display: -webkit-box;
     word-break: break-all;
@@ -332,6 +323,47 @@
     word-break: keep-all;
     word-wrap: break-word;
 }
+
+
+/*投稿配图区域*/
+.postImg {
+    display: flex;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+  }
+  
+  /*单图*/
+  .postImg .one {
+    background-color: gray;
+    height: 646rpx;
+    width: 646rpx
+  }
+  
+  /*两图*/
+  .postImg .two {
+    background-color: gray;
+    height: 322rpx;
+    width: 322rpx;
+    margin-left: 2rpx;
+  }
+  
+  /*三图*/
+  .postImg .three,
+  .postImg .more {
+    background-color: gray;
+    height: 214rpx;
+    width: 214rpx;
+    margin-left: 2rpx;
+  }
+  
+  /*更多*/
+  .postImg .more {
+    background-color: gray;
+    height: 214rpx;
+    width: 214rpx;
+    margin-left: 2rpx;
+    margin-top: 2rpx;
+  }
 
 .txt {
     width: 100%;
