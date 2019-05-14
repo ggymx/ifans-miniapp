@@ -17,7 +17,8 @@ Page({
     data: null,
     comments: [],
     commentValue: '',
-    isCreateAnserPage: false
+    isCreateAnserPage: false,
+    showMask: false
   },
   isCreateAnserPage(event: any) {
     this.setData!({
@@ -38,7 +39,8 @@ Page({
   inputValue: function (event: any) {
     console.log('===inputValue event===', event.detail.value)
     this.setData!({
-      commentValue: event.detail.value
+      commentValue: event.detail.value,
+      showMask: true
     })
   },
   bindComment(event: any) {

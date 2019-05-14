@@ -35,11 +35,6 @@
                 </view>
             </view>
         </view>
-        <!-- 发布按钮 -->
-        <view class="fixbtn" wx:if="{{isPreview}}">
-            <button type="button" class="btn back">返回修改</button>
-            <button type="button" class="btn sure">确认发布</button>
-        </view>
     </view>
     <!-- 中间更多 -->
     <view class="moreTop" wx:if="{{!isPreview}}">
@@ -56,30 +51,22 @@
                     <postCard addClass="item-card" arrowBtn clock like post="{{item}}" isLike="{{item.isLike}}" />
                 </block>
             </block>
-
         </view>
     </view>
     <!-- 发布预览状态 -->
-    <view class="opreate-underlying op" wx:if="{{isPublished}}">
+    <view class="opreate-underlying op" wx:if="{{isPublished && !isPreview}}">
         <view class="container">
-
-
             <!-- 发布分享页 弹出层 -->
             <view class="mask"></view>
             <view class="share2">
                 <view class="false">
                     <image class="fs" src="../../imgs/img/fs.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
-
                     </image>
                 </view>
                 <view class="top">
-
                     <image class="ok" src="../../imgs/img/ok.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
-
                     </image>
                     <text class="txt">发布成功</text>
-
-
                 </view>
                 <view class="mid">
                     <image class="pic" src="../../imgs/meinv.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
@@ -95,5 +82,9 @@
                 </button>
             </view>
         </view>
+    </view>
+    <view class="pen">
+        <image class="" src="../../imgs/img/pen.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
+        </image>
     </view>
 </view>

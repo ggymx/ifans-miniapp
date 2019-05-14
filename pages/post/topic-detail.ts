@@ -8,7 +8,7 @@ let id: number;
 let cursor: number = 0;
 Page({
   data: {
-    isPreview: false, // 预览状态
+    isPreview: true, // 预览状态
     isPublished: false, // 发布成功
     post: null,
     postArr: [],
