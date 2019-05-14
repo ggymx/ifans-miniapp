@@ -11,7 +11,7 @@ Page({
     userData: null,
     recommendList: [],
     //页面正常时
-    notErr:false
+    notErr:true
   },
 
   onLoad(options: any) {
