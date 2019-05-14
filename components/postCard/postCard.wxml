@@ -1,9 +1,9 @@
 <wxs module="con" src="../../wxs/converter.wxs"></wxs>
-<view class="publisher-item {{card?'item-card':''}} slot1 slot2" catch:tap="bindRouter">
+<view class="publisher-item {{card?'item-card':''}} slot1 slot2" catch:tap="findDetail">
   <!-- <view class="publisher-item {{card?'item-card':''}} slot1 slot2" catch:tap="finalLink"> -->
   <!--顶部-->
   <view class="publisher-person">
-    <image src="{{post.user.avatar}}" class="avatar" catch:tap="finalLink" />
+    <image src="{{post.user.avatar}}" class="avatar" catch:tap="findMy" />
     <view class="user-view">
       <!-- 用户名 -->
         <text class="username">{{con.nickNameCon(post.user.nickname)}}</text>
@@ -64,7 +64,7 @@
 
     <view class="likeComment">
     <!--下方点赞：wx:if="{{post.type=='2'}}"-->
-      <image src="{{isLike && '../../imgs/button-like-dj@2x.png' || '../../imgs/home-button-like@2x.png' }}" class="like-img" wx:if="{{like}}" />
+      <image src="{{isLike && '../../imgs/button-like-dj@2x.png' || '../../imgs/home-button-like@2x.png' }}" class="like-img" wx:if="{{like}}" catch:tap="giveLike"/>
       <text wx:if="{{true||post.likeCount}}" class="count like">22</text>
 
     <!--下方评论：wx:elif="{{post.type=='1'}}"-->
