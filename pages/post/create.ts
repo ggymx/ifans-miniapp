@@ -1,11 +1,4 @@
-//index.js
-//获取应用实例
-import { IMyApp } from '../../app'
-import api from '../../common/api';
-import { smartGotoPage } from '../../common/helper';
-import { uploadMultiImg } from '../../common/upload';
-const app = getApp<IMyApp>()
-let tId: number;
+import { chooseImage } from './../../common/upload';
 Page({
   data: {
     topic: null,
@@ -13,39 +6,15 @@ Page({
     id: null,
     inputText: '213rpx',
     titleValue: '',
-    uptoken: '',
-    imageArr: [],
     image2Commit: [],
   },
 
   async didPressChooesImage() {
-    const that = this;
-    const allowMax = 9 - that.data.image2Commit.length
-    console.log('此次最多上传： ' + allowMax + ' 张')
-    uploadMultiImg(allowMax, {
-      before() {
-        console.log('before upload');
-      },
-      success(res) {
-        console.log('res---------------------++++++=', res)
-        //将缩略图存入缓存
-        wx.setStorageSync('gallery',res);
-        that.setData({
-          imageArr: res,
-          image2Commit: that.data.image2Commit.concat(res)
-        });
-      },
-      fail(err) {
-        console.log('error:' + err);
-      },
-      progress: (res) => {
-        console.log('上传进度', res.progress)
-        console.log('已经上传的数据长度', res.totalBytesSent)
-        console.log('预期需要上传的数据总长度', res.totalBytesExpectedToSend)
-      },
-      complete() {
-        console.log('upload complete');
-      }
+    const allowMax = 9 - this.data.image2Commit.length
+    const images = await chooseImage(allowMax)
+    const image2Commit = this.data.image2Commit.concat(images)
+    this.setData!({
+      image2Commit
     })
   },
 
@@ -111,28 +80,20 @@ Page({
       return
     }
 
-    const gallery = this.data.image2Commit.map(item => item.imageURL).join(',');
-    console.log('gallery拦截----------------------------',gallery) ;
     const postData = {
       text: this.data.pushText,
       title: this.data.titleValue,
       type: 1,
-      gallery,    //
+      thumbnails: this.data.image2Commit.map(path=>({
+        image: path,
+        type: 0,
+        url: path,
+      })),
     }
     wx.navigateTo({
-      url: '../preview/preview?post='+encodeURIComponent(JSON.stringify(postData))
+      url: '/pages/preview/preview?post='+encodeURIComponent(JSON.stringify(postData))
     })
   },
-  // titleFocus(event: any) {   //title 的view 也要一起改变大小
-  //   this.setData!({
-  //     titleStyle: '213rpx'
-  //   });
-  // },
-  // onEditText(event: any) {
-  //   this.setData!({
-  //     inputText: '213rpx'
-  //   });
-  // },
   onEndEditor(event: any) {
     this.setData!({
       inputText: '213rpx'

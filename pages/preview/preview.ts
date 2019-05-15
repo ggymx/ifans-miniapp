@@ -1,9 +1,11 @@
-import api from '../../common/api';
+import api from '../../common/api'
 import { smartGotoPage } from '../../common/helper'
+import { uploadChosenImages } from '../../common/upload'
 
 Page({
   data: {
     post: null,
+    uploadPromise: null,
     user:null,
     //缩略图
     gallery:null
@@ -14,17 +16,24 @@ Page({
     })
   },
 
- //图片预览
- imgPre(event: any){
-  const instance=this as any;
-  const thumbnails=instance.data.post.thumbnails;
-  const imgs=thumbnails.map((item: any)=>item=item.url);
-  wx.previewImage({
-    current: event.target.dataset.src, // 当前显示图片的http链接
-    urls: imgs // 需要预览的图片http链接列表
-  })
-},
-  confirmPublish(event: any) {
+  /**
+   * 静默上传，可以多次调用，只会执行一次
+   */
+  uploadOnce() {
+    const token = wx.getStorageSync('token');
+    if (!token) { return null }
+    const data = this.data.post
+    if (data.thumbnails) {
+      const uploadPromise = this.data.uploadPromise || uploadChosenImages(data.thumbnails.map((item: any) => item.url))
+      this.setData({
+        uploadPromise,
+      })
+      return uploadPromise
+    }
+    return Promise.resolve([])
+  },
+
+  async confirmPublish(event: any) {
     const that = this;
     //获取缓存中的token，同步方式
     const token = wx.getStorageSync('token');
@@ -33,6 +42,17 @@ Page({
         url: '../login'
       });
     } else {
+      const data = this.data.post
+      if(data.thumbnails) {
+        wx.showToast({
+          title: '文件上传中...',
+          icon: 'loading',
+        })
+        const result = await this.uploadOnce()
+        wx.hideToast({})
+        data.gallery = result.map((item: any) => item.imageURL).join(',')
+        delete data.thumbnails
+      }
       api.request({
         url: '/v1/post/create',
         data: this.data.post,
@@ -45,7 +65,7 @@ Page({
           wx.removeStorageSync('draft');
           wx.removeStorageSync('gallery');
           wx.redirectTo({
-            url: `../post/topic-detail?id=${id}`
+            url: `/pages/post/topic-detail?id=${id}&isPublished=1`
           });
         }
       });
@@ -79,6 +99,6 @@ Page({
     this.setData({
       post
     })
+    this.uploadOnce()
   },
-
 })

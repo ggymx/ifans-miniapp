@@ -86,9 +86,14 @@ Page({
       method: 'GET',
       success(res) {
         const data = res.data as any
-        that.setData!({
-          topList: data.posts
-        });
+        if(data.posts) {
+          that.setData!({
+            topList: data.posts
+          });
+        } else {
+          console.log('invalid data:',data, 'cursor', cursor)
+          wx.showToast({title:'非法数据'+JSON.stringify(data)})
+        }
         console.log('初始化首页列表',that.data.topList);
         // that.data.topList.map((item)=>{
         //   console.log('item的text',typeof item.text.trim().length)

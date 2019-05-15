@@ -1,6 +1,6 @@
-import { smartGotoPage } from "./helper";
-import api from "./api";
-import { upload } from "./qiniuUploader";
+import api from './api'
+import { smartGotoPage } from './helper'
+import { upload } from './qiniuUploader'
 
 interface IUploadImgOptions {
   success?: AnyFunction;
@@ -13,10 +13,10 @@ interface IUploadImgOptions {
 
 export async function uploadSingleImg(options: IUploadImgOptions) {
   const { success, fail, complete, progress, before } = options
-  const token = wx.getStorageSync("token");
+  const token = wx.getStorageSync('token');
   if (!token) {
     smartGotoPage({
-      url: "/pages/login"
+      url: '/pages/login'
     });
   } else {
     const { uptoken } = await api.getUploadToken({})
@@ -24,15 +24,15 @@ export async function uploadSingleImg(options: IUploadImgOptions) {
       count: 1,
       sizeType: 'compressed',
       sourceType: 'album',
-      success: function (res) {
+      success(res) {
 
-        var filePath = res.tempFilePaths[0];
+        let filePath = res.tempFilePaths[0];
         upload({
-          filePath: filePath,
+          filePath,
           options: {
             region: 'ECN',       // 可选(默认为'ECN')
             domain: 'http://pr8jyt7sd.bkt.clouddn.com',
-            uptoken: uptoken,
+            uptoken,
             shouldUseQiniuFileName: true // 默认false
           },
           before,
@@ -47,10 +47,10 @@ export async function uploadSingleImg(options: IUploadImgOptions) {
 }
 
 export async function uploadMultiImg(count: number, options: IUploadImgOptions) {
-  const token = wx.getStorageSync("token");
+  const token = wx.getStorageSync('token');
   if (!token) {
     smartGotoPage({
-      url: "/pages/login"
+      url: '/pages/login'
     });
   } else {
     const { uptoken } = await api.getUploadToken({})
@@ -58,7 +58,7 @@ export async function uploadMultiImg(count: number, options: IUploadImgOptions) 
       count,
       sizeType: ['compressed'] as any,
       sourceType: ['album','camera'] as any,
-      success: async function (res) {
+      async success(res) {
         try{
           const results = await Promise.all(res.tempFilePaths.map((item) => uploadTempFile(uptoken, item)))
           options.success(results)
@@ -79,9 +79,9 @@ function uploadTempFile(uptoken: string, filePath: string) {
       filePath,
       options: {
         region: 'ECN',       // 可选(默认为'ECN')
-        domain: 'http://pr8jyt7sd.bkt.clouddn.com',
-        uptoken: uptoken,
-        shouldUseQiniuFileName: true // 默认false
+        domain: 'http://static.qiniu.ifans.pub',
+        uptoken,
+        shouldUseQiniuFileName: true, // 默认false
       },
       success: resolve,
       fail: reject,
@@ -89,4 +89,24 @@ function uploadTempFile(uptoken: string, filePath: string) {
       // complete,
     });
   })
+}
+
+export function chooseImage(count: number): Promise<string[]> {
+  return new Promise<string[]>((resolve, reject) => {
+    wx.chooseImage({
+      count,
+      sizeType: ['compressed'] as any,
+      sourceType: ['album', 'camera'] as any,
+      success(res) {
+        resolve(res.tempFilePaths)
+      },
+      fail: reject,
+    });
+  })
+}
+
+export async function uploadChosenImages(tempFilePaths: string[]): Promise<any> {
+  const { uptoken } = await api.getUploadToken({})
+  const results = await Promise.all(tempFilePaths.map((path) => uploadTempFile(uptoken, path)))
+  return results
 }
