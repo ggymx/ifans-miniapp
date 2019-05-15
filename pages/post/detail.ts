@@ -1,13 +1,13 @@
 //index.js
 //获取应用实例
 import { IMyApp } from '../../app'
-import { smartGotoPage } from '../../common/helper';
 import api from '../../common/api';
+import { smartGotoPage } from '../../common/helper';
 import { EUserStatus } from '../../common/types/comment';
 
 const app = getApp<IMyApp>()
 let id: number;
-let cursor: number = 0;
+const cursor: number = 0;
 let postId: number;
 
 Page({
@@ -36,7 +36,7 @@ Page({
     })
 
   },
-  inputValue: function (event: any) {
+  inputValue (event: any) {
     console.log('===inputValue event===', event.detail.value)
     this.setData!({
       showMask: !this.data.showMask,
@@ -45,19 +45,19 @@ Page({
  
   bindComment(event: any) {
     const that = this;
-    const token = wx.getStorageSync("token");
+    const token = wx.getStorageSync('token');
     if (!token) {
       const pages = getCurrentPages();
       const curPage = pages[pages.length - 1];
-      wx.showToast({ title: "请先登录！" });
+      wx.showToast({ title: '请先登录！' });
       setTimeout(() => {
-        if (curPage.route === "pages/index") {
+        if (curPage.route === 'pages/index') {
           smartGotoPage({
-            url: "./login"
+            url: './login'
           });
         } else {
           smartGotoPage({
-            url: "../login"
+            url: '../login'
           });
         }
       }, 100);
@@ -67,7 +67,7 @@ Page({
           url: '/v1/comment/create',
           method: 'POST',
           data: {
-            postId: postId,
+            postId,
             text: that.data.commentValue,
             status: EUserStatus.Normal
           },
@@ -85,19 +85,19 @@ Page({
   /*点赞 */
   async giveLike(event: any) {
     //获取token
-    const token = wx.getStorageSync("token");
+    const token = wx.getStorageSync('token');
     if (!token) {
       const pages = getCurrentPages();
       const curPage = pages[pages.length - 1];
-      wx.showToast({ title: "请先登录！" });
+      wx.showToast({ title: '请先登录！' });
       setTimeout(() => {
-        if (curPage.route === "pages/index") {
+        if (curPage.route === 'pages/index') {
           smartGotoPage({
-            url: "./login"
+            url: './login'
           });
         } else {
           smartGotoPage({
-            url: "../login"
+            url: '../login'
           });
         }
       }, 100);
@@ -121,12 +121,10 @@ Page({
     }
   },
 
-
   async onLoad(options: any) {
     const that = this;
 
     const id = options.id || { postId }
-
 
     api.request({
       url: '/v1/post/detail',
@@ -139,6 +137,7 @@ Page({
         that.setData!({
           data: res.data
         });
+        console.log('接收到的话题详情---',that.data.data);
       }
     });
 
@@ -149,7 +148,6 @@ Page({
     that.setData!({
       comments: data.comments
     })
-
 
   },
 

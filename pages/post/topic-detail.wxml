@@ -14,9 +14,36 @@
             <view class="name fl">{{post.user.nickname}}</view>
         </view>
         <view class="content">{{post.text}}</view>
-        <view class="imgBox">
+        <!-- <view class="imgBox">
             <image class="one" src="{{post.gallery}}"></image>
-        </view>
+        </view> -->
+
+         <!--配图-->
+      <view class="postImg" wx:if="{{thumbnails}}">
+      <!--单图-->
+      <block wx:if="{{thumbnails.length==1}}">
+       <image src="{{thumbnails[0]}}" class="one" catch:tap="imgPre" data-src="{{item}}"/>
+      </block>
+      <!--两图-->
+      <block wx:elif="{{thumbnails.length==2}}">
+         <block wx:for="{{thumbnails}}">
+         <image src="{{item}}" class="two" catch:tap="imgPre" data-src="{{item}}"/>
+         </block>
+      </block>
+      <block wx:else>
+          <block wx:for="{{thumbnails}}" wx:for-index="i">
+         <!--三张图时-->
+          <block wx:if="{{i<3}}">
+            <image src="{{item}}" class="three" catch:tap="imgPre" data-src="{{item}}"/>
+          </block>
+          <!--多张图时-->
+          <block wx:else>
+            <image src="{{item}}" class="more" catch:tap="imgPre" data-src="{{item}}"/>
+          </block>
+          </block>
+      </block>
+      </view>
+        
         <view class="bot">
             <view class="left">
                 <image class="block" src="../../imgs/time.png"></image>
