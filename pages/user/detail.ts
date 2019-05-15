@@ -8,7 +8,7 @@ const app = getApp<IMyApp>()
 
 Page({
   data: {
-    userData: null,
+    user: null,
     recommendList: [],
     //页面正常时
     notErr:true
@@ -27,7 +27,7 @@ Page({
       success(res) {
         const data=res.data as any;
         that.setData!({
-          userData: data.user,
+          user: data.user,
           recommendList:data.posts
         });
       }
@@ -36,7 +36,7 @@ Page({
 
   onShareAppMessage() {
     const that = this;
-    const userName = that.data.userData!.user.nickname
+    const userName = that.data.user!.nickname
     return {
       title: `邀你进入-${userName}的空间`,
       success(e: any) {

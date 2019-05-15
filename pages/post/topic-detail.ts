@@ -95,7 +95,7 @@ Page({
     const that = this as any;
 
     return {
-      title: `#${this.data.post.post.title}#`,
+      title: `#${this.data.post.title}#`,
       success(e: any) {
 
         wx.showShareMenu({
