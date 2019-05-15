@@ -28,12 +28,13 @@
     margin-top: 40rpx;
 }
 
-.bottom {
+#login {
     border-radius: 80rpx;
     margin: 70rpx 50rpx;
     font-size: 35rpx;
+    background-color:#4ABABC;
+    color:#FFF;
 }
-
 .underlying{
     height:100%;
 }

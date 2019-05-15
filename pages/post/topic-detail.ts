@@ -2,7 +2,7 @@
 //获取应用实例
 import { IMyApp } from '../../app'
 import api from '../../common/api';
-import { smartGotoPage } from '../../common/helper';
+import { isPostPage, smartGotoPage } from '../../common/helper';
 const app = getApp<IMyApp>()
 let id: number;
 let cursor: number = 0;
@@ -12,13 +12,15 @@ Page({
     isPublished: false, // 发布成功
     post: null,
     postArr: [],
-    title: ''
+    title: '',
+    //暂时定义的投稿配图字段
+    thumbnails: null
   },
   
   createAnswer(event: any) {
     const topic = this.data.post
     smartGotoPage({
-      url: '/pages/post/createAnswer'
+       url: '/pages/post/createAnswer?topic=' + encodeURIComponent(JSON.stringify(topic))
     });
   },
   userInfo(event: any) {
@@ -31,23 +33,39 @@ Page({
       url: '/pages/oldindex'
     });
   },
+  //图片预览
+  imgPre(event: any) {
+    const instance = this as any;
+    const imgs = instance.data.thumbnails.map((item: any) => item = item);
+    wx.previewImage({
+      current: event.target.dataset.src, // 当前显示图片的http链接
+      urls: imgs // 需要预览的图片http链接列表
+    })
+  },
   //options:获取url参数
   async onLoad(options: any) {
     const that = this;
     if (!that.data.post) {
       id = options.id;
-      const data = await api.getPost({ id })
+      const data: any = await api.getPost({ id })
 
       this.setData!({
-        post: data.post
+        post: data.post,
+        thumbnails: data.post.gallery.split(',')
       })
 
+      if (that.data.thumbnails[0].trim().length === 0) {
+        this.setData!({
+          thumbnails: null
+        })
+      }
+      console.log('关联的话题详情的gallery-----------', that.data.thumbnails);
+      console.log('关联的话题详情的gallery-----------', that.data.post);
       cursor = 0;
     }
     //根据参与id获取参与的列表
 
     const data = await api.getRefPostList({ id, cursor, limit: 10 })
-    console.log('获取post列表---topic-detail', data)
     if (data.posts.length !== 0) {
       that.setData!({
         postArr: that.data.postArr.concat(data.posts)
