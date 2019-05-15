@@ -16,34 +16,34 @@
 <navbar back text="我的足迹"></navbar>
 <view class="underlying" style="background:#FFF">
 
-      <view class="container" style="height:1200rpx;padding-top:10rpx;">
-         <!--崩溃页面-->
-       <block wx:if="{{!notErr}}">
-          <image src="../../imgs/img/网络不给力@2x.png" class="err"/>
-          <text class="err">页面崩溃，请尝试重新刷新页面</text>
-       </block>
-         <!--正常页面-->
+    <view class="container" style="height:1200rpx;padding-top:10rpx;">
+        <!--崩溃页面-->
+        <block wx:if="{{!notErr}}">
+            <image src="../../imgs/img/网络不给力@2x.png" class="err" />
+            <text class="err">页面崩溃，请尝试重新刷新页面</text>
+        </block>
+        <!--正常页面-->
         <block wx:elif="{{res.length!=0}}">
-         <!--足迹列表-->
-        <view class="item" wx:for="{{res}}">
-            <!--配图-->
-              <image class="postImg" src="https://picsum.photos/200/300"/> 
-               <!--附加信息-->
-               <view class="itemRight">
-                  <block wx:if="{{true}}">
-                      <text class="title" style="margin-top:24rpx">{{item.title?item.title:'这个标题title为空'}}</text>
-                  </block>
-                  <text class="date">{{item.createAt}}</text>
-               </view> 
-         </view>
-         </block>
-         <!--缺省页面-->
-         <block wx:else>
-         <view class="default">
-             <image src="../../imgs/img/玩电脑@2x.png" class="tipImg"/>
-             <text class="tip">最近暂无浏览痕迹哦</text>
-             <a class="tip" bind:tap="findOldIndex">话题社区 ></a>
-         </view>   
-         </block> 
-      </view>
+            <!--足迹列表-->
+            <view class="item" wx:for="{{res}}">
+                <!--配图-->
+                <image class="postImg" src="https://picsum.photos/200/300" />
+                <!--附加信息-->
+                <view class="itemRight">
+                    <block wx:if="{{true}}">
+                        <text class="title">{{item.title?item.title:'这个标题title为空'}}</text>
+                    </block>
+                    <text class="date">{{item.createAt}}</text>
+                </view>
+            </view>
+        </block>
+        <!--缺省页面-->
+        <block wx:else>
+            <view class="default">
+                <image src="../../imgs/img/玩电脑@2x.png" class="tipImg" />
+                <text class="tip">最近暂无浏览痕迹哦</text>
+                <a class="tip" bind:tap="findOldIndex">话题社区 ></a>
+            </view>
+        </block>
+    </view>
 </view>

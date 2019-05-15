@@ -126,7 +126,7 @@ page {
 
 .topic .msg {
     font-size: 30rpx;
-    color: #333;
+    color: #000;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -168,7 +168,7 @@ page {
 
 .text,
 .text-l {
-    color: #333;
+    color: #000;
     font-size: 30rpx;
     position: absolute;
     left: 155rpx;
