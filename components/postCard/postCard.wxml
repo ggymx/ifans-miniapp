@@ -68,7 +68,7 @@
       <text wx:if="{{true||post.likeCount}}" class="count like">22</text>
 
     <!--下方评论：wx:elif="{{post.type=='1'}}"-->
-      <image src="{{ '../../imgs/home-button-Comment@2x.png' }}" class="comment-img" />
+      <image src="{{ '../../imgs/home-button-Comment@2x.png' }}" class="comment-img" catch:tap="createAnswer"/>
       <text  wx:if="{{true||post.attendCount}}" class="count cmt">{{post.attendCount}}</text>
     </view>
   </view>

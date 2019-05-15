@@ -16,7 +16,7 @@ Page({
     //暂时定义的投稿配图字段
     thumbnails: null
   },
-  
+
   createAnswer(event: any) {
     const topic = this.data.post
     smartGotoPage({
@@ -44,7 +44,7 @@ Page({
   },
   //options:获取url参数
   async onLoad(options: any) {
-    const that = this;
+    const that = this as any;
     if (!that.data.post) {
       id = options.id;
       const data: any = await api.getPost({ id })
@@ -54,14 +54,14 @@ Page({
         isPublished: options.isPublished === '1',
         thumbnails: data.post.gallery.split(',')
       })
-
+      console.log('接收到的post--------------++++：',that.data.post);
       if (that.data.thumbnails[0].trim().length === 0) {
         this.setData!({
           thumbnails: null
         })
       }
-      console.log('关联的话题详情的gallery-----------', that.data.thumbnails);
-      console.log('关联的话题详情的gallery-----------', that.data.post);
+      // console.log('关联的话题详情的gallery-----------', that.data.thumbnails);
+      // console.log('关联的话题详情的gallery-----------', that.data.post);
       cursor = 0;
     }
     //根据参与id获取参与的列表
@@ -82,6 +82,14 @@ Page({
     }
 
   },
+ /*跳转到空间页 */
+ findUserDetail(){
+  console.log('话题详请跳转用户页面--------------',this.data.post.user.id);
+  const uId=this.data.post.user.id
+  smartGotoPage({
+    url:`/pages/user/detail?userId=${uId}`
+  })
+},
 
   /* 监听后退事件 */
   onUnload() {
@@ -95,10 +103,10 @@ Page({
 
   /*转发分享监听事件 */
   onShareAppMessage(res: any) {
-    const that = this
+    const that = this as any;
 
     return {
-      title: `#${this.data.post.post.title}#`,
+      title: `#${this.data.post.title}#`,
       success(e: any) {
 
         wx.showShareMenu({

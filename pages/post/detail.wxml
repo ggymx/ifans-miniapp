@@ -19,10 +19,10 @@
     </view> -->
   <view class="content">
     <view class="title">{{data.post.refPost.title}}</view>
-     <text class="context">{{data.post.refPost.text}}</text>
+     <text class="context" wx:if="{{data.post.refPost.text.trim().length!=0}}">{{data.post.refPost.text}}</text>
     <view class="userInfo">
       <view class="user">
-        <image class="img fl" src="{{data.post.user.avatar}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
+        <image class="img fl" src="{{data.post.user.avatar}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" catch:tap="findUserDetail"></image>
         <view class="text fl" selectable="false" space="false" decode="false">
           {{data.post.user.nickname}}
         </view>
@@ -35,19 +35,19 @@
       <text class="txt" selectable="false" space="false" decode="false">{{data.post.text}}</text>
       
          <!--配图-->
-      <view class="postImg" wx:if="{{[1,2,3]}}">
+      <view class="postImg" wx:if="{{thumbnails}}">
       <!--单图-->
-      <block wx:if="{{[1,2].length==1}}">
+      <block wx:if="{{thumbnails.length==1}}">
        <image src="{{thumbnails[0]}}" class="one" catch:tap="imgPre" data-src="{{item}}"/>
       </block>
       <!--两图-->
-      <block wx:elif="{{[1,2,3].length==2}}">
-         <block wx:for="{{[1,2]}}">
+      <block wx:elif="{{thumbnails.length==2}}">
+         <block wx:for="{{thumbnails}}">
          <image src="{{item}}" class="two" catch:tap="imgPre" data-src="{{item}}"/>
          </block>
       </block>
       <block wx:else>
-          <block wx:for="{{[1,2,3,4,5]}}" wx:for-index="i">
+          <block wx:for="{{thumbnails}}" wx:for-index="i">
          <!--三张图时-->
           <block wx:if="{{i<3}}">
             <image src="{{item}}" class="three" catch:tap="imgPre" data-src="{{item}}"/>

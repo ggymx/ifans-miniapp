@@ -244,7 +244,7 @@
     width: 100%;
     height: auto;
     display: inline-block;
-    margin-top: -50rpx;
+    /* margin-top: -50rpx; */
 }
 
 .bottom {

@@ -6,6 +6,9 @@ Page({
   data: {
     post: null,
     uploadPromise: null,
+    user:null,
+    //缩略图
+    gallery:null
   },
   backToCreate(event: any) {
     wx.navigateBack({
@@ -17,6 +20,8 @@ Page({
    * 静默上传，可以多次调用，只会执行一次
    */
   uploadOnce() {
+    const token = wx.getStorageSync('token');
+    if (!token) { return null }
     const data = this.data.post
     if (data.thumbnails) {
       const uploadPromise = this.data.uploadPromise || uploadChosenImages(data.thumbnails.map((item: any) => item.url))
@@ -58,6 +63,7 @@ Page({
           //投稿成功则清除缓存中的话题和草稿
           wx.removeStorageSync('topic');
           wx.removeStorageSync('draft');
+          wx.removeStorageSync('gallery');
           wx.redirectTo({
             url: `/pages/post/topic-detail?id=${id}&isPublished=1`
           });
@@ -68,9 +74,30 @@ Page({
 
   //options:获取url参数
   async onLoad(options: any) {
+    const that=this as any;
+    //获取用户信息
+    await api.getUserProfile().then((res: any)=>{
+      console.log('接受到的res-----------------',res);
+      that.setData({
+        user:res.user
+      })
+    }).catch();
+
+    wx.getStorage({
+      key:'gallery',
+      success(res){
+        console.log('缓存中的gallery--------------：',res.data);
+        that.setData({
+          gallery:res.data
+        })
+        // console.log('接受的that.data.gallery--------------',that.data.gallery);
+      }
+    })
+
+    console.log('Options.post', options.post)
     const post = JSON.parse(decodeURIComponent(options.post))
     this.setData({
-      post,
+      post
     })
     this.uploadOnce()
   },

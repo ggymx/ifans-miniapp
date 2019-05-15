@@ -4,7 +4,7 @@
     width: 100%;
     height: auto;
     margin-top: 2rpx;
-    padding-bottom: 130rpx;
+    /* padding-bottom: 130rpx; */
     background-color: #f4f5f9;
 }
 

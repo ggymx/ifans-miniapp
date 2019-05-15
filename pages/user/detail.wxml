@@ -15,9 +15,9 @@
     <block wx:else>
     <view class="header">
         <view class="userImg">
-            <image class="user" src="{{userData.avatar}}"></image>
+            <image class="user" src="{{user.avatar}}"></image>
         </view>
-        <text class="name" style='font-weight: 400;'>{{userData.nickname}}</text>
+        <text class="name" style='font-weight: 400;'>{{user.nickname}}</text>
         <button open-type="share" class="shareBtn"><image src="../../imgs/img/share.png" class="bkimg"/></button>
     </view>
     <!-- 内容 -->

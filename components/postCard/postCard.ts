@@ -105,6 +105,20 @@ Component({
         url: '/pages/user/detail?userId=' + userId
       });
     },
+    //跳转到发布页
+    createAnswer(event: any) {
+      const instance =this as any;
+      const topic = instance.properties.post
+      console.log('点击的post的详情----------',topic)
+      //目前仅支持对话题投稿，不支持投稿评论
+      if(topic.type===1){
+      smartGotoPage({
+         url: '/pages/post/createAnswer?topic=' + encodeURIComponent(JSON.stringify(topic))
+      });
+     }else{
+       //对投稿进行评论，暂无
+     }
+    },
     /*点赞 */
     async giveLike(event: any) {
       //获取token
