@@ -28,7 +28,7 @@
        <image src="{{gallery[0].imageURL}}" class="one" catch:tap="imgPre" data-src="{{item}}"/>
       </block>
       <!--两图-->
-      <block wx:elif="{{gallery.length!=2}}">
+      <block wx:elif="{{gallery.length==2}}">
          <block wx:for="{{gallery}}">
          <image src="{{item.imageURL}}" class="two" catch:tap="imgPre" data-src="{{item}}"/>
          </block>

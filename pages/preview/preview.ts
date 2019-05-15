@@ -33,6 +33,7 @@ Page({
           //投稿成功则清除缓存中的话题和草稿
           wx.removeStorageSync('topic');
           wx.removeStorageSync('draft');
+          wx.removeStorageSync('gallery');
           wx.redirectTo({
             url: `../post/topic-detail?id=${id}`
           });
