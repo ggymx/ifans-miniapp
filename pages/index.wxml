@@ -5,9 +5,9 @@
   <image class="bg" src="../imgs/img/bg.png" mode="aspectFill" lazy-load="false" binderror="" bindload="" />
   <view class="info">
     <view class="pic fl">
-      <image class="user" bind:tap="Login" src="{{data.user ? data.user.avatar: '../imgs/img/tit.png' }}"></image>
+      <image class="user" bind:tap="Login" src="{{user ? user.avatar: '../imgs/img/tit.png' }}"></image>
     </view>
-    <view class="name fl">{{data.user ? data.user.nickname : ''}}</view>
+    <view class="name fl">{{user ? user.nickname : ''}}</view>
     <view class="msg fr"  bind:tap="userNews">
       <image class="img fl" src="../imgs/img/msg.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""/>
       <view class="pot"></view>
