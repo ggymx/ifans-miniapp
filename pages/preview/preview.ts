@@ -19,18 +19,25 @@ Page({
   /**
    * 静默上传，可以多次调用，只会执行一次
    */
-  uploadOnce() {
-    const token = wx.getStorageSync('token');
-    if (!token) { return null }
+  uploadOnce(uptoken: string) {
     const data = this.data.post
     if (data.thumbnails) {
-      const uploadPromise = this.data.uploadPromise || uploadChosenImages(data.thumbnails.map((item: any) => item.url))
+      const uploadPromise = this.data.uploadPromise ||
+        uploadChosenImages(uptoken, data.thumbnails.map((item: any) => item.url))
       this.setData({
         uploadPromise,
       })
       return uploadPromise
     }
     return Promise.resolve([])
+  },
+
+  async tryAutoUpload() {
+    const token = wx.getStorageSync('token');
+    if (!token) { return null }
+    const { uptoken } = await api.getUploadToken({})
+    if (!uptoken) { return null }
+    this.uploadOnce(uptoken)
   },
 
   async confirmPublish(event: any) {
@@ -41,6 +48,7 @@ Page({
       smartGotoPage({
         url: '../login'
       });
+      return
     } else {
       const data = this.data.post
       if(data.thumbnails) {
@@ -48,7 +56,14 @@ Page({
           title: '文件上传中...',
           icon: 'loading',
         })
-        const result = await this.uploadOnce()
+        const { uptoken } = await api.getUploadToken({})
+        if (!uptoken) {
+          smartGotoPage({
+            url: '../login'
+          })
+          return
+        }
+        const result = await this.uploadOnce(uptoken)
         wx.hideToast({})
         data.gallery = result.map((item: any) => item.imageURL).join(',')
         delete data.thumbnails
@@ -74,6 +89,14 @@ Page({
 
   //options:获取url参数
   async onLoad(options: any) {
+    console.log('Options.post', options.post)
+    const post = JSON.parse(decodeURIComponent(options.post))
+    this.setData({
+      post
+    })
+  },
+
+  async onShow(){
     const that=this as any;
     //获取用户信息
     await api.getUserProfile().then((res: any)=>{
@@ -94,11 +117,6 @@ Page({
       }
     })
 
-    console.log('Options.post', options.post)
-    const post = JSON.parse(decodeURIComponent(options.post))
-    this.setData({
-      post
-    })
-    this.uploadOnce()
+    this.tryAutoUpload()
   },
 })
