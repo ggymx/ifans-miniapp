@@ -1,124 +1,124 @@
 /* pages/participate/participate.wxss */
 
 Page {
-  height: 100%;
+    height: 100%;
 }
 
 .body {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  padding-top: 128rpx;
-  box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding-top: 128rpx;
+    box-sizing: border-box;
 }
 
 .title {
-  width: 100%;
-  height: 115rpx;
-  /* position: absolute;
+    width: 100%;
+    height: 115rpx;
+    /* position: absolute;
   top: 128rpx;
   left: 0; */
-  box-sizing: border-box;
-  border-bottom: 2rpx solid #f4f5f9;
+    box-sizing: border-box;
+    border-bottom: 2rpx solid #f4f5f9;
 }
 
 .title .tit {
-  display: block;
-  height: 100%;
-  width: 100%;
-  font-size: 32rpx;
-  padding-left: 45rpx;
-  box-sizing: border-box;
-  font-family: PingFang-SC-Medium;
-  font-weight: 500;
-  color: rgba(153, 153, 153, 1);
-  line-height: 40rpx;
+    display: block;
+    height: 100%;
+    width: 100%;
+    font-size: 32rpx;
+    padding-left: 45rpx;
+    box-sizing: border-box;
+    font-family: PingFang-SC-Medium;
+    font-weight: 500;
+    color: #999;
+    line-height: 40rpx;
 }
 
 .content {
-  width: 100%;
-  height: 958rpx;
-  /* margin-top: 128rpx; */
-  padding: 0 45rpx;
-  box-sizing: border-box;
+    width: 100%;
+    height: 958rpx;
+    /* margin-top: 128rpx; */
+    padding: 0 45rpx;
+    box-sizing: border-box;
 }
 
 .content .text {
-  width: 100%;
-  padding-top: 58rpx;
-  font-family: PingFang-SC-Medium;
-  height: 212rpx;
-  font-size: 32rpx;
-  font-weight: 500;
-  color: rgba(195, 195, 195, 1);
-  line-height: 40rpx;
+    width: 100%;
+    padding-top: 58rpx;
+    font-family: PingFang-SC-Medium;
+    height: 212rpx;
+    font-size: 32rpx;
+    font-weight: 500;
+    line-height: 40rpx;
 }
 
 .uploadPicArea {
-  width: 100%;
-  height: 608rpx;
-  max-height: 608rpx;
-  /* background-color: lightsalmon; */
-  overflow: hidden;
+    width: 100%;
+    height: 608rpx;
+    max-height: 608rpx;
+    /* background-color: lightsalmon; */
+    overflow: hidden;
 }
 
-.picUploadBtn, .pic {
-  margin-left: 10rpx;
-  margin-top: 10rpx;
-  height: 196rpx;
-  width: 196rpx;
-  background-color: #f4f5f9;
-  position: relative;
-  float: left;
+.picUploadBtn,
+.pic {
+    margin-left: 10rpx;
+    margin-top: 10rpx;
+    height: 196rpx;
+    width: 196rpx;
+    background-color: #f4f5f9;
+    position: relative;
+    float: left;
 }
 
 .picShow {
-  height: 196rpx;
-  width: 196rpx;
-  background-color: lightgrey;
+    height: 196rpx;
+    width: 196rpx;
+    background-color: lightgrey;
 }
 
 .delBg {
-  float: right;
-  width: 32rpx;
-  height: 32rpx;
-  background: rgba(3, 3, 3, 1);
-  opacity: 0.5;
-  position: absolute;
-  right: 0;
-  top: 0;
+    float: right;
+    width: 32rpx;
+    height: 32rpx;
+    background: rgba(3, 3, 3, 1);
+    opacity: 0.5;
+    position: absolute;
+    right: 0;
+    top: 0;
 }
 
 .delBtn {
-  height: 18rpx;
-  width: 18rpx;
+    height: 18rpx;
+    width: 18rpx;
 }
 
 .delBtnPic {
-  height: 18rpx;
-  width: 18rpx;
-  padding: 7rpx;
+    height: 18rpx;
+    width: 18rpx;
+    padding: 7rpx;
 }
 
 .addBtnPic {
-  height: 65rpx;
-  width: 65rpx;
-  padding: 65.5rpx;
+    height: 65rpx;
+    width: 65rpx;
+    padding: 65.5rpx;
 }
 
 .foot {
-  width: 100%;
-  height: 132rpx;
-  position: relative;
-  background-color: #f4f5f9;
+    width: 100%;
+    height: 132rpx;
+    position: relative;
+    background-color: #f4f5f9;
 }
 
 .foot .btn {
-  width: 702rpx;
-  height: 80rpx;
-  line-height: 80rpx;
-  color: #fff;
-  background-color: #4ababc;
-  border-radius: 12rpx;
-  top: 26rpx;
+    width: 702rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    color: #fff;
+    background-color: #4ababc;
+    border-radius: 12rpx;
+    top: 26rpx;
 }

@@ -6,7 +6,7 @@
     margin-top: 2rpx;
     letter-spacing: 5rpx;
     padding-bottom: 130rpx;
-    background-color: #f4f5f9;
+    background-color: #fff;
 }
 
 .first {
