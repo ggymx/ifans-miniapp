@@ -91,6 +91,7 @@ Page({
             topList: data.posts
           });
         } else {
+          console.log('invalid data:',data, 'cursor', cursor)
           wx.showToast({title:'非法数据'+JSON.stringify(data)})
         }
         console.log('初始化首页列表',that.data.topList);
