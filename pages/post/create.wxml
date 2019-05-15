@@ -12,8 +12,8 @@
         <view class="uploadPicArea">
 
             <!-- 显示图片 -->
-            <view class="pic" wx:for="{{image2Commit}}" data-index='{{index}}'>
-                <image src='{{item.imageURL}}' mode='aspectFill' class='picShow' data-index='{{index}}'></image>
+            <view class="pic" wx:for="{{image2Commit}}" data-index='{{index}}' wx:if="{{image2Commit}}">
+                <image src='{{item}}' mode='aspectFill' class='picShow' data-index='{{index}}'></image>
                 <view class="delBg" bind:tap='delPic' data-index='{{index}}'>
                     <view class='delBtn' data-index='{{index}}'>
                         <image mode='aspectFill' class='delBtnPic' src="../../imgs/picDel.png" data-index='{{index}}'></image>

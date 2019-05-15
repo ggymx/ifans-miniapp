@@ -1,6 +1,6 @@
 import api from './common/api'
-import tracker from './utils/tracker_es.min'
-tracker({token: 'c9e8c81c6aefc93c107fd2c43d094726', behaviour: 9, optimisedForSPA: true, useHistory: true})
+// import tracker from './utils/tracker_es.min'
+// tracker({token: 'c9e8c81c6aefc93c107fd2c43d094726', behaviour: 9, optimisedForSPA: true, useHistory: true})
 
 // app.ts
 export interface IMyApp {

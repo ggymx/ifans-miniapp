@@ -51,6 +51,7 @@ Page({
 
       this.setData!({
         post: data.post,
+        isPublished: options.isPublished === '1',
         thumbnails: data.post.gallery.split(',')
       })
 
@@ -80,6 +81,16 @@ Page({
       })
     }
 
+  },
+
+  /* 监听后退事件 */
+  onUnload() {
+    console.log('onUnload.........')
+    if (this.data.isPublished) {
+      wx.navigateBack({
+        delta: 2
+      })
+    }
   },
 
   /*转发分享监听事件 */
