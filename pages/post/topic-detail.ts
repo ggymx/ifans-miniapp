@@ -127,6 +127,7 @@ Page({
           that.setData!({
             postArr: data.posts
           });
+          console.log('获取到的投稿post------------------:',that.data.postArr);
           setTimeout(() => {
             wx.stopPullDownRefresh({});
           }, 200);

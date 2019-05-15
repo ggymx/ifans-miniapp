@@ -71,12 +71,20 @@
     </view>
     <view class="opreate-underlying op" wx:if="{{postArr.length>0}}">
         <view class="container">
-            <block>
+                <!--不为空-->
                 <block wx:for="{{postArr}}">
                     <postCard addClass="item-card" arrowBtn clock like post="{{item}}" isLike="{{item.isLike}}" />
                 </block>
-            </block>
         </view>
+    </view>
+    <!--缺省页面-->
+    <view wx:else style="background:#FFF">
+          <view class="container">
+              <view class="default">
+                  <image src="../../imgs/img/comment.png" class="default"/>
+                  <text class="default">暂无投稿 快来说两句吧</text>
+              </view>
+         </view>
     </view>
     <!-- 发布预览状态 -->
     <view class="opreate-underlying op" wx:if="{{isPublished && !isPreview}}">
