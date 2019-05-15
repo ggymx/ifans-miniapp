@@ -1,16 +1,19 @@
-import { smartGotoPage } from "../../common/helper"
-import api from "../../common/api";
+import api from '../../common/api';
+import { smartGotoPage } from '../../common/helper'
 
 Page({
   data: {
     post: null,
+    user:null,
+    //缩略图
+    gallery:null
   },
   backToCreate(event: any) {
     wx.navigateBack({
       delta: 1,
     })
   },
-  
+
   confirmPublish(event: any) {
     const that = this;
     //获取缓存中的token，同步方式
@@ -40,10 +43,30 @@ Page({
 
   //options:获取url参数
   async onLoad(options: any) {
+    const that=this as any;
+    //获取用户信息
+    await api.getUserProfile().then((res: any)=>{
+      console.log('接受到的res-----------------',res);
+      that.setData({
+        user:res.user
+      })
+    }).catch();
+
+    wx.getStorage({
+      key:'gallery',
+      success(res){
+        console.log('缓存中的gallery--------------：',res.data);
+        that.setData({
+          gallery:res.data
+        })
+        // console.log('接受的that.data.gallery--------------',that.data.gallery);
+      }
+    })
+
     console.log('Options.post', options.post)
-    let post = JSON.parse(decodeURIComponent(options.post))
+    const post = JSON.parse(decodeURIComponent(options.post))
     this.setData({
-      post: post,
+      post
     })
   },
 

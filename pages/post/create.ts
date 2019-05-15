@@ -21,16 +21,18 @@ Page({
   async didPressChooesImage() {
     const that = this;
     const allowMax = 9 - that.data.image2Commit.length
-    console.log("此次最多上传： " + allowMax + " 张")
+    console.log('此次最多上传： ' + allowMax + ' 张')
     uploadMultiImg(allowMax, {
       before() {
         console.log('before upload');
       },
       success(res) {
-        console.log('res', res)
+        console.log('res---------------------++++++=', res)
+        //将缩略图存入缓存
+        wx.setStorageSync('gallery',res);
         that.setData({
-          'imageArr': res,
-          'image2Commit': that.data.image2Commit.concat(res)
+          imageArr: res,
+          image2Commit: that.data.image2Commit.concat(res)
         });
       },
       fail(err) {
@@ -47,41 +49,39 @@ Page({
     })
   },
 
-
-  delPic: function (e: any) {
+  delPic(e: any) {
     const that = this;
-    console.log("e.target", e.target)
-    console.log("e.target.dataset.index", e.target.dataset.index)
+    console.log('e.target', e.target)
+    console.log('e.target.dataset.index', e.target.dataset.index)
     const index = e.target.dataset.index
 
     if (that.data.image2Commit.length == 1) {                    //仅有一张图，全删
       that.setData({
-        'image2Commit': []
+        image2Commit: []
       });
     } else {                                                     //多张继续判断
 
       if (index == 0) {                                          //要删第一张，直接shift
         that.data.image2Commit.shift()
         that.setData({
-          'image2Commit': that.data.image2Commit
+          image2Commit: that.data.image2Commit
         });
       } else if (index == that.data.image2Commit.length - 1) {   //要删最后一张，直接pop
         that.data.image2Commit.pop()
         that.setData({
-          'image2Commit': that.data.image2Commit
+          image2Commit: that.data.image2Commit
         });
       } else if (index != 'undefined') {                          //删除中间的，先把index前面数据拿到，再拿index后面数据，然后拼接重新渲染
-        let arrHead = that.data.image2Commit.slice(0, index)
-        let arrEnd = that.data.image2Commit.slice(index + 1);
+        const arrHead = that.data.image2Commit.slice(0, index)
+        const arrEnd = that.data.image2Commit.slice(index + 1);
         that.setData({
-          'image2Commit': arrHead.concat(arrEnd)
+          image2Commit: arrHead.concat(arrEnd)
         });
       }
 
     }
 
   },
-
 
   titleInput(event: any) {
     this.setData!({
@@ -111,7 +111,8 @@ Page({
       return
     }
 
-    var gallery = this.data.image2Commit.map(item => item.imageURL).join(','); 
+    const gallery = this.data.image2Commit.map(item => item.imageURL).join(',');
+    console.log('gallery拦截----------------------------',gallery) ;
     const postData = {
       text: this.data.pushText,
       title: this.data.titleValue,
