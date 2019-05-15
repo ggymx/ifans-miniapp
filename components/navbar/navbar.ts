@@ -48,6 +48,8 @@ Component({
             //回退时，如果缓存有话题和草稿，则清除
             if (topicCache) { wx.removeStorageSync('topic') }
             if (draft) { wx.removeStorageSync('draft') }
+            //清除未发布投稿的配图缓存
+            wx.removeStorageSync('gallery');
             const pages = getCurrentPages().map(p => p.route)
             const currentPage = pages[pages.length - 1]
             let delta = 1

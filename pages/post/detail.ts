@@ -18,9 +18,7 @@ Page({
     comments: [],
     commentValue: '',
     isCreateAnserPage: false,
-    showMask: false,
-     //暂时定义的投稿配图字段
-     thumbnails: null
+    showMask: false
   },
   isCreateAnserPage(event: any) {
     this.setData!({
@@ -87,7 +85,8 @@ Page({
    //图片预览
    imgPre(event: any) {
     const instance = this as any;
-    const imgs = instance.data.thumbnails.map((item: any) => item = item);
+    const thumbnails=instance.data.data.post.thumbnails;
+    const imgs=thumbnails.map((item: any)=>item=item.url);
     wx.previewImage({
       current: event.target.dataset.src, // 当前显示图片的http链接
       urls: imgs // 需要预览的图片http链接列表
@@ -157,16 +156,9 @@ Page({
       success(res) {
         const data =res.data as any;
         that.setData!({
-          data,
-          thumbnails: data.post.gallery.split(',')
+          data
         });
-        console.log('接收的thumbnails--------------++++：',that.data.thumbnails);
-        if (that.data.thumbnails[0].trim().length === 0) {
-          that.setData!({
-            thumbnails: null
-          })
-        }
-        console.log('接收到的话题详情---',that.data.data);
+        console.log('接收到的文章详情---',that.data.data);
       }
     });
 

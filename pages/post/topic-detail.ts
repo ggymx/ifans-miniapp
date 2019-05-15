@@ -12,9 +12,7 @@ Page({
     isPublished: false, // 发布成功
     post: null,
     postArr: [],
-    title: '',
-    //暂时定义的投稿配图字段
-    thumbnails: null
+    title: ''
   },
 
   createAnswer(event: any) {
@@ -36,7 +34,8 @@ Page({
   //图片预览
   imgPre(event: any) {
     const instance = this as any;
-    const imgs = instance.data.thumbnails.map((item: any) => item = item);
+    const thumbnails=instance.data.post.thumbnails;
+    const imgs=thumbnails.map((item: any)=>item=item.url);
     wx.previewImage({
       current: event.target.dataset.src, // 当前显示图片的http链接
       urls: imgs // 需要预览的图片http链接列表
@@ -50,15 +49,9 @@ Page({
       const data: any = await api.getPost({ id })
 
       this.setData!({
-        post: data.post,
-        thumbnails: data.post.gallery.split(',')
+        post: data.post
       })
       console.log('接收到的post--------------++++：',that.data.post);
-      if (that.data.thumbnails[0].trim().length === 0) {
-        this.setData!({
-          thumbnails: null
-        })
-      }
       // console.log('关联的话题详情的gallery-----------', that.data.thumbnails);
       // console.log('关联的话题详情的gallery-----------', that.data.post);
       cursor = 0;

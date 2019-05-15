@@ -14,6 +14,16 @@ Page({
     })
   },
 
+ //图片预览
+ imgPre(event: any){
+  const instance=this as any;
+  const thumbnails=instance.data.post.thumbnails;
+  const imgs=thumbnails.map((item: any)=>item=item.url);
+  wx.previewImage({
+    current: event.target.dataset.src, // 当前显示图片的http链接
+    urls: imgs // 需要预览的图片http链接列表
+  })
+},
   confirmPublish(event: any) {
     const that = this;
     //获取缓存中的token，同步方式
