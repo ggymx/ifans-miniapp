@@ -94,6 +94,15 @@ Page({
     })
   },
 
+  /*跳转到空间页 */
+  findUserDetail(){
+     console.log('用户信息--------------',this.data.data.post.user.id);
+     const uId=this.data.data.post.user.id
+     smartGotoPage({
+       url:`/pages/user/detail?userId=${uId}`
+     })
+  },
+
   /*点赞 */
   async giveLike(event: any) {
     //获取token

@@ -81,6 +81,14 @@ Page({
     }
 
   },
+ /*跳转到空间页 */
+ findUserDetail(){
+  console.log('话题详请跳转用户页面--------------',this.data.post.user.id);
+  const uId=this.data.post.user.id
+  smartGotoPage({
+    url:`/pages/user/detail?userId=${uId}`
+  })
+},
 
   /*转发分享监听事件 */
   onShareAppMessage(res: any) {

@@ -9,8 +9,8 @@
                 <image class="pot" src="../../imgs/img/more1.png"></image>
             </view>
         </view>
-        <view class="user" bind:tap="userInfo">
-            <image class="info fl" src="{{post.user.avatar}}"></image>
+        <view class="user">
+            <image class="info fl" src="{{post.user.avatar}}"  bind:tap="findUserDetail"></image>
             <view class="name fl">{{post.user.nickname}}</view>
         </view>
         <view class="content">{{post.text}}</view>

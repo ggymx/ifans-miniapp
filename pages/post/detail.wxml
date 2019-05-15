@@ -19,10 +19,10 @@
     </view> -->
   <view class="content">
     <view class="title">{{data.post.refPost.title}}</view>
-     <text class="context">{{data.post.refPost.text}}</text>
+     <text class="context" wx:if="{{data.post.refPost.text.trim().length!=0}}">{{data.post.refPost.text}}</text>
     <view class="userInfo">
       <view class="user">
-        <image class="img fl" src="{{data.post.user.avatar}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
+        <image class="img fl" src="{{data.post.user.avatar}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" catch:tap="findUserDetail"></image>
         <view class="text fl" selectable="false" space="false" decode="false">
           {{data.post.user.nickname}}
         </view>
