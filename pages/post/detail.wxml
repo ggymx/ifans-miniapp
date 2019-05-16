@@ -14,7 +14,7 @@
         </view>
       </view>
       <view class="more fr">
-        <image class="" src="../../imgs/img/more1.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
+        <image class="" src="../../imgs/img/more1.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false"></image>
       </view>
     </view>
     <view class="article">
@@ -53,7 +53,7 @@
       </view>
       <view class="right">
         <view class="star">
-          <image class="stars" src="{{data.post.isLike && '../../imgs/button-like-dj@2x.png' || '../../imgs/home-button-like@2x.png' }}"  mode="aspectFit|aspectFill|widthFix" catch:tap="giveLike" ></image>
+          <image class="stars" src="{{isLike && '../../imgs/button-like-dj@2x.png' || '../../imgs/home-button-like@2x.png' }}"  mode="aspectFit|aspectFill|widthFix" catch:tap="giveLike" ></image>
           <view class="text">{{data.post.likeCount ||''}}</view>
         </view>
         <view class="msg">

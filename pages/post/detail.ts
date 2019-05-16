@@ -18,7 +18,8 @@ Page({
     comments: [],
     commentValue: '',
     isCreateAnserPage: false,
-    showMask: false
+    showMask: false,
+    isLike:null
   },
   isCreateAnserPage(event: any) {
     this.setData!({
@@ -132,16 +133,16 @@ Page({
       }, 100);
     } else {
       const instance = this as any;
-      if (!instance.properties.isLike) {
+      if (!instance.data.isLike) {
         const res = await api.giveLike({
-          id: instance.properties.post.id
+          id: instance.data.data.post.id
         });
         instance.setData!({
           isLike: true
         });
       } else {
         const res = await api.disLike({
-          id: instance.properties.post.id
+          id: instance.data.data.post.id
         });
         instance.setData!({
           isLike: false
@@ -165,7 +166,8 @@ Page({
       success(res) {
         const data =res.data as any;
         that.setData!({
-          data
+          data,
+          isLike:data.post.isLike
         });
         console.log('接收到的文章详情---',that.data.data);
       }

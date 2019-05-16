@@ -50,8 +50,9 @@
                 <view class="time">{{con.dateCon(post.createAt)}}</view>
             </view>
             <view class="right">
-                <view class="star">
-                    <image class="stars" src="../../imgs/img/stars.png"></image>
+                <view class="star" catch:tap="giveLike">
+                    <image class="stars" src="{{isLike && '../../imgs/button-like-dj@2x.png' || '../../imgs/home-button-like@2x.png' }}"></image>
+                    {{post.likeCount||''}}
                 </view>
                 <view class="msg" bind:tap="createAnswer">
                     <image class="msgs" src="../../imgs/img/message.png"></image>
