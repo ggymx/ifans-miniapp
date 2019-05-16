@@ -23,17 +23,17 @@
             <text class="err">页面崩溃，请尝试重新刷新页面</text>
         </block>
         <!--正常页面-->
-        <block wx:elif="{{res.length!=0}}">
+        <block wx:elif="{{postArr.length!=0}}">
             <!--足迹列表-->
-            <view class="item" wx:for="{{res}}">
+            <view class="item" wx:for="{{postArr}}">
                 <!--配图-->
-                <image class="postImg" src="https://picsum.photos/200/300" />
+                <image class="postImg" src="{{item.gallery}}" />
                 <!--附加信息-->
                 <view class="itemRight">
                     <block wx:if="{{true}}">
-                        <text class="title">{{item.title?item.title:'这个标题title为空'}}</text>
+                        <text class="title">{{item.title}}</text>
                     </block>
-                    <text class="date">{{item.createAt}}</text>
+                    <text class="date">{{converter.dateCon(item.createAt)}}</text>
                 </view>
             </view>
         </block>

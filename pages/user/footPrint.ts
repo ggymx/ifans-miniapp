@@ -3,6 +3,7 @@
 import { IMyApp } from '../../app';
 import api from '../../common/api';
 import { smartGotoPage } from '../../common/helper';
+import { IPost } from '../../common/types/posts';
 
 const app = getApp<IMyApp>()
 let cursor: number = 0;
@@ -13,34 +14,9 @@ Page({
     title: '',
     userId: null,
     //当页面正常时
-    notErr:true,
-    res:[
-      {
-        title:'樱花季节到了，你想和谁一起去赏花呢?',
-        createAt:'2019/05/03'
-      },
-      {
-        title:'如果你要写一本书，书名会是什么？',
-        createAt:'2019/05/03'
-      },
-      {
-        title:'樱花季节到了，你想和谁一起去赏花呢?',
-        createAt:'2019/05/03'
-      },
-      {
-        title:'如果你要写一本书，书名会是什么？',
-        createAt:'2019/05/03'
-      },
-      {
-        title:'抗日英雄！',
-        createAt:'2019/05/03'
-      },
-      {
-        title:'众多人物最喜欢的动漫以及以前的童话世界，包括喜爱的人物和神兽',
-        createAt:'2019/05/03'
-      }
-    ]
+    notErr: true,
   },
+ 
   async onLoad(options: any) {
 
     const id = options.userId
@@ -49,13 +25,15 @@ Page({
     const that = this;
 
     //todo 获取缓存的路由------>
-    const data = await api.getFootPrint({  })
-    console.table(data)
+    const data = await api.getFootPrint({})
+    console.log('====footPrint data====', data.posts)
+  
+
     if (data.posts.length !== 0) {
       that.setData!({
         postArr: that.data.postArr.concat(data.posts)
       });
-      console.log('输入的postArr------',that.data.postArr);
+
       cursor = data.cursor
       wx.hideLoading({});
     } else {
@@ -67,10 +45,10 @@ Page({
     }
 
   },
-   /*跳转到话题社区 */
-   findOldIndex(){
+  /*跳转到话题社区 */
+  findOldIndex() {
     smartGotoPage({
-      url:'../oldindex'
+      url: '../oldindex'
     });
   }
 

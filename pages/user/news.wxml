@@ -21,7 +21,7 @@
               <text class="username">{{con.contextCon(item.nickname,15)}}</text>
               <text>{{item.noticeMessage}}</text>
             </view>
-            <text class="title" style="margin-bottom:0;" bind:tap="findTopicDetail" data-tid="{{item.tid}}">#{{item.title}}#</text>
+            <text class="title" style="margin-bottom:0;" bind:tap="findTopicDetail" data-tid="{{item.tid}}" wx:if="{{item.title}}">#{{item.title}}#</text>
             <text class="comment">{{item.text}}</text>
           </view>
         </view>
