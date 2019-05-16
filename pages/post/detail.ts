@@ -182,7 +182,7 @@ Page({
     postId = id
     const data = await api.getCommentList({ postId, cursor, limit: 10 })
 
-    console.log('评论列表', data)
+    console.log('评论列表-----------', data.comments)
     that.setData!({
       comments: data.comments
     })

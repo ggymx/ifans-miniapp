@@ -7,7 +7,11 @@ Component({
   properties: {
     comment: {
       type: Object,
-      value: false
+      value: null
+    },
+    isLike:{
+      type:Boolean,
+      value:false
     }
   },
 
@@ -19,9 +23,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
+
     /*点赞 */
-    async giveCommentLike(event: any) {
+    async giveCmtLike(event: any) {
       //获取token
+      console.log('给评论点赞-----------------',this.properties.isLike);
       const token = wx.getStorageSync('token');
       if (!token) {
         const pages = getCurrentPages();
@@ -40,16 +46,17 @@ Component({
         }, 100);
       } else {
         const instance = this as any;
+        console.log('instance.data.properties.id----------',instance.properties.comment.id);
         if (!instance.properties.isLike) {
           const res = await api.giveCommentLike({
-            id: instance.data.comment.id
+            id: instance.properties.comment.id
           });
           instance.setData!({
             isLike: true
           });
         } else {
           const res = await api.disCommentLike({
-            id: instance.data.comment.id
+            id: instance.properties.comment.id
           });
           instance.setData!({
             isLike: false
@@ -66,7 +73,7 @@ Component({
     if (token) {
       const ownId = wx.getStorageSync('userId');
       const userId = instance.properties.comment.user.id
-      const cId = instance.properties.post.id;
+      const cId = instance.properties.comment.id;
       if (ownId === userId) {
         wx.showActionSheet({
           itemList: ['删除'],
