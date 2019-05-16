@@ -1,6 +1,6 @@
 <!-- pages/my/my.wxml -->
 <wxs module="con" src="../../wxs/converter.wxs"></wxs>
-<navbar back text="我的首页"></navbar>
+<navbar back text="{{(curUserId==userId)?'我的首页':con.contextCon(user.nickname,10)}}"></navbar>
 <!--当数据为空或者页面崩溃时背景显示白色-->
 <view class="underlying {{recommendList.length==0?'undefault':''}}">
     <!--页面崩溃-->

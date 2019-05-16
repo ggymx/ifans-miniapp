@@ -101,6 +101,15 @@ Page({
        url:`/pages/user/detail?userId=${uId}`
      })
   },
+  //跳转到话题详情
+  findTopicDetail(){
+    const instance=this as any;
+    const tid=instance.data.data.post.refPost.id;
+    console.log('关联的话题id-----------',instance.data.data.post);
+    smartGotoPage({
+      url:`/pages/post/topic-detail?id=${tid}`
+    })
+  },
 
   /*点赞 */
   async giveLike(event: any) {

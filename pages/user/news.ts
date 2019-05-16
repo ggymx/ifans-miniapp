@@ -110,14 +110,25 @@ Page({
     }
 
   },
-  redirectDetail(options: any) {
-    console.log('点击了跳转')
-    console.log(options.currentTarget.dataset.noticeTid)
+  /*跳转到话题详情 */
+  findTopicDetail(event: any) {
+    console.log(event.target.dataset);
+    const tId = event.target.dataset.tid;
+    smartGotoPage({
+      url: `/pages/post/topic-detail?id=${tId}`
+    })
   },
   /*跳转到话题社区 */
   findOldIndex() {
     smartGotoPage({
-      url: '../oldindex'
+      url: '/pages/oldindex'
+    });
+  },
+  findUserDeail(event: any) {
+    console.log('notice------------------', this.data.notices);
+    const uId = event.target.dataset.uid;
+    smartGotoPage({
+      url: `/pages/user/detail?userId=${uId}`
     });
   }
 })

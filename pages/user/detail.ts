@@ -11,12 +11,24 @@ Page({
     user: null,
     recommendList: [],
     //页面正常时
-    notErr:true
+    notErr:true,
+    //传入的userId
+    userId:null,
+    //当前用户
+    curUserId:null
   },
 
   onLoad(options: any) {
     const userId = options.userId;
     console.log('传进来的userId-----------',options.userId);
+    this.setData({
+      userId
+    })
+    //获取当前用户的userId
+    console.log('当前登录用户的userId--------------------',wx.getStorageSync('userId'));
+    this.setData({
+       curUserId:wx.getStorageSync('userId')
+    })
     const that = this;
     api.request({
       url: '/v1/user/detail',

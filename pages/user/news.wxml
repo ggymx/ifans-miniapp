@@ -1,4 +1,4 @@
-<wxs module="converter" src="../.././wxs/converter.wxs"></wxs>
+<wxs module="con" src="../.././wxs/converter.wxs"></wxs>
 <wxs module="ani" src="../../wxs/animation.wxs"></wxs>
 <navbar back text="消息"></navbar>
 <view class="underlying" style="background:#FFF">
@@ -11,22 +11,22 @@
     </block>
     <!--正常页面-->
     <block wx:elif="{{notices.length!=0}}">
-      <view class="item" wx:for="{{notices}}" bind:tap="redirectDetail" data-notice-tid="{{item.tid}}">
+      <view class="item" wx:for="{{notices}}">
         <view style="width:auto;display:flex">
           <view style="height:100%;width:auto;">
-            <image class="avatar" src="{{item.avatar}}" />
+            <image class="avatar" src="{{item.avatar}}" catch:tap="findUserDeail" data-uid="{{item.userId}}"/>
           </view>
           <view class="itemRight">
             <view style="height:auto;padding:0;margin-top:26rpx;">
-              <text class="username">{{item.nickname}}</text>
+              <text class="username">{{con.contextCon(item.nickname,15)}}</text>
               <text>{{item.noticeMessage}}</text>
             </view>
-            <text class="title" style="margin-bottom:0;">#{{item.title}}#</text>
+            <text class="title" style="margin-bottom:0;" bind:tap="findTopicDetail" data-tid="{{item.tid}}">#{{item.title}}#</text>
             <text class="comment">{{item.text}}</text>
           </view>
         </view>
         <view style="width:auto;display:flex">
-          <text class="date">{{converter.dateCon(item.createAt)}}</text>
+          <text class="date">{{con.dateCon(item.createAt)}}</text>
         </view>
        </view>
       </block>

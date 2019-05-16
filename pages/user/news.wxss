@@ -26,7 +26,7 @@
 }
 
 .itemRight {
-  width: auto;
+  width: 506rpx;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -61,6 +61,10 @@
   font-family: PingFang-SC-Medium;
   font-weight: 500;
   color: rgba(51, 51, 51, 1);
+  margin-top: 20rpx;
+  line-height: 50rpx;
+  width: 530rpx;
+  word-break: break-all;
 }
 
 .date {
@@ -74,36 +78,36 @@
 
 /*缺省页面*/
 .default {
-   display: flex;
-   flex-direction: column;
- }
- 
- .default .tipImg {
-   width: 250rpx;
-   height: 250rpx;
-   margin: 0 auto;
-   margin-top:281rpx;
- }
- 
- .default text.tip {
-   font-size: 30rpx;
-   font-family: PingFang-SC-Medium;
-   font-weight: 500;
-   color: rgba(153, 153, 153, 1);
-   text-align: center;
-   margin-top:42rpx;
-   margin-bottom:16rpx; 
-   /* line-height: 50px; */
- }
- 
- .default a.tip {
-   font-size: 28rpx;
-   font-family: PingFang-SC-Medium;
-   font-weight: 500;
-   color: rgba(9, 166, 220, 1);
-   text-align: center;
-   /* line-height: 40px; */
- }
+  display: flex;
+  flex-direction: column;
+}
+
+.default .tipImg {
+  width: 250rpx;
+  height: 250rpx;
+  margin: 0 auto;
+  margin-top: 281rpx;
+}
+
+.default text.tip {
+  font-size: 30rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(153, 153, 153, 1);
+  text-align: center;
+  margin-top: 42rpx;
+  margin-bottom: 16rpx;
+  /* line-height: 50px; */
+}
+
+.default a.tip {
+  font-size: 28rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(9, 166, 220, 1);
+  text-align: center;
+  /* line-height: 40px; */
+}
 
 
 /*页面崩溃*/
@@ -125,4 +129,3 @@ text.err {
   display: block;
   text-align: center;
 }
-

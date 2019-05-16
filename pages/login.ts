@@ -50,7 +50,6 @@ Page({
             key: 'userId',
             data: data.user.id
           });
-          
         }
       });
       wx.showLoading({
