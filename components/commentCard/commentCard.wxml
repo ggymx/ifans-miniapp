@@ -6,8 +6,8 @@
         <image class="user" src="{{comment.user.avatar}}" catch:tap="finalLink"></image>
         <view class="name">{{comment.user.nickname}}</view>
         <view class="content">{{comment.text}}</view>
-        <view class="star" catch:tap="giveCommentLike">
-            <image class="stars" src="{{comment.isLike && '../../imgs/button-like-dj@2x.png' || '../../imgs/home-button-like@2x.png' }}"></image>
+        <view class="star" catch:tap="giveCmtLike">
+            <image class="stars" src="{{isLike && '../../imgs/button-like-dj@2x.png' || '../../imgs/home-button-like@2x.png' }}"></image>
             <view class="num" wx:if="{{ con.numCon(comment.likeCount) }}">{{con.numCon(comment.likeCount)}}</view>
         </view>
 
@@ -35,7 +35,7 @@
 
         <view class="date">
             <view class="time">{{con.dateCon(comment.createAt)}}</view>
-            <view>
+            <view style="width:50rpx;height:50rpx;">
              <image class="icon" src="../../imgs/img/more1.png" mode="widthFix" style="width:30rpx;height:6rpx" catch:tap="popBox"></image>
             </view>
         </view>
