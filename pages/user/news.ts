@@ -29,43 +29,39 @@ Page({
     const userCount = notice.fromUsers.length
     let status = notice.status
 
-    if (status === EPostStatus.Published) {
-
-      //判断传入的类型是否为Post类型,post类型包含作品和话题。该判断逻辑有三种：1.点赞作品 2.评论作品 3.参与话题
-      if (notice.ttype === ETableType.Post) {
-        //判断是否为Post点赞
-        if (notice.type === ENoticeType.Like) {
-          // TODO:没有设置点赞人数,待完成--服务端 noticeservice 中的bus.on监听事件也待完成
-          noticeMessage = '等' + userCount + '人赞了你的作品'
-          title = notice.title
-        }
-
-        //判断是否评论了某一条作品
-        if (notice.type === ENoticeType.Comment) {
-          noticeMessage = '评论了你的作品'
-          title = notice.title
-          text = notice.text
-        }
-
-        //判断是否参与了某一个作品
-        if (notice.type === ENoticeType.Attend) {
-          noticeMessage = '参与了你的话题'
-          title = notice.title
-          text = notice.text
-        }
+    if (notice.ttype === ETableType.Post) {
+      //判断是否为Post点赞
+      if (notice.type === ENoticeType.Like) {
+        // TODO:没有设置点赞人数,待完成--服务端 noticeservice 中的bus.on监听事件也待完成
+        noticeMessage = '等' + userCount + '人赞了你的作品'
+        title = notice.title
       }
 
-      //判断传入的类型是否为Comment评论类型,该判断逻辑目前有两种：1. 点赞评论 2.回复评论(TODO)
-      if (notice.ttype === ETableType.Comment) {
-        if (notice.type === ENoticeType.Like) {
-          // TODO:没有设置点赞人数,待完成--服务端 noticeservice 中的bus.on监听事件也待完成
-          noticeMessage = '等' + userCount + '人赞了你的评论'
-          text = notice.text
-        }
+      //判断是否评论了某一条作品
+      if (notice.type === ENoticeType.Comment) {
+        noticeMessage = '评论了你的作品'
+        title = notice.title
+        text = notice.text
+      }
 
-        if (notice.type === ENoticeType.Reply) {
+      //判断是否参与了某一个作品
+      if (notice.type === ENoticeType.Attend) {
+        noticeMessage = '参与了你的话题'
+        title = notice.title
+        text = notice.text
+      }
+    }
 
-        }
+    //判断传入的类型是否为Comment评论类型,该判断逻辑目前有两种：1. 点赞评论 2.回复评论(TODO)
+    if (notice.ttype === ETableType.Comment) {
+      if (notice.type === ENoticeType.Like) {
+        // TODO:没有设置点赞人数,待完成--服务端 noticeservice 中的bus.on监听事件也待完成
+        noticeMessage = '等' + userCount + '人赞了你的评论'
+        text = notice.text
+      }
+
+      if (notice.type === ENoticeType.Reply) {
+
       }
     }
 
