@@ -57,7 +57,7 @@
           <view class="text">{{data.post.likeCount ||''}}</view>
         </view>
         <view class="msg">
-          <image class="msgs" id="cmtImg" src="../../imgs/img/message.png" mode="aspectFit|aspectFill|widthFix" catch:tap="startEdit"></image>
+          <image class="msgs" id="cmtImg" src="../../imgs/img/message.png" mode="aspectFit|aspectFill|widthFix" catch:tap="inputFocus"></image>
           <view class="text">{{data.post.commentCount||'' }}</view>
                 </view>
                 <view class="replys">
@@ -85,8 +85,8 @@
     <view class="img">
         <image class="" src="../../imgs/img/small.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
     </view>
-    <input class="content" type="text" placeholder="写点评论吧" bindfocus='startEdit' bindblur="endEdit" bindconfirm="commentEditor" value="{{commentValue}}" />
-    <button class="btn" type="button" bind:tap="bindComment" data-tid="{{comment.post.id}}">
+    <input class="content" type="text" placeholder="写点评论吧" bindfocus='inputFocus' bindblur="inputBlur" bindinput="startEdit"/>
+    <button class="btn" type="button" bind:tap="sendComment" data-tid="{{comment.post.id}}">
     发送
   </button>
 </view>

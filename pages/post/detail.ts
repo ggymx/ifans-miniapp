@@ -26,34 +26,31 @@ Page({
       isCreateAnserPage: event.detail.value
     })
   },
-  commentEditor(event: any) {
-    this.setData!({
-
-    });
-  },
-  commentValue(event: any) {
+  //编辑评论
+  startEdit(event: any) {
+    // console.log('编辑评论-----------',event);
     this.setData!({
       commentValue: event.detail.value
     })
-
   },
-  //编辑评论
-  startEdit(event: any) {
+  //聚焦
+  inputFocus(event: any) {
     console.log('开始编辑-----------');
       this.setData!({
         showMask:true
       });
       //如果是按钮点击，怎么触发input获取焦点？？
   },
-  //结束编辑
-  endEdit(){
+  //失焦
+  inputBlur(){
     console.log('结束编辑------------');
     this.setData!({
       showMask:false
     })
   },
 
-  bindComment(event: any) {
+  sendComment(event: any) {
+    console.log('点击发送评论--------------');
     const that = this;
     const token = wx.getStorageSync('token');
     if (!token) {
