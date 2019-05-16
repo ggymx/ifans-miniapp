@@ -49,7 +49,6 @@ Page {
     font-family: PingFang-SC-Medium;
     height: 212rpx;
     font-size: 32rpx;
-    font-weight: 500;
     line-height: 40rpx;
 }
 
