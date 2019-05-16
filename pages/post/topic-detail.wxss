@@ -29,12 +29,12 @@
 }
 
 .title .more {
-    width: 32rpx;
-    height: 100%;
+    width: 50rpx;
+    height: 50rpx;
 }
 
 .title .more .pot {
-    width: 100%;
+    width: 32rpx;
     height: 7rpx;
 }
 

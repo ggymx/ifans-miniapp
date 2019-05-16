@@ -13,7 +13,8 @@ Page({
     post: null,
     postArr: [],
     title: '',
-    isLike:null//是否显示红心
+    isLike:null,//是否显示红心
+    likeCount:null  //记录当前点赞数
   },
 
   createAnswer(event: any) {
@@ -64,15 +65,19 @@ Page({
           id: instance.properties.post.id
         });
         instance.setData!({
-          isLike: true
+          isLike: true,
+          likeCount:instance.data.likeCount++
         });
+        console.log('此时的点赞数-----------加',instance.data.likeCount);
       } else {
         const res = await api.disLike({
           id: instance.data.post.id
         });
         instance.setData!({
-          isLike: false
+          isLike: false,
+          likeCount:instance.data.likeCount--
         });
+        console.log('此时的点赞数-----------减',instance.data.likeCount);
       }
     }
   },
@@ -82,8 +87,8 @@ Page({
     const token = wx.getStorageSync('token');
     if (token) {
       const ownId = wx.getStorageSync('userId');
-      const userId = instance.properties.post.user.id;
-      const cId = instance.properties.post.id;
+      const userId = instance.data.post.user.id;
+      const cId = instance.data.post.id;
       if (ownId === userId) {
         wx.showActionSheet({
           itemList: ['删除'],
@@ -176,7 +181,8 @@ Page({
 
       this.setData!({
         post: data.post,
-        isLike:data.post.isLike
+        isLike:data.post.isLike,
+        likeCount:data.post.likeCount
       })
       console.log('接收到的post--------------++++：',that.data.post);
       // console.log('关联的话题详情的gallery-----------', that.data.thumbnails);
@@ -264,12 +270,12 @@ Page({
     )
   },
   //触底加载
-  onReachBottom() {
-    wx.showLoading({
-      title: '加载更多...'
-    })
-    setTimeout(() => {
-      this.onLoad()
-    }, 200);
-  }
+  // onReachBottom() {
+  //   wx.showLoading({
+  //     title: '加载更多...'
+  //   })
+  //   setTimeout(() => {
+  //     this.onLoad()
+  //   }, 200);
+  // }
 })

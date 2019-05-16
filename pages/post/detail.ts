@@ -37,10 +37,19 @@ Page({
     })
 
   },
-  inputValue(event: any) {
-    console.log('===inputValue event===', event.detail.value)
+  //编辑评论
+  startEdit(event: any) {
+    console.log('开始编辑-----------');
+      this.setData!({
+        showMask:true
+      });
+      //如果是按钮点击，怎么触发input获取焦点？？
+  },
+  //结束编辑
+  endEdit(){
+    console.log('结束编辑------------');
     this.setData!({
-      showMask: !this.data.showMask,
+      showMask:false
     })
   },
 
@@ -183,19 +192,107 @@ Page({
 
   },
 
-  /*转发分享监听事件 */
-  onShareAppMessage(res: any) {
-    let text = this.data.data!.post.text;
-    if (this.data.data!.post.text.length > 10) {
-      text = this.data.data!.post.text.substring(0, 10) + '...'
-    }
-    return {
-      title: `#${this.data.topic.post.title}#${text}`,
-      success(e: any) {
-        wx.showShareMenu({
-          withShareTicket: true
-        })
+   /*举报等操作弹出框 */
+   popBox() {
+    const instance = this as any;
+    const token = wx.getStorageSync('token');
+    if (token) {
+      const ownId = wx.getStorageSync('userId');
+      const userId = instance.data.data.post.user.id;
+      const cId = instance.data.data.post.id;
+      if (ownId === userId) {
+        wx.showActionSheet({
+          itemList: ['删除'],
+          success(res) {
+            switch (res.tapIndex) {
+              case 0:
+                wx.showModal({
+                  title: '删除投稿',
+                  content: '确定删除这则投稿吗？',
+                  success(res) {
+                    if (res.confirm) {
+                      api.request({
+                        url: '/v1/post/remove',
+                        data: {
+                          postId: cId
+                        },
+                        method: 'POST',
+                        success(res) {
+                          wx.showToast({
+                            title: '删除成功',
+                            success() {
+                              wx.navigateBack({
+                                delta: 1
+                              })
+                            }
+                          });
+                        },
+                        fail(res) {
+                          wx.showToast({ title: '删除成功' });
+                        }
+                      });
+                    }
+                  }
+                });
+                break;
+            }
+          }
+        });
+      } else {
+        wx.showActionSheet({
+          itemList: ['举报'],
+          success(res) {
+            switch (res.tapIndex) {
+              case 0:
+                wx.showModal({
+                  title: '举报',
+                  content: '确定举报这则投稿吗？',
+                  success(res) {
+                    if (res.confirm) {
+                      api.request({
+                        url: '/v1/post/abuse-report',
+                        data: {
+                          postId: cId
+                        },
+                        method: 'POST',
+                        success(res) {
+                          const data = res.data as any;
+                          data.msg === 'ok'
+                            ? wx.showToast({ title: '举报成功' })
+                            : '';
+                        }
+                      });
+                    }
+                  }
+                });
+                break;
+            }
+          }
+        });
       }
+    } else {
+      wx.showToast({ title: '请先登录！' });
+      setTimeout(() => {
+        smartGotoPage({
+          url: '/pages/login'
+        });
+      }, 100);
     }
   }
+
+  /*转发分享监听事件 */
+  // onShareAppMessage(res: any) {
+  //   let text = this.data.data!.post.refPost.text;
+  //   if (this.data.data!.post.refPost.text.length > 10) {
+  //     text = this.data.data!.post.text.substring(0, 10) + '...'
+  //   }
+  //   return {
+  //     title: `#${this.data.topic.post.title}#${text}`,
+  //     success(e: any) {
+  //       wx.showShareMenu({
+  //         withShareTicket: true
+  //       })
+  //     }
+  //   }
+  // }
 })

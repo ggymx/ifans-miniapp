@@ -13,8 +13,8 @@
           {{data.post.user.nickname}}
         </view>
       </view>
-      <view class="more fr">
-        <image class="" src="../../imgs/img/more1.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false"></image>
+      <view class="more fr" catch:tap="popBox">
+        <image src="../../imgs/img/more1.png" lazy-load="false"></image>
       </view>
     </view>
     <view class="article">
@@ -57,11 +57,11 @@
           <view class="text">{{data.post.likeCount ||''}}</view>
         </view>
         <view class="msg">
-          <image class="msgs" src="../../imgs/img/message.png" mode="aspectFit|aspectFill|widthFix"></image>
+          <image class="msgs" id="cmtImg" src="../../imgs/img/message.png" mode="aspectFit|aspectFill|widthFix" catch:tap="startEdit"></image>
           <view class="text">{{data.post.commentCount||'' }}</view>
                 </view>
                 <view class="replys">
-                    <image class="rep" src="../../imgs/img/share.png" mode="aspectFit|aspectFill|widthFix"></image>
+                    <button class="share" open-type="share"><image class="rep" src="../../imgs/img/share.png" mode="aspectFit|aspectFill|widthFix"></image></button>
                 </view>
             </view>
         </view>
@@ -85,16 +85,8 @@
     <view class="img">
         <image class="" src="../../imgs/img/small.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
     </view>
-    <input class="content" type="text" placeholder="写点评论吧" bindfocus='inputValue' bindblur="inputValue" bindconfirm="commentEditor" value="{{commentValue}}" />
+    <input class="content" type="text" placeholder="写点评论吧" bindfocus='startEdit' bindblur="endEdit" bindconfirm="commentEditor" value="{{commentValue}}" />
     <button class="btn" type="button" bind:tap="bindComment" data-tid="{{comment.post.id}}">
     发送
   </button>
 </view>
-
-
-<!-- <view class="opreate-underlying" isCreateAnserPage="{{isCreateAnserPage}}" style="position:fixed;bottom:0;margin-bottom:0;background-color:#FFF">
-    <view class="container1">
-        <input type="text" value="" bindinput='inputValue' bindconfirm="commentEditor" value="{{commentValue}}"></input>
-        <button bind:tap="bindComment" data-tid="{{comment.post.id}}">点我</button>
-    </view>
-</view> -->

@@ -62,16 +62,18 @@
 }
 
 .userInfo .more {
-    width: 32rpx;
-    height: 7rpx;
+    /* width: 32rpx;
+    height: 7rpx; */
+    width:50rpx;
+    height:50rpx;
     position: absolute;
     right: 45rpx;
     top: 10rpx;
 }
 
 .userInfo .more image {
-    width: 100%;
-    height: 100%;
+  width: 32rpx;
+    height: 7rpx;
 }
 
 .topic {
@@ -381,4 +383,14 @@
     opacity: 0.3;
     position: absolute;
     top: 0;
+}
+
+/*分享按钮*/
+button.share{
+padding:0;
+width:50rpx;
+height:50rpx;
+border:none;
+line-height:0;
+background:#FFF;
 }

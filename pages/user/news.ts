@@ -27,7 +27,7 @@ Page({
     let title = ''
     let text = ''
     const userCount = notice.fromUsers.length
-    let status = notice.status
+    const status = notice.status
 
     if (status === EPostStatus.Published) {
 
@@ -99,7 +99,7 @@ Page({
       this.setData!({
         notices,
       });
-
+      console.log('获取notice------------------',this.data.notices);
     } else {
       wx.showToast({ title: '请先登录！' });
       setTimeout(() => {
