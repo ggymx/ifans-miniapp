@@ -19,6 +19,7 @@ Page({
     commentValue: '',
     isCreateAnserPage: false,
     showMask: false,
+    isPublished: false,
     isLike:null
   },
   isCreateAnserPage(event: any) {
@@ -159,9 +160,10 @@ Page({
 
   async onLoad(options: any) {
     const that = this;
-
     const id = options.id || { postId }
-
+    this.setData({
+      isPublished: options.isPublished === '1',
+    })
     api.request({
       url: '/v1/post/detail',
 
@@ -187,6 +189,15 @@ Page({
       comments: data.comments
     })
 
+  },
+
+  /* 监听后退事件 */
+  onUnload() {
+    if (this.data.isPublished) {
+      wx.navigateBack({
+        delta: 2
+      })
+    }
   },
 
    /*举报等操作弹出框 */

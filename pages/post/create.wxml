@@ -30,7 +30,7 @@
 
     </view>
 
-    <view class="foot" bindtap="titleParti">
+    <view class="foot" bindtap="clickPublish">
         <button class="btn">发表</button>
     </view>
 </view>

@@ -218,7 +218,6 @@ Page({
 
   /* 监听后退事件 */
   onUnload() {
-    console.log('onUnload.........')
     if (this.data.isPublished) {
       wx.navigateBack({
         delta: 2
