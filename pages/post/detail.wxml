@@ -3,22 +3,8 @@
 <navbar back text="文章详情"></navbar>
 <!-- comment -->
 <view class="body">
-    <!-- <view class="opreate-underlying" style="border-style:none">
-        <view class="container">
-            <postCard arrowBtn clock final showTitle like post="{{comment.post}}" isLike="{{comment.post.isLike}}" style="border-width:1rpx" /> -->
-    <!-- <listing arrowBtn clock final showTitle like post="{{comment.post}}" isLike="{{comment.post.isLike}}" style="border-width:1rpx">
-                <text slot="user" class="item-name">{{comment.post.user.nickname}}</text>
-                <text slot="title" class="item-title" catch:tap="bindViewTopic" data-tid="{{topic.post.id}}">
-          #{{comment.post.refPost.title}}#
-        </text>
-                <view slot="context" class="item-context">{{comment.post.text}}</view>
-                <text slot="date">{{con.dateCon(comment.post.createAt)}}</text>
-                <text slot="like">{{con.numCon(comment.post.likeCount)}}</text>
-            </listing>
-        </view>
-    </view> -->
   <view class="content">
-    <view class="title">{{data.post.refPost.title}}</view>
+    <view class="title" bind:tap="findTopicDetail">{{data.post.refPost.title}}</view>
      <text class="context" wx:if="{{data.post.refPost.text.trim().length!=0}}">{{data.post.refPost.text}}</text>
     <view class="userInfo">
       <view class="user">
