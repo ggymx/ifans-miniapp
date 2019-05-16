@@ -44,6 +44,9 @@ Page({
   //options:获取url参数
   async onLoad(options: any) {
     const that = this as any;
+    this.setData({
+      isPublished: options.isPublished === '1',
+    })
     if (!that.data.post) {
       id = options.id;
       const data: any = await api.getPost({ id })
