@@ -184,6 +184,7 @@
 
 .msg {
     margin-right: 20rpx;
+    color: #666;
 }
 
 .stars,

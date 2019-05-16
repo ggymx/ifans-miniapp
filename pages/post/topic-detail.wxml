@@ -50,7 +50,8 @@
                 </view>
                 <view class="msg" bind:tap="createAnswer">
                     <image class="msgs" src="../../imgs/img/message.png"></image>
-                    {{post.attendCount ||''}}
+                    4
+                    <!-- {{post.attendCount ||''}} -->
                 </view>
                 <button open-type="share" class="share" plain="true"><image class="shareImg" src="../../imgs/img/share.png"></image></button>
             </view>
