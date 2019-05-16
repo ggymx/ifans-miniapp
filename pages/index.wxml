@@ -9,12 +9,12 @@
     </view>
     <view class="name fl">{{user ? user.nickname : ''}}</view>
     <view class="msg fr"  bind:tap="userNews">
-      <image class="img fl" src="../imgs/img/msg.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""/>
+      <image class="img fl" src="../imgs/img/msg.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false"/>
       <view class="pot"></view>
     </view>
   </view>
   <view class="bigImg">
-    <image class="myMsg" src="../imgs/img/mid.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" />
+    <image class="myMsg" src="../imgs/img/mid.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" />
   </view>
   <view class="lt">
     <image class="myMsg" src="../imgs/img/left.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" />

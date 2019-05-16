@@ -12,8 +12,8 @@ const app = getApp<IMyApp>()
 Page({
   data: {
     notices: [],
-     //当页面正常时
-     notErr:true,
+    //当页面正常时
+    notErr: true,
   },
   httpDataProcessing(iNotice: INoticeReply[]): FontNotice[] {
     return iNotice.map(notice => this.getFontNotice(notice))
@@ -58,9 +58,8 @@ Page({
         noticeMessage = '等' + userCount + '人赞了你的评论'
         text = notice.text
       }
-
       if (notice.type === ENoticeType.Reply) {
-
+        //
       }
     }
 
@@ -104,14 +103,25 @@ Page({
     }
 
   },
-  redirectDetail(options: any) {
-    console.log('点击了跳转')
-    console.log(options.currentTarget.dataset.noticeTid)
-  },
-   /*跳转到话题社区 */
-  findOldIndex(){
+  /*跳转到话题详情 */
+  findTopicDetail(event: any) {
+    console.log(event.target.dataset);
+    const tId = event.target.dataset.tid;
     smartGotoPage({
-      url:'../oldindex'
+      url: `/pages/post/topic-detail?id=${tId}`
+    })
+  },
+  /*跳转到话题社区 */
+  findOldIndex() {
+    smartGotoPage({
+      url: '/pages/oldindex'
+    });
+  },
+  findUserDeail(event: any) {
+    console.log('notice------------------', this.data.notices);
+    const uId = event.target.dataset.uid;
+    smartGotoPage({
+      url: `/pages/user/detail?userId=${uId}`
     });
   }
 })

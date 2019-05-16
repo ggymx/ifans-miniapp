@@ -1,5 +1,6 @@
 // tslint:disable max-line-length
-import { IDisLikeParams, IDisLikeResponse, IEmptyParams, IGetAnswerListParams, IGetAnswerListResponse, IGetCommetListParams, IGetCommetListResponse, IGetPostIdByPostIdParams, IGetUserFootPrintParams, IGetUserFootPrintResponese, IHomeTopicListParams, IHomeTopicListResponse, ILikeParams, ILikeResponse, INoticeListParams, INoticeListResponese, IPostDetailParams, IPostsDetailResponse, IUploadParams, IUploadResponese, IUserPageParams, IUserPageResponse, IUserResponse } from './types/http_msg'
+import { IDisLikeParams, IDisLikeResponse, IEmptyParams, IGetAnswerListParams, IGetAnswerListResponse, IGetCommetListParams, IGetCommetListResponse, IGetPostIdByPostIdParams, IGetUserFootPrintParams, IGetUserFootPrintResponese, IHomeTopicListParams, IHomeTopicListResponse, ILikeParams, ILikeResponse, INoticeListParams, INoticeListResponese, IPostDetailParams, IPostsDetailResponse, IUploadParams, IUploadResponese, IUserPageParams, IUserPageResponse, IUserResponse, IRemovePostParams } from './types/http_msg'
+import { IRemovePostResponse } from './types/http_msg';
 
 class Api {
   /**
@@ -63,6 +64,11 @@ class Api {
    * 用户通知
    */
   getUserNotice = this.makeApi<INoticeListParams, INoticeListResponese>('GET', '/v1/notice/list')
+
+  /**
+   * 删除话题/投稿
+   */
+  removePost = this.makeApi<IRemovePostParams, IRemovePostResponse>('POST', '/v1/post/remove')
 
   private host: string
   private token: string

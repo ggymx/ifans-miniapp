@@ -105,8 +105,7 @@ export function chooseImage(count: number): Promise<string[]> {
   })
 }
 
-export async function uploadChosenImages(tempFilePaths: string[]): Promise<any> {
-  const { uptoken } = await api.getUploadToken({})
+export async function uploadChosenImages(uptoken: string, tempFilePaths: string[]): Promise<any> {
   const results = await Promise.all(tempFilePaths.map((path) => uploadTempFile(uptoken, path)))
   return results
 }

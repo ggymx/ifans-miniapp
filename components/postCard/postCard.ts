@@ -171,7 +171,7 @@ Component({
                     success(res) {
                       if (res.confirm) {
                         api.request({
-                          url: '/v1/post/delete',
+                          url: '/v1/post/remove',
                           data: {
                             postId: cId
                           },

@@ -34,14 +34,20 @@ Page({
 
   //消息通知
   userNews(){
-    if (this.data.user) {
+    if (wx.getStorageSync('token')&&this.data.user) {
       const userId = wx.getStorageSync('userId');
       smartGotoPage({
-        url: './user/detail?userId=' + userId
+        url: '/pages/user/news'
       });
-    } else {
-      wx.navigateTo({
-        url: `./user/news`
+    }else{
+      setTimeout(() => {
+        wx.showToast({
+          title:'请先登录',
+          icon:'none'
+        });
+      }, 300);
+      smartGotoPage({
+        url:'/pages/login'
       })
     }
   },
