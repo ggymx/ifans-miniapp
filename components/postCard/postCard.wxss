@@ -35,10 +35,10 @@ text {
 }
 
 .user-view {
-  font-size: 28rpx;
+  font-size: 26rpx;
   color: rgb(153, 153, 153);
   position: absolute;
-  top: 34rpx;
+  top: 30rpx;
   left: 102rpx;
   font-weight: 500;
   width: 500rpx;
@@ -61,7 +61,7 @@ text {
 
 .arr-view {
   position: absolute;
-  top: 30rpx;
+  top: 26rpx;
   right: 30rpx;
   width: 60rpx;
   height: 60rpx;

@@ -1,4 +1,5 @@
 import { IUser } from './user';
+import { EPostStatus } from './posts';
 
 export interface INoticeReply {
   createAt: Date,
@@ -8,6 +9,7 @@ export interface INoticeReply {
   title: string,
   ttype: ETableType,
   type: ENoticeType,
+  status: EPostStatus
 }
 
 
