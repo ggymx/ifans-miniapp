@@ -8,7 +8,6 @@
         <!-- <text class="context" wx:if="{{data.post.refPost.text.trim().length!=0}}">{{data.post.refPost.text}}</text> -->
         <view class="line"></view>
         <view class="userInfo">
-
             <view class="user">
                 <image class="img fl" src="{{data.post.user.avatar}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" catch:tap="findUserDetail"></image>
                 <view class="text fl" selectable="false" space="false" decode="false">
@@ -19,7 +18,6 @@
                 <image class="" src="../../imgs/img/more1.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
             </view>
         </view>
-      </view>
       <view class="more fr" catch:tap="popBox">
         <image src="../../imgs/img/more1.png" lazy-load="false"></image>
       </view>
@@ -73,7 +71,7 @@
             </view>
         </view>
     </view>
-</view>
+
 <view class="mask" wx:if="{{showMask}}"></view>
 
 <view>

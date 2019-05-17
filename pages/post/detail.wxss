@@ -76,15 +76,15 @@
 .userInfo .more {
     /* width: 32rpx;
     height: 7rpx; */
-    width:50rpx;
-    height:50rpx;
+    width: 50rpx;
+    height: 50rpx;
     position: absolute;
     right: 45rpx;
     top: 10rpx;
 }
 
 .userInfo .more image {
-  width: 32rpx;
+    width: 32rpx;
     height: 7rpx;
 }
 
@@ -414,12 +414,14 @@
     top: 0;
 }
 
+
 /*分享按钮*/
-button.share{
-padding:0;
-width:50rpx;
-height:50rpx;
-border:none;
-line-height:0;
-background:#FFF;
+
+button.share {
+    padding: 0;
+    width: 50rpx;
+    height: 50rpx;
+    border: none;
+    line-height: 0;
+    background: #FFF;
 }
