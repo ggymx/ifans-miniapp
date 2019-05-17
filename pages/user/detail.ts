@@ -38,8 +38,11 @@ Page({
       method: 'GET',
       success(res) {
         const data = res.data as any;
-        if (data === null) {
-          wx.redirectTo({ url: '/pages/noteFound/notfound' })
+
+        if (data.post === null) {
+        console.log('40404040404040404040404040404')
+
+          wx.redirectTo({ url: '/pages/notfound/notfound' })
         }
         that.setData!({
           user: data.user,
