@@ -39,7 +39,7 @@ Component({
     },
     isLike: {
       type: Boolean,
-      value: false
+      value: true
     },
     likeCount: {
       type: Number,

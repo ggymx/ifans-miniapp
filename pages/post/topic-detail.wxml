@@ -5,7 +5,7 @@
     <view class="first">
         <view class="title">
             <text class="title1 fl">#{{post.title}}#</text>
-            <view class="more fr">
+            <view class="more fr" catch:tap="popBox">
                 <image class="pot" src="../../imgs/img/more1.png"></image>
             </view>
         </view>
@@ -45,8 +45,9 @@
                 <view class="time">{{con.dateCon(post.createAt)}}</view>
             </view>
             <view class="right">
-                <view class="star">
-                    <image class="stars" src="../../imgs/img/stars.png"></image>
+                <view class="star" catch:tap="giveLike">
+                    <image class="stars" src="{{isLike && '../../imgs/button-like-dj@2x.png' || '../../imgs/home-button-like@2x.png' }}"></image>
+                    {{likeCount||''}}
                 </view>
                 <view class="msg" bind:tap="createAnswer">
                     <image class="msgs" src="../../imgs/img/message.png"></image>

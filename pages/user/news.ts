@@ -6,6 +6,7 @@ import { smartGotoPage } from '../../common/helper';
 import { FontNotice } from '../../common/types/font_notice';
 import { INoticeListResponese } from '../../common/types/http_msg';
 import { ENoticeType, ETableType, INoticeReply } from '../../common/types/notice_reply';
+import { EPostStatus } from '../../common/types/posts';
 
 const app = getApp<IMyApp>()
 
@@ -26,8 +27,8 @@ Page({
     let title = ''
     let text = ''
     const userCount = notice.fromUsers.length
+    const status = notice.status
 
-    //判断传入的类型是否为Post类型,post类型包含作品和话题。该判断逻辑有三种：1.点赞作品 2.评论作品 3.参与话题
     if (notice.ttype === ETableType.Post) {
       //判断是否为Post点赞
       if (notice.type === ENoticeType.Like) {
@@ -58,8 +59,9 @@ Page({
         noticeMessage = '等' + userCount + '人赞了你的评论'
         text = notice.text
       }
+
       if (notice.type === ENoticeType.Reply) {
-        //
+
       }
     }
 
@@ -87,12 +89,13 @@ Page({
       const data = await api.getUserNotice({})
 
       const notices = this.httpDataProcessing(data.notices)
+      console.log('---notices----')
       console.table({ notices })
 
       this.setData!({
         notices,
       });
-
+      console.log('获取notice------------------',this.data.notices);
     } else {
       wx.showToast({ title: '请先登录！' });
       setTimeout(() => {

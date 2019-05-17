@@ -4,7 +4,7 @@
 <view class="underlying">
     <view class="first">
         <view class="title">
-            <text class="title1 fl">#{{post.title}}#</text>
+            <text class="title1 fl">#{{post.refPost? post.refPost.title : post.title}}#</text>
             <view class="more fr">
                 <image class="pot" src="../../imgs/img/more1.png"></image>
             </view>
@@ -25,23 +25,23 @@
       <view class="postImg" wx:if="{{post.thumbnails}}">
       <!--单图-->
       <block wx:if="{{post.thumbnails.length==1}}">
-       <image src="{{post.thumbnails[0].image}}" class="one" catch:tap="imgPre" data-src="{{item}}"/>
+       <image src="{{post.thumbnails[0].image}}" mode='aspectFill' class="one" catch:tap="imgPre" data-src="{{item}}"/>
       </block>
       <!--两图-->
       <block wx:elif="{{post.thumbnails.length==2}}">
          <block wx:for="{{post.thumbnails}}">
-         <image src="{{item.image}}" class="two" catch:tap="imgPre" data-src="{{item}}"/>
+         <image src="{{item.image}}" mode='aspectFill' class="two" catch:tap="imgPre" data-src="{{item}}"/>
          </block>
       </block>
       <block wx:else>
           <block wx:for="{{post.thumbnails}}" wx:for-index="i">
          <!--三张图时-->
           <block wx:if="{{i<3}}">
-            <image src="{{item.image}}" class="three" catch:tap="imgPre" data-src="{{item}}"/>
+            <image src="{{item.image}}" mode='aspectFill' class="three" catch:tap="imgPre" data-src="{{item}}"/>
           </block>
           <!--多张图时-->
           <block wx:else>
-            <image src="{{item.image}}" class="more" catch:tap="imgPre" data-src="{{item}}"/>
+            <image src="{{item.image}}" mode='aspectFill' class="more" catch:tap="imgPre" data-src="{{item}}"/>
           </block>
           </block>
       </block>

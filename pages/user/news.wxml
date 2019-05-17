@@ -29,14 +29,23 @@
                     <text class="date">{{con.dateCon(item.createAt)}}</text>
                 </view>
             </view>
-        </block>
-        <!--缺省页面-->
-        <block wx:else>
-            <view else class="default">
-                <image src="../../imgs/img/没收到消息@2x.png" class="tipImg" />
-                <text class="tip">您暂未收到任何痕迹</text>
-                <a class="tip" bind:tap="findOldIndex">话题社区 ></a>
-            </view>
-        </block>
-    </view>
+            <text class="title" style="margin-bottom:0;" bind:tap="findTopicDetail" data-tid="{{item.tid}}" wx:if="{{item.title}}">#{{item.title}}#</text>
+            <text class="comment">{{item.text}}</text>
+          </view>
+        </view>
+        <view style="width:auto;display:flex">
+          <text class="date">{{con.dateCon(item.createAt)}}</text>
+        </view>
+       </view>
+      </block>
+      <!--缺省页面-->
+      <block wx:else>
+      <view else class="default">
+             <image src="../../imgs/img/没收到消息@2x.png" class="tipImg"/>
+             <text class="tip">您暂未收到任何痕迹</text>
+             <a class="tip" bind:tap="findOldIndex">话题社区 ></a>
+      </view>
+      </block>
+  
+  </view>
 </view>

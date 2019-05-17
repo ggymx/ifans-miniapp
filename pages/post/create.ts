@@ -65,7 +65,7 @@ Page({
   },
 
   /*发布话题 */
-  titleParti(event: any) {
+  clickPublish(event: any) {
     if (!this.data.titleValue) {
       wx.showToast({
         icon: 'none',

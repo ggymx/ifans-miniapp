@@ -19,51 +19,56 @@
                 <image class="" src="../../imgs/img/more1.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
             </view>
         </view>
-        <view class="article">
-            <text class="txt" selectable="false" space="false" decode="false">{{data.post.text}}</text>
-
-            <!--配图-->
-            <view class="postImg" wx:if="{{data.post.thumbnails}}">
-                <!--单图-->
-                <block wx:if="{{data.post.thumbnails.length==1}}">
-                    <image src="{{data.post.thumbnails[0].image}}" class="one" catch:tap="imgPre" data-src="{{item.url}}" />
-                </block>
-                <!--两图-->
-                <block wx:elif="{{data.post.thumbnails.length==2}}">
-                    <block wx:for="{{data.post.thumbnails}}">
-                        <image src="{{item.image}}" class="two" catch:tap="imgPre" data-src="{{item.url}}" />
-                    </block>
-                </block>
-                <block wx:else>
-                    <block wx:for="{{data.post.thumbnails}}" wx:for-index="i">
-                        <!--三张图时-->
-                        <block wx:if="{{i<3}}">
-                            <image src="{{item.image}}" class="three" catch:tap="imgPre" data-src="{{item.url}}" />
-                        </block>
-                        <!--多张图时-->
-                        <block wx:else>
-                            <image src="{{item.image}}" class="more" catch:tap="imgPre" data-src="{{item.url}}" />
-                        </block>
-                    </block>
-                </block>
-            </view>
+      </view>
+      <view class="more fr" catch:tap="popBox">
+        <image src="../../imgs/img/more1.png" lazy-load="false"></image>
+      </view>
+    </view>
+    <view class="article">
+      <text class="txt" selectable="false" space="false" decode="false">{{data.post.text}}</text>
+      
+         <!--配图-->
+      <view class="postImg" wx:if="{{data.post.thumbnails}}">
+      <!--单图-->
+      <block wx:if="{{data.post.thumbnails.length==1}}">
+       <image src="{{data.post.thumbnails[0].image}}" class="one" catch:tap="imgPre" data-src="{{item.url}}"/>
+      </block>
+      <!--两图-->
+      <block wx:elif="{{data.post.thumbnails.length==2}}">
+         <block wx:for="{{data.post.thumbnails}}">
+         <image src="{{item.image}}" class="two" catch:tap="imgPre" data-src="{{item.url}}"/>
+         </block>
+      </block>
+      <block wx:else>
+          <block wx:for="{{data.post.thumbnails}}" wx:for-index="i">
+         <!--三张图时-->
+          <block wx:if="{{i<3}}">
+            <image src="{{item.image}}" class="three" catch:tap="imgPre" data-src="{{item.url}}"/>
+          </block>
+          <!--多张图时-->
+          <block wx:else>
+            <image src="{{item.image}}" class="more" catch:tap="imgPre" data-src="{{item.url}}"/>
+          </block>
+          </block>
+      </block>
+      </view>
+    </view>
+    <view class="bottom">
+      <view class="left">
+        <image class="block" src="../../imgs/time.png" mode="aspectFit|aspectFill|widthFix"></image>
+        <view class="time">{{con.dateCon(data.post.createAt)}}</view>
+      </view>
+      <view class="right">
+        <view class="star">
+          <image class="stars" src="{{isLike && '../../imgs/button-like-dj@2x.png' || '../../imgs/home-button-like@2x.png' }}"  mode="aspectFit|aspectFill|widthFix" catch:tap="giveLike" ></image>
+          <view class="text">{{data.post.likeCount ||''}}</view>
         </view>
-        <view class="bottom">
-            <view class="left">
-                <image class="block" src="../../imgs/time.png" mode="aspectFit|aspectFill|widthFix"></image>
-                <view class="time">{{con.dateCon(data.post.createAt)}}</view>
-            </view>
-            <view class="right">
-                <view class="star">
-                    <image class="stars" src="{{data.post.isLike && '../../imgs/button-like-dj@2x.png' || '../../imgs/home-button-like@2x.png' }}" mode="aspectFit|aspectFill|widthFix" catch:tap="giveLike"></image>
-                    <view class="text">{{data.post.likeCount ||''}}</view>
-                </view>
-                <view class="msg">
-                    <image class="msgs" src="../../imgs/img/message.png" mode="aspectFit|aspectFill|widthFix"></image>
-                    <view class="text">{{data.post.commentCount||'' }}</view>
+        <view class="msg">
+          <image class="msgs" id="cmtImg" src="../../imgs/img/message.png" mode="aspectFit|aspectFill|widthFix" catch:tap="inputFocus"></image>
+          <view class="text">{{data.post.commentCount||'' }}</view>
                 </view>
                 <view class="replys">
-                    <image class="rep" src="../../imgs/img/share.png" mode="aspectFit|aspectFill|widthFix"></image>
+                    <button class="share" open-type="share"><image class="rep" src="../../imgs/img/share.png" mode="aspectFit|aspectFill|widthFix"></image></button>
                 </view>
             </view>
         </view>
@@ -76,7 +81,7 @@
         <view class="container">
             <block>
                 <block wx:for="{{comments}}">
-                    <commentCard comment="{{item}}" />
+                    <commentCard comment="{{item}}" isLike="{{item.isLike}}"/>
                 </block>
             </block>
         </view>
@@ -87,16 +92,8 @@
     <view class="img">
         <image class="" src="../../imgs/img/small.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
     </view>
-    <input class="content" type="text" placeholder="写点评论吧" bindfocus='inputValue' bindblur="inputValue" bindconfirm="commentEditor" value="{{commentValue}}" />
-    <button class="btn" type="button" bind:tap="bindComment" data-tid="{{comment.post.id}}">
+    <input class="content" type="text" placeholder="写点评论吧" bindfocus='inputFocus' bindblur="inputBlur" bindinput="startEdit"/>
+    <button class="btn" type="button" bind:tap="sendComment" data-tid="{{comment.post.id}}">
     发送
   </button>
 </view>
-
-
-<!-- <view class="opreate-underlying" isCreateAnserPage="{{isCreateAnserPage}}" style="position:fixed;bottom:0;margin-bottom:0;background-color:#FFF">
-    <view class="container1">
-        <input type="text" value="" bindinput='inputValue' bindconfirm="commentEditor" value="{{commentValue}}"></input>
-        <button bind:tap="bindComment" data-tid="{{comment.post.id}}">点我</button>
-    </view>
-</view> -->

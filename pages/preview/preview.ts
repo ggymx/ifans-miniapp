@@ -79,9 +79,15 @@ Page({
           wx.removeStorageSync('topic');
           wx.removeStorageSync('draft');
           wx.removeStorageSync('gallery');
-          wx.redirectTo({
-            url: `/pages/post/topic-detail?id=${id}&isPublished=1`
-          });
+          if (data.type === 1) {
+            wx.redirectTo({
+              url: `/pages/post/topic-detail?id=${id}&isPublished=1`
+            });
+          } else {
+            wx.redirectTo({
+              url: `/pages/post/detail?id=${id}&isPublished=1`
+            });
+          }
         }
       });
     }
