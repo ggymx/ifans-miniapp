@@ -51,11 +51,7 @@ Page({
       return
     } else {
       const data = this.data.post
-      if(data.thumbnails) {
-        wx.showToast({
-          title: '文件上传中...',
-          icon: 'loading',
-        })
+      if(data.thumbnails && data.thumbnails.length > 0) {
         const { uptoken } = await api.getUploadToken({})
         if (!uptoken) {
           smartGotoPage({
@@ -64,8 +60,9 @@ Page({
           return
         }
         const result = await this.uploadOnce(uptoken)
-        wx.hideToast({})
         data.gallery = result.map((item: any) => item.imageURL).join(',')
+      }
+      if(data.thumbnails) {
         delete data.thumbnails
       }
       api.request({
