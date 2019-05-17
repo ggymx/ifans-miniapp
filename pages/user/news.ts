@@ -57,6 +57,8 @@ Page({
       if (notice.type === ENoticeType.Like) {
         // TODO:没有设置点赞人数,待完成--服务端 noticeservice 中的bus.on监听事件也待完成
         noticeMessage = '等' + userCount + '人赞了你的评论'
+        console.log('===notice==',notice)
+        console.log('==notice.text==', notice.text)
         text = notice.text
       }
 
@@ -95,7 +97,7 @@ Page({
       this.setData!({
         notices,
       });
-      console.log('获取notice------------------',this.data.notices);
+      console.log('获取notice------------------', this.data.notices);
     } else {
       wx.showToast({ title: '请先登录！' });
       setTimeout(() => {
