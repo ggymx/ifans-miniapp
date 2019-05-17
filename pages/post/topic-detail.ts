@@ -5,22 +5,25 @@ import api from '../../common/api';
 import { isPostPage, smartGotoPage } from '../../common/helper';
 const app = getApp<IMyApp>()
 let id: number;
-let cursor: number = 0;
 Page({
   data: {
+    cursor: 0,
+    options: {
+      id: ''
+    },
     isPreview: true, // 预览状态
     isPublished: false, // 发布成功
     post: null,
     postArr: [],
     title: '',
-    isLike:null,//是否显示红心
-    likeCount:null  //记录当前点赞数
+    isLike: null,//是否显示红心
+    likeCount: null  //记录当前点赞数
   },
 
   createAnswer(event: any) {
     const topic = this.data.post
     smartGotoPage({
-       url: '/pages/post/createAnswer?topic=' + encodeURIComponent(JSON.stringify(topic))
+      url: '/pages/post/createAnswer?topic=' + encodeURIComponent(JSON.stringify(topic))
     });
   },
   userInfo(event: any) {
@@ -36,17 +39,17 @@ Page({
   //图片预览
   imgPre(event: any) {
     const instance = this as any;
-    const thumbnails=instance.data.post.thumbnails;
-    const imgs=thumbnails.map((item: any)=>item=item.url);
+    const thumbnails = instance.data.post.thumbnails;
+    const imgs = thumbnails.map((item: any) => item = item.url);
     wx.previewImage({
       current: event.target.dataset.src, // 当前显示图片的http链接
       urls: imgs // 需要预览的图片http链接列表
     })
   },
 
-   /*点赞 */
-   async giveLike(event: any) {
-     console.log('点赞事件触发------------');
+  /*点赞 */
+  async giveLike(event: any) {
+    console.log('点赞事件触发------------');
     //获取token
     const token = wx.getStorageSync('token');
     if (!token) {
@@ -66,18 +69,18 @@ Page({
         });
         instance.setData!({
           isLike: true,
-          likeCount:instance.data.likeCount++
+          likeCount: instance.data.likeCount++
         });
-        console.log('此时的点赞数-----------加',instance.data.likeCount);
+        console.log('此时的点赞数-----------加', instance.data.likeCount);
       } else {
         const res = await api.disLike({
           id: instance.data.post.id
         });
         instance.setData!({
           isLike: false,
-          likeCount:instance.data.likeCount--
+          likeCount: instance.data.likeCount--
         });
-        console.log('此时的点赞数-----------减',instance.data.likeCount);
+        console.log('此时的点赞数-----------减', instance.data.likeCount);
       }
     }
   },
@@ -169,11 +172,11 @@ Page({
     }
   },
 
-  //options:获取url参数
-  async onLoad(options: any) {
+  async loadData(options: any, title: string, icon: any) {
     const that = this as any;
     this.setData({
       isPublished: options.isPublished === '1',
+      options: options
     })
     if (!that.data.post) {
       id = options.id;
@@ -181,40 +184,46 @@ Page({
 
       this.setData!({
         post: data.post,
-        isLike:data.post.isLike,
-        likeCount:data.post.likeCount
+        isLike: data.post.isLike,
+        likeCount: data.post.likeCount
       })
-      console.log('接收到的post--------------++++：',that.data.post);
+      console.log('接收到的post--------------++++：', that.data.post);
       // console.log('关联的话题详情的gallery-----------', that.data.thumbnails);
       // console.log('关联的话题详情的gallery-----------', that.data.post);
-      cursor = 0;
     }
     //根据参与id获取参与的列表
-
+    let cursor = that.data.cursor
     const data = await api.getRefPostList({ id, cursor, limit: 10 })
     if (data.posts.length !== 0) {
       that.setData!({
-        postArr: that.data.postArr.concat(data.posts)
+        postArr: that.data.postArr.concat(data.posts),
+        cursor: cursor + 1
       });
       cursor = data.cursor
       wx.hideLoading({});
     } else {
-      wx.hideLoading({});
-      wx.showToast({
-        icon: 'none',
-        title: '已经到底了！'
-      })
+      if (title !== '') {
+        wx.hideLoading({});
+        wx.showToast({
+          icon,
+          title,
+        })
+      }
     }
 
   },
- /*跳转到空间页 */
- findUserDetail(){
-  console.log('话题详请跳转用户页面--------------',this.data.post.user.id);
-  const uId=this.data.post.user.id
-  smartGotoPage({
-    url:`/pages/user/detail?userId=${uId}`
-  })
-},
+  //options:获取url参数
+  async onLoad(options: any) {
+    this.loadData(options, '已经到底了！', 'none')
+  },
+  /*跳转到空间页 */
+  findUserDetail() {
+    console.log('话题详请跳转用户页面--------------', this.data.post.user.id);
+    const uId = this.data.post.user.id
+    smartGotoPage({
+      url: `/pages/user/detail?userId=${uId}`
+    })
+  },
 
   /* 监听后退事件 */
   onUnload() {
@@ -241,40 +250,26 @@ Page({
   },
   //下拉刷新
   onPullDownRefresh() {
-    console.log('触发下拉刷新事件');
-    const that = this;
-    api.request(
-      {
-        url: '/v1/post/answer-list',
-        // url: '/v1/post/list',
-        method: 'GET',
-        data: {
-          id,
-          cursor: 0,
-          limit: 5
-        },
-        success(res) {
-          //设置数据
-          const data = res.data as any
-          that.setData!({
-            postArr: data.posts
-          });
-          console.log('获取到的投稿post------------------:',that.data.postArr);
-          setTimeout(() => {
-            wx.stopPullDownRefresh({});
-          }, 200);
-          cursor = data.cursor
-        }
-      }
-    )
+    const that = this
+    this.loadData(that.data.options, '已刷新', 'success')
   },
-  //触底加载
-  // onReachBottom() {
-  //   wx.showLoading({
-  //     title: '加载更多...'
-  //   })
-  //   setTimeout(() => {
-  //     this.onLoad()
-  //   }, 200);
-  // }
+  //底部刷新
+  onReachBottom() {
+    const that = this
+    this.loadingAnimation()
+    this.loadData(that.data.options, '', 'none')
+
+  },
+  //loading动画封装
+  loadingAnimation() {
+    wx.showLoading({
+      title: 'loading...',
+    })
+
+    setTimeout(function () {
+      wx.hideLoading({
+
+      })
+    }, 500)
+  }
 })

@@ -20,7 +20,8 @@ Page({
     isCreateAnserPage: false,
     showMask: false,
     isPublished: false,
-    isLike:null
+    isLike: null,
+    focus: false,
   },
   isCreateAnserPage(event: any) {
     this.setData!({
@@ -37,19 +38,23 @@ Page({
   //聚焦
   inputFocus(event: any) {
     console.log('开始编辑-----------');
-      this.setData!({
-        showMask:true
-      });
-      //如果是按钮点击，怎么触发input获取焦点？？
+    this.setData!({
+      showMask: true
+    });
+    //如果是按钮点击，怎么触发input获取焦点？？
   },
   //失焦
-  inputBlur(){
+  inputBlur() {
     console.log('结束编辑------------');
     this.setData!({
-      showMask:false
+      showMask: false
     })
   },
-
+  bindImageInput() {
+    this.setData!({
+      focus: true
+    })
+  },
   sendComment(event: any) {
     console.log('点击发送评论--------------');
     const that = this;
@@ -90,11 +95,11 @@ Page({
     }
 
   },
-   //图片预览
-   imgPre(event: any) {
+  //图片预览
+  imgPre(event: any) {
     const instance = this as any;
-    const thumbnails=instance.data.data.post.thumbnails;
-    const imgs=thumbnails.map((item: any)=>item=item.url);
+    const thumbnails = instance.data.data.post.thumbnails;
+    const imgs = thumbnails.map((item: any) => item = item.url);
     wx.previewImage({
       current: event.target.dataset.src, // 当前显示图片的http链接
       urls: imgs // 需要预览的图片http链接列表
@@ -102,20 +107,20 @@ Page({
   },
 
   /*跳转到空间页 */
-  findUserDetail(){
-     console.log('用户信息--------------',this.data.data.post.user.id);
-     const uId=this.data.data.post.user.id
-     smartGotoPage({
-       url:`/pages/user/detail?userId=${uId}`
-     })
+  findUserDetail() {
+    console.log('用户信息--------------', this.data.data.post.user.id);
+    const uId = this.data.data.post.user.id
+    smartGotoPage({
+      url: `/pages/user/detail?userId=${uId}`
+    })
   },
   //跳转到话题详情
-  findTopicDetail(){
-    const instance=this as any;
-    const tid=instance.data.data.post.refPost.id;
-    console.log('关联的话题id-----------',instance.data.data.post);
+  findTopicDetail() {
+    const instance = this as any;
+    const tid = instance.data.data.post.refPost.id;
+    console.log('关联的话题id-----------', instance.data.data.post);
     smartGotoPage({
-      url:`/pages/post/topic-detail?id=${tid}`
+      url: `/pages/post/topic-detail?id=${tid}`
     })
   },
 
@@ -172,12 +177,12 @@ Page({
         id
       },
       success(res) {
-        const data =res.data as any;
+        const data = res.data as any;
         that.setData!({
           data,
-          isLike:data.post.isLike
+          isLike: data.post.isLike
         });
-        console.log('接收到的文章详情---',that.data.data);
+        console.log('接收到的文章详情---', that.data.data);
       }
     });
 
@@ -200,8 +205,8 @@ Page({
     }
   },
 
-   /*举报等操作弹出框 */
-   popBox() {
+  /*举报等操作弹出框 */
+  popBox() {
     const instance = this as any;
     const token = wx.getStorageSync('token');
     if (token) {
