@@ -384,7 +384,7 @@ export interface ICreateCommentParams {
   text: string
 }
 
-export interface ICreateCommentResponese {
+export interface ICreateCommentResponse {
   msg: string
 }
 
@@ -398,7 +398,7 @@ export interface IUpdateCommentParams {
   text: string
 }
 
-export interface IUpdateCommentResponese {
+export interface IUpdateCommentResponse {
   msg: string
 }
 
@@ -423,10 +423,21 @@ export interface IGetMyCommentListParams {
   limit?: number
 }
 
-export interface IGetMyCommentListResponese {
+export interface IGetMyCommentListResponse {
   comments: Comment[]
 }
 
+
+/**
+ * 用户删除评论
+ */
+export interface IRemoveCommentParams {
+  id: number
+}
+
+export interface IRemoveCommentResponse {
+
+}
 /**
  * 用户足迹
  */
@@ -435,7 +446,7 @@ export interface IGetUserFootPrintParams {
   limit?: number
 }
 
-export interface IGetUserFootPrintResponese {
+export interface IGetUserFootPrintResponse {
   cursor: number
   posts: IPost[]
 }
@@ -460,7 +471,7 @@ export interface IUserResponse {
   user: IUser
 }
 
-export interface IUploadResponese {
+export interface IUploadResponse {
   uptoken: string
 }
 
@@ -471,6 +482,6 @@ export interface INoticeListParams {
   cursor?: number
   limit?: number
 }
-export interface INoticeListResponese {
+export interface INoticeListResponse {
   notices: INoticeReply[]
 }
