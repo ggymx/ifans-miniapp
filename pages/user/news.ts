@@ -4,7 +4,7 @@ import { IMyApp } from '../../app';
 import api from '../../common/api';
 import { smartGotoPage } from '../../common/helper';
 import { FontNotice } from '../../common/types/font_notice';
-import { INoticeListResponese } from '../../common/types/http_msg';
+import { INoticeListResponse } from '../../common/types/http_msg';
 import { ENoticeType, ETableType, INoticeReply } from '../../common/types/notice_reply';
 import { EPostStatus } from '../../common/types/posts';
 

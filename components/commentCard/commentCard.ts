@@ -9,9 +9,9 @@ Component({
       type: Object,
       value: null
     },
-    isLike:{
-      type:Boolean,
-      value:false
+    isLike: {
+      type: Boolean,
+      value: false
     }
   },
 
@@ -26,6 +26,7 @@ Component({
 
     /*点赞 */
     async giveCmtLike(event: any) {
+      const instance = this as any;
       //获取token
       const token = wx.getStorageSync('token');
       if (!token) {
@@ -44,8 +45,6 @@ Component({
           }
         }, 100);
       } else {
-        const instance = this as any;
-        console.log('instance.data.properties.id----------',instance.properties.comment.id);
         if (!instance.properties.isLike) {
           const res = await api.giveCommentLike({
             id: instance.properties.comment.id
@@ -64,94 +63,110 @@ Component({
       }
     },
 
-  /*举报等操作弹出框 */
-  popBox() {
-    console.log('--------------点击评论弹出框');
-    const instance = this as any;
-    const token = wx.getStorageSync('token');
-    if (token) {
-      const ownId = wx.getStorageSync('userId');
-      const userId = instance.properties.comment.user.id
-      const cId = instance.properties.comment.id;
-      if (ownId === userId) {
-        wx.showActionSheet({
-          itemList: ['删除'],
-          success(res) {
-            switch (res.tapIndex) {
-              case 0:
-                wx.showModal({
-                  title: '删除投稿',
-                  content: '确定删除这则投稿吗？',
-                  success(res) {
-                    if (res.confirm) {
-                      api.request({
-                        url: '/v1/post/remove',
-                        data: {
-                          postId: cId
-                        },
-                        method: 'POST',
-                        success(res) {
-                          wx.showToast({
-                            title: '删除成功',
-                            success() {
-                              wx.navigateBack({
-                                delta: 1
-                              })
-                            }
-                          });
-                        },
-                        fail(res) {
-                          wx.showToast({ title: '删除成功' });
+    /*举报等操作弹出框 */
+    popBox() {
+      console.log('--------------点击评论弹出框');
+      const instance = this as any;
+      console.log('instance', instance)
+      const token = wx.getStorageSync('token');
+      if (token) {
+        const ownId = wx.getStorageSync('userId');
+        const userId = instance.properties.comment.user.id
+        const cId = instance.properties.comment.id;
+        console.log(typeof cId)
+        if (ownId === userId) {
+          wx.showActionSheet({
+            itemList: ['删除'],
+            success(res) {
+              switch (res.tapIndex) {
+                case 0:
+                  wx.showModal({
+                    title: '删除评论',
+                    content: '确定删除这个评论吗？',
+                    async success(res) {
+                      if (res.confirm) {
+                        const res = await api.removeComment({ id: cId })
+
+                        if (res.code !== 'OK') {
+                          wx.showToast({ title: '删除失败' });
                         }
-                      });
+                        wx.showToast({
+                          title: '删除成功',
+                          success() {
+                            wx.navigateBack({
+                              delta: 1
+                            })
+                          }
+                        });
+                        // api.request({
+                        //   url: '/v1/comment/remove',
+                        //   data: {
+                        //     postId: cId
+                        //   },
+                        //   method: 'POST',
+                        //   success(res) {
+                        //     wx.showToast({
+                        //       title: '删除成功',
+                        //       success() {
+                        //         wx.navigateBack({
+                        //           delta: 1
+                        //         })
+                        //       }
+                        //     });
+                        //   },
+                        //   fail(res) {
+                        //     wx.showToast({ title: '删除成功' });
+                        //   }
+                        // });
+                      }
                     }
-                  }
-                });
-                break;
+                  });
+                  break;
+              }
             }
-          }
-        });
+          });
+        } else {
+          wx.showActionSheet({
+            itemList: ['举报'],
+            success(res) {
+              switch (res.tapIndex) {
+                case 0:
+                  wx.showModal({
+                    title: '举报',
+                    content: '确定举报这则投稿吗？',
+                    success(res) {
+                      if (res.confirm) {
+                        api.request({
+                          //TODO
+                          url: '/v1/remove/abuse-report',
+                          data: {
+                            postId: cId
+                          },
+                          method: 'POST',
+                          success(res) {
+                            const data = res.data as any;
+                            data.msg === 'ok'
+                              ? wx.showToast({ title: '举报成功' })
+                              : '';
+                          }
+                        });
+                      }
+                    }
+                  });
+                  break;
+              }
+            }
+          });
+        }
       } else {
-        wx.showActionSheet({
-          itemList: ['举报'],
-          success(res) {
-            switch (res.tapIndex) {
-              case 0:
-                wx.showModal({
-                  title: '举报',
-                  content: '确定举报这则投稿吗？',
-                  success(res) {
-                    if (res.confirm) {
-                      api.request({
-                        url: '/v1/post/abuse-report',
-                        data: {
-                          postId: cId
-                        },
-                        method: 'POST',
-                        success(res) {
-                          const data = res.data as any;
-                          data.msg === 'ok'
-                            ? wx.showToast({ title: '举报成功' })
-                            : '';
-                        }
-                      });
-                    }
-                  }
-                });
-                break;
-            }
-          }
-        });
+        wx.showToast({ title: '请先登录！' });
+        setTimeout(() => {
+          smartGotoPage({
+            url: '/pages/login'
+          });
+        }, 100);
       }
-    } else {
-      wx.showToast({ title: '请先登录！' });
-      setTimeout(() => {
-        smartGotoPage({
-          url: '/pages/login'
-        });
-      }, 100);
     }
-  }
 
   },
 

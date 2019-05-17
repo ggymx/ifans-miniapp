@@ -69,7 +69,7 @@
 
     <!--下方评论：wx:elif="{{post.type=='1'}}"-->
       <image src="{{ '../../imgs/home-button-Comment@2x.png' }}" class="comment-img" catch:tap="createAnswer"/>
-      <text  wx:if="{{true||post.attendCount}}" class="count cmt">{{post.attendCount}}</text>
+      <text  wx:if="{{true||post.commentCount}}" class="count cmt">{{post.commentCount}}</text>
     </view>
   </view>
 

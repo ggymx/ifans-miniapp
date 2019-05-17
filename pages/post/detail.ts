@@ -20,7 +20,8 @@ Page({
     isCreateAnserPage: false,
     showMask: false,
     isPublished: false,
-    isLike:null
+    isLike: null,
+    focus: false,
   },
   isCreateAnserPage(event: any) {
     this.setData!({
@@ -37,64 +38,73 @@ Page({
   //聚焦
   inputFocus(event: any) {
     console.log('开始编辑-----------');
-      this.setData!({
-        showMask:true
-      });
-      //如果是按钮点击，怎么触发input获取焦点？？
+    this.setData!({
+      showMask: true
+    });
+    //如果是按钮点击，怎么触发input获取焦点？？
   },
   //失焦
-  inputBlur(){
+  inputBlur() {
     console.log('结束编辑------------');
     this.setData!({
-      showMask:false
+      showMask: false
     })
   },
-
-  sendComment(event: any) {
-    console.log('点击发送评论--------------');
-    const that = this;
-    const token = wx.getStorageSync('token');
-    if (!token) {
-      const pages = getCurrentPages();
-      const curPage = pages[pages.length - 1];
-      wx.showToast({ title: '请先登录！' });
-      setTimeout(() => {
-        if (curPage.route === 'pages/index') {
-          smartGotoPage({
-            url: './login'
-          });
-        } else {
-          smartGotoPage({
-            url: '../login'
-          });
-        }
-      }, 100);
-    } else {
-      if (that.data.commentValue) {
-        api.request({
-          url: '/v1/comment/create',
-          method: 'POST',
-          data: {
-            postId,
-            text: that.data.commentValue,
-            status: EUserStatus.Normal
-          },
-          success(res) {
-            that.setData({
-              commentValue: ''
-            })
-            wx.redirectTo({ url: './detail?id=' + postId })
-          }
-        });
-      }
-    }
-
+  bindImageInput() {
+    this.setData!({
+      focus: true
+    })
   },
-   //图片预览
-   imgPre(event: any) {
+  async sendComment(event: any) {
+    if (!this.data.commentValue) { return }
+    const { user } = await api.getUserProfile()
+    if (!user) {
+      smartGotoPage({
+        url: '/pages/login',
+      });
+    } else {
+      const comment: any = {
+        postId,
+        text: this.data.commentValue,
+        status: EUserStatus.Normal
+      }
+      const { id } = await api.createComment(comment)
+      comment.user = user
+      comment.createAt = comment.creatAt = new Date().toISOString()
+      console.log(comment.createAt)
+      comment.id = id
+      const comments = this.data.comments || []
+      comments.push(comment)
+      console.log('All comments', comments)
+      this.setData({
+        comments,
+        commentValue: '',
+      })
+      // 移动到评论区
+      const query = wx.createSelectorQuery()
+      const element = query.select('#comment-' + id)
+      console.log('Selected eleemnt', element)
+      element.boundingClientRect((rect) => {
+        console.log('PageScroll:0', rect.top)
+        wx.pageScrollTo({
+          // TODO: 找到更好的办法。这个问题搞了2个小时不浪费时间了。
+          scrollTop: 1000000,
+        })
+      })
+      query.exec((rects: any) => {
+        console.log('Page.ScrollTop', rects[0].top)
+        wx.pageScrollTo({
+          // TODO: 找到更好的办法
+          scrollTop: 1000000,
+        })
+      })
+    }
+  },
+  //图片预览
+  imgPre(event: any) {
     const instance = this as any;
-    const thumbnails=instance.data.data.post.thumbnails;
-    const imgs=thumbnails.map((item: any)=>item=item.url);
+    const thumbnails = instance.data.data.post.thumbnails;
+    const imgs = thumbnails.map((item: any) => item = item.url);
     wx.previewImage({
       current: event.target.dataset.src, // 当前显示图片的http链接
       urls: imgs // 需要预览的图片http链接列表
@@ -102,20 +112,20 @@ Page({
   },
 
   /*跳转到空间页 */
-  findUserDetail(){
-     console.log('用户信息--------------',this.data.data.post.user.id);
-     const uId=this.data.data.post.user.id
-     smartGotoPage({
-       url:`/pages/user/detail?userId=${uId}`
-     })
+  findUserDetail() {
+    console.log('用户信息--------------', this.data.data.post.user.id);
+    const uId = this.data.data.post.user.id
+    smartGotoPage({
+      url: `/pages/user/detail?userId=${uId}`
+    })
   },
   //跳转到话题详情
-  findTopicDetail(){
-    const instance=this as any;
-    const tid=instance.data.data.post.refPost.id;
-    console.log('关联的话题id-----------',instance.data.data.post);
+  findTopicDetail() {
+    const instance = this as any;
+    const tid = instance.data.data.post.refPost.id;
+    console.log('关联的话题id-----------', instance.data.data.post);
     smartGotoPage({
-      url:`/pages/post/topic-detail?id=${tid}`
+      url: `/pages/post/topic-detail?id=${tid}`
     })
   },
 
@@ -172,12 +182,12 @@ Page({
         id
       },
       success(res) {
-        const data =res.data as any;
+        const data = res.data as any;
         that.setData!({
           data,
-          isLike:data.post.isLike
+          isLike: data.post.isLike
         });
-        console.log('接收到的文章详情---',that.data.data);
+        console.log('接收到的文章详情---', that.data.data);
       }
     });
 
@@ -200,8 +210,8 @@ Page({
     }
   },
 
-   /*举报等操作弹出框 */
-   popBox() {
+  /*举报等操作弹出框 */
+  popBox() {
     const instance = this as any;
     const token = wx.getStorageSync('token');
     if (token) {
