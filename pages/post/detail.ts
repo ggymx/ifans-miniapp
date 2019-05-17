@@ -205,7 +205,7 @@ Page({
   onUnload() {
     if (this.data.isPublished) {
       wx.navigateBack({
-        delta: 2
+        delta: 1
       })
     }
   },
