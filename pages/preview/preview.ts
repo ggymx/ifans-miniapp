@@ -79,7 +79,7 @@ Page({
           wx.removeStorageSync('topic');
           wx.removeStorageSync('draft');
           wx.removeStorageSync('gallery');
-          if (data.type === 1) {
+          if (that.data.post.type === 1) {
             wx.redirectTo({
               url: `/pages/post/topic-detail?id=${id}&isPublished=1`
             });
