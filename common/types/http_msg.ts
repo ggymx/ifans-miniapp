@@ -436,7 +436,7 @@ export interface IRemoveCommentParams {
 }
 
 export interface IRemoveCommentResponse {
-
+  code: string
 }
 /**
  * 用户足迹
