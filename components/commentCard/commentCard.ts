@@ -27,7 +27,6 @@ Component({
     /*点赞 */
     async giveCmtLike(event: any) {
       //获取token
-      console.log('给评论点赞-----------------',this.properties.isLike);
       const token = wx.getStorageSync('token');
       if (!token) {
         const pages = getCurrentPages();

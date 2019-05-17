@@ -18,6 +18,7 @@
                 <image class="" src="../../imgs/img/more1.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
             </view>
         </view>
+
     </view>
     <view class="article">
       <text class="txt" selectable="false" space="false" decode="false">{{data.post.text}}</text>
@@ -63,7 +64,8 @@
           <view class="text">{{data.post.commentCount||'' }}</view>
                 </view>
                 <view class="replys">
-                    <button class="share" open-type="share"><image class="rep" src="../../imgs/img/share.png" mode="aspectFit|aspectFill|widthFix"></image></button>
+                <image class="rep" src="../../imgs/img/share.png" mode="aspectFit|aspectFill|widthFix"></image>
+                    <button class="share" open-type="share" plain="true"></button>
                 </view>
             </view>
         </view>

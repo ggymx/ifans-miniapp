@@ -5,9 +5,6 @@
     <view class="first">
         <view class="title">
             <text class="title1 fl">#{{post.refPost? post.refPost.title : post.title}}#</text>
-            <view class="more fr">
-                <image class="pot" src="../../imgs/img/more1.png"></image>
-            </view>
         </view>
         <view class="user">
             <image class="info fl" src="{{user.avatar}}"></image>

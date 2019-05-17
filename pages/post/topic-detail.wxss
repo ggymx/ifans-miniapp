@@ -164,6 +164,10 @@
     width: auto;
 }
 
+.right {
+    color: #666;
+}
+
 .bot .right,
 .bot .left {
     display: flex;
@@ -183,7 +187,7 @@
 }
 
 .msg {
-    margin-right: 20rpx;
+    margin-right: 32rpx;
     color: #666;
 }
 
@@ -194,7 +198,7 @@
 
 .star .stars {
     width: 31rpx;
-    height: 25rpx;
+    height: 26rpx;
     margin-top: 2rpx;
 }
 
@@ -222,9 +226,22 @@
     line-height: 0;
 }
 
-.share .shareImg {
-    width: 28rpx;
-    height: 28rpx;
+.replys .rep {
+    width: 31rpx;
+    height: 31rpx;
+}
+
+.replys {
+    position: relative;
+}
+
+.replys .share {
+    width: 50rpx;
+    height: 50rpx;
+    position: absolute;
+    background: transparent;
+    right: -10rpx;
+    top: -10rpx;
 }
 
 .moreTop {
@@ -269,18 +286,6 @@
     top: 50%;
     right: 0;
     margin-top: -7rpx;
-}
-
-
-/* 发布分享层 */
-
-.mask {
-    width: 100%;
-    height: 100%;
-    background-color: #000;
-    opacity: 0.3;
-    position: absolute;
-    top: 0;
 }
 
 .share2 {

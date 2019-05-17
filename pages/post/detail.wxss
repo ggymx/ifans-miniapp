@@ -339,6 +339,19 @@
     height: 26rpx;
 }
 
+.replys {
+    position: relative;
+}
+
+.replys .share {
+    width: 50rpx;
+    height: 50rpx;
+    position: absolute;
+    background: transparent;
+    right: -10rpx;
+    top: -10rpx;
+}
+
 
 /*覆盖微信默认样式*/
 

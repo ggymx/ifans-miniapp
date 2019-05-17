@@ -28,7 +28,7 @@ Page {
     box-sizing: border-box;
     font-family: PingFang-SC-Medium;
     font-weight: 500;
-    color: #999;
+    color: #666;
     line-height: 40rpx;
 }
 
@@ -48,7 +48,7 @@ Page {
     font-size: 32rpx;
     line-height: 40rpx;
     font-weight: 500;
-    color: #333;
+    color: #c3c3c3;
 }
 
 .uploadPicArea {

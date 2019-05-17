@@ -80,8 +80,8 @@
 }
 
 .com-item .star {
-    width: 40rpx;
-    height: 40rpx;
+    width: auto;
+    height: 25rpx;
     position: absolute;
     right: 14rpx;
     top: 16rpx;
@@ -92,7 +92,7 @@
 
 .com-item .star .stars {
     width: 31rpx;
-    height: 100%;
+    height: 25rpx;
     margin-right: 12rpx;
 }
 
