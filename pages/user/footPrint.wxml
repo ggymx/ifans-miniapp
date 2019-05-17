@@ -24,7 +24,7 @@
     <!-- 正常页面 -->
     <block wx:elif="{{postArr.length!=0}}">
       <!-- 足迹列表 -->
-      <view class="item" wx:for="{{postArr}}">
+      <view class="item" wx:for="{{postArr}}" data-item="{{item}}" bind:tap="onClick">
         <!-- 配图 -->
         <image class="postImg" src="{{item.gallery||'../../imgs/img/comment.png'}}" />
         <!-- 附加信息 -->
