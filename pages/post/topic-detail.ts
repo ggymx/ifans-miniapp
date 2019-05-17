@@ -233,7 +233,19 @@ Page({
       })
     }
   },
-
+  onPostRemove(e: any) {
+    const {postId} = e.detail
+    const postArr = this.data.postArr
+    for(let i=0;i<postArr.length;i++) {
+      if(postArr[i].id===postId) {
+        postArr.splice(i,1)
+        this.setData({
+          postArr,
+        })
+        break
+      }
+    }
+  },
   /*转发分享监听事件 */
   onShareAppMessage(res: any) {
     const that = this as any;

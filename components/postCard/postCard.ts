@@ -177,17 +177,10 @@ Component({
                           },
                           method: 'POST',
                           success(res) {
-                            wx.showToast({
-                              title: '删除成功',
-                              success() {
-                                wx.navigateBack({
-                                  delta: 1
-                                })
-                              }
-                            });
+                            instance.triggerEvent('remove', {postId: cId})
                           },
                           fail(res) {
-                            wx.showToast({ title: '删除成功' });
+                            wx.showToast({ title: '删除失败' });
                           }
                         });
                       }
