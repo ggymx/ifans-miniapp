@@ -45,7 +45,19 @@ Page({
       }
     });
   },
-
+  onPostRemove(e: any) {
+    const {postId} = e.detail
+    const recommendList = this.data.recommendList
+    for(let i=0;i<recommendList.length;i++) {
+      if(recommendList[i].id===postId) {
+        recommendList.splice(i,1)
+        this.setData({
+          recommendList,
+        })
+        break
+      }
+    }
+  },
   onShareAppMessage() {
     const that = this;
     const userName = that.data.user!.nickname

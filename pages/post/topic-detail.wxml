@@ -73,7 +73,7 @@
         <view class="container">
             <!--不为空-->
             <block wx:for="{{postArr}}">
-                <postCard addClass="item-card" arrowBtn clock like post="{{item}}" isLike="{{item.isLike}}" />
+                <postCard addClass="item-card" arrowBtn clock like post="{{item}}" isLike="{{item.isLike}}" bind:remove="onPostRemove"/>
             </block>
         </view>
     </view>
