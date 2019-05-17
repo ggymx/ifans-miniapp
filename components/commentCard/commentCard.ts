@@ -73,7 +73,7 @@ Component({
         const ownId = wx.getStorageSync('userId');
         const userId = instance.properties.comment.user.id
         const cId = instance.properties.comment.id;
-        console.log('====cId====', cId)
+        console.log(typeof cId)
         if (ownId === userId) {
           wx.showActionSheet({
             itemList: ['删除'],
@@ -85,7 +85,8 @@ Component({
                     content: '确定删除这个评论吗？',
                     async success(res) {
                       if (res.confirm) {
-                        const res = await api.removeComment(cId)
+                        const res = await api.removeComment({ id: cId })
+
                         if (res.code !== 'OK') {
                           wx.showToast({ title: '删除失败' });
                         }
