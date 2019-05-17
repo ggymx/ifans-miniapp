@@ -71,8 +71,6 @@
         </view>
     </view>
 
-<view class="mask" wx:if="{{showMask}}"></view>
-
 <view>
     <view class="opreate-underlying op">
         <view class="container">
