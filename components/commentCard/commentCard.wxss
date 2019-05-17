@@ -83,7 +83,7 @@
     width: 40rpx;
     height: 40rpx;
     position: absolute;
-    right: 8rpx;
+    right: 14rpx;
     top: 16rpx;
     font-size: 26rpx;
     display: flex;
@@ -92,7 +92,8 @@
 
 .com-item .star .stars {
     width: 31rpx;
-    height: 25rpx;
+    height: 100%;
+    margin-right: 12rpx;
 }
 
 .com-item .star .num {
@@ -119,6 +120,6 @@
 
 .com-item .date .icon {
     position: absolute;
-    right: 10rpx;
+    right: 16rpx;
     top: 24rpx;
 }

@@ -70,10 +70,9 @@
     margin-bottom: 10rpx;
     line-height: 50rpx;
     color: #333;
-    letter-spacing: 5rpx;
+    letter-spacing: 3rpx;
     font-size: 30rpx;
     font-weight: 500;
-    color: #333;
 }
 
 .imgBox {
@@ -90,6 +89,7 @@
     display: flex;
     flex-wrap: wrap;
     flex-shrink: 0;
+    margin-top: 20rpx;
 }
 
 
@@ -184,6 +184,7 @@
 
 .msg {
     margin-right: 20rpx;
+    color: #666;
 }
 
 .stars,

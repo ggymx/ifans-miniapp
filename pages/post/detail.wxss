@@ -16,9 +16,12 @@
 .content {
     width: 100%;
     height: auto;
+    position: relative;
 }
 
+
 /*关联的话题标题*/
+
 .content .title {
     width: 100%;
     /* height: 87rpx; */
@@ -40,9 +43,18 @@
     box-sizing: border-box;
 }
 
+.line {
+    width: 100%;
+    height: 2rpx;
+    position: absolute;
+    top: 80rpx;
+    color: #F4F5F9;
+}
+
 .userInfo .user {
     height: 100%;
     width: auto;
+    margin-top: 58rpx;
 }
 
 .userInfo .img {
@@ -64,15 +76,15 @@
 .userInfo .more {
     /* width: 32rpx;
     height: 7rpx; */
-    width:50rpx;
-    height:50rpx;
+    width: 50rpx;
+    height: 50rpx;
     position: absolute;
     right: 45rpx;
     top: 10rpx;
 }
 
 .userInfo .more image {
-  width: 32rpx;
+    width: 32rpx;
     height: 7rpx;
 }
 
@@ -86,14 +98,16 @@
     align-items: center;
 }
 
+
 /*关联的话题内容*/
+
 .content .context {
-    font-size:30rpx;
-   font-family:PingFang-SC-Medium;
-   font-weight:500;
-   color:rgba(51,51,51,1);
-   margin-top:26rpx;
-   margin-bottom:26rpx;   
+    font-size: 30rpx;
+    font-family: PingFang-SC-Medium;
+    font-weight: 500;
+    color: rgba(51, 51, 51, 1);
+    margin-top: 26rpx;
+    margin-bottom: 26rpx;
     /* text-align: center; */
     letter-spacing: 3rpx;
     /* line-height: 56rpx; */
@@ -199,54 +213,69 @@
     box-sizing: border-box;
     word-break: keep-all;
     word-wrap: break-word;
+    margin-top: 30rpx;
 }
 
 
 /*投稿配图区域*/
+
 .postImg {
     display: flex;
     flex-wrap: wrap;
     flex-shrink: 0;
-  }
-  
-  /*单图*/
-  .postImg .one {
+    margin-top: 20rpx;
+}
+
+
+/*单图*/
+
+.postImg .one {
     background-color: gray;
     height: 646rpx;
     width: 646rpx
-  }
-  
-  /*两图*/
-  .postImg .two {
+}
+
+
+/*两图*/
+
+.postImg .two {
     background-color: gray;
     height: 322rpx;
     width: 322rpx;
     margin-left: 2rpx;
-  }
-  
-  /*三图*/
-  .postImg .three,
-  .postImg .more {
+}
+
+
+/*三图*/
+
+.postImg .three,
+.postImg .more {
     background-color: gray;
     height: 214rpx;
     width: 214rpx;
     margin-left: 2rpx;
-  }
-  
-  /*更多*/
-  .postImg .more {
+}
+
+
+/*更多*/
+
+.postImg .more {
     background-color: gray;
     height: 214rpx;
     width: 214rpx;
     margin-left: 2rpx;
     margin-top: 2rpx;
-  }
+}
 
 .txt {
     width: 100%;
     height: auto;
     display: inline-block;
-    /* margin-top: -50rpx; */
+    font-size: 30rpx;
+    font-family: PingFang;
+    font-weight: 500;
+    color: rgba(51, 51, 51, 1);
+    letter-spacing: 3rpx;
 }
 
 .bottom {
@@ -385,12 +414,14 @@
     top: 0;
 }
 
+
 /*分享按钮*/
-button.share{
-padding:0;
-width:50rpx;
-height:50rpx;
-border:none;
-line-height:0;
-background:#FFF;
+
+button.share {
+    padding: 0;
+    width: 50rpx;
+    height: 50rpx;
+    border: none;
+    line-height: 0;
+    background: #FFF;
 }
