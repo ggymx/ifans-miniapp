@@ -1,8 +1,12 @@
 // tslint:disable max-line-length
-import { IDisLikeParams, IDisLikeResponse, IEmptyParams, IGetAnswerListParams, IGetAnswerListResponse, IGetCommetListParams, IGetCommetListResponse, IGetPostIdByPostIdParams, IGetUserFootPrintParams, IGetUserFootPrintResponese, IHomeTopicListParams, IHomeTopicListResponse, ILikeParams, ILikeResponse, INoticeListParams, INoticeListResponese, IPostDetailParams, IPostsDetailResponse, IUploadParams, IUploadResponese, IUserPageParams, IUserPageResponse, IUserResponse, IRemovePostParams } from './types/http_msg'
+import { IDisLikeParams, IDisLikeResponse, IEmptyParams, IGetAnswerListParams, IGetAnswerListResponse, IGetCommetListParams, IGetCommetListResponse, IGetPostIdByPostIdParams, IGetUserFootPrintParams, IGetUserFootPrintResponese, IHomeTopicListParams, IHomeTopicListResponse, ILikeParams, ILikeResponse, INoticeListParams, INoticeListResponese, IPostDetailParams, IPostsDetailResponse, IUploadParams, IUploadResponese, IUserPageParams, IUserPageResponse, IUserResponse, IRemovePostParams, ICreateCommentParams } from './types/http_msg'
 import { IRemovePostResponse } from './types/http_msg';
+import { ICreateCommentResponese } from './types/http_msg';
 
 class Api {
+
+  createComment = this.makeApi<ICreateCommentParams, ICreateCommentResponese>('POST', '/v1/comment/create')
+
   /**
    * 获取首页话题列表
    */

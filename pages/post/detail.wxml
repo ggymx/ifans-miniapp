@@ -75,8 +75,8 @@
     <view class="opreate-underlying op">
         <view class="container">
             <block>
-                <block wx:for="{{comments}}">
-                    <commentCard comment="{{item}}" isLike="{{item.isLike}}"/>
+                <block wx:for="{{comments}}" wx:key="id">
+                    <commentCard id="comment-{{item.id}}" comment="{{item}}" isLike="{{item.isLike}}"/>
                 </block>
             </block>
         </view>
@@ -87,7 +87,7 @@
     <view class="img">
         <image class="" src="../../imgs/img/small.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
     </view>
-    <input class="content" type="text" placeholder="写点评论吧" bindfocus='inputFocus' bindblur="inputBlur" bindinput="startEdit" focus="{{focus}}"/>
+    <input class="content" type="text" placeholder="写点评论吧" bindfocus='inputFocus' bindblur="inputBlur" bindinput="startEdit" focus="{{focus}}" value="{{commentValue}}"/>
     <button class="btn" type="button" bind:tap="sendComment" data-tid="{{comment.post.id}}">
     发送
   </button>

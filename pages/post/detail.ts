@@ -55,45 +55,50 @@ Page({
       focus: true
     })
   },
-  sendComment(event: any) {
-    console.log('点击发送评论--------------');
-    const that = this;
-    const token = wx.getStorageSync('token');
-    if (!token) {
-      const pages = getCurrentPages();
-      const curPage = pages[pages.length - 1];
-      wx.showToast({ title: '请先登录！' });
-      setTimeout(() => {
-        if (curPage.route === 'pages/index') {
-          smartGotoPage({
-            url: './login'
-          });
-        } else {
-          smartGotoPage({
-            url: '../login'
-          });
-        }
-      }, 100);
+  async sendComment(event: any) {
+    if (!this.data.commentValue) { return }
+    const { user } = await api.getUserProfile()
+    if (!user) {
+      smartGotoPage({
+        url: '/pages/login',
+      });
     } else {
-      if (that.data.commentValue) {
-        api.request({
-          url: '/v1/comment/create',
-          method: 'POST',
-          data: {
-            postId,
-            text: that.data.commentValue,
-            status: EUserStatus.Normal
-          },
-          success(res) {
-            that.setData({
-              commentValue: ''
-            })
-            wx.redirectTo({ url: './detail?id=' + postId })
-          }
-        });
+      const comment: any = {
+        postId,
+        text: this.data.commentValue,
+        status: EUserStatus.Normal
       }
+      const { id } = await api.createComment(comment)
+      comment.user = user
+      comment.createAt = comment.creatAt = new Date().toISOString()
+      console.log(comment.createAt)
+      comment.id = id
+      const comments = this.data.comments || []
+      comments.push(comment)
+      console.log('All comments', comments)
+      this.setData({
+        comments,
+        commentValue: '',
+      })
+      // 移动到评论区
+      const query = wx.createSelectorQuery()
+      const element = query.select('#comment-' + id)
+      console.log('Selected eleemnt', element)
+      element.boundingClientRect((rect) => {
+        console.log('PageScroll:0', rect.top)
+        wx.pageScrollTo({
+          // TODO: 找到更好的办法。这个问题搞了2个小时不浪费时间了。
+          scrollTop: 1000000,
+        })
+      })
+      query.exec((rects: any) => {
+        console.log('Page.ScrollTop', rects[0].top)
+        wx.pageScrollTo({
+          // TODO: 找到更好的办法
+          scrollTop: 1000000,
+        })
+      })
     }
-
   },
   //图片预览
   imgPre(event: any) {

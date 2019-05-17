@@ -385,7 +385,7 @@ export interface ICreateCommentParams {
 }
 
 export interface ICreateCommentResponese {
-  msg: string
+  id: number
 }
 
 /**
