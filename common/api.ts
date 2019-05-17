@@ -1,5 +1,5 @@
 // tslint:disable max-line-length
-import { IDisLikeParams, IDisLikeResponse, IEmptyParams, IGetAnswerListParams, IGetAnswerListResponse, IGetCommetListParams, IGetCommetListResponse, IGetPostIdByPostIdParams, IGetUserFootPrintParams, IGetUserFootPrintResponese, IHomeTopicListParams, IHomeTopicListResponse, ILikeParams, ILikeResponse, INoticeListParams, INoticeListResponese, IPostDetailParams, IPostsDetailResponse, IUploadParams, IUploadResponese, IUserPageParams, IUserPageResponse, IUserResponse, IRemovePostParams, ICreateCommentParams } from './types/http_msg'
+import { IDisLikeParams, IDisLikeResponse, IEmptyParams, IGetAnswerListParams, IGetAnswerListResponse, IGetCommetListParams, IGetCommetListResponse, IGetPostIdByPostIdParams, IGetUserFootPrintParams, IGetUserFootPrintResponse, IHomeTopicListParams, IHomeTopicListResponse, ILikeParams, ILikeResponse, INoticeListParams, INoticeListResponse, IPostDetailParams, IPostsDetailResponse, IUploadParams, IUploadResponse, IUserPageParams, IUserPageResponse, IUserResponse, IRemovePostParams, IRemoveCommentParams, IRemoveCommentResponse, ICreateCommentParams } from './types/http_msg'
 import { IRemovePostResponse } from './types/http_msg';
 import { ICreateCommentResponese } from './types/http_msg';
 
@@ -57,22 +57,27 @@ class Api {
   /**
    * 用户足迹
    */
-  getFootPrint = this.makeApi<IGetUserFootPrintParams, IGetUserFootPrintResponese>('GET', '/v1/user/footprint')
+  getFootPrint = this.makeApi<IGetUserFootPrintParams, IGetUserFootPrintResponse>('GET', '/v1/user/footprint')
 
   /**
    * 用户上传图片
    */
-  getUploadToken = this.makeApi<IUploadParams, IUploadResponese>('POST', '/v1/upload/token')
+  getUploadToken = this.makeApi<IUploadParams, IUploadResponse>('POST', '/v1/upload/token')
 
   /**
    * 用户通知
    */
-  getUserNotice = this.makeApi<INoticeListParams, INoticeListResponese>('GET', '/v1/notice/list')
+  getUserNotice = this.makeApi<INoticeListParams, INoticeListResponse>('GET', '/v1/notice/list')
 
   /**
    * 删除话题/投稿
    */
   removePost = this.makeApi<IRemovePostParams, IRemovePostResponse>('POST', '/v1/post/remove')
+
+  /**
+   * 用户删除评论
+   */
+  removeComment = this.makeApi<IRemoveCommentParams, IRemoveCommentResponse>('POST','/v1/comment/remove')
 
   private host: string
   private token: string
