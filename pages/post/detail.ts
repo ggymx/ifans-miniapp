@@ -188,6 +188,7 @@ Page({
           console.log('40404040404040404040404040404')
 
           wx.redirectTo({ url: '/pages/notfound/notfound' })
+          return
         }
         that.setData!({
           data,

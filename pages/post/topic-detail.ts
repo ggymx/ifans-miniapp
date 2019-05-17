@@ -186,6 +186,7 @@ Page({
       if (data.post === null) {
         console.log('40404040404040404040404040404')
         wx.redirectTo({ url: '/pages/notfound/notfound' })
+        return
       }
       this.setData!({
         post: data.post,
