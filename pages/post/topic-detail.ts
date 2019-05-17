@@ -179,9 +179,13 @@ Page({
       options: options
     })
     if (!that.data.post) {
+
       id = options.id;
       const data: any = await api.getPost({ id })
 
+      if (data === null) {
+        wx.redirectTo({ url: '/pages/noteFound/notfound' })
+      }
       this.setData!({
         post: data.post,
         isLike: data.post.isLike,
@@ -234,11 +238,11 @@ Page({
     }
   },
   onPostRemove(e: any) {
-    const {postId} = e.detail
+    const { postId } = e.detail
     const postArr = this.data.postArr
-    for(let i=0;i<postArr.length;i++) {
-      if(postArr[i].id===postId) {
-        postArr.splice(i,1)
+    for (let i = 0; i < postArr.length; i++) {
+      if (postArr[i].id === postId) {
+        postArr.splice(i, 1)
         this.setData({
           postArr,
         })
