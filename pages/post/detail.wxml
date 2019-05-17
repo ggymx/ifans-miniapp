@@ -14,13 +14,10 @@
                     {{data.post.user.nickname}}
                 </view>
             </view>
-            <view class="more fr">
+            <view class="more fr" catch:tap="popBox">
                 <image class="" src="../../imgs/img/more1.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
             </view>
         </view>
-      <view class="more fr" catch:tap="popBox">
-        <image src="../../imgs/img/more1.png" lazy-load="false"></image>
-      </view>
     </view>
     <view class="article">
       <text class="txt" selectable="false" space="false" decode="false">{{data.post.text}}</text>
