@@ -182,9 +182,10 @@ Page({
 
       id = options.id;
       const data: any = await api.getPost({ id })
-
-      if (data === null) {
-        wx.redirectTo({ url: '/pages/noteFound/notfound' })
+      console.log('----topic-detail--data-----', data)
+      if (data.post === null) {
+        console.log('40404040404040404040404040404')
+        wx.redirectTo({ url: '/pages/notfound/notfound' })
       }
       this.setData!({
         post: data.post,
