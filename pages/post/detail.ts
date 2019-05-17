@@ -183,6 +183,9 @@ Page({
       },
       success(res) {
         const data = res.data as any;
+        if (data === null) {
+          wx.redirectTo({ url: '/pages/noteFound/notfound' })
+        }
         that.setData!({
           data,
           isLike: data.post.isLike
