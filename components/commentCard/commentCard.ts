@@ -26,8 +26,8 @@ Component({
 
     /*点赞 */
     async giveCmtLike(event: any) {
+      const instance = this as any;
       //获取token
-      console.log('给评论点赞-----------------',this.properties.isLike);
       const token = wx.getStorageSync('token');
       if (!token) {
         const pages = getCurrentPages();
@@ -45,8 +45,6 @@ Component({
           }
         }, 100);
       } else {
-        const instance = this as any;
-        console.log('instance.data.properties.id----------',instance.properties.comment.id);
         if (!instance.properties.isLike) {
           const res = await api.giveCommentLike({
             id: instance.properties.comment.id
