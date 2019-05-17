@@ -1,0 +1,8 @@
+<!-- pages/publisher/publisher.wxml -->
+<wxs module="con" src="../../wxs/converter.wxs"></wxs>
+<navbar back text="页面出错"></navbar>
+<!-- comment -->
+<view class="body">
+    <image class="img" src="../../imgs/img/404.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
+    <text class="tip">该页面不存在或已被删除</text>
+</view>

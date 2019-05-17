@@ -54,7 +54,10 @@
                     4
                     <!-- {{post.attendCount ||''}} -->
                 </view>
-                <button open-type="share" class="share" plain="true"><image class="shareImg" src="../../imgs/img/share.png"></image></button>
+                <view class="replys">
+                <image class="rep" src="../../imgs/img/share.png" mode="aspectFit|aspectFill|widthFix"></image>
+                    <button class="share" open-type="share" plain="true"></button>
+                </view>
             </view>
         </view>
     </view>
@@ -87,7 +90,6 @@
     <view class="opreate-underlying op" wx:if="{{isPublished && !isPreview}}">
         <view class="container">
             <!-- 发布分享页 弹出层 -->
-            <view class="mask"></view>
             <view class="share2">
                 <view class="false">
                     <image class="fs" src="../../imgs/img/fs.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">

@@ -2,7 +2,7 @@
 <wxs module="con" src="../wxs/converter.wxs"></wxs>
 <navbar back text="话题社区" class="navbar-index"></navbar>
 <view class="underlying">
-  <view class='index-subscribe' wx:if="{{!isSubscribe}}">
+ <!-- <view class='index-subscribe' wx:if="{{!isSubscribe}}">
     <button class="subscribe-btn" bind:tap="bindSubscribe">
       <block >
         <image class="img-subcribe" src='../imgs/add.png'></image>
@@ -10,7 +10,7 @@
       </block>
      
     </button>
-  </view>
+  </view> -->
   <view class="container" style="margin-top:20rpx;">
     <block wx:for="{{topList}}" wx:for-index="index">
         <postCard wx:if="{{item.type=='1'}}" card showTitle showIssue arrowBtn like post="{{item}}" isLike="{{item.isLike}}" showMore="{{con.isMore(item.text,50)}}"/>
