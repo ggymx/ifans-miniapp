@@ -23,7 +23,7 @@ Page({
       //获取用户Id
       const userId = wx.getStorageSync('userId')
       wx.navigateTo({
-        url: `./user/footPrint?userId=${userId}`
+        url: `./user/foot-print?userId=${userId}`
       })
     } else {
       smartGotoPage({

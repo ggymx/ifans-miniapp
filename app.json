@@ -3,10 +3,13 @@
     "pages/index",
     "pages/oldindex",
     "pages/login",
+    "pages/notfound/notfound",
     "pages/user/detail",
     "pages/user/news",
+    "pages/user/foot-print",
     "pages/post/topic-detail",
     "pages/post/create",
+    "pages/post/create-answer",
     "pages/post/detail",
     "pages/post/daily-hot"
   ],
