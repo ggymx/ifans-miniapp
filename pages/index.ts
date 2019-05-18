@@ -17,6 +17,13 @@ Page({
       }
     }
   },
+  onShareAppMessage(opts:Page.IShareAppMessageOption) {
+    return {
+      title: '轻话题',
+      // path:'',
+      // imageUrl:'',
+    }
+  },
   //点击'我的足迹'按钮，执行跳转，传递当前的userId
   userFootPrint(options: any) {
     if (this.data.user) {

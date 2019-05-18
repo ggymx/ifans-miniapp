@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "首页",
+  "navigationBarTitleText": "话题社区",
   "usingComponents": {
     "navbar": "../..//components/navbar/navbar",
     "listing": "../..//components/listing/listing",
