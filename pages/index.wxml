@@ -3,6 +3,7 @@
 <navbar text="轻话题" class="navbar-index"></navbar>
 <view class="container">
   <image class="bg" src="../imgs/img/bg.png" mode="aspectFill" lazy-load="false" binderror="" bindload="" />
+  <view class="content">
   <view class="info">
     <view class="pic fl">
       <image class="user" bind:tap="Login" src="{{user ? user.avatar: '../imgs/img/tit.png' }}"></image>
@@ -42,4 +43,5 @@
       </view>
     </view>
   </view>
+</view>
 </view>
