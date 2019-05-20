@@ -205,6 +205,7 @@ Page({
         postArr: that.data.postArr.concat(data.posts),
         cursor: cursor + 1
       });
+      console.log('接收到的投稿列表',that.data.postArr);
       cursor = data.cursor
       wx.hideLoading({});
     } else {
