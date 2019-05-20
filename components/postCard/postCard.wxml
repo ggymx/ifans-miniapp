@@ -1,4 +1,4 @@
-<import src="/templates/thumbnail.wxml"/>
+<import src="/templates/util.wxml"/>
 <wxs module="con" src="../../wxs/converter.wxs"></wxs>
 <view class="publisher-item {{card?'item-card':''}} slot1 slot2" catch:tap="findDetail">
   <!-- <view class="publisher-item {{card?'item-card':''}} slot1 slot2" catch:tap="finalLink"> -->

@@ -1,4 +1,4 @@
-@import "/templates/thumbnail.wxss";
+@import "/templates/util.wxss";
 /* components/postCard/postCard.wxss */
 /*每一项*/
 view,

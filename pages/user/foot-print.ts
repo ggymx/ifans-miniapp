@@ -9,6 +9,7 @@ const app = getApp<IMyApp>()
 let cursor: number = 0;
 Page({
   data: {
+    pages:'foot',
     topic: null,
     postArr: [],
     title: '',
@@ -16,7 +17,7 @@ Page({
     //当页面正常时
     notErr: true,
   },
- 
+
   async onLoad(options: any) {
 
     const id = options.userId
@@ -27,7 +28,6 @@ Page({
     //todo 获取缓存的路由------>
     const data = await api.getFootPrint({})
     console.log('====footPrint data====', data.posts)
-  
 
     if (data.posts.length !== 0) {
       that.setData!({
@@ -53,12 +53,10 @@ Page({
       url: page + '?id=' + item.id,
     })
   },
-
   /*跳转到话题社区 */
   findOldIndex() {
     smartGotoPage({
       url: '../oldindex'
     });
   }
-
 })

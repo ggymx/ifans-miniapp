@@ -1,5 +1,5 @@
 <!-- pages/publisher/publisher.wxml -->
-<import src="/templates/thumbnail.wxml"/>
+<import src="/templates/util.wxml"/>
 <wxs module="con" src="../../wxs/converter.wxs"></wxs>
 <navbar back text="文章详情"></navbar>
 <!-- comment -->

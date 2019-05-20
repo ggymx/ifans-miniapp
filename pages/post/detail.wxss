@@ -1,5 +1,5 @@
 /* pages/detail/detail.wxss */
-@import "/templates/thumbnail.wxss";
+@import "/templates/util.wxss";
 .body {
     width: 100%;
     height: auto;

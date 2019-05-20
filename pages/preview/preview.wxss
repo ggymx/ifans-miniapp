@@ -1,5 +1,5 @@
 /* pages/preview/preview.wxss */
-@import "/templates/thumbnail.wxss";
+@import "/templates/util.wxss";
 .underlying {
     width: 100%;
     height: auto;

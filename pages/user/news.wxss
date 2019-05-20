@@ -1,4 +1,5 @@
 /* pages/test/test.wxss */
+@import '/templates/util.wxss';
 .text-weight {
   font-weight: bold;
   color: red;
@@ -75,58 +76,4 @@
   color: rgba(171, 171, 171, 1);
   margin-top: 30rpx;
   margin-right: 13rpx;
-}
-
-/*缺省页面*/
-.default {
-  display: flex;
-  flex-direction: column;
-}
-
-.default .tipImg {
-  width: 250rpx;
-  height: 250rpx;
-  margin: 0 auto;
-  margin-top: 281rpx;
-}
-
-.default text.tip {
-  font-size: 30rpx;
-  font-family: PingFang-SC-Medium;
-  font-weight: 500;
-  color: rgba(153, 153, 153, 1);
-  text-align: center;
-  margin-top: 42rpx;
-  margin-bottom: 16rpx;
-  /* line-height: 50px; */
-}
-
-.default a.tip {
-  font-size: 28rpx;
-  font-family: PingFang-SC-Medium;
-  font-weight: 500;
-  color: rgba(9, 166, 220, 1);
-  text-align: center;
-  /* line-height: 40px; */
-}
-
-
-/*页面崩溃*/
-image.err {
-  width: 250rpx;
-  height: 250rpx;
-  margin: 0 auto;
-  display: block;
-  margin-top: 197rpx;
-}
-
-text.err {
-  font-size: 30rpx;
-  font-family: PingFang-SC-Medium;
-  font-weight: 500;
-  color: rgba(153, 153, 153, 0.5);
-  line-height: 50px;
-  margin-top: 46rpx;
-  display: block;
-  text-align: center;
 }

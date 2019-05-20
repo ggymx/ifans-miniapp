@@ -1,5 +1,5 @@
 <!-- pages/topic-detail/topic-detail.wxml -->
-<import src="/templates/thumbnail.wxml"/>
+<import src="/templates/util.wxml"/>
 <wxs module="con" src="../../wxs/converter.wxs"></wxs>
 <navbar back text="确认话题"></navbar>
 <view class="underlying">

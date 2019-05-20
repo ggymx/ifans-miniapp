@@ -2,7 +2,7 @@
   "pages": [
     "pages/index",
     "pages/test",
-    "templates/thumbnail",
+    "templates/util",
 
     "pages/oldindex",
     "pages/login",

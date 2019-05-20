@@ -1,4 +1,4 @@
 <!--test.wxml.wxml-->
-<import src="/templates/thumbnail.wxml"/>
+<import src="/templates/util.wxml"/>
 <text>test.wxml.wxml</text>
 <template is="thumbnail"></template>
