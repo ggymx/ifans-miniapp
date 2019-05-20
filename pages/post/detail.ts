@@ -183,6 +183,13 @@ Page({
       },
       success(res) {
         const data = res.data as any;
+        console.log('---------detail--data--------', data)
+        if (data.post === null) {
+          console.log('40404040404040404040404040404')
+
+          wx.redirectTo({ url: '/pages/notfound/notfound' })
+          return
+        }
         that.setData!({
           data,
           isLike: data.post.isLike
@@ -205,7 +212,7 @@ Page({
   onUnload() {
     if (this.data.isPublished) {
       wx.navigateBack({
-        delta: 2
+        delta: 1
       })
     }
   },

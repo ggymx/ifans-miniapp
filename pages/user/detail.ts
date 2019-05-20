@@ -11,23 +11,23 @@ Page({
     user: null,
     recommendList: [],
     //页面正常时
-    notErr:true,
+    notErr: true,
     //传入的userId
-    userId:null,
+    userId: null,
     //当前用户
-    curUserId:null
+    curUserId: null
   },
 
   onLoad(options: any) {
     const userId = options.userId;
-    console.log('传进来的userId-----------',options.userId);
+    console.log('传进来的userId-----------', options.userId);
     this.setData({
       userId
     })
     //获取当前用户的userId
-    console.log('当前登录用户的userId--------------------',wx.getStorageSync('userId'));
+    console.log('当前登录用户的userId--------------------', wx.getStorageSync('userId'));
     this.setData({
-       curUserId:wx.getStorageSync('userId')
+      curUserId: wx.getStorageSync('userId')
     })
     const that = this;
     api.request({
@@ -37,15 +37,33 @@ Page({
       },
       method: 'GET',
       success(res) {
-        const data=res.data as any;
+        const data = res.data as any;
+
+        if (data.post === null) {
+        console.log('40404040404040404040404040404')
+
+          wx.redirectTo({ url: '/pages/notfound/notfound' })
+        }
         that.setData!({
           user: data.user,
-          recommendList:data.posts
+          recommendList: data.posts
         });
       }
     });
   },
-
+  onPostRemove(e: any) {
+    const { postId } = e.detail
+    const recommendList = this.data.recommendList
+    for (let i = 0; i < recommendList.length; i++) {
+      if (recommendList[i].id === postId) {
+        recommendList.splice(i, 1)
+        this.setData({
+          recommendList,
+        })
+        break
+      }
+    }
+  },
   onShareAppMessage() {
     const that = this;
     const userName = that.data.user!.nickname
@@ -60,9 +78,9 @@ Page({
   },
 
   /*跳转到话题社区 */
-  findOldIndex(){
+  findOldIndex() {
     smartGotoPage({
-      url:'../oldindex'
+      url: '../oldindex'
     });
   }
 })

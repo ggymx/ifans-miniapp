@@ -81,6 +81,24 @@ Page({
               url: `/pages/post/topic-detail?id=${id}&isPublished=1`
             });
           } else {
+            // 在前一个topic-detail页面 插入刚刚创建的投稿数据
+            const pages = getCurrentPages()
+            if(pages.length >=3 && pages[pages.length - 3].route === 'pages/post/topic-detail') {
+              console.log('Found topicPage')
+              const topicPage = pages[pages.length - 3]
+              const postArr = (topicPage.data as any).postArr || []
+              const post = that.data.post
+              post.id = data.id
+              post.createAt = new Date().toISOString()
+              api.getUserProfile().then(res=>{
+                const {user} = res
+                post.user = user
+                postArr.unshift(post)
+                topicPage.setData({
+                  postArr
+                })
+              })
+            }
             wx.redirectTo({
               url: `/pages/post/detail?id=${id}&isPublished=1`
             });

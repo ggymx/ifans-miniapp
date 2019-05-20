@@ -1,6 +1,6 @@
 <!-- pages/index/index.wxml -->
 <wxs module="con" src="../wxs/converter.wxs"></wxs>
-<navbar text="首页" class="navbar-index"></navbar>
+<navbar text="轻话题" class="navbar-index"></navbar>
 <view class="container">
   <image class="bg" src="../imgs/img/bg.png" mode="aspectFill" lazy-load="false" binderror="" bindload="" />
   <view class="info">
@@ -37,7 +37,7 @@
       <view class="right">
         <button class="btn-r" bind:tap="manyTopic">
           <image class="myMore" src="../imgs/img/more.png" mode="widthFix" lazy-load="false" binderror="" bindload="" />
-          <view class="text">更多话题</view>
+          <view class="text">话题社区</view>
         </button>
       </view>
     </view>

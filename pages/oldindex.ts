@@ -74,6 +74,19 @@ Page({
     });
     wx.hideLoading({});
   },
+  onPostRemove(e: any) {
+    const {postId} = e.detail
+    const topList = this.data.topList
+    for(let i=0;i<topList.length;i++) {
+      if(topList[i].id===postId) {
+        topList.splice(i,1)
+        this.setData({
+          topList,
+        })
+        break
+      }
+    }
+  },
   onLoad() {
     cursor = 0
     const that = this;

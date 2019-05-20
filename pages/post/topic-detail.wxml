@@ -2,7 +2,7 @@
 <wxs module="con" src="../../wxs/converter.wxs"></wxs>
 <navbar back text="话题详情"></navbar>
 <view class="underlying">
-    <view class="first">
+    <view class="first" wx:if="{{post}}">
         <view class="title">
             <text class="title1 fl">#{{post.title}}#</text>
             <view class="more fr" catch:tap="popBox">
@@ -72,7 +72,7 @@
         <view class="container">
             <!--不为空-->
             <block wx:for="{{postArr}}">
-                <postCard addClass="item-card" arrowBtn clock like post="{{item}}" isLike="{{item.isLike}}" />
+                <postCard addClass="item-card" arrowBtn clock like post="{{item}}" isLike="{{item.isLike}}" bind:remove="onPostRemove"/>
             </block>
         </view>
     </view>

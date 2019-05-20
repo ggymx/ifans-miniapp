@@ -23,7 +23,7 @@ Page({
   createAnswer(event: any) {
     const topic = this.data.post
     smartGotoPage({
-      url: '/pages/post/createAnswer?topic=' + encodeURIComponent(JSON.stringify(topic))
+      url: '/pages/post/create-answer?topic=' + encodeURIComponent(JSON.stringify(topic))
     });
   },
   userInfo(event: any) {
@@ -179,9 +179,15 @@ Page({
       options: options
     })
     if (!that.data.post) {
+
       id = options.id;
       const data: any = await api.getPost({ id })
-
+      console.log('----topic-detail--data-----', data)
+      if (data.post === null) {
+        console.log('40404040404040404040404040404')
+        wx.redirectTo({ url: '/pages/notfound/notfound' })
+        return
+      }
       this.setData!({
         post: data.post,
         isLike: data.post.isLike,
@@ -233,7 +239,19 @@ Page({
       })
     }
   },
-
+  onPostRemove(e: any) {
+    const { postId } = e.detail
+    const postArr = this.data.postArr
+    for (let i = 0; i < postArr.length; i++) {
+      if (postArr[i].id === postId) {
+        postArr.splice(i, 1)
+        this.setData({
+          postArr,
+        })
+        break
+      }
+    }
+  },
   /*转发分享监听事件 */
   onShareAppMessage(res: any) {
     const that = this as any;

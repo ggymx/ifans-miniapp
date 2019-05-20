@@ -45,6 +45,15 @@ Page({
     }
 
   },
+
+  onClick(e: any) {
+    const item = e.currentTarget.dataset.item
+    const page = item.type === 1 ? '/pages/post/topic-detail' : '/pages/post/detail'
+    smartGotoPage({
+      url: page + '?id=' + item.id,
+    })
+  },
+
   /*跳转到话题社区 */
   findOldIndex() {
     smartGotoPage({

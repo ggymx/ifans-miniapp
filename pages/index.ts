@@ -17,13 +17,20 @@ Page({
       }
     }
   },
+  onShareAppMessage(opts:Page.IShareAppMessageOption) {
+    return {
+      title: '轻话题',
+      // path:'',
+      // imageUrl:'',
+    }
+  },
   //点击'我的足迹'按钮，执行跳转，传递当前的userId
   userFootPrint(options: any) {
     if (this.data.user) {
       //获取用户Id
       const userId = wx.getStorageSync('userId')
       wx.navigateTo({
-        url: `./user/footPrint?userId=${userId}`
+        url: `./user/foot-print?userId=${userId}`
       })
     } else {
       smartGotoPage({
