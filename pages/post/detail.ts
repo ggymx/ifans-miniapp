@@ -110,7 +110,11 @@ Page({
       urls: imgs // 需要预览的图片http链接列表
     })
   },
-
+  onPullDownRefresh(){
+     setTimeout(() => {
+       wx.stopPullDownRefresh({});
+     }, 500);
+  },
   /*跳转到空间页 */
   findUserDetail() {
     console.log('用户信息--------------', this.data.data.post.user.id);

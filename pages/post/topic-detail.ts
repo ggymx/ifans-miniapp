@@ -176,7 +176,7 @@ Page({
     const that = this as any;
     this.setData({
       isPublished: options.isPublished === '1',
-      options: options
+      options
     })
     if (!that.data.post) {
 
@@ -268,8 +268,11 @@ Page({
   },
   //下拉刷新
   onPullDownRefresh() {
-    const that = this
-    this.loadData(that.data.options, '已刷新', 'success')
+    setTimeout(() => {
+      const that = this
+      this.loadData(that.data.options, '已刷新', 'success');
+      wx.stopPullDownRefresh({});
+    }, 500);
   },
   //底部刷新
   onReachBottom() {
@@ -284,7 +287,7 @@ Page({
       title: 'loading...',
     })
 
-    setTimeout(function () {
+    setTimeout(function() {
       wx.hideLoading({
 
       })
