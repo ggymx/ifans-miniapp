@@ -15,6 +15,7 @@ Page({
     postId: 0,
     topic: null,
     data: null,
+    post:null,
     comments: [],
     commentValue: '',
     isCreateAnserPage: false,
@@ -196,6 +197,7 @@ Page({
         }
         that.setData!({
           data,
+          post:data.post,
           isLike: data.post.isLike
         });
         console.log('接收到的文章详情---', that.data.data);

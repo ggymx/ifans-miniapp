@@ -1,0 +1,2 @@
+/* test.wxml.wxss */
+@import "/templates/thumbnail.wxss";

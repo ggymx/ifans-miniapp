@@ -1,0 +1,49 @@
+/*配图*/
+
+.postImg {
+    display: flex;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+    margin-top: 20rpx;
+}
+
+
+/*单图*/
+
+.postImg .one {
+    background-color: gray;
+    height: 646rpx;
+    width: 646rpx
+}
+
+
+/*两图*/
+
+.postImg .two {
+    background-color: gray;
+    height: 322rpx;
+    width: 322rpx;
+    margin-left: 2rpx;
+}
+
+
+/*三图*/
+
+.postImg .three,
+.postImg .more {
+    background-color: gray;
+    height: 214rpx;
+    width: 214rpx;
+    margin-left: 2rpx;
+}
+
+
+/*更多*/
+
+.postImg .more {
+    background-color: gray;
+    height: 214rpx;
+    width: 214rpx;
+    margin-left: 2rpx;
+    margin-top: 2rpx;
+}
