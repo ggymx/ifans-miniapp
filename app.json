@@ -9,6 +9,7 @@
     "pages/user/foot-print",
     "pages/post/topic-detail",
     "pages/post/create",
+    "pages/preview/preview",
     "pages/post/create-answer",
     "pages/post/detail",
     "pages/post/daily-hot"
