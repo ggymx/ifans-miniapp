@@ -39,7 +39,7 @@
     <!-- 缺省页面 -->
     <block wx:else>
       <view class="default">
-        <image src="../../imgs/img/玩电脑@2x.png" class="tipImg" />
+        <image src="../../imgs/img/liulan.png" class="tipImg" />
         <text class="tip">最近暂无浏览痕迹哦</text>
         <a class="tip" bind:tap="findOldIndex">话题社区 ></a>
       </view>

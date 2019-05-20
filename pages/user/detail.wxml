@@ -34,7 +34,7 @@
     <block wx:else>
        <view class="container default" style="margin-top:20rpx;">
             <view style="overflow:hidden;">
-                <image src="../../imgs/img/小螃蟹2@2x.png" class="backImg"/>
+                <image src="../../imgs/img/pangxie.png" class="backImg"/>
                 <text class="defText">客官暂未参加话题讨论</text>
             </view>
        </view>

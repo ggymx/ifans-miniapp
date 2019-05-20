@@ -24,7 +24,7 @@
             <text class="title" style="margin-bottom:0;" data-tid="{{item.tid}}" wx:if="{{item.title}}">
               #{{item.title}}#
             </text>
-            <text class="comment">{{item.text}}</text>
+            <text class="comment" wx:if="{{item.text}}">{{item.text}}</text>
           </view>
         </view>
         <view style="width:auto;display:flex">
@@ -35,7 +35,7 @@
     <!-- 缺省页面 -->
     <block wx:else>
       <view else class="default">
-        <image src="../../imgs/img/没收到消息@2x.png" class="tipImg" />
+        <image src="../../imgs/img/noInfo.png" class="tipImg" />
         <text class="tip">您暂未收到任何痕迹</text>
         <a class="tip" bind:tap="findOldIndex">话题社区 ></a>
       </view>

@@ -54,6 +54,7 @@
   color: #09A6DC;
   margin-top: 16rpx;
   margin-bottom: 16rpx;
+  line-height:0.5;
 }
 
 .comment {
