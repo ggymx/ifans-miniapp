@@ -15,8 +15,7 @@ Page {
 .title {
     width: 100%;
     height: 115rpx;
-    padding: 30rpx 0;
-    color: #999;
+    color: #222;
     box-sizing: border-box;
     border-bottom: 2rpx solid #f4f5f9;
 }
@@ -46,7 +45,7 @@ Page {
     height: 212rpx;
     font-size: 32rpx;
     line-height: 40rpx;
-    color: #c3c3c3;
+    color: #333;
 }
 
 .uploadPicArea {

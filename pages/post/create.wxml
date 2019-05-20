@@ -3,7 +3,7 @@
 <navbar back text="发布话题"></navbar>
 <view class="body">
     <view class="title">
-        <textarea placeholder="请输入标题" class="tit" placeholder-style='color:#999;font-weight:normal;' bindinput="titleInput" bindconfirm="editerConfirm" value="{{titleValue}}" adjust-position="{{false}}" style="height:{{titleStyle}}" bindblur="editerConfirm"></textarea>
+        <input placeholder="请输入标题" class="tit" placeholder-style='color:#999;font-weight:normal;' bindinput="titleInput" bindconfirm="editerConfirm" value="{{titleValue}}" adjust-position="{{false}}" style="height:{{titleStyle}}" bindblur="editerConfirm"></input>
     </view>
     
     <view class="content">
