@@ -485,3 +485,17 @@ export interface INoticeListParams {
 export interface INoticeListResponse {
   notices: INoticeReply[]
 }
+/**
+ * 获取用户的formId，并且插入到现有的template-msg表中
+ */
+export interface IReportFormIdParams {
+  formId: string
+}
+
+/**
+ * 返回formId
+ */
+// tslint:disable-next-line: no-empty-interface
+export interface IReportFormIdResponse {
+
+}
