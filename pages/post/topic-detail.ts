@@ -2,6 +2,7 @@
 import { IMyApp } from '../../app'
 import api from '../../common/api';
 import { isPostPage, smartGotoPage } from '../../common/helper';
+import base from '../base'
 const app = getApp<IMyApp>()
 let id: number;
 Page({
@@ -34,13 +35,7 @@ Page({
   },
   //图片预览
   imgPre(event: any) {
-    const instance = this as any;
-    const thumbnails = instance.data.post.thumbnails;
-    const imgs = thumbnails.map((item: any) => item = item.url);
-    wx.previewImage({
-      current: event.target.dataset.src, // 当前显示图片的http链接
-      urls: imgs // 需要预览的图片http链接列表
-    })
+    base.imgPre(event,this);
   },
   /*点赞 */
   async giveLike(event: any) {
@@ -78,90 +73,7 @@ Page({
   },
   /*举报等操作弹出框 */
   popBox() {
-    const instance = this as any;
-    const token = wx.getStorageSync('token');
-    if (token) {
-      const ownId = wx.getStorageSync('userId');
-      const userId = instance.data.post.user.id;
-      const cId = instance.data.post.id;
-      if (ownId === userId) {
-        wx.showActionSheet({
-          itemList: ['删除'],
-          success(res) {
-            switch (res.tapIndex) {
-              case 0:
-                wx.showModal({
-                  title: '删除投稿',
-                  content: '确定删除这则投稿吗？',
-                  success(res) {
-                    if (res.confirm) {
-                      api.request({
-                        url: '/v1/post/remove',
-                        data: {
-                          postId: cId
-                        },
-                        method: 'POST',
-                        success(res) {
-                          wx.showToast({
-                            title: '删除成功',
-                            success() {
-                              wx.navigateBack({
-                                delta: 1
-                              })
-                            }
-                          });
-                        },
-                        fail(res) {
-                          wx.showToast({ title: '删除成功' });
-                        }
-                      });
-                    }
-                  }
-                });
-                break;
-            }
-          }
-        });
-      } else {
-        wx.showActionSheet({
-          itemList: ['举报'],
-          success(res) {
-            switch (res.tapIndex) {
-              case 0:
-                wx.showModal({
-                  title: '举报',
-                  content: '确定举报这则投稿吗？',
-                  success(res) {
-                    if (res.confirm) {
-                      api.request({
-                        url: '/v1/post/abuse-report',
-                        data: {
-                          postId: cId
-                        },
-                        method: 'POST',
-                        success(res) {
-                          const data = res.data as any;
-                          data.msg === 'ok'
-                            ? wx.showToast({ title: '举报成功' })
-                            : '';
-                        }
-                      });
-                    }
-                  }
-                });
-                break;
-            }
-          }
-        });
-      }
-    } else {
-      wx.showToast({ title: '请先登录！' });
-      setTimeout(() => {
-        smartGotoPage({
-          url: '/pages/login'
-        });
-      }, 100);
-    }
+    base.popBox(this);
   },
 
   async loadData(options: any, title: string, icon: any) {
