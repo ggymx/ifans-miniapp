@@ -1,13 +1,22 @@
 <!-- pages/participate/participate.wxml -->
 <wxs module="con" src="../../wxs/converter.wxs"></wxs>
-<navbar back text="发布话题"></navbar>
+<navbar back text="{{isTopic?'发布话题':'参与话题'}}"></navbar>
 <view class="body">
     <view class="title">
-        <input placeholder="请输入标题" class="tit" placeholder-style='color:#999;font-weight:normal;' bindinput="titleInput" bindconfirm="editerConfirm" value="{{titleValue}}" adjust-position="{{false}}" style="height:{{titleStyle}}" bindblur="editerConfirm"></input>
+        <!--发布话题-->
+        <block wx:if="{{isTopic}}">
+        <input placeholder="请输入标题" class="tit" placeholder-class='placeholder-tit' bindinput="titleInput" bindconfirm="editerConfirm" value="{{titleValue}}" adjust-position="{{false}}" style="height:{{titleStyle}}" bindblur="editerConfirm"></input>
+        </block>
+        <!--发布投稿-->
+        <block wx:else>
+          <text class='post'>
+            #{{con.contextCon(topic.title,30)}}#
+          </text>
+        </block>
     </view>
     
     <view class="content">
-        <textarea class="text" placeholder-style='color:#C3C3C3;font-weight:400;' placeholder="请输入内容（可选）" maxlength="-1" placeholder-class="placeholder-set" bindinput="textAreaInput" bindconfirm="onEndEditor" value="{{pushText}}" adjust-position="{{false}}" style="height:{{inputText}}"
+        <textarea class="text" placeholder="{{isTopic&&'请输入内容（可选）'||'请至少输入5个字'}}" maxlength="-1" placeholder-class="placeholder-text" bindinput="textAreaInput" bindconfirm="onEndEditor" value="{{pushText}}" adjust-position="{{false}}" style="height:{{inputText}}"
             bindfocus="onEditText" bindblur="onEndEditor"></textarea>
         <view class="uploadPicArea">
             <!-- 显示图片 -->

@@ -1,4 +1,5 @@
 /* pages/detail/detail.wxss */
+
 @import "/templates/util.wxss";
 .body {
     width: 100%;
@@ -83,120 +84,6 @@
 .userInfo .more image {
     width: 32rpx;
     height: 7rpx;
-}
-
-.topic {
-    width: 100%;
-    height: auto;
-    /* background-color: pink; */
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-
-/*关联的话题内容*/
-
-.content .context {
-    font-size: 30rpx;
-    font-family: PingFang-SC-Medium;
-    font-weight: 500;
-    color: rgba(51, 51, 51, 1);
-    margin-top: 26rpx;
-    margin-bottom: 26rpx;
-    /* text-align: center; */
-    letter-spacing: 3rpx;
-    /* line-height: 56rpx; */
-    white-space: pre-line;
-    display: -webkit-box;
-    word-break: break-all;
-    text-overflow: ellipsis;
-    padding-left: 20px;
-    padding-right: 10px;
-    overflow: hidden;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 5;
-}
-
-.topic-title,
-.topic-context {
-    width: 670rpx;
-}
-
-.opreate-view {
-    width: 100%;
-    /* height: auto; */
-    height: 72rpx;
-    /* background-color: yellow; */
-    display: flex;
-    align-items: center;
-}
-
-.opreate-item {
-    height: 40rpx;
-    width: 260rpx;
-    border-left-style: solid;
-    border-width: 2rpx;
-    border-color: rgb(234, 234, 234);
-    /* position: relative; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-/**/
-
-.publisher-item {
-    width: 702rpx;
-    height: auto;
-    /* background-color: green; */
-    border-bottom-style: solid;
-    border-width: 4rpx;
-    border-color: rgb(250, 250, 250);
-    position: relative;
-}
-
-.opreate-underlying {
-    width: 100%;
-    height: auto;
-    margin-bottom: 20rpx;
-    border-top-style: solid;
-    border-bottom-style: solid;
-    /* border-width: 4rpx; */
-    border-color: rgb(250, 250, 250);
-    /* position:fixed;
-  bottom: 0 */
-}
-
-.avatar {
-    height: 60rpx;
-    width: 60rpx;
-    border-radius: 50%;
-    background-color: gray;
-    position: absolute;
-    top: 20rpx;
-    left: 26rpx;
-}
-
-.username {
-    font-size: 28rpx;
-    color: rgb(51, 51, 51);
-    position: absolute;
-    top: 34rpx;
-    left: 102rpx;
-}
-
-
-/*右侧箭头按钮*/
-
-.arrow-btn {
-    width: 32rpx;
-    height: 6px;
-    position: absolute;
-    top: 44rpx;
-    right: 44rpx;
 }
 
 .article {
@@ -298,13 +185,6 @@
     top: -10rpx;
 }
 
-
-/*覆盖微信默认样式*/
-
-.operate-btn:after {
-    border-style: none
-}
-
 .noMore {
     width: 100%;
     height: 90rpx;
@@ -317,6 +197,8 @@
 .reply {
     width: 100%;
     height: 90rpx;
+    position: fixed;
+    bottom: 0;
     background-color: #fff;
     border-top: 2rpx solid #F4F5F9;
     padding: 15rpx 114rpx 15rpx 100rpx;
@@ -360,6 +242,7 @@
     right: 0;
     top: 0;
 }
+
 
 /*分享按钮*/
 
