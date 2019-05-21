@@ -4,7 +4,6 @@ import { IMyApp } from '../app'
 import api from '../common/api';
 const app = getApp<IMyApp>()
 let cursor: number = 0;
-
 Page({
   data: {
     topList: [],
@@ -43,7 +42,6 @@ Page({
       },
       method: 'GET',
       success(res) {
-        console.log('=======测试首页展示数据=======', res.data)
         const data = res.data as any
         if (data.posts.length === 0) {
           setTimeout(() => {
@@ -60,7 +58,6 @@ Page({
           //指针后移
           cursor = data.cursor;
         }
-
       },
       fail(err) {
         wx.hideLoading({});
@@ -73,15 +70,15 @@ Page({
     });
   },
   onPostRemove(e: any) {
-    const {postId} = e.detail
+    const { postId } = e.detail
     const topList = this.data.topList
-    for(let i=0;i<topList.length;i++) {
-      if(topList[i].id===postId) {
-        topList.splice(i,1)
+    for (let i = 0; i < topList.length; i++) {
+      if (topList[i].id === postId) {
+        topList.splice(i, 1)
         this.setData({
           topList,
         })
-        break
+        break;
       }
     }
   },
@@ -97,27 +94,21 @@ Page({
       method: 'GET',
       success(res) {
         const data = res.data as any
-        if(data.posts) {
+        if (data.posts) {
           that.setData!({
             topList: data.posts
           });
         } else {
-          console.log('invalid data:',data, 'cursor', cursor)
-          wx.showToast({title:'非法数据'+JSON.stringify(data)})
+          wx.showToast({ title: '非法数据' + JSON.stringify(data) })
         }
-        console.log('初始化首页列表',that.data.topList);
-        // that.data.topList.map((item)=>{
-        //   console.log('item的text',typeof item.text.trim().length)
-        // })
         setTimeout(() => {
           wx.stopPullDownRefresh({});
         }, 500);
         cursor = data.cursor;
       },
-      fail(){
-        console.log('执行出错---------------------');
+      fail() {
         that.setData({
-          notErr:false
+          notErr: false
         });
       }
     });

@@ -1,7 +1,6 @@
 import api from '../../common/api'
 import { smartGotoPage } from '../../common/helper'
 import { uploadChosenImages } from '../../common/upload'
-
 Page({
   data: {
     post: null,
@@ -15,7 +14,6 @@ Page({
       delta: 1,
     })
   },
-
   /**
    * 静默上传，可以多次调用，只会执行一次
    */
@@ -27,11 +25,10 @@ Page({
       this.setData({
         uploadPromise,
       })
-      return uploadPromise
+      return uploadPromise;
     }
     return Promise.resolve([])
   },
-
   async tryAutoUpload() {
     const token = wx.getStorageSync('token');
     if (!token) { return null }
@@ -57,7 +54,7 @@ Page({
           smartGotoPage({
             url: '../login'
           })
-          return
+          return;
         }
         const result = await this.uploadOnce(uptoken)
         data.gallery = result.map((item: any) => item.imageURL).join(',')
@@ -84,7 +81,6 @@ Page({
             // 在前一个topic-detail页面 插入刚刚创建的投稿数据
             const pages = getCurrentPages()
             if(pages.length >=3 && pages[pages.length - 3].route === 'pages/post/topic-detail') {
-              console.log('Found topicPage')
               const topicPage = pages[pages.length - 3]
               const postArr = (topicPage.data as any).postArr || []
               const post = that.data.post
@@ -119,18 +115,15 @@ Page({
   },
   //options:获取url参数
   async onLoad(options: any) {
-    console.log('Options.post', options.post)
     const post = JSON.parse(decodeURIComponent(options.post))
     this.setData({
       post
     })
   },
-
   async onShow(){
     const that=this as any;
     //获取用户信息
     await api.getUserProfile().then((res: any)=>{
-      console.log('接受到的res-----------------',res);
       that.setData({
         user:res.user
       })
@@ -139,14 +132,11 @@ Page({
     wx.getStorage({
       key:'gallery',
       success(res){
-        console.log('缓存中的gallery--------------：',res.data);
         that.setData({
           gallery:res.data
-        })
-        // console.log('接受的that.data.gallery--------------',that.data.gallery);
+        });
       }
     })
-
     this.tryAutoUpload()
   },
 })

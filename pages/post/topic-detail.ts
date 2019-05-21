@@ -1,4 +1,3 @@
-//index.js
 //获取应用实例
 import { IMyApp } from '../../app'
 import api from '../../common/api';
@@ -8,9 +7,7 @@ let id: number;
 Page({
   data: {
     cursor: 0,
-    options: {
-      id: ''
-    },
+    options: {id: ''},
     isPreview: true, // 预览状态
     isPublished: false, // 发布成功
     post: null,
@@ -19,7 +16,6 @@ Page({
     isLike: null,//是否显示红心
     likeCount: 0  //记录当前点赞数
   },
-
   createAnswer(event: any) {
     const topic = this.data.post
     smartGotoPage({
@@ -46,10 +42,8 @@ Page({
       urls: imgs // 需要预览的图片http链接列表
     })
   },
-
   /*点赞 */
   async giveLike(event: any) {
-    console.log('点赞事件触发------------');
     //获取token
     const token = wx.getStorageSync('token');
     if (!token) {
@@ -71,7 +65,6 @@ Page({
           isLike: true,
           likeCount: instance.data.likeCount+1
         });
-        console.log('此时的点赞数-----------加', instance.data.likeCount);
       } else {
         const res = await api.disLike({
           id: instance.data.post.id
@@ -80,7 +73,6 @@ Page({
           isLike: false,
           likeCount: instance.data.likeCount-1
         });
-        console.log('此时的点赞数-----------减', instance.data.likeCount);
       }
     }
   },
@@ -179,23 +171,17 @@ Page({
       options
     })
     if (!that.data.post) {
-
       id = options.id;
       const data: any = await api.getPost({ id })
-      console.log('----topic-detail--data-----', data)
       if (data.post === null) {
-        console.log('40404040404040404040404040404')
         wx.redirectTo({ url: '/pages/notfound/notfound' })
-        return
+        return;
       }
       this.setData!({
         post: data.post,
         isLike: data.post.isLike,
         likeCount: data.post.likeCount
-      })
-      console.log('接收到的post--------------++++：', that.data.post);
-      // console.log('关联的话题详情的gallery-----------', that.data.thumbnails);
-      // console.log('关联的话题详情的gallery-----------', that.data.post);
+      });
     }
     //根据参与id获取参与的列表
     let cursor = that.data.cursor
@@ -205,7 +191,6 @@ Page({
         postArr: that.data.postArr.concat(data.posts),
         cursor: cursor + 1
       });
-      console.log('接收到的投稿列表',that.data.postArr);
       cursor = data.cursor
       wx.hideLoading({});
     } else {
@@ -222,17 +207,14 @@ Page({
   //options:获取url参数
   async onLoad(options: any) {
     this.loadData(options, '已经到底了！', 'none');
-
   },
   /*跳转到空间页 */
   findUserDetail() {
-    console.log('话题详请跳转用户页面--------------', this.data.post.user.id);
     const uId = this.data.post.user.id
     smartGotoPage({
       url: `/pages/user/detail?userId=${uId}`
     })
   },
-
   /* 监听后退事件 */
   onUnload() {
     if (this.data.isPublished) {
@@ -257,7 +239,6 @@ Page({
   /*转发分享监听事件 */
   onShareAppMessage(res: any) {
     const that = this as any;
-
     return {
       title: `#${this.data.post.title}#`,
       success(e: any) {
@@ -288,11 +269,7 @@ Page({
     wx.showLoading({
       title: 'loading...',
     })
-
     setTimeout(function() {
-      wx.hideLoading({
-
-      })
-    }, 500)
+      wx.hideLoading({})}, 500)
   }
 })

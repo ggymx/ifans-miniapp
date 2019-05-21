@@ -41,10 +41,6 @@ Component({
       type: Boolean,
       value: true
     },
-    // likeCount: {
-    //   type: Number,
-    //   value: 0
-    // },
     final: {
       type: Boolean,
       value: false
@@ -58,18 +54,10 @@ Component({
       value: false
     }
   },
-
-  /**
-   * 组件的初始数据
-   */
   data: {
     isDelete: true,
     likeCount:0
   },
-
-  /**
-   * 组件的方法列表
-   */
   methods: {
     /*跳转话题&文章详情*/
     findDetail(event: any) {
@@ -109,8 +97,7 @@ Component({
     //跳转到发布页
     createAnswer(event: any) {
       const instance =this as any;
-      const topic = instance.properties.post
-      console.log('点击的post的详情----------',topic)
+      const topic = instance.properties.post;
       //目前仅支持对话题投稿，不支持投稿评论
       if(topic.type===1){
       smartGotoPage({
@@ -143,7 +130,6 @@ Component({
             isLike: true,
             likeCount:instance.data.likeCount+1
           });
-          console.log('点赞------------',instance.data.likeCount);
         } else {
           const res = await api.disLike({
             id: instance.properties.post.id
@@ -152,7 +138,6 @@ Component({
             isLike: false,
             likeCount:instance.data.likeCount-1
           });
-          console.log('取消点赞------------',instance.data.likeCount);
         }
       }
     },
@@ -248,7 +233,6 @@ Component({
     }
   },
   ready(){
-     console.log('组件被加载--------------',this.data.post);
      this.setData({
          likeCount:this.data.post.likeCount
      });

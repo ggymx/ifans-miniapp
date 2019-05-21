@@ -4,27 +4,24 @@ import { IMyApp } from '../../app'
 import api from '../../common/api';
 import { smartGotoPage } from '../../common/helper';
 import { EUserStatus } from '../../common/types/comment';
-
 const app = getApp<IMyApp>()
 let id: number;
 const cursor: number = 0;
 let postId: number;
-
 Page({
   data: {
-    postId: 0,
     topic: null,
     data: null,
     post:null,
-    comments: [],
+    isLike: null,
+    likeCount:0,          //保存likeCount状态
+    postId: 0,
     commentValue: '',
     isCreateAnserPage: false,
     showMask: false,
     isPublished: false,
-    isLike: null,
-    //保存likeCount的初始值
-    likeCount:0,
     focus: false,
+    comments: []
   },
   isCreateAnserPage(event: any) {
     this.setData!({
@@ -33,22 +30,18 @@ Page({
   },
   //编辑评论
   startEdit(event: any) {
-    // console.log('编辑评论-----------',event);
     this.setData!({
       commentValue: event.detail.value
     })
   },
   //聚焦
   inputFocus(event: any) {
-    console.log('开始编辑-----------');
     this.setData!({
       showMask: true
     });
-    //如果是按钮点击，怎么触发input获取焦点？？
   },
   //失焦
   inputBlur() {
-    console.log('结束编辑------------');
     this.setData!({
       showMask: false
     })
@@ -74,28 +67,16 @@ Page({
       const { id } = await api.createComment(comment)
       comment.user = user
       comment.createAt = comment.creatAt = new Date().toISOString()
-      console.log(comment.createAt)
       comment.id = id
       const comments = this.data.comments || []
       comments.push(comment)
-      console.log('All comments', comments)
       this.setData({
         comments,
         commentValue: '',
       })
       // 移动到评论区
-      const query = wx.createSelectorQuery()
-      const element = query.select('#comment-' + id)
-      console.log('Selected eleemnt', element)
-      element.boundingClientRect((rect) => {
-        console.log('PageScroll:0', rect.top)
-        wx.pageScrollTo({
-          // TODO: 找到更好的办法。这个问题搞了2个小时不浪费时间了。
-          scrollTop: 1000000,
-        })
-      })
+      const query = wx.createSelectorQuery();
       query.exec((rects: any) => {
-        console.log('Page.ScrollTop', rects[0].top)
         wx.pageScrollTo({
           // TODO: 找到更好的办法
           scrollTop: 1000000,
@@ -120,7 +101,6 @@ Page({
   },
   /*跳转到空间页 */
   findUserDetail() {
-    console.log('用户信息--------------', this.data.data.post.user.id);
     const uId = this.data.data.post.user.id
     smartGotoPage({
       url: `/pages/user/detail?userId=${uId}`
@@ -130,12 +110,10 @@ Page({
   findTopicDetail() {
     const instance = this as any;
     const tid = instance.data.data.post.refPost.id;
-    console.log('关联的话题id-----------', instance.data.data.post);
     smartGotoPage({
       url: `/pages/post/topic-detail?id=${tid}`
     })
   },
-
   /*点赞 */
   async giveLike(event: any) {
     //获取token
@@ -173,11 +151,9 @@ Page({
           isLike: false,
           likeCount:this.data.likeCount-1
         });
-
       }
     }
   },
-
   async onLoad(options: any) {
     const that = this;
     const id = options.id || { postId }
@@ -186,17 +162,14 @@ Page({
     })
     api.request({
       url: '/v1/post/detail',
-
       method: 'GET',
       data: {
         id
       },
       success(res) {
         const data = res.data as any;
-        console.log('---------detail--data--------', data)
         if (data.post === null) {
-          console.log('40404040404040404040404040404')
-          wx.redirectTo({ url: '/pages/notfound/notfound' })
+          wx.redirectTo({ url: '/pages/notfound/notfound' });
           return;
         }
         that.setData!({
@@ -205,29 +178,22 @@ Page({
           isLike: data.post.isLike,
           likeCount:data.post.likeCount
         });
-        console.log('接收到的文章详情---', that.data.data);
       }
     });
-
     postId = id
     const data = await api.getCommentList({ postId, cursor, limit: 10 })
-
-    console.log('评论列表-----------', data.comments)
     that.setData!({
       comments: data.comments
     })
-
   },
-
   /* 监听后退事件 */
   onUnload() {
     if (this.data.isPublished) {
       wx.navigateBack({
         delta: 1
-      })
+      });
     }
   },
-
   /*举报等操作弹出框 */
   popBox() {
     const instance = this as any;
@@ -315,7 +281,6 @@ Page({
       }, 100);
     }
   }
-
   /*转发分享监听事件 */
   // onShareAppMessage(res: any) {
   //   let text = this.data.data!.post.refPost.text;

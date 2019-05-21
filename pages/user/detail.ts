@@ -10,22 +10,16 @@ Page({
   data: {
     user: null,
     recommendList: [],
-    //页面正常时
-    notErr: true,
-    //传入的userId
-    userId: null,
-    //当前用户
-    curUserId: null
+    notErr: true,  //页面正常时
+    userId: null,  //传入的userId
+    curUserId: null  //当前用户
   },
-
   onLoad(options: any) {
     const userId = options.userId;
-    console.log('传进来的userId-----------', options.userId);
     this.setData({
       userId
     })
     //获取当前用户的userId
-    console.log('当前登录用户的userId--------------------', wx.getStorageSync('userId'));
     this.setData({
       curUserId: wx.getStorageSync('userId')
     })
@@ -38,10 +32,7 @@ Page({
       method: 'GET',
       success(res) {
         const data = res.data as any;
-
         if (data.post === null) {
-        console.log('40404040404040404040404040404')
-
           wx.redirectTo({ url: '/pages/notfound/notfound' })
         }
         that.setData!({
@@ -76,7 +67,6 @@ Page({
       }
     }
   },
-
   /*跳转到话题社区 */
   findOldIndex() {
     smartGotoPage({

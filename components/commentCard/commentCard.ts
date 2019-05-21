@@ -3,7 +3,6 @@ import { smartGotoPage } from '../../common/helper';
 
 // @ts-ignorets
 Component({
-
   properties: {
     comment: {
       type: Object,
@@ -66,15 +65,12 @@ Component({
     },
     /*举报等操作弹出框 */
     popBox() {
-      console.log('--------------点击评论弹出框');
       const instance = this as any;
-      console.log('instance', instance)
       const token = wx.getStorageSync('token');
       if (token) {
         const ownId = wx.getStorageSync('userId');
         const userId = instance.properties.comment.user.id
         const cId = instance.properties.comment.id;
-        console.log(typeof cId)
         if (ownId === userId) {
           wx.showActionSheet({
             itemList: ['删除'],
@@ -87,7 +83,6 @@ Component({
                     async success(res) {
                       if (res.confirm) {
                         const res = await api.removeComment({ id: cId })
-
                         if (res.code !== 'OK') {
                           wx.showToast({ title: '删除失败' });
                         }

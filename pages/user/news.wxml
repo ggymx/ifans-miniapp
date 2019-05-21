@@ -6,7 +6,7 @@
   <view class="container" style="height:1200rpx;padding-top:10rpx;">
     <!-- 消息列表 -->
     <!-- 崩溃页面 -->
-    <block wx:if="{{notErr}}">
+    <block wx:if="{{!notErr}}">
      <template is="err"></template>
     </block>
     <!-- 正常页面 -->

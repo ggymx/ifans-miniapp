@@ -2,8 +2,6 @@
 //获取应用实例
 import { IMyApp } from '../app'
 import api from '../common/api';
-import { smartGotoPage } from '../common/helper';
-
 const app = getApp<IMyApp>()
 let loginCode: string
 Page({
@@ -12,17 +10,23 @@ Page({
     returnInfo: null,
     statusText: '授权登录'
   },
-  /*授权登录 */
+  onLoad() {
+    /*获取登录凭证*/
+    wx.login({
+      success(res) {
+        /*wx.login获取code-微信登录的标识 */
+        loginCode = res.code
+      }
+    })
+  },
+  /*授权登录-点击确认按钮 */
   onGotUserInfo(e: any) {
-    /*点击确认按钮 */
-    /*当拿到用户信息时*/
+    /*授权成功*/
     if (e.detail.userInfo) {
       const that = this;
       /*这里不需要用token判断 */
       api.request({
-
         url: '/v1/auth/login',
-
         data: {
           code: loginCode,
           encryptedData: e.detail.encryptedData,
@@ -30,13 +34,7 @@ Page({
           rawData: e.detail.rawData,
           signature: e.detail.signature,
         },
-
-        header: {
-          'content-type': 'application/json'
-        },
-
         method: 'POST',
-
         success(res) {
           const data = res.data as any
           that.setData!({
@@ -50,36 +48,21 @@ Page({
             key: 'userId',
             data: data.user.id
           });
+          wx.showLoading({title: '加载中'});
+          setTimeout(() => {
+            wx.hideLoading({
+              success() { wx.navigateBack({ delta: 1 }) }
+            });
+          }, 500);
         }
       });
-      wx.showLoading({
-        title: '加载中'
-      });
-      setTimeout(() => {
-        wx.hideLoading({
-          success() { wx.navigateBack({ delta: 1 }) }
-        });
-      }, 500);
-      /*发起http请求-插入数据 */
-
     } else {
       wx.showModal({
         title: '警告',
-        content: '您点击了拒绝授权，将无法进入小程序，请授权之后再进入!!!',
+        content: '您点击了拒绝授权，将无法进入小程序，请授权之后再进入!',
         showCancel: false,
         confirmText: '返回授权'
       })
     }
-  },
-
-  onLoad() {
-    /*获取登录凭证*/
-    wx.login({
-      success(res) {
-        /*wx.login获取code-微信登录的标识 */
-        loginCode = res.code
-      }
-    })
-
   }
 })
