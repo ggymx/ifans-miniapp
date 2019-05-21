@@ -3,7 +3,6 @@
     "pages/index",
     "pages/test",
     "templates/util",
-
     "pages/oldindex",
     "pages/login",
     "pages/notfound/notfound",

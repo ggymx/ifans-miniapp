@@ -24,10 +24,16 @@
     <image class="myMsg" src="../imgs/img/right.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" />
   </view>
   <view class="foot">
-    <button class="topic" bind:tap="createTopic">
-      <image class="issure" src="../imgs/img/topic.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" />
-      <view class="msg">发布话题</view>
-    </button>
+      <!-- set report-submit to ture to get formId -->
+    <form bindsubmit="getFormId" report-submit='true'>
+      <view class="btn-area">
+        <button class="topic" bind:tap="createTopic" formType="submit">
+       <image class="issure" src="../imgs/img/topic.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" />
+       <view class="msg">发布话题</view>
+       </button>
+      </view>
+    </form>
+
     <view class="footer">
       <view class="left">
         <button class="btn-l" bind:tap="userFootPrint">
