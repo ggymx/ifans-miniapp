@@ -11,7 +11,7 @@
         <view class="userInfo">
             <view class="user">
                 <image class="img fl" src="{{post.user.avatar}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" catch:tap="findUserDetail"></image>
-                <view class="text fl" selectable="false" space="false" decode="false">
+                <view class="text fl" selectable="false" space="false" decode="false" catch:tap="findUserDetail">
                     {{post.user.nickname}}
                 </view>
             </view>
