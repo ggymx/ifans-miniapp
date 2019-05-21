@@ -4,6 +4,10 @@ Page({
   data: {
     user: null
   },
+  getFormId (e: any) {
+    // log out formId
+    console.log(e.detail.formId);
+  },
   async onShow() {
     const token = wx.getStorageSync('token');
     if (token) {

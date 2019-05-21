@@ -12,7 +12,7 @@
     </view>
     <view class="arr-view" catch:tap="popBox">
       <image src="../../imgs/myhome-gd@2x.png" class="arrow-btn" wx:if="{{arrowBtn}}" />
-    </view>
+    </view> 
   </view>
 
   <view class="publisher-topic" wx:if="{{post.type==1 || (showTitle && post.refPost.title)}}">
