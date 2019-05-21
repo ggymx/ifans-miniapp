@@ -120,6 +120,6 @@
 
 .com-item .date .icon {
     position: absolute;
-    right: 16rpx;
+    right: 38rpx;
     top: 24rpx;
 }

@@ -17,7 +17,7 @@ Page({
     postArr: [],
     title: '',
     isLike: null,//是否显示红心
-    likeCount: null  //记录当前点赞数
+    likeCount: 0  //记录当前点赞数
   },
 
   createAnswer(event: any) {
@@ -69,7 +69,7 @@ Page({
         });
         instance.setData!({
           isLike: true,
-          likeCount: instance.data.likeCount++
+          likeCount: instance.data.likeCount+1
         });
         console.log('此时的点赞数-----------加', instance.data.likeCount);
       } else {
@@ -78,7 +78,7 @@ Page({
         });
         instance.setData!({
           isLike: false,
-          likeCount: instance.data.likeCount--
+          likeCount: instance.data.likeCount-1
         });
         console.log('此时的点赞数-----------减', instance.data.likeCount);
       }
@@ -221,7 +221,8 @@ Page({
   },
   //options:获取url参数
   async onLoad(options: any) {
-    this.loadData(options, '已经到底了！', 'none')
+    this.loadData(options, '已经到底了！', 'none');
+
   },
   /*跳转到空间页 */
   findUserDetail() {

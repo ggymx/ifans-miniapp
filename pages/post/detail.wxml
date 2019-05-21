@@ -34,11 +34,11 @@
       <view class="right">
         <view class="star">
           <image class="stars" src="{{isLike && '../../imgs/button-like-dj@2x.png' || '../../imgs/home-button-like@2x.png' }}"  mode="aspectFit|aspectFill|widthFix" catch:tap="giveLike" ></image>
-          <view class="text">{{post.likeCount ||''}}</view>
+          <view class="text">{{likeCount}}</view>
         </view>
         <view class="msg">
           <image class="msgs" id="cmtImg" src="../../imgs/img/message.png" mode="aspectFit|aspectFill|widthFix"  placeholder="此处只有在点击按钮时才聚焦" catch:tap="bindImageInput"></image>
-          <view class="text">{{post.commentCount||'' }}</view>
+          <view class="text">{{post.commentCount||0 }}</view>
                 </view>
                 <view class="replys">
                 <image class="rep" src="../../imgs/img/share.png" mode="aspectFit|aspectFill|widthFix"></image>

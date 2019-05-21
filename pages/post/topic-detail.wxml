@@ -27,11 +27,11 @@
             <view class="right">
                 <view class="star" catch:tap="giveLike">
                     <image class="stars" src="{{isLike && '../../imgs/button-like-dj@2x.png' || '../../imgs/home-button-like@2x.png' }}"></image>
-                    {{likeCount||''}}
+                    {{likeCount}}
                 </view>
                 <view class="msg" bind:tap="createAnswer">
                     <image class="msgs" src="../../imgs/img/message.png"></image>
-                    {{post.attendCount ||''}}
+                    {{post.attendCount ||0}}
                 </view>
                 <view class="replys">
                 <image class="rep" src="../../imgs/img/share.png" mode="aspectFit|aspectFill|widthFix"></image>
@@ -95,7 +95,7 @@
         </view>
     </view>
     <view class="pen" bind:tap="createAnswer">
-        <image class="" src="../../imgs/img/pen.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
+        <image src="../../imgs/img/pen.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
         </image>
     </view>
 </view>

@@ -16,7 +16,7 @@ Component({
   },
 
   data: {
-
+      likeCount:0
   },
 
   /**
@@ -50,19 +50,20 @@ Component({
             id: instance.properties.comment.id
           });
           instance.setData!({
-            isLike: true
+            isLike: true,
+            likeCount:instance.data.likeCount+1
           });
         } else {
           const res = await api.disCommentLike({
             id: instance.properties.comment.id
           });
           instance.setData!({
-            isLike: false
+            isLike: false,
+            likeCount:instance.data.likeCount-1
           });
         }
       }
     },
-
     /*举报等操作弹出框 */
     popBox() {
       console.log('--------------点击评论弹出框');
@@ -169,7 +170,12 @@ Component({
     }
 
   },
-
+  ready(){
+    //保存点赞数量状态
+    this.setData({
+     likeCount:this.data.comment.likeCount
+    })
+  },
   options: {
     multipleSlots: true // 在组件定义时的选项中启用多slot支持
   },

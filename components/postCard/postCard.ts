@@ -41,10 +41,10 @@ Component({
       type: Boolean,
       value: true
     },
-    likeCount: {
-      type: Number,
-      value: 0
-    },
+    // likeCount: {
+    //   type: Number,
+    //   value: 0
+    // },
     final: {
       type: Boolean,
       value: false
@@ -63,7 +63,8 @@ Component({
    * 组件的初始数据
    */
   data: {
-    isDelete: true
+    isDelete: true,
+    likeCount:0
   },
 
   /**
@@ -139,15 +140,19 @@ Component({
             id: instance.properties.post.id
           });
           instance.setData!({
-            isLike: true
+            isLike: true,
+            likeCount:instance.data.likeCount+1
           });
+          console.log('点赞------------',instance.data.likeCount);
         } else {
           const res = await api.disLike({
             id: instance.properties.post.id
           });
           instance.setData!({
-            isLike: false
+            isLike: false,
+            likeCount:instance.data.likeCount-1
           });
+          console.log('取消点赞------------',instance.data.likeCount);
         }
       }
     },
@@ -242,7 +247,12 @@ Component({
       })
     }
   },
-
+  ready(){
+     console.log('组件被加载--------------',this.data.post);
+     this.setData({
+         likeCount:this.data.post.likeCount
+     });
+  },
   options: {
     multipleSlots: true // 在组件定义时的选项中启用多slot支持
   },

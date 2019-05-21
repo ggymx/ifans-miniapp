@@ -44,7 +44,7 @@
     <view class="likeComment">
     <!--下方点赞：wx:if="{{post.type=='2'}}"-->
       <image src="{{isLike && '../../imgs/button-like-dj@2x.png' || '../../imgs/home-button-like@2x.png' }}" class="like-img" wx:if="{{like}}" catch:tap="giveLike"/>
-      <text  class="count like">{{post.likeCount||0}}</text>
+      <text  class="count like">{{likeCount}}</text>
 
     <!--下方评论：wx:elif="{{post.type=='1'}}"-->
       <image src="{{ '../../imgs/home-button-Comment@2x.png' }}" class="comment-img" catch:tap="createAnswer"/>
