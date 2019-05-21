@@ -2,15 +2,14 @@ import { chooseImage } from './../../common/upload';
 Page({
   data: {
     topic: null,
-    pushText: '',
     id: null,
-    inputText: '213rpx',
-    titleValue: '',
-    image2Commit: [],
-    isTopic:true,
     refPostId: null,
+    isTopic:true,
+    pushText: '',
+    titleValue: '',
+    inputText: '213rpx',
+    image2Commit: [],
   },
-
   async didPressChooesImage() {
     const allowMax = 9 - this.data.image2Commit.length
     const images = await chooseImage(allowMax)
@@ -19,19 +18,14 @@ Page({
       image2Commit
     })
   },
-
   delPic(e: any) {
     const that = this;
-    console.log('e.target', e.target)
-    console.log('e.target.dataset.index', e.target.dataset.index)
     const index = e.target.dataset.index
-
     if (that.data.image2Commit.length == 1) {                    //仅有一张图，全删
       that.setData({
         image2Commit: []
       });
     } else {                                                     //多张继续判断
-
       if (index == 0) {                                          //要删第一张，直接shift
         that.data.image2Commit.shift()
         that.setData({
@@ -49,23 +43,18 @@ Page({
           image2Commit: arrHead.concat(arrEnd)
         });
       }
-
     }
-
   },
-
   titleInput(event: any) {
     this.setData!({
       titleValue: event.detail.value
     })
   },
-  /*textarea输入时触发该函数-微信框架无双向绑定 */
   textAreaInput(event: any) {
     this.setData!({
       pushText: event.detail.value
     })
   },
-
   /*发布话题 */
   clickPublish(event: any) {
     let postData=null;
@@ -76,15 +65,14 @@ Page({
         icon: 'none',
         title: '标题不能为空！'
       });
-      return
+      return;
     } else if (this.data.titleValue.length < 5) {
       wx.showToast({
         icon: 'none',
         title: '抱歉，标题不得低于五个字呦'
       });
-      return
+      return;
     }
-
     postData = {
       text: this.data.pushText,
       title: this.data.titleValue,
@@ -113,7 +101,6 @@ Page({
       url: '/pages/preview/preview?post='+encodeURIComponent(JSON.stringify(postData))
     })
   },
-
   onEndEditor(event: any) {
     this.setData!({
       inputText: '213rpx'
@@ -126,9 +113,7 @@ Page({
   },
   onLoad(options: any) {
     this.data.id = options.tid;
-    const topic = options.topic?JSON.parse(decodeURIComponent(options.topic)):null
-    console.log('传过来的topic-------',topic);
-    console.log('传过来的页面参数:---------',options);
+    const topic = options.topic?JSON.parse(decodeURIComponent(options.topic)):null;
     if(topic){
       //投稿
       this.setData({

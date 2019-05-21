@@ -1,5 +1,5 @@
 /* pages/index/index.wxss */
-
+@import '/templates/util.wxss';
 .index-contant{
   background-color: rgb(245,245,245);
   padding-bottom: 50rpx;
@@ -127,3 +127,7 @@ margin-top:250rpx;
   margin-top:80rpx;
   text-align:center;
 } */
+/*页面崩溃时*/
+.underlying.err{
+  background: #FFF;
+}

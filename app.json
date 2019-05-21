@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
     "pages": [
         "pages/index",
         "pages/test",
@@ -26,4 +27,32 @@
         "backgroundColor": "#F5F5F5"
     },
     "sitemapLocation": "sitemap.json"
+=======
+  "pages": [
+    "pages/index",
+    "pages/test",
+    "templates/util",
+    "pages/oldindex",
+    "pages/login",
+    "pages/notfound/notfound",
+    "pages/user/detail",
+    "pages/user/news",
+    "pages/user/foot-print",
+    "pages/post/topic-detail",
+    "pages/post/create",
+    "pages/preview/preview",
+    "pages/post/detail",
+    "pages/post/daily-hot"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "轻话题",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom",
+    "onReachBottomDistance": 2,
+    "backgroundColor": "#F5F5F5"
+  },
+  "sitemapLocation": "sitemap.json"
+>>>>>>> b3772fbb4f701f31bf6454c9c45bd3d9963067f6
 }

@@ -32,11 +32,11 @@
 <template name="default">
   <view class="default">
         <block wx:if="{{pages==='news'}}">
-        <image src="../../imgs/img/noInfo.png" class="tipImg" />
+        <image src="/imgs/img/noInfo.png" class="tipImg" />
         <text class="tip">您暂未收到任何消息</text>
         </block>
         <block wx:elif="{{pages==='foot'}}">
-        <image src="../../imgs/img/liulan.png" class="tipImg" />
+        <image src="/imgs/img/liulan.png" class="tipImg" />
         <text class="tip">最近暂无浏览痕迹哦</text>
         </block>
         <a class="tip" bind:tap="findOldIndex">话题社区 ></a>
@@ -45,7 +45,7 @@
 
 <!--崩溃页面模板-->
 <template name='err'>
-    <image src="../../imgs/img/nowifi.png" class="err"/>
+    <image src="/imgs/img/nowifi.png" class="err"/>
     <text class="err">页面崩溃，请尝试重新刷新页面</text>
 </template>
 

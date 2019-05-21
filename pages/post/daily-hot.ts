@@ -1,14 +1,8 @@
 //index.js
 //获取应用实例
 import { IMyApp } from '../../app'
-
-//调用后台api
-/*导入index??? */
-import api from '../../common/api'
-import { ITopicDetailParams, ITopicDetailResponse } from '../../common/types/http_msg';
 import { TestApi } from '../../testApi/TestApi';
 const app = getApp<IMyApp>()
-
 Page({
   data: {
     motto: '点击 “编译” 以构建',
@@ -40,7 +34,6 @@ Page({
       toplicList: TestApi.getTopList(),
       toplic: TestApi.getTopic(3)
     });
-
   },
   //转发分享监听事件
   onShareAppMessage(res: any) {
@@ -49,8 +42,6 @@ Page({
         withShareTicket: true
       })
     }
-    return {
-
-    }
+    return {}
   }
 })

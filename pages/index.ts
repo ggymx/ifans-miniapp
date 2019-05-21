@@ -1,20 +1,18 @@
 import api from '../common/api';
 import { smartGotoPage } from '../common/helper';
-
 Page({
   data: {
     user: null
   },
-  getFormId: function (e:any) {
+  getFormId (e: any) {
     // log out formId
-    console.log(e.detail.formId)
+    console.log(e.detail.formId);
   },
-
   async onShow() {
     const token = wx.getStorageSync('token');
     if (token) {
-      const {user} = await api.getUserProfile()
-      if(user) {
+      const { user } = await api.getUserProfile()
+      if (user) {
         this.setData!({
           user
         })
@@ -28,7 +26,7 @@ Page({
       // imageUrl:'',
     }
   },
-  onPullDownRefresh(){
+  onPullDownRefresh() {
     setTimeout(() => {
       wx.stopPullDownRefresh({
       });
@@ -48,23 +46,22 @@ Page({
       });
     }
   },
-
   //消息通知
-  userNews(){
-    if (wx.getStorageSync('token')&&this.data.user) {
+  userNews() {
+    if (wx.getStorageSync('token') && this.data.user) {
       const userId = wx.getStorageSync('userId');
       smartGotoPage({
         url: '/pages/user/news'
       });
-    }else{
+    } else {
       setTimeout(() => {
         wx.showToast({
-          title:'请先登录',
-          icon:'none'
+          title: '请先登录',
+          icon: 'none'
         });
       }, 300);
       smartGotoPage({
-        url:'/pages/login'
+        url: '/pages/login'
       })
     }
   },
