@@ -9,7 +9,7 @@ Page({
   data: {
     topList: [],
     isSubscribe: false,
-    isErr: false
+    notErr: true
   },
   // 订阅功能
   bindSubscribe() {
@@ -31,7 +31,7 @@ Page({
   },
   // 加载
   loadMore() {
-    const that = this;
+    const that = this as any;
     wx.showLoading({
       title: '请稍候'
     });
@@ -43,7 +43,6 @@ Page({
       },
       method: 'GET',
       success(res) {
-
         console.log('=======测试首页展示数据=======', res.data)
         const data = res.data as any
         if (data.posts.length === 0) {
@@ -67,12 +66,11 @@ Page({
         wx.hideLoading({});
         setTimeout(() => {
           that.setData!({
-            isErr: true
+            notErr: false
           });
         }, 300)
       }
     });
-    wx.hideLoading({});
   },
   onPostRemove(e: any) {
     const {postId} = e.detail
@@ -89,7 +87,7 @@ Page({
   },
   onLoad() {
     cursor = 0
-    const that = this;
+    const that = this as any;
     api.request({
       url: '/v1/post/home-list',
       data: {
@@ -115,6 +113,12 @@ Page({
           wx.stopPullDownRefresh({});
         }, 500);
         cursor = data.cursor;
+      },
+      fail(){
+        console.log('执行出错---------------------');
+        that.setData({
+          notErr:false
+        });
       }
     });
   },

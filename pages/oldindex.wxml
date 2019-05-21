@@ -1,7 +1,8 @@
 <!-- pages/index/index.wxml -->
+<import src="/templates/util.wxml"></import>
 <wxs module="con" src="../wxs/converter.wxs"></wxs>
 <navbar back text="话题社区" class="navbar-index"></navbar>
-<view class="underlying">
+<view class="underlying {{notErr&&''||'err'}}">
  <!-- <view class='index-subscribe' wx:if="{{!isSubscribe}}">
     <button class="subscribe-btn" bind:tap="bindSubscribe">
       <block >
@@ -11,10 +12,17 @@
      
     </button>
   </view> -->
+  <block wx:if="{{!notErr}}">
+     <view class="container">
+        <template is="err"></template>
+     </view>
+   </block>
+   <block wx:else>
   <view class="container" style="margin-top:20rpx;">
     <block wx:for="{{topList}}" wx:for-index="index">
         <postCard wx:if="{{item.type=='1'}}" card showTitle showIssue arrowBtn like post="{{item}}" isLike="{{item.isLike}}" showMore="{{con.isMore(item.text,50)}}" bind:remove="onPostRemove"/>
         <postCard wx:elif="{{item.type=='2'}}" card showTitle arrowBtn like post="{{item}}" isLike="{{item.isLike}}" showMore="{{con.isMore(item.text,50)}}" bind:remove="onPostRemove"/>
     </block>
   </view>
+  </block>
 </view>
