@@ -3,7 +3,7 @@
     "pages/index",
     "pages/test",
     "templates/util",
-
+    "pages/post/create-answer",
     "pages/oldindex",
     "pages/login",
     "pages/notfound/notfound",
@@ -13,7 +13,7 @@
     "pages/post/topic-detail",
     "pages/post/create",
     "pages/preview/preview",
-    "pages/post/create-answer",
+  
     "pages/post/detail",
     "pages/post/daily-hot"
    
