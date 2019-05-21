@@ -154,7 +154,23 @@ class Base {
      }
    }
   }
-
+  /**
+   * 跳转到空间页
+   * @param uId 传入的userId
+   */
+  public findUser(uId: number): void{
+      //获取当前页面
+      const pages = getCurrentPages();
+      //数组中第一个元素为首页，最后一个元素为当前页面。
+      const curPage = pages[pages.length - 1];
+      // 判断跳转页面和当前页面一致
+      if (curPage.route === 'pages/user/detail') {
+        return;
+      }
+    smartGotoPage({
+      url: `/pages/user/detail?userId=${uId}`
+    })
+  }
 }
 const base = new Base();
 export default base

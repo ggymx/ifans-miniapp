@@ -95,11 +95,9 @@ Page({
      }, 500);
   },
   /*跳转到空间页 */
-  findUserDetail() {
+  findUser() {
     const uId = this.data.post.user.id
-    smartGotoPage({
-      url: `/pages/user/detail?userId=${uId}`
-    })
+    base.findUser(uId);
   },
   //跳转到话题详情
   findTopicDetail() {

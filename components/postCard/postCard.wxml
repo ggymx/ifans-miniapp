@@ -4,7 +4,7 @@
   <!-- <view class="publisher-item {{card?'item-card':''}} slot1 slot2" catch:tap="finalLink"> -->
   <!--顶部-->
   <view class="publisher-person">
-    <image src="{{post.user.avatar}}" class="avatar" catch:tap="findMy" />
+    <image src="{{post.user.avatar}}" class="avatar" catch:tap="findUser" />
     <view class="user-view">
       <!-- 用户名 -->
         <text class="username">{{con.nickNameCon(post.user.nickname)}}</text>

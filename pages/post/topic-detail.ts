@@ -91,11 +91,9 @@ Page({
     this.loadData(options, '已经到底了！', 'none');
   },
   /*跳转到空间页 */
-  findUserDetail() {
+  findUser() {
     const uId = this.data.post.user.id
-    smartGotoPage({
-      url: `/pages/user/detail?userId=${uId}`
-    })
+    base.findUser(uId);
   },
   /* 监听后退事件 */
   onUnload() {

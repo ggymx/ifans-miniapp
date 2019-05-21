@@ -80,20 +80,9 @@ Component({
       }
     },
     //跳转到空间
-    findMy(event: any) {
-      const instance = this as any;
-      //获取当前页面
-      const pages = getCurrentPages();
-      // 数组中第一个元素为首页，最后一个元素为当前页面。
-      const curPage = pages[pages.length - 1];
-      const userId = instance.properties.post.user.id;
-      // 判断跳转页面和当前页面一致
-      if (curPage.route === 'pages/user/detail') {
-        return;
-      }
-      smartGotoPage({
-        url: '/pages/user/detail?userId=' + userId
-      });
+    findUser(event: any) {
+      const userId = (this as any).properties.post.user.id;
+      base.findUser(userId);
     },
     //跳转到发布页
     createAnswer(event: any) {

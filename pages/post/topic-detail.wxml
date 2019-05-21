@@ -11,7 +11,7 @@
             </view>
         </view>
         <view class="user">
-            <image class="info fl" src="{{post.user.avatar}}" bind:tap="findUserDetail"></image>
+            <image class="info fl" src="{{post.user.avatar}}" bind:tap="findUser"></image>
             <view class="name fl">{{post.user.nickname}}</view>
         </view>
         <view class="content">{{post.text}}</view>
