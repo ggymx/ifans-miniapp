@@ -15,6 +15,7 @@ Page {
 .title {
     width: 100%;
     height: 115rpx;
+    color: #222;
     box-sizing: border-box;
     border-bottom: 2rpx solid #f4f5f9;
 }
@@ -26,18 +27,15 @@ Page {
     font-size: 32rpx;
     padding-left: 45rpx;
     box-sizing: border-box;
-    font-family: PingFang-SC-Medium;
-    font-weight: 500;
-    color: #666;
     line-height: 40rpx;
 }
 
 .content {
     width: 100%;
     height: 958rpx;
-    /* margin-top: 128rpx; */
     padding: 0 45rpx;
     box-sizing: border-box;
+    font-weight: 400;
 }
 
 .content .text {
@@ -47,8 +45,7 @@ Page {
     height: 212rpx;
     font-size: 32rpx;
     line-height: 40rpx;
-    font-weight: 500;
-    color: #c3c3c3;
+    color: #333;
 }
 
 .uploadPicArea {
@@ -106,7 +103,8 @@ Page {
 .foot {
     width: 100%;
     height: 132rpx;
-    position: relative;
+    position: fixed;
+    bottom: 0;
     background-color: #f4f5f9;
 }
 

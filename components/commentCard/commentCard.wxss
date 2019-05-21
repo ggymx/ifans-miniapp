@@ -77,6 +77,7 @@
 .com-item .name {
     font-size: 28rpx;
     color: #4ABABC;
+    font-weight: bold;
 }
 
 .com-item .star {
