@@ -60,7 +60,7 @@
     </view>
 </view>
 <view class="noMore">没有更多了</view>
-<view class="reply" style="position:fixed;bottom:0" isCreateAnserPage="{{isCreateAnserPage}}">
+<view class="reply" isCreateAnserPage="{{isCreateAnserPage}}">
     <view class="img">
         <image class="" src="../../imgs/img/small.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
     </view>
