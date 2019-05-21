@@ -1,7 +1,6 @@
 {
   "usingComponents": {
     "navbar":"../..//components/navbar/navbar",
-    "listing": "../..//components/listing/listing",
     "postCard": "../..//components/postCard/postCard"
   },
   "enablePullDownRefresh":true

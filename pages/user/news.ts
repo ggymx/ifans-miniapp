@@ -12,6 +12,7 @@ const app = getApp<IMyApp>()
 
 Page({
   data: {
+    pages:'news',
     notices: [],
     //当页面正常时
     notErr: true,
@@ -63,7 +64,7 @@ Page({
       }
 
       if (notice.type === ENoticeType.Reply) {
-
+        //
       }
     }
 

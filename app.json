@@ -1,6 +1,9 @@
 {
   "pages": [
     "pages/index",
+    "pages/test",
+    "templates/util",
+
     "pages/oldindex",
     "pages/login",
     "pages/notfound/notfound",
@@ -13,6 +16,7 @@
     "pages/post/create-answer",
     "pages/post/detail",
     "pages/post/daily-hot"
+   
   ],
   "window": {
     "backgroundTextStyle": "dark",

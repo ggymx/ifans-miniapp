@@ -113,7 +113,7 @@ Component({
       //目前仅支持对话题投稿，不支持投稿评论
       if(topic.type===1){
       smartGotoPage({
-         url: '/pages/post/createAnswer?topic=' + encodeURIComponent(JSON.stringify(topic))
+         url: '/pages/post/create-answer?topic=' + encodeURIComponent(JSON.stringify(topic))
       });
      }else{
        //对投稿进行评论，暂无

@@ -1,16 +1,13 @@
 <!-- pages/my/my.wxml -->
+<import src="/templates/util.wxml"/>
 <wxs module="con" src="../../wxs/converter.wxs"></wxs>
 <navbar back text="{{(curUserId==userId)?'我的首页':con.contextCon(user.nickname,10)}}"></navbar>
 <!--当数据为空或者页面崩溃时背景显示白色-->
 <view class="underlying {{recommendList.length==0?'undefault':''}}">
     <!--页面崩溃-->
     <block wx:if="{{!notErr}}">
-        <view>
-         <image src="../../imgs/img/网络不给力@2x.png" class="err"/>
-         <text class="err">页面崩溃，请尝试重新刷新页面</text>
-        </view>
+     <template is="err"></template>
     </block>
-
     <!--页面正常时-->
     <block wx:else>
     <view class="header">
@@ -34,7 +31,7 @@
     <block wx:else>
        <view class="container default" style="margin-top:20rpx;">
             <view style="overflow:hidden;">
-                <image src="../../imgs/img/小螃蟹2@2x.png" class="backImg"/>
+                <image src="../../imgs/img/pangxie.png" class="backImg"/>
                 <text class="defText">客官暂未参加话题讨论</text>
             </view>
        </view>

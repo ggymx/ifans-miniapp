@@ -15,6 +15,7 @@ Page({
     postId: 0,
     topic: null,
     data: null,
+    post:null,
     comments: [],
     commentValue: '',
     isCreateAnserPage: false,
@@ -110,7 +111,11 @@ Page({
       urls: imgs // 需要预览的图片http链接列表
     })
   },
-
+  onPullDownRefresh(){
+     setTimeout(() => {
+       wx.stopPullDownRefresh({});
+     }, 500);
+  },
   /*跳转到空间页 */
   findUserDetail() {
     console.log('用户信息--------------', this.data.data.post.user.id);
@@ -192,6 +197,7 @@ Page({
         }
         that.setData!({
           data,
+          post:data.post,
           isLike: data.post.isLike
         });
         console.log('接收到的文章详情---', that.data.data);

@@ -1,6 +1,5 @@
 {
   "usingComponents": {
-    "navbar":"../..//components/navbar/navbar",
-    "listing":"../..//components/listing/listing"
+    "navbar":"../..//components/navbar/navbar"
   }
 }

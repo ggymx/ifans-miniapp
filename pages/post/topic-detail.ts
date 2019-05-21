@@ -176,7 +176,7 @@ Page({
     const that = this as any;
     this.setData({
       isPublished: options.isPublished === '1',
-      options: options
+      options
     })
     if (!that.data.post) {
 
@@ -205,6 +205,7 @@ Page({
         postArr: that.data.postArr.concat(data.posts),
         cursor: cursor + 1
       });
+      console.log('接收到的投稿列表',that.data.postArr);
       cursor = data.cursor
       wx.hideLoading({});
     } else {
@@ -268,8 +269,11 @@ Page({
   },
   //下拉刷新
   onPullDownRefresh() {
-    const that = this
-    this.loadData(that.data.options, '已刷新', 'success')
+    setTimeout(() => {
+      const that = this
+      this.loadData(that.data.options, '已刷新', 'success');
+      wx.stopPullDownRefresh({});
+    }, 500);
   },
   //底部刷新
   onReachBottom() {
@@ -284,7 +288,7 @@ Page({
       title: 'loading...',
     })
 
-    setTimeout(function () {
+    setTimeout(function() {
       wx.hideLoading({
 
       })
