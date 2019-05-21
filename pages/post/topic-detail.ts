@@ -23,7 +23,7 @@ Page({
   createAnswer(event: any) {
     const topic = this.data.post
     smartGotoPage({
-      url: '/pages/post/create-answer?topic=' + encodeURIComponent(JSON.stringify(topic))
+      url: '/pages/post/create?topic=' + encodeURIComponent(JSON.stringify(topic))
     });
   },
   userInfo(event: any) {
