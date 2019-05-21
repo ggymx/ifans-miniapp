@@ -126,7 +126,7 @@ Page({
   },
   onLoad(options: any) {
     this.data.id = options.tid;
-    const topic = JSON.parse(decodeURIComponent(options.topic))
+    const topic = options.topic?JSON.parse(decodeURIComponent(options.topic)):null
     console.log('传过来的topic-------',topic);
     console.log('传过来的页面参数:---------',options);
     if(topic){
