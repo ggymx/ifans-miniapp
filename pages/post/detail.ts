@@ -22,6 +22,8 @@ Page({
     showMask: false,
     isPublished: false,
     isLike: null,
+    //保存likeCount的初始值
+    likeCount:0,
     focus: false,
   },
   isCreateAnserPage(event: any) {
@@ -160,15 +162,18 @@ Page({
           id: instance.data.data.post.id
         });
         instance.setData!({
-          isLike: true
+          isLike: true,
+          likeCount:this.data.likeCount+1
         });
       } else {
         const res = await api.disLike({
           id: instance.data.data.post.id
         });
         instance.setData!({
-          isLike: false
+          isLike: false,
+          likeCount:this.data.likeCount-1
         });
+
       }
     }
   },
@@ -177,7 +182,7 @@ Page({
     const that = this;
     const id = options.id || { postId }
     this.setData({
-      isPublished: options.isPublished === '1',
+      isPublished: options.isPublished === '1'
     })
     api.request({
       url: '/v1/post/detail',
@@ -191,14 +196,14 @@ Page({
         console.log('---------detail--data--------', data)
         if (data.post === null) {
           console.log('40404040404040404040404040404')
-
           wx.redirectTo({ url: '/pages/notfound/notfound' })
-          return
+          return;
         }
         that.setData!({
           data,
           post:data.post,
-          isLike: data.post.isLike
+          isLike: data.post.isLike,
+          likeCount:data.post.likeCount
         });
         console.log('接收到的文章详情---', that.data.data);
       }

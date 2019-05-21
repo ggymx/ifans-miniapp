@@ -7,6 +7,8 @@ Page({
     inputText: '213rpx',
     titleValue: '',
     image2Commit: [],
+    isTopic:true,
+    refPostId: null,
   },
 
   async didPressChooesImage() {
@@ -66,6 +68,9 @@ Page({
 
   /*发布话题 */
   clickPublish(event: any) {
+    let postData=null;
+    //发布话题
+    if(this.data.isTopic){
     if (!this.data.titleValue) {
       wx.showToast({
         icon: 'none',
@@ -80,7 +85,7 @@ Page({
       return
     }
 
-    const postData = {
+    postData = {
       text: this.data.pushText,
       title: this.data.titleValue,
       type: 1,
@@ -90,10 +95,25 @@ Page({
         url: path,
       })),
     }
+    }else{
+      //发布投稿
+       postData = {
+        text: this.data.pushText,
+        type: 2,
+        refPostId: this.data.refPostId,
+        refPost: this.data.topic,
+        thumbnails: this.data.image2Commit.map(path=>({
+          image: path,
+          type: 0,
+          url: path,
+        })),
+      }
+    }
     wx.navigateTo({
       url: '/pages/preview/preview?post='+encodeURIComponent(JSON.stringify(postData))
     })
   },
+
   onEndEditor(event: any) {
     this.setData!({
       inputText: '213rpx'
@@ -106,5 +126,16 @@ Page({
   },
   onLoad(options: any) {
     this.data.id = options.tid;
+    const topic = options.topic?JSON.parse(decodeURIComponent(options.topic)):null
+    console.log('传过来的topic-------',topic);
+    console.log('传过来的页面参数:---------',options);
+    if(topic){
+      //投稿
+      this.setData({
+        isTopic:false,
+        topic
+      });
+      this.data.refPostId = topic.id
+    }
   }
 })
