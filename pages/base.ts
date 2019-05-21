@@ -8,7 +8,6 @@ class Base {
    * @param instance 当前页面的实例对象
    */
   public popBox(instance: Page.PageInstance): void {
-    console.log('弹出base操作框：', instance);
     const token = wx.getStorageSync('token');
     if (token) {
       const ownId = wx.getStorageSync('userId');
@@ -100,7 +99,6 @@ class Base {
    * @param instance  当前页面的实例对象
    */
   public imgPre(event: any, instance: Page.PageInstance): void {
-    console.log('base的预览图片');
     const thumbnails = instance.data.post.thumbnails;
     const imgs = thumbnails.map((item: any) => item = item.url);
     wx.previewImage({
@@ -109,8 +107,52 @@ class Base {
     })
   }
 
-  public async giveLike(){
-  //
+  /**
+   * 话题-投稿-评论点赞
+   * @param user 当前的使用者，取值component/page
+   * @param instance 当前页面或组件的实例对象
+   */
+  public async giveLike(user: string,instance: Page.PageInstance){
+   //获取token
+   const token = wx.getStorageSync('token');
+   if (!token) {
+     const pages = getCurrentPages();
+     const curPage = pages[pages.length - 1];
+     wx.showToast({ title: '请先登录！' });
+     setTimeout(() => {
+       smartGotoPage({
+         url: '/pages/login'
+       });
+     }, 100);
+   } else {
+     let id: number;
+     const that=instance as any;
+     let isLike: boolean;
+     if(user==='component'){
+       id=that.properties.post.id;
+       isLike=that.properties.isLike;
+     }else{
+       id=that.data.post.id;
+       isLike=that.data.isLike
+     }
+     if (!isLike) {
+       const res = await api.giveLike({
+         id
+       });
+       instance.setData!({
+         isLike: true,
+         likeCount:instance.data.likeCount+1
+       });
+     } else {
+       const res = await api.disLike({
+         id
+       });
+       instance.setData!({
+         isLike: false,
+         likeCount:instance.data.likeCount-1
+       });
+     }
+   }
   }
 
 }

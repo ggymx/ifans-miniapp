@@ -39,37 +39,7 @@ Page({
   },
   /*点赞 */
   async giveLike(event: any) {
-    //获取token
-    const token = wx.getStorageSync('token');
-    if (!token) {
-      const pages = getCurrentPages();
-      const curPage = pages[pages.length - 1];
-      wx.showToast({ title: '请先登录！' });
-      setTimeout(() => {
-        smartGotoPage({
-          url: '/pages/login'
-        });
-      }, 100);
-    } else {
-      const instance = this as any;
-      if (!instance.data.isLike) {
-        const res = await api.giveLike({
-          id: instance.properties.post.id
-        });
-        instance.setData!({
-          isLike: true,
-          likeCount: instance.data.likeCount+1
-        });
-      } else {
-        const res = await api.disLike({
-          id: instance.data.post.id
-        });
-        instance.setData!({
-          isLike: false,
-          likeCount: instance.data.likeCount-1
-        });
-      }
-    }
+    base.giveLike('pages',this);
   },
   /*举报等操作弹出框 */
   popBox() {
