@@ -5,9 +5,8 @@ Page({
   data: {
     user: null
   },
-  getFormId(e: any) {
-    // log out formId
-    console.log(e.detail.formId);
+  async getFormId(e: any) {
+    const res = await api.setUserFormId({ formId: e.detail.formId })
   },
   async onShow() {
     const token = wx.getStorageSync('token');
@@ -38,7 +37,7 @@ Page({
     if (this.data.user) {
       //获取用户Id
       const userId = wx.getStorageSync('userId')
-      base.link('footPrint',userId);
+      base.link('footPrint', userId);
     } else {
       base.link('login');
     }
@@ -46,7 +45,7 @@ Page({
   //消息通知
   userNews() {
     if (wx.getStorageSync('token') && this.data.user) {
-     base.link('news');
+      base.link('news');
     } else {
       setTimeout(() => {
         wx.showToast({
@@ -54,13 +53,13 @@ Page({
           icon: 'none'
         });
       }, 300);
-     base.link('login');
+      base.link('login');
     }
   },
   Login() {
     if (this.data.user) {
       const userId = wx.getStorageSync('userId');
-      base.link('user',userId);
+      base.link('user', userId);
     }
     else {
       base.link('login');

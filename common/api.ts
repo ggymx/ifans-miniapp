@@ -1,5 +1,5 @@
 // tslint:disable max-line-length
-import { IDisLikeParams, IDisLikeResponse, IEmptyParams, IGetAnswerListParams, IGetAnswerListResponse, IGetCommetListParams, IGetCommetListResponse, IGetPostIdByPostIdParams, IGetUserFootPrintParams, IGetUserFootPrintResponse, IHomeTopicListParams, IHomeTopicListResponse, ILikeParams, ILikeResponse, INoticeListParams, INoticeListResponse, IPostDetailParams, IPostsDetailResponse, IUploadParams, IUploadResponse, IUserPageParams, IUserPageResponse, IUserResponse, IRemovePostParams, IRemoveCommentParams, IRemoveCommentResponse, ICreateCommentParams } from './types/http_msg'
+import { ICreateCommentParams, IDisLikeParams, IDisLikeResponse, IEmptyParams, IGetAnswerListParams, IGetAnswerListResponse, IGetCommetListParams, IGetCommetListResponse, IGetPostIdByPostIdParams, IGetUserFootPrintParams, IGetUserFootPrintResponse, IHomeTopicListParams, IHomeTopicListResponse, ILikeParams, ILikeResponse, INoticeListParams, INoticeListResponse, IPostDetailParams, IPostsDetailResponse, IRemoveCommentParams, IRemoveCommentResponse, IRemovePostParams, IReportFormIdParams, IReportFormIdResponse, IUploadParams, IUploadResponse, IUserPageParams, IUserPageResponse, IUserResponse } from './types/http_msg'
 import { IRemovePostResponse } from './types/http_msg';
 import { ICreateCommentResponese } from './types/http_msg';
 
@@ -77,7 +77,12 @@ class Api {
   /**
    * 用户删除评论
    */
-  removeComment = this.makeApi<IRemoveCommentParams, IRemoveCommentResponse>('POST','/v1/comment/remove')
+  removeComment = this.makeApi<IRemoveCommentParams, IRemoveCommentResponse>('POST', '/v1/comment/remove')
+
+  /**
+   * 存储用户的formid
+   */
+  setUserFormId = this.makeApi<IReportFormIdParams, IReportFormIdResponse>('POST', '/v1/user/report-form-id')
 
   private host: string
   private token: string
