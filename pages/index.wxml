@@ -6,12 +6,12 @@
   <view class="content">
   <view class="info">
     <view class="pic fl">
-      <image class="user" bind:tap="Login" src="{{user ? user.avatar: '../imgs/img/tit.png' }}"></image>
+      <image class="user" bind:tap="Login" src="{{user ? user.avatar: '../imgs/img/user.png' }}"></image>
     </view>
     <view class="name fl">{{user ? user.nickname : ''}}</view>
     <view class="msg fr"  bind:tap="userNews">
       <image class="img fl" src="../imgs/img/msg.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false"/>
-      <view class="pot"></view>
+      <view class="pot fr"></view>
     </view>
   </view>
   <view class="bigImg">

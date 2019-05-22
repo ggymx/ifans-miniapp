@@ -63,7 +63,7 @@ text {
 .arr-view {
   position: absolute;
   top: 26rpx;
-  right: 30rpx;
+  right: 8rpx;
   width: 60rpx;
   height: 60rpx;
 }
@@ -123,26 +123,29 @@ text {
 }
 
 .publisher-status {
-  height: 80rpx;
-  width: 100%;
-  /* background:pink; */
-  position: relative;
+  width:100%;
+  height:44rpx;
+  line-height:44rpx;
+  padding: 0 15rpx;
+  margin-bottom: 16rpx;
+  box-sizing: border-box;
+  display:flex;
+  justify-content:space-between;
 }
-
-.clock-icon {
-  width: 28rpx;
-  height: 28rpx;
-  position: absolute;
-  left: 26rpx;
-  top: 10rpx;
+.clockComment {
+  height: 100%;
+  width: auto;
+  display: flex;
 }
+ .clock-icon {
+  width: 44rpx;
+  height: 44rpx;
+} 
 
 .publisher-date {
-  position: absolute;
-  font-size: 24rpx;
+  font-size: 26rpx;
   color: rgb(102, 102, 102);
-  left: 68rpx;
-  top: 8rpx;
+
 }
 
 
@@ -157,36 +160,51 @@ text {
 }
 
 /*举报弹出框*/
-.popBox {
+/* .popBox {
   width: 80rpx;
   height: 100rpx;
   background: red;
   position: absolute;
   top: 52rpx;
   right: 72rpx;
-  /* display: block; */
-}
+  display: block; 
+ } */
+
+ .likeComment {
+  height: 100%;
+  width: auto;
+  line-height: 44rpx;
+  display: flex;
+  justify-content: space-around;
+  }
 
 .like-img {
-  width: 31rpx;
-  height: 26rpx;
+  width: 44rpx;
+  height: 44rpx;
   /* margin-left: 20rpx; */
 }
 
 .comment-img {
-  width: 32rpx;
-  height: 31rpx;
-  margin-left: 38rpx;
+  width: 44rpx;
+  height: 44rpx;
 }
 
-.comment-count {
-  /* position: relative;
-  top: -5rpx; */
-  margin-left: 11rpx;
+.stars,.replys {
+  height: 100%;
+  width: auto;
+  display: flex;
 }
+.stars {
+  margin-right: 38rpx;
+}
+/* .comment-count {
+  position: relative;
+  top: -5rpx; 
+  margin-left: 11rpx;
+}  */
 
 /*下方点赞与评论区域*/
-.likeComment {
+/* .likeComment {
   width: 200rpx;
   height: 100%;
   position: absolute;
@@ -195,25 +213,20 @@ text {
   justify-content: flex-end;
   padding-right: 26rpx;
   padding-top: 10rpx;
-}
+} */
 
+
+/*点赞，评论*/
 .likeComment .count {
-  line-height: 25rpx;
+  line-height: 44rpx;
   font-size: 26rpx;
   font-family: PingFang-SC-Medium;
   font-weight: 500;
+  margin-left: 6rpx;
   color: rgba(102, 102, 102, 1);
 }
 
-/*点赞*/
-.likeComment .like {
-  margin-left: 13rpx;
-}
 
-/*评论*/
-.likeComment .cmt {
-  margin-left: 11rpx;
-}
 
 .username {
   margin-right: 14rpx;

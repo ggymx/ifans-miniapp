@@ -38,17 +38,25 @@
   <!--该item的被评论等状态-->
   <view class="publisher-status">
     <!--时钟-->
-    <image src="../../imgs/button-time@2x.png" class="clock-icon" />
-    <text class="publisher-date">{{con.dateCon(post.createAt)}}</text>
+    <view class="clockComment">
+      <image src="../../imgs/img/block.png" class="clock-icon" />
+      <text class="publisher-date">{{con.dateCon(post.createAt)}}</text>
+    </view>
+    
 
     <view class="likeComment">
     <!--下方点赞：wx:if="{{post.type=='2'}}"-->
-      <image src="{{isLike && '../../imgs/button-like-dj@2x.png' || '../../imgs/home-button-like@2x.png' }}" class="like-img" wx:if="{{like}}" catch:tap="giveLike"/>
-      <text  class="count like">{{likeCount}}</text>
-
+      <view class="stars" catch:tap="giveLike">
+        <image src="{{isLike && '../../imgs/img/dianzan.png' || '../../imgs/img/hong.png' }}" class="like-img" wx:if="{{like}}"/>
+      <text class="count like">{{likeCount}}</text>
+      </view>
+     
     <!--下方评论：wx:elif="{{post.type=='1'}}"-->
-      <image src="{{ '../../imgs/home-button-Comment@2x.png' }}" class="comment-img" catch:tap="createAnswer"/>
+     <view class="replys" catch:tap="createAnswer">
+      <image src="{{ '../../imgs/img/pinglun.png' }}" class="comment-img"/>
       <text class="count cmt">{{post.commentCount||post.attendCount||0}}</text>
+      </view>
+      
     </view>
   </view>
 
