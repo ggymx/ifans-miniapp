@@ -14,7 +14,7 @@
       <view class="item" wx:for="{{notices}}">
         <view style="width:auto;display:flex">
           <view style="height:100%;width:auto;">
-            <image class="avatar" src="{{item.avatar}}" catch:tap="findUserDeail" data-uid="{{item.userId}}" />
+            <image class="avatar" src="{{item.avatar}}" catch:tap="findUser" data-uid="{{item.userId}}" />
           </view>
           <view class="itemRight">
             <view style="height:auto;padding:0;margin-top:26rpx;">

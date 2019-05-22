@@ -1,5 +1,6 @@
 import api from '../../common/api';
 import { smartGotoPage } from '../../common/helper';
+import base from '../../pages/base';
 
 // @ts-ignorets
 Component({
@@ -79,20 +80,9 @@ Component({
       }
     },
     //跳转到空间
-    findMy(event: any) {
-      const instance = this as any;
-      //获取当前页面
-      const pages = getCurrentPages();
-      // 数组中第一个元素为首页，最后一个元素为当前页面。
-      const curPage = pages[pages.length - 1];
-      const userId = instance.properties.post.user.id;
-      // 判断跳转页面和当前页面一致
-      if (curPage.route === 'pages/user/detail') {
-        return;
-      }
-      smartGotoPage({
-        url: '/pages/user/detail?userId=' + userId
-      });
+    findUser(event: any) {
+      const userId = (this as any).properties.post.user.id;
+      base.link('user',userId);
     },
     //跳转到发布页
     createAnswer(event: any) {
@@ -109,127 +99,15 @@ Component({
     },
     /*点赞 */
     async giveLike(event: any) {
-      //获取token
-      const token = wx.getStorageSync('token');
-      if (!token) {
-        const pages = getCurrentPages();
-        const curPage = pages[pages.length - 1];
-        wx.showToast({ title: '请先登录！' });
-        setTimeout(() => {
-          smartGotoPage({
-            url: '/pages/login'
-          });
-        }, 100);
-      } else {
-        const instance = this as any;
-        if (!instance.properties.isLike) {
-          const res = await api.giveLike({
-            id: instance.properties.post.id
-          });
-          instance.setData!({
-            isLike: true,
-            likeCount:instance.data.likeCount+1
-          });
-        } else {
-          const res = await api.disLike({
-            id: instance.properties.post.id
-          });
-          instance.setData!({
-            isLike: false,
-            likeCount:instance.data.likeCount-1
-          });
-        }
-      }
+      base.giveLike(this,'component');
     },
     /*举报等操作弹出框 */
     popBox() {
-      const instance = this as any;
-      const token = wx.getStorageSync('token');
-      if (token) {
-        const ownId = wx.getStorageSync('userId');
-        const userId = instance.properties.post.user.id;
-        const cId = instance.properties.post.id;
-        if (ownId === userId) {
-          wx.showActionSheet({
-            itemList: ['删除'],
-            success(res) {
-              switch (res.tapIndex) {
-                case 0:
-                  wx.showModal({
-                    title: '删除投稿',
-                    content: '确定删除这则投稿吗？',
-                    success(res) {
-                      if (res.confirm) {
-                        api.request({
-                          url: '/v1/post/remove',
-                          data: {
-                            postId: cId
-                          },
-                          method: 'POST',
-                          success(res) {
-                            instance.triggerEvent('remove', {postId: cId})
-                          },
-                          fail(res) {
-                            wx.showToast({ title: '删除失败' });
-                          }
-                        });
-                      }
-                    }
-                  });
-                  break;
-              }
-            }
-          });
-        } else {
-          wx.showActionSheet({
-            itemList: ['举报'],
-            success(res) {
-              switch (res.tapIndex) {
-                case 0:
-                  wx.showModal({
-                    title: '举报',
-                    content: '确定举报这则投稿吗？',
-                    success(res) {
-                      if (res.confirm) {
-                        api.request({
-                          url: '/v1/post/abuse-report',
-                          data: {
-                            postId: cId
-                          },
-                          method: 'POST',
-                          success(res) {
-                            const data = res.data as any;
-                            data.msg === 'ok'
-                              ? wx.showToast({ title: '举报成功' })
-                              : '';
-                          }
-                        });
-                      }
-                    }
-                  });
-                  break;
-              }
-            }
-          });
-        }
-      } else {
-        wx.showToast({ title: '请先登录！' });
-        setTimeout(() => {
-          smartGotoPage({
-            url: '/pages/login'
-          });
-        }, 100);
-      }
+     base.popBox(this);
     },
     //图片预览
     imgPre(event: any){
-      const instance=this as any;
-      const thumbnails=instance.data.post.thumbnails;
-      const imgs=thumbnails.map((item: any)=>item=item.url);
-      wx.previewImage({
-        current: event.target.dataset.src, // 当前显示图片的http链接
-        urls: imgs // 需要预览的图片http链接列表
-      })
+      base.imgPre(event,this);
     }
   },
   ready(){

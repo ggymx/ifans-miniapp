@@ -68,6 +68,7 @@ Page({
         }, 300)
       }
     });
+    wx.hideLoading({});
   },
   onPostRemove(e: any) {
     const { postId } = e.detail

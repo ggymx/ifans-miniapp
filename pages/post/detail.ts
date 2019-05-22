@@ -4,6 +4,7 @@ import { IMyApp } from '../../app'
 import api from '../../common/api';
 import { smartGotoPage } from '../../common/helper';
 import { EUserStatus } from '../../common/types/comment';
+import base from '../../pages/base'
 const app = getApp<IMyApp>()
 let id: number;
 const cursor: number = 0;
@@ -11,7 +12,7 @@ let postId: number;
 Page({
   data: {
     topic: null,
-    data: null,
+    // data: null,
     post:null,
     isLike: null,
     likeCount:0,          //保存likeCount状态
@@ -86,13 +87,7 @@ Page({
   },
   //图片预览
   imgPre(event: any) {
-    const instance = this as any;
-    const thumbnails = instance.data.data.post.thumbnails;
-    const imgs = thumbnails.map((item: any) => item = item.url);
-    wx.previewImage({
-      current: event.target.dataset.src, // 当前显示图片的http链接
-      urls: imgs // 需要预览的图片http链接列表
-    })
+    base.imgPre(event,this);
   },
   onPullDownRefresh(){
      setTimeout(() => {
@@ -100,59 +95,21 @@ Page({
      }, 500);
   },
   /*跳转到空间页 */
-  findUserDetail() {
-    const uId = this.data.data.post.user.id
-    smartGotoPage({
-      url: `/pages/user/detail?userId=${uId}`
-    })
+  findUser() {
+    const uId = this.data.post.user.id
+    base.link('user',uId);
   },
   //跳转到话题详情
   findTopicDetail() {
     const instance = this as any;
-    const tid = instance.data.data.post.refPost.id;
+    const tid = instance.data.post.refPost.id;
     smartGotoPage({
       url: `/pages/post/topic-detail?id=${tid}`
     })
   },
   /*点赞 */
   async giveLike(event: any) {
-    //获取token
-    const token = wx.getStorageSync('token');
-    if (!token) {
-      const pages = getCurrentPages();
-      const curPage = pages[pages.length - 1];
-      wx.showToast({ title: '请先登录！' });
-      setTimeout(() => {
-        if (curPage.route === 'pages/index') {
-          smartGotoPage({
-            url: './login'
-          });
-        } else {
-          smartGotoPage({
-            url: '../login'
-          });
-        }
-      }, 100);
-    } else {
-      const instance = this as any;
-      if (!instance.data.isLike) {
-        const res = await api.giveLike({
-          id: instance.data.data.post.id
-        });
-        instance.setData!({
-          isLike: true,
-          likeCount:this.data.likeCount+1
-        });
-      } else {
-        const res = await api.disLike({
-          id: instance.data.data.post.id
-        });
-        instance.setData!({
-          isLike: false,
-          likeCount:this.data.likeCount-1
-        });
-      }
-    }
+    base.giveLike(this);
   },
   async onLoad(options: any) {
     const that = this;
@@ -196,90 +153,7 @@ Page({
   },
   /*举报等操作弹出框 */
   popBox() {
-    const instance = this as any;
-    const token = wx.getStorageSync('token');
-    if (token) {
-      const ownId = wx.getStorageSync('userId');
-      const userId = instance.data.data.post.user.id;
-      const cId = instance.data.data.post.id;
-      if (ownId === userId) {
-        wx.showActionSheet({
-          itemList: ['删除'],
-          success(res) {
-            switch (res.tapIndex) {
-              case 0:
-                wx.showModal({
-                  title: '删除投稿',
-                  content: '确定删除这则投稿吗？',
-                  success(res) {
-                    if (res.confirm) {
-                      api.request({
-                        url: '/v1/post/remove',
-                        data: {
-                          postId: cId
-                        },
-                        method: 'POST',
-                        success(res) {
-                          wx.showToast({
-                            title: '删除成功',
-                            success() {
-                              wx.navigateBack({
-                                delta: 1
-                              })
-                            }
-                          });
-                        },
-                        fail(res) {
-                          wx.showToast({ title: '删除成功' });
-                        }
-                      });
-                    }
-                  }
-                });
-                break;
-            }
-          }
-        });
-      } else {
-        wx.showActionSheet({
-          itemList: ['举报'],
-          success(res) {
-            switch (res.tapIndex) {
-              case 0:
-                wx.showModal({
-                  title: '举报',
-                  content: '确定举报这则投稿吗？',
-                  success(res) {
-                    if (res.confirm) {
-                      api.request({
-                        url: '/v1/post/abuse-report',
-                        data: {
-                          postId: cId
-                        },
-                        method: 'POST',
-                        success(res) {
-                          const data = res.data as any;
-                          data.msg === 'ok'
-                            ? wx.showToast({ title: '举报成功' })
-                            : '';
-                        }
-                      });
-                    }
-                  }
-                });
-                break;
-            }
-          }
-        });
-      }
-    } else {
-      wx.showToast({ title: '请先登录！' });
-      setTimeout(() => {
-        smartGotoPage({
-          url: '/pages/login'
-        });
-      }, 100);
-    }
+    base.popBox(this);
   }
   /*转发分享监听事件 */
   // onShareAppMessage(res: any) {
