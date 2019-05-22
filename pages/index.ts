@@ -1,10 +1,11 @@
 import api from '../common/api';
 import { smartGotoPage } from '../common/helper';
+import base from './base';
 Page({
   data: {
     user: null
   },
-  getFormId (e: any) {
+  getFormId(e: any) {
     // log out formId
     console.log(e.detail.formId);
   },
@@ -37,22 +38,15 @@ Page({
     if (this.data.user) {
       //获取用户Id
       const userId = wx.getStorageSync('userId')
-      wx.navigateTo({
-        url: `./user/foot-print?userId=${userId}`
-      })
+      base.link('footPrint',userId);
     } else {
-      smartGotoPage({
-        url: './login'
-      });
+      base.link('login');
     }
   },
   //消息通知
   userNews() {
     if (wx.getStorageSync('token') && this.data.user) {
-      const userId = wx.getStorageSync('userId');
-      smartGotoPage({
-        url: '/pages/user/news'
-      });
+     base.link('news');
     } else {
       setTimeout(() => {
         wx.showToast({
@@ -60,22 +54,16 @@ Page({
           icon: 'none'
         });
       }, 300);
-      smartGotoPage({
-        url: '/pages/login'
-      })
+     base.link('login');
     }
   },
   Login() {
     if (this.data.user) {
       const userId = wx.getStorageSync('userId');
-      smartGotoPage({
-        url: './user/detail?userId=' + userId
-      });
+      base.link('user',userId);
     }
     else {
-      smartGotoPage({
-        url: './login'
-      });
+      base.link('login');
     }
   },
   manyTopic(event: any) {

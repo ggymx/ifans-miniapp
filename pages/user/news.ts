@@ -87,24 +87,8 @@ Page({
       }, 100)
     }
   },
-  /*跳转到话题详情 */
-  findTopicDetail(event: any) {
-    const tId = event.target.dataset.tid;
-    smartGotoPage({
-      url: `/pages/post/topic-detail?id=${tId}`
-    })
-  },
-  /*跳转到话题社区 */
-  findOldIndex() {
-    smartGotoPage({
-      url: '/pages/oldindex'
-    });
-  },
   findUser(event: any) {
     const uId = event.target.dataset.uid;
-    // smartGotoPage({
-    //   url: `/pages/user/detail?userId=${uId}`
-    // });
     base.link('user',uId);
   }
 })
