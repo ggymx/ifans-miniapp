@@ -112,53 +112,77 @@ class Base {
    * @param user 当前的使用者，取值component/page
    * @param instance 当前页面或组件的实例对象
    */
-  public async giveLike(instance: Page.PageInstance,user: string='page'){
-   //获取token
-   const token = wx.getStorageSync('token');
-   if (!token) {
-     const pages = getCurrentPages();
-     const curPage = pages[pages.length - 1];
-     wx.showToast({ title: '请先登录！' });
-     setTimeout(() => {
-       smartGotoPage({
-         url: '/pages/login'
-       });
-     }, 100);
-   } else {
-     let id: number;
-     const that=instance as any;
-     let isLike: boolean;
-     if(user==='component'){
-       id=that.properties.post.id;
-       isLike=that.properties.isLike;
-     }else{
-       id=that.data.post.id;
-       isLike=that.data.isLike
-     }
-     if (!isLike) {
-       const res = await api.giveLike({
-         id
-       });
-       instance.setData!({
-         isLike: true,
-         likeCount:instance.data.likeCount+1
-       });
-     } else {
-       const res = await api.disLike({
-         id
-       });
-       instance.setData!({
-         isLike: false,
-         likeCount:instance.data.likeCount-1
-       });
-     }
-   }
+  public async giveLike(instance: Page.PageInstance, user: string = 'page') {
+    //获取token
+    const token = wx.getStorageSync('token');
+    if (!token) {
+      const pages = getCurrentPages();
+      const curPage = pages[pages.length - 1];
+      wx.showToast({ title: '请先登录！' });
+      setTimeout(() => {
+        smartGotoPage({
+          url: '/pages/login'
+        });
+      }, 100);
+    } else {
+      let id: number;
+      const that = instance as any;
+      let isLike: boolean;
+      if (user === 'component') {
+        id = that.properties.post.id;
+        isLike = that.properties.isLike;
+      } else {
+        id = that.data.post.id;
+        isLike = that.data.isLike
+      }
+      if (!isLike) {
+        const res = await api.giveLike({
+          id
+        });
+        instance.setData!({
+          isLike: true,
+          likeCount: instance.data.likeCount + 1
+        });
+      } else {
+        const res = await api.disLike({
+          id
+        });
+        instance.setData!({
+          isLike: false,
+          likeCount: instance.data.likeCount - 1
+        });
+      }
+    }
   }
   /**
    * 跳转到空间页
    * @param uId 传入的userId
    */
-  public findUser(uId: number): void{
+  public findUser(uId: number): void {
+    //获取当前页面
+    const pages = getCurrentPages();
+    //数组中第一个元素为首页，最后一个元素为当前页面。
+    const curPage = pages[pages.length - 1];
+    // 判断跳转页面和当前页面一致
+    if (curPage.route === 'pages/user/detail') {
+      return;
+    }
+    smartGotoPage({
+      url: `/pages/user/detail?userId=${uId}`
+    })
+  }
+  /**
+   * 跳转到目标页面
+   * @param target 要跳转的目标页面
+   *  @type 取值topic（话题详情）post（文章详情）
+   *        user(用户空间) login(登录)
+   *        footPrint(足迹)  news(消息通知)
+   * @param id 传入相应接口的主键id（可选参数）
+   */
+  public link(target: string, id?: number): void {
+    console.log('新的跳转页面的方式link');
+    //目标页是空间页
+    if (target === 'user') {
       //获取当前页面
       const pages = getCurrentPages();
       //数组中第一个元素为首页，最后一个元素为当前页面。
@@ -167,67 +191,84 @@ class Base {
       if (curPage.route === 'pages/user/detail') {
         return;
       }
-    smartGotoPage({
-      url: `/pages/user/detail?userId=${uId}`
-    })
-  }
- /**
-  * 跳转到目标页面
-  * @param target 要跳转的目标页面
-  *  @type 取值topic（话题详情）post（文章详情）
-  *        user(用户空间) login(登录)
-  *        footPrint(足迹)  news(消息通知)
-  * @param id 传入相应接口的主键id（可选参数）
-  */
-  public link(target: string,id?: number): void{
-    console.log('新的跳转页面的方式link');
-    //目标页是空间页
-    if(target==='user'){
-         //获取当前页面
-         const pages = getCurrentPages();
-         //数组中第一个元素为首页，最后一个元素为当前页面。
-         const curPage = pages[pages.length - 1];
-         // 判断跳转页面和当前页面一致
-         if (curPage.route === 'pages/user/detail') {
-           return;
-         }
-       smartGotoPage({
-         url: `/pages/user/detail?userId=${id}`
-       });
-       return;
+      smartGotoPage({
+        url: `/pages/user/detail?userId=${id}`
+      });
+      return;
     }
     //话题详情
-    if(target==='topic'){
+    if (target === 'topic') {
       smartGotoPage({
         url: `/pages/post/topic-detail?id=${id}`
       })
       return;
     }
     //文章详情
-    if(target==='post'){
+    if (target === 'post') {
       smartGotoPage({
-        url:`/pages/post/detail?id=${id}`
+        url: `/pages/post/detail?id=${id}`
       });
       return;
     }
-    if(target==='login'){
+    if (target === 'login') {
       smartGotoPage({
         url: '/pages/login'
       });
       return;
     }
-    if(target==='footPrint'){
+    if (target === 'footPrint') {
       smartGotoPage({
         url: `/pages/user/foot-print?userId=${id}`
       });
       return;
     }
-    if(target==='news'){
+    if (target === 'news') {
       smartGotoPage({
         url: '/pages/user/news'
       });
     }
   }
+  /**
+   * 分页方法
+   * @param target 要获取的数据列表的简称
+   * @type post（话题列表-包含投稿）footPrint（足迹列表）
+   *       news（消息列表）
+   * @param cursor 传入的分页指针
+   */
+  public async pagingLoad(target: string, cursor: number=0): Promise<object> {
+    let list: object = null;
+     //cursor不等于0说明是加载更多
+    if (cursor !== 0) {
+      wx.showLoading({
+        title: '加载更多'
+      });
+      setTimeout(() => {
+        wx.hideLoading({});
+      }, 500);
+    }
+    //获取话题列表
+    if(target==='post'){
+      list = await api.getHomeTopicList({ cursor, limit: 10 });
+      console.log('话题列表的list',list);
+    }else if(target==='footPrint'){
+      list =await api.getFootPrint({cursor,limit:10});
+      console.log('足迹列表的list',list);
+    }else if(target==='news'){
+      // console.log('传入消息列表的cursor',cursor);
+      // list =await api.getUserNotice({cursor,limit:10});
+      // console.log('消息列表的list',list);
+    }
+    if ((list as any).posts.length === 0) {
+      wx.showToast({
+        icon: 'none',
+        title: '已经到底了。。。'
+      });
+      setTimeout(() => {
+        wx.hideToast({});
+      }, 400);
+    }
+    return new Promise((resolve) => { resolve(list) });
+}
 }
 const base = new Base();
 export default base

@@ -74,6 +74,7 @@ Page({
       //获取用户Id
       const userId = wx.getStorageSync('userId')
       const data = await api.getUserNotice({})
+      console.log('获取消息列表---------------',data);
       const notices = this.httpDataProcessing(data.notices)
       this.setData!({
         notices,
@@ -86,6 +87,8 @@ Page({
         });
       }, 100)
     }
+    // const res=await base.pagingLoad('news',0) as any;
+
   },
   findUser(event: any) {
     const uId = event.target.dataset.uid;

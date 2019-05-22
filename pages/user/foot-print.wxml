@@ -9,9 +9,9 @@
       <template is="err"></template>
     </block>
     <!-- 正常页面 -->
-    <block wx:elif="{{postArr.length!=0}}">
+    <block wx:elif="{{footPrintList.length!=0}}">
       <!-- 足迹列表 -->
-      <view class="item" wx:for="{{postArr}}" data-item="{{item}}" bind:tap="onClick">
+      <view class="item" wx:for="{{footPrintList}}" data-item="{{item}}" bind:tap="onClick">
         <!-- 配图 -->
         <image class="postImg" src="{{item.gallery||'../../imgs/img/comment.png'}}" />
         <!-- 附加信息 -->
