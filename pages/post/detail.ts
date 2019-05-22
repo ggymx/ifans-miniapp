@@ -97,7 +97,7 @@ Page({
   /*跳转到空间页 */
   findUser() {
     const uId = this.data.post.user.id
-    base.findUser(uId);
+    base.link('user',uId);
   },
   //跳转到话题详情
   findTopicDetail() {
@@ -109,7 +109,7 @@ Page({
   },
   /*点赞 */
   async giveLike(event: any) {
-    base.giveLike('page',this);
+    base.giveLike(this);
   },
   async onLoad(options: any) {
     const that = this;

@@ -112,7 +112,7 @@ class Base {
    * @param user 当前的使用者，取值component/page
    * @param instance 当前页面或组件的实例对象
    */
-  public async giveLike(user: string,instance: Page.PageInstance){
+  public async giveLike(instance: Page.PageInstance,user: string='page'){
    //获取token
    const token = wx.getStorageSync('token');
    if (!token) {
@@ -170,6 +170,43 @@ class Base {
     smartGotoPage({
       url: `/pages/user/detail?userId=${uId}`
     })
+  }
+ /**
+  * 跳转到目标页面
+  * @param target 要跳转的目标页面
+  *  取值topic（话题详情）post（文章详情）user(空间页面)
+  * @param id    传入路由id
+  */
+  public link(target: string,id: number): void{
+    console.log('新的跳转页面的方式link');
+    //目标页是空间页
+    if(target==='user'){
+         //获取当前页面
+         const pages = getCurrentPages();
+         //数组中第一个元素为首页，最后一个元素为当前页面。
+         const curPage = pages[pages.length - 1];
+         // 判断跳转页面和当前页面一致
+         if (curPage.route === 'pages/user/detail') {
+           return;
+         }
+       smartGotoPage({
+         url: `/pages/user/detail?userId=${id}`
+       });
+       return;
+    }
+    //话题详情
+    if(target==='topic'){
+      smartGotoPage({
+        url: `/pages/post/topic-detail?id=${id}`
+      })
+      return;
+    }
+    //文章详情
+    if(target==='post'){
+      smartGotoPage({
+        url:`/pages/post/detail?id=${id}`
+      })
+    }
   }
 }
 const base = new Base();

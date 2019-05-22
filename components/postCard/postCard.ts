@@ -82,7 +82,7 @@ Component({
     //跳转到空间
     findUser(event: any) {
       const userId = (this as any).properties.post.user.id;
-      base.findUser(userId);
+      base.link('user',userId);
     },
     //跳转到发布页
     createAnswer(event: any) {
@@ -99,7 +99,7 @@ Component({
     },
     /*点赞 */
     async giveLike(event: any) {
-      base.giveLike('component',this);
+      base.giveLike(this,'component');
     },
     /*举报等操作弹出框 */
     popBox() {

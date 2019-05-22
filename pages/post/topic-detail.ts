@@ -39,7 +39,7 @@ Page({
   },
   /*点赞 */
   async giveLike(event: any) {
-    base.giveLike('pages',this);
+    base.giveLike(this);
   },
   /*举报等操作弹出框 */
   popBox() {
@@ -93,7 +93,7 @@ Page({
   /*跳转到空间页 */
   findUser() {
     const uId = this.data.post.user.id
-    base.findUser(uId);
+    base.link('user',uId);
   },
   /* 监听后退事件 */
   onUnload() {

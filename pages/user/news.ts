@@ -4,6 +4,7 @@ import api from '../../common/api';
 import { smartGotoPage } from '../../common/helper';
 import { FontNotice } from '../../common/types/font_notice';
 import { ENoticeType, ETableType, INoticeReply } from '../../common/types/notice_reply';
+import base from '../base'
 const app = getApp<IMyApp>()
 Page({
   data: {
@@ -99,10 +100,11 @@ Page({
       url: '/pages/oldindex'
     });
   },
-  findUserDeail(event: any) {
+  findUser(event: any) {
     const uId = event.target.dataset.uid;
-    smartGotoPage({
-      url: `/pages/user/detail?userId=${uId}`
-    });
+    // smartGotoPage({
+    //   url: `/pages/user/detail?userId=${uId}`
+    // });
+    base.link('user',uId);
   }
 })
