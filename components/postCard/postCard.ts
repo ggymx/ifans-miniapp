@@ -66,17 +66,8 @@ Component({
          // instance.properties.final为false的时候进来
       if (!instance.properties.final) {
         //type=1则是话题详情
-        if (instance.properties.post.type === 1) {
-          const id = instance.properties.post.id
-          smartGotoPage({
-            url: '/pages/post/topic-detail?id=' + id
-          })
-        } else {
-          const id = instance.properties.post.id
-          smartGotoPage({
-            url:'/pages/post/detail?id=' + id
-          })
-        }
+        const id = (instance.properties.post.id) as number
+        (instance.properties.post.type === 1)?base.link('topic',id): base.link('post',id);
       }
     },
     //跳转到空间
@@ -99,15 +90,15 @@ Component({
     },
     /*点赞 */
     async giveLike(event: any) {
-      base.giveLike(this,'component');
+      base.giveLike(this as any,'component');
     },
     /*举报等操作弹出框 */
     popBox() {
-     base.popBox(this);
+     base.popBox(this as any);
     },
     //图片预览
     imgPre(event: any){
-      base.imgPre(event,this);
+      base.imgPre(event,this as any);
     }
   },
   ready(){

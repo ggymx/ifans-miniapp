@@ -174,10 +174,12 @@ class Base {
  /**
   * 跳转到目标页面
   * @param target 要跳转的目标页面
-  *  取值topic（话题详情）post（文章详情）user(空间页面)
-  * @param id    传入路由id
+  *  @type 取值topic（话题详情）post（文章详情）
+  *        user(用户空间) login(登录)
+  *        footPrint(足迹)  news(消息通知)
+  * @param id 传入相应接口的主键id（可选参数）
   */
-  public link(target: string,id: number): void{
+  public link(target: string,id?: number): void{
     console.log('新的跳转页面的方式link');
     //目标页是空间页
     if(target==='user'){
@@ -205,7 +207,25 @@ class Base {
     if(target==='post'){
       smartGotoPage({
         url:`/pages/post/detail?id=${id}`
-      })
+      });
+      return;
+    }
+    if(target==='login'){
+      smartGotoPage({
+        url: '/pages/login'
+      });
+      return;
+    }
+    if(target==='footPrint'){
+      smartGotoPage({
+        url: `/pages/user/foot-print?userId=${id}`
+      });
+      return;
+    }
+    if(target==='news'){
+      smartGotoPage({
+        url: '/pages/user/news'
+      });
     }
   }
 }
