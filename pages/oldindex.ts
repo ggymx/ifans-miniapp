@@ -29,16 +29,6 @@ Page({
       wx.showToast({ title: '取消订阅', icon: 'none' });
     }
   },
-  // 加载
-  async loadMore() {
-    const res=await base.pagingLoad('postList',cursor) as any;
-    if(this.data.topList!==[]&&res.posts.length!==0){
-     this.setData({
-       topList:this.data.topList.concat(res.posts)
-     })
-     cursor=res.cursor;
-    }
-  },
   onPostRemove(e: any) {
     const { postId } = e.detail
     const topList = this.data.topList
@@ -53,15 +43,28 @@ Page({
     }
   },
   async onLoad() {
-     const res=await base.pagingLoad('postList',0) as any;
+     const res=await base.pagingLoad('post',0) as any;
      this.setData({
        topList:res.posts
      })
      cursor=res.cursor;
   },
+  // 加载
+  async loadMore() {
+    const res=await base.pagingLoad('post',cursor) as any;
+    if(this.data.topList!==[]&&res.posts.length!==0){
+     this.setData({
+       topList:this.data.topList.concat(res.posts)
+     })
+     cursor=res.cursor;
+    }
+  },
   // 下拉刷新功能
   onPullDownRefresh() {
     this.onLoad()
+    setTimeout(() => {
+      wx.stopPullDownRefresh({});
+    }, 200);
   },
   // 浏览到底端功能
   onReachBottom() {

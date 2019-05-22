@@ -3,8 +3,6 @@ import api from '../common/api';
 import { isPostPage, smartGotoPage } from '../common/helper';
 
 class Base {
-  //分页状态-用于分页方法
-  private PAGING_STATUS: boolean=true;
   /**
    * 屏蔽举报操作
    * @param instance 当前页面的实例对象
@@ -233,18 +231,12 @@ class Base {
   /**
    * 分页方法
    * @param target 要获取的数据列表的简称
-   * @type postList（话题列表-包含投稿）
-   * @param dataArr 传入的初始的
+   * @type post（话题列表-包含投稿）footPrint（足迹列表）
+   *       news（消息列表）
+   * @param cursor 传入的分页指针
    */
-  public async pagingLoad(target: string, cursor: number): Promise<object> {
+  public async pagingLoad(target: string, cursor: number=0): Promise<object> {
     let list: object = null;
-    //加载到底提示
-    if(!this.PAGING_STATUS){
-      wx.showToast({
-          icon: 'none',
-          title: '没有更多了~'
-      });
-    }
      //cursor不等于0说明是加载更多
     if (cursor !== 0) {
       wx.showLoading({
@@ -255,8 +247,16 @@ class Base {
       }, 500);
     }
     //获取话题列表
-    if(target==='postList'){
+    if(target==='post'){
       list = await api.getHomeTopicList({ cursor, limit: 10 });
+      console.log('话题列表的list',list);
+    }else if(target==='footPrint'){
+      list =await api.getFootPrint({cursor,limit:10});
+      console.log('足迹列表的list',list);
+    }else if(target==='news'){
+      // console.log('传入消息列表的cursor',cursor);
+      // list =await api.getUserNotice({cursor,limit:10});
+      // console.log('消息列表的list',list);
     }
     if ((list as any).posts.length === 0) {
       wx.showToast({
@@ -265,7 +265,7 @@ class Base {
       });
       setTimeout(() => {
         wx.hideToast({});
-      }, 500);
+      }, 400);
     }
     return new Promise((resolve) => { resolve(list) });
 }
