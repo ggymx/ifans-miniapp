@@ -21,20 +21,20 @@
 
         <view class="bot">
             <view class="left">
-                <image class="block" src="../../imgs/time.png"></image>
+                <image class="block" src="../../imgs/img/block.png"></image>
                 <view class="time">{{con.dateCon(post.createAt)}}</view>
             </view>
             <view class="right">
                 <view class="star" catch:tap="giveLike">
-                    <image class="stars" src="{{isLike && '../../imgs/button-like-dj@2x.png' || '../../imgs/home-button-like@2x.png' }}"></image>
+                    <image class="stars" src="{{isLike && '../../imgs/img/dianzan.png' || '../../imgs/img/hong.png' }}"></image>
                     {{likeCount}}
                 </view>
                 <view class="msg" bind:tap="createAnswer">
-                    <image class="msgs" src="../../imgs/img/message.png"></image>
+                    <image class="msgs" src="../../imgs/img/pinglun.png"></image>
                     {{post.attendCount ||0}}
                 </view>
                 <view class="replys">
-                <image class="rep" src="../../imgs/img/share.png" mode="aspectFit|aspectFill|widthFix"></image>
+                <image class="rep" src="../../imgs/img/fenxiang.png" mode="aspectFit|aspectFill|widthFix"></image>
                     <button class="share" open-type="share" plain="true"></button>
                 </view>
             </view>

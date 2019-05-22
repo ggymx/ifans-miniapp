@@ -89,16 +89,16 @@
 
 .first .bot {
     width: 100%;
-    height: 31rpx;
-    line-height: 31rpx;
+    height: 44rpx;
+    line-height: 44rpx;
     margin: 36rpx 0;
     display: flex;
     justify-content: space-between;
 }
 
 .left .block {
-    width: 31rpx;
-    height: 31rpx;
+    width: 44rpx;
+    height: 44rpx;
     margin-right: 12rpx;
 }
 
@@ -131,53 +131,25 @@
     display: flex;
 }
 
-.star {
-    margin-right: 32rpx;
-}
-
-.msg {
-    margin-right: 32rpx;
-    color: #666;
-}
-
 .stars,
 .msgs {
-    margin-right: 12rpx;
+    margin-right: 6rpx;
 }
 
-.star .stars {
-    width: 31rpx;
-    height: 26rpx;
-    margin-top: 2rpx;
-}
-
-.msg .msgs {
-    width: 31rpx;
-    height: 31rpx;
-}
-
-.right .star::before,
-.right .msg::before,
-.right .share::before {
-    content: '';
-    position: absolute;
-    top: -10rpx;
-    bottom: -10rpx;
-    left: -15rpx;
-    right: -15rpx;
+.star .stars,
+.msg .msgs,
+.replys .rep
+{
+    width: 44rpx;
+    height: 44rpx;
 }
 
 .right .share {
     padding: 0;
-    width: 50rpx;
-    height: 50rpx;
+    width: 44rpx;
+    height: 44rpx;
     border: none;
     line-height: 0;
-}
-
-.replys .rep {
-    width: 31rpx;
-    height: 31rpx;
 }
 
 .replys {
@@ -185,12 +157,12 @@
 }
 
 .replys .share {
-    width: 50rpx;
-    height: 50rpx;
+    width: 44rpx;
+    height: 44rpx;
     position: absolute;
     background: transparent;
-    right: -10rpx;
-    top: -10rpx;
+    right: 0;
+    top: 0;
 }
 
 .moreTop {
