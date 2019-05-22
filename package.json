@@ -8,6 +8,7 @@
     "compile": "tsc"
   },
   "devDependencies": {
+    "tslint": "^5.16.0",
     "typescript": "^3.1.6"
   }
 }
