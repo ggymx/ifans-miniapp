@@ -90,6 +90,7 @@ Component({
       base.link('cPost',0,encodeURIComponent(JSON.stringify(topic)));
      }else{
        //对投稿进行评论，暂无
+      base.link('post',instance.properties.post.id);
      }
     },
     /*点赞 */
