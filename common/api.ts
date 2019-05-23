@@ -82,7 +82,7 @@ class Api {
   /**
    * 存储用户的formid
    */
-  setUserFormId = this.makeApi<IReportFormIdParams, IReportFormIdResponse>('POST', '/v1/user/report-form-id')
+  reportUserFormId = this.makeApi<IReportFormIdParams, IReportFormIdResponse>('POST', '/v1/user/report-form-id')
 
   private host: string
   private token: string
