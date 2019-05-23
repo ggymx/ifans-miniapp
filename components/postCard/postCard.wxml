@@ -47,7 +47,7 @@
     <view class="likeComment">
     <!--下方点赞：wx:if="{{post.type=='2'}}"-->
       <view class="stars" catch:tap="giveLike">
-        <image src="{{isLike && '../../imgs/img/dianzan.png' || '../../imgs/img/hong.png' }}" class="like-img" wx:if="{{like}}"/>
+        <image src="{{isLike && '../../imgs/img/hong.png' || '../../imgs/img/dianzan.png' }}" class="like-img" wx:if="{{like}}"/>
       <text class="count like">{{likeCount}}</text>
       </view>
      
