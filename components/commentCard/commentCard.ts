@@ -63,10 +63,18 @@ Component({
         }
       }
     },
-    /*举报等操作弹出框 */
-    popBox() {
-      // base.popBox(this);
+   /*举报等操作弹出框 */
+   popBox() {
+    const res=(this as any).data.comment;
+    console.log('res的data--------',res);
+    if(wx.getStorageSync('token')){
+      if(wx.getStorageSync('userId')===res.userId){
+       base.messageBox(res.id,'/v1/comment/remove','comment','delete');
+      }else{
+        base.messageBox(res.id,'/v1/post/abuse-report','comment');
+      }
     }
+   },
   },
   ready(){
     //保存点赞数量状态
