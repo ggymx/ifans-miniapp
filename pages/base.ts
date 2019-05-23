@@ -5,17 +5,15 @@ import { isPostPage, smartGotoPage } from '../common/helper';
 class Base {
   /**
    * 屏蔽举报的弹出框
-   * @param id 要操作的对象的id
-   * @param url 相关的api
-   * @param todo 操作类型（可选）：删除（delete）默认举报
+   * @param id:(number) 要操作的对象的id
+   * @param url(string) 相关的api
+   * @param target:(string) 操作对象（post：话题/投稿，comment：投稿）
+   * @param todo:(string) 操作类型（可选）：删除（delete）默认举报
    */
-  public messageBox(id: number,url: string,todo?: string,): void {
+  public messageBox(id: number,url: string,target: string,todo?: string,): void {
     const token = wx.getStorageSync('token');
     if (token) {
-      console.log('初始化id-----------')
-      const ownId = wx.getStorageSync('userId');
       if (todo==='delete') {
-        console.log('删除操作',url);
         wx.showActionSheet({
           itemList: ['删除'],
           success(res) {
@@ -26,11 +24,15 @@ class Base {
                   content: '确定删除？',
                   success(res) {
                     if (res.confirm) {
+                      let data: object;
+                      if(target==='post'){
+                          data={postId:id}
+                      }else if(target==='comment'){
+                          data={id}
+                      }
                       api.request({
                         url,
-                        data: {
-                          postId: id
-                        },
+                        data,
                         method: 'POST',
                         success(res) {
                           wx.showToast({
@@ -54,7 +56,6 @@ class Base {
           }
         });
       } else {
-        console.log('举报的url------',url);
         wx.showActionSheet({
           itemList: ['举报'],
           success(res) {
@@ -65,11 +66,15 @@ class Base {
                   content: '确定举报？',
                   success(res) {
                     if (res.confirm) {
+                      let data: object;
+                      if(target==='post'){
+                        data={postId:id}
+                     }else if(target==='comment'){
+                        data={id}
+                     }
                       api.request({
                         url,
-                        data: {
-                          postId: id
-                        },
+                        data,
                         method: 'POST',
                         success(res) {
                           const data = res.data as any;
@@ -123,9 +128,7 @@ class Base {
       const curPage = pages[pages.length - 1];
       wx.showToast({ title: '请先登录！' });
       setTimeout(() => {
-        smartGotoPage({
-          url: '/pages/login'
-        });
+        this.link('login');
       }, 100);
     } else {
       let id: number;
@@ -159,7 +162,7 @@ class Base {
   }
   /**
    * 跳转到目标页面
-   * @param target 要跳转的目标页面chguang
+   * @param target 要跳转的目标页面(string)
    *  @type 取值topic（话题详情）post（文章详情）
    *        user(用户空间) login(登录)
    *        cTopic(创建话题)  cPost(创建投稿)
@@ -170,7 +173,6 @@ class Base {
    * @param topic 发布投稿时需要携带的topic（json串）
    */
   public link(target: string, id?: number,topic?: string): void {
-    console.log('新的跳转页面的方式link');
     //目标页是空间页
     if (target === 'user') {
       //获取当前页面
@@ -219,7 +221,6 @@ class Base {
     }
     //创建话题
     if(target==='cTopic'){
-      console.log('base创建话题');
       smartGotoPage({
         url:'/pages/post/create'
       })
@@ -227,7 +228,6 @@ class Base {
     }
     //创建投稿
     if(target==='cPost'){
-      console.log('base创建投稿');
       smartGotoPage({
         url: `/pages/post/create?topic=${topic}`
      });

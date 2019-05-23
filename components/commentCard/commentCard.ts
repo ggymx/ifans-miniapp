@@ -69,9 +69,9 @@ Component({
     console.log('res的data--------',res);
     if(wx.getStorageSync('token')){
       if(wx.getStorageSync('userId')===res.userId){
-       base.messageBox(res.id,'/v1/comment/remove','delete');
+       base.messageBox(res.id,'/v1/comment/remove','comment','delete');
       }else{
-        base.messageBox(res.id,'/v1/post/abuse-report');
+        base.messageBox(res.id,'/v1/post/abuse-report','comment');
       }
     }
    },

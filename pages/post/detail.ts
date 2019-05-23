@@ -155,9 +155,9 @@ Page({
     const res=(this as any).data.post;
     if(wx.getStorageSync('token')){
       if(wx.getStorageSync('userId')===res.userId){
-       base.messageBox(res.id,'/v1/post/remove','delete');
+       base.messageBox(res.id,'/v1/post/remove','post','delete');
       }else{
-        base.messageBox(res.id,'/v1/post/abuse-report');
+        base.messageBox(res.id,'/v1/post/abuse-report','post');
       }
     }
    },
