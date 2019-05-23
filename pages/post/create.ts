@@ -1,4 +1,6 @@
 import { chooseImage } from './../../common/upload';
+import api from '../../common/api';
+//import api from '../common/api';
 Page({
   data: {
     topic: null,
@@ -9,6 +11,9 @@ Page({
     titleValue: '',
     inputText: '213rpx',
     image2Commit: [],
+  },
+  async getFormId(e: any) {
+    const res = await api.setUserFormId({ formId: e.detail.formId })
   },
   async didPressChooesImage() {
     const allowMax = 9 - this.data.image2Commit.length

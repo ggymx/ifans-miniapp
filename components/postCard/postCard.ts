@@ -70,6 +70,9 @@ Component({
         (instance.properties.post.type === 1)?base.link('topic',id): base.link('post',id);
       }
     },
+    getFormId(e: any) {
+      console.log(e.detail.formId)
+    },
     //跳转到空间
     findUser(event: any) {
       const userId = (this as any).properties.post.user.id;
