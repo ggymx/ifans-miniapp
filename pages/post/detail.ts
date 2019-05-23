@@ -135,6 +135,7 @@ Page({
           isLike: data.post.isLike,
           likeCount:data.post.likeCount
         });
+        console.log('接受到的文章详情页,',that.data.post);
       }
     });
     postId = id

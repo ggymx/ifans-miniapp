@@ -11,7 +11,7 @@
     <view class="name fl">{{user ? user.nickname : ''}}</view>
     <view class="msg fr"  bind:tap="userNews">
       <image class="img fl" src="../imgs/img/msg.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false"/>
-      <view class="pot fr"></view>
+      <view class="pot fr" wx:if="{{!isBrowserNew}}"></view>
     </view>
   </view>
   <view class="bigImg">

@@ -38,7 +38,7 @@
         </view>
         <view class="msg">
           <image class="msgs" id="cmtImg" src="../../imgs/img/pinglun.png" mode="aspectFit|aspectFill|widthFix"  placeholder="此处只有在点击按钮时才聚焦" catch:tap="bindImageInput"></image>
-          <view class="text">{{post.commentValue||0 }}</view>
+          <view class="text">{{post.commentCount}}</view>
                 </view>
                 <view class="replys">
                 <image class="rep" src="../../imgs/img/fenxiang.png" mode="aspectFit|aspectFill|widthFix"></image>
