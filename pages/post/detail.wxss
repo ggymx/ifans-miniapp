@@ -113,8 +113,8 @@
 
 .bottom {
     width: 100%;
-    height: 31rpx;
-    line-height: 31rpx;
+    height: 44rpx;
+    line-height: 44rpx;
     margin-top: 30rpx;
     padding: 0 40rpx;
     box-sizing: border-box;
@@ -131,9 +131,9 @@
 }
 
 .bottom .block {
-    width: 28rpx;
-    height: 28rpx;
-    margin-right: 16rpx;
+    width: 44rpx;
+    height: 44rpx;
+    margin-right: 8rpx;
 }
 
 .bottom .time,
@@ -158,18 +158,14 @@
 
 .right .stars,
 .right .msgs {
-    margin-right: 12rpx;
+    margin-right: 6rpx;
 }
 
 .right .msgs,
-.right .rep {
-    width: 31rpx;
-    height: 31rpx;
-}
-
+.right .rep,
 .right .stars {
-    width: 31rpx;
-    height: 26rpx;
+    width: 44rpx;
+    height: 44rpx;
 }
 
 .replys {
@@ -181,8 +177,8 @@
     height: 50rpx;
     position: absolute;
     background: transparent;
-    right: -10rpx;
-    top: -10rpx;
+    right: 0;
+    top: 0;
 }
 
 .noMore {

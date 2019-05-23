@@ -82,7 +82,7 @@
 
 .com-item .star {
     width: auto;
-    height: 25rpx;
+    height: 44rpx;
     position: absolute;
     right: 14rpx;
     top: 16rpx;
@@ -92,14 +92,14 @@
 }
 
 .com-item .star .stars {
-    width: 31rpx;
-    height: 25rpx;
-    margin-right: 12rpx;
+    width: 44rpx;
+    height: 44rpx;
+    margin-right: 6rpx;
 }
 
 .com-item .star .num {
     height: 100%;
-    line-height: 25rpx;
+    line-height: 44rpx;
     color: #666;
 }
 

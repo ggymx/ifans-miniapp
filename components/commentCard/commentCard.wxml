@@ -7,7 +7,7 @@
         <view class="name">{{comment.user.nickname}}</view>
         <view class="content">{{comment.text}}</view>
         <view class="star" catch:tap="giveCmtLike">
-            <image class="stars" src="{{isLike && '../../imgs/button-like-dj@2x.png' || '../../imgs/home-button-like@2x.png' }}"></image>
+            <image class="stars" src="{{isLike && '../../imgs/img/hong.png' || '../../imgs/img/dianzan.png' }}"></image>
             <view class="num">{{likeCount}}</view>
         </view>
 
