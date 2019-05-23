@@ -38,7 +38,7 @@
     <view class="foot" bindtap="clickPublish">
     <!-- set report-submit to ture to get formId -->
     <form bindsubmit="getFormId" report-submit='true'>
-        <button class="btn" formType="submit">发表</button>
+        <button class="btn" formType="submit">发布</button>
         </form>
     </view>
 </view>
