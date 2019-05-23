@@ -42,6 +42,7 @@ Page({
         });
       }
     });
+    console.log('打印recommendList',that.data.recommendList);
   },
   onPostRemove(e: any) {
     const { postId } = e.detail
