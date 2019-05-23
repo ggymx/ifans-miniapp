@@ -36,6 +36,9 @@
     </view>
 
     <view class="foot" bindtap="clickPublish">
-        <button class="btn">发表</button>
+    <!-- set report-submit to ture to get formId -->
+    <form bindsubmit="getFormId" report-submit='true'>
+        <button class="btn" formType="submit">发表</button>
+        </form>
     </view>
 </view>

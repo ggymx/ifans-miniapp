@@ -11,7 +11,7 @@
     <view class="name fl">{{user ? user.nickname : ''}}</view>
     <view class="msg fr"  bind:tap="userNews">
       <image class="img fl" src="../imgs/img/msg.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false"/>
-      <view class="pot fr"></view>
+      <view class="pot fr" wx:if="{{!isBrowserNew}}"></view>
     </view>
   </view>
   <view class="bigImg">
@@ -36,16 +36,22 @@
 
     <view class="footer">
       <view class="left">
-        <button class="btn-l" bind:tap="userFootPrint">
+      <!-- set report-submit to ture to get formId -->
+    <form bindsubmit="getFormId" report-submit='true'>
+        <button class="btn-l" bind:tap="userFootPrint" formType="submit">
           <image class="myFoot" src="../imgs/img/foot.png" mode="widthFix" lazy-load="false" binderror="" bindload="" />
           <view class="text">我的足迹</view>
         </button>
+        </form>
       </view>
       <view class="right">
-        <button class="btn-r" bind:tap="manyTopic">
+      <!-- set report-submit to ture to get formId -->
+    <form bindsubmit="getFormId" report-submit='true'>
+        <button class="btn-r" bind:tap="manyTopic" formType="submit">
           <image class="myMore" src="../imgs/img/more.png" mode="widthFix" lazy-load="false" binderror="" bindload="" />
           <view class="text">话题社区</view>
         </button>
+        </form>
       </view>
     </view>
   </view>

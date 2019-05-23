@@ -17,9 +17,12 @@
         <!--缩略图模板-->
         <template is="thumbnail" data="{{post}}"></template>
         <!-- 发布按钮 -->
+        <!-- set report-submit to ture to get formId -->
+        <form bindsubmit="getFormId" report-submit='true'>
         <view class="fixbtn">
-            <button type="button" class="btn back" bind:tap="backToCreate">返回修改</button>
-            <button type="button" class="btn sure" bind:tap="confirmPublish">确认发布</button>
+            <button formType = "submit" type="button" class="btn back" bind:tap="backToCreate">返回修改</button>
+            <button formType = "submit" type="button" class="btn sure" bind:tap="confirmPublish">确认发布</button>
         </view>
+         </form>
     </view>
 </view>

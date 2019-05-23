@@ -6,7 +6,7 @@ text {
   font-family: "Roboto", "Noto Sans", "San Francisco", "PingFang", "Microsof";
 }
 
-.publisher-item {
+.publisher-item,form {
   margin: auto;
   width: 702rpx;
   height: auto;
@@ -195,7 +195,10 @@ text {
   display: flex;
 }
 .stars {
+  width:67.6rpx;
   margin-right: 38rpx;
+  padding:0;
+  background-color:#FFF;
 }
 /* .comment-count {
   position: relative;

@@ -1,12 +1,17 @@
 import api from '../common/api';
 import { smartGotoPage } from '../common/helper';
 import base from './base';
+import store from './store';
 Page({
   data: {
-    user: null
+    user: null,
+    isBrowserNew:null
   },
   async getFormId(e: any) {
-    const res = await api.setUserFormId({ formId: e.detail.formId })
+    const res = await api.reportUserFormId({ formId: e.detail.formId })
+  },
+  onLoad(){
+    //
   },
   async onShow() {
     const token = wx.getStorageSync('token');
@@ -17,6 +22,10 @@ Page({
           user
         })
       }
+      this.setData({
+        isBrowserNew:store.getBrowserNew()
+      })
+      console.log('全局存储的store的状态',this.data.isBrowserNew);
     }
   },
   onShareAppMessage(opts: Page.IShareAppMessageOption) {

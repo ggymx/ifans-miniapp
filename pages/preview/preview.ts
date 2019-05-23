@@ -10,6 +10,9 @@ Page({
     //缩略图
     gallery:null
   },
+  async getFormId(e: any) {
+    const res = await api.reportUserFormId({ formId: e.detail.formId })
+  },
   backToCreate(event: any) {
     wx.navigateBack({
       delta: 1,

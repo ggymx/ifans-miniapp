@@ -1,3 +1,5 @@
+import api from '../../common/api';
+import base from '../base';
 import { chooseImage } from './../../common/upload';
 Page({
   data: {
@@ -9,6 +11,9 @@ Page({
     titleValue: '',
     inputText: '213rpx',
     image2Commit: [],
+  },
+  async getFormId(e: any) {
+    const res = await api.reportUserFormId({ formId: e.detail.formId })
   },
   async didPressChooesImage() {
     const allowMax = 9 - this.data.image2Commit.length
@@ -69,7 +74,7 @@ Page({
     } else if (this.data.titleValue.length < 5) {
       wx.showToast({
         icon: 'none',
-        title: '抱歉，标题不得低于五个字呦'
+        title: '抱歉，标题不得低于五个字呦~'
       });
       return;
     }
@@ -85,6 +90,19 @@ Page({
     }
     }else{
       //发布投稿
+      if(!this.data.pushText){
+        wx.showToast({
+          icon: 'none',
+          title: '发布内容不允许为空！'
+        });
+        return;
+      }else if(this.data.pushText.length<5){
+        wx.showToast({
+          icon: 'none',
+          title: '抱歉，发布内容不能低于五个字呦~'
+        });
+        return;
+      }
        postData = {
         text: this.data.pushText,
         type: 2,
@@ -97,9 +115,17 @@ Page({
         })),
       }
     }
+    //判断是否登录
+    if(!wx.getStorageSync('token')){
+      wx.showToast({ title: '请先登录！' });
+      setTimeout(() => {
+       base.link('login');
+      }, 100);
+    }else{
     wx.navigateTo({
       url: '/pages/preview/preview?post='+encodeURIComponent(JSON.stringify(postData))
     })
+   }
   },
   onEndEditor(event: any) {
     this.setData!({

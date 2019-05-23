@@ -70,6 +70,9 @@ Component({
         (instance.properties.post.type === 1)?base.link('topic',id): base.link('post',id);
       }
     },
+    async getFormId(e: any) {
+      const res = await api.reportUserFormId({ formId: e.detail.formId })
+    },
     //跳转到空间
     findUser(event: any) {
       const userId = (this as any).properties.post.user.id;
@@ -87,6 +90,7 @@ Component({
       base.link('cPost',0,encodeURIComponent(JSON.stringify(topic)));
      }else{
        //对投稿进行评论，暂无
+      base.link('post',instance.properties.post.id);
      }
     },
     /*点赞 */

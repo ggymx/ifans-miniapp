@@ -5,6 +5,7 @@ import { smartGotoPage } from '../../common/helper';
 import { FontNotice } from '../../common/types/font_notice';
 import { ENoticeType, ETableType, INoticeReply } from '../../common/types/notice_reply';
 import base from '../base'
+import store from '../store';
 const app = getApp<IMyApp>()
 Page({
   data: {
@@ -79,6 +80,7 @@ Page({
       this.setData!({
         notices,
       });
+      store.setBrowserNew(true);
     } else {
       wx.showToast({ title: '请先登录！' });
       setTimeout(() => {
