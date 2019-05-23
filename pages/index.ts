@@ -6,7 +6,7 @@ Page({
     user: null
   },
   async getFormId(e: any) {
-    const res = await api.setUserFormId({ formId: e.detail.formId })
+    const res = await api.reportUserFormId({ formId: e.detail.formId })
   },
   async onShow() {
     const token = wx.getStorageSync('token');
