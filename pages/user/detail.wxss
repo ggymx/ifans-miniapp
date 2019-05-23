@@ -41,7 +41,7 @@
 
 .header .shareBtn {
     position: absolute;
-    right: 22rpx;
+    right: 40rpx;
     top: 0;
     background-color: transparent;
     padding: 0;
@@ -50,8 +50,8 @@
 }
 
 .header .shareBtn .bkimg {
-    width: 34rpx;
-    height: 34rpx;
+    width: 44rpx;
+    height: 44rpx;
 }
 
 .first {

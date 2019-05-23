@@ -13,10 +13,7 @@
 
         <view class="date">
             <view class="time">{{con.dateCon(comment.createAt)}}</view>
-            <view style="width:50rpx;height:50rpx;">
              <image class="icon" src="../../imgs/img/more1.png" mode="widthFix" style="width:30rpx;height:6rpx" catch:tap="popBox"></image>
-            </view>
-        </view>
-
     </view>
+</view>
 </view>
