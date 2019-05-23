@@ -81,9 +81,10 @@ Component({
       const topic = instance.properties.post;
       //目前仅支持对话题投稿，不支持投稿评论
       if(topic.type===1){
-      smartGotoPage({
-         url: '/pages/post/create-answer?topic=' + encodeURIComponent(JSON.stringify(topic))
-      });
+      // smartGotoPage({
+      //    url: '/pages/post/create?topic=' + encodeURIComponent(JSON.stringify(topic))
+      // });
+      base.link('cPost',0,encodeURIComponent(JSON.stringify(topic)));
      }else{
        //对投稿进行评论，暂无
      }

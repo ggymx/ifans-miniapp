@@ -66,13 +66,9 @@ Page({
     }
   },
   manyTopic(event: any) {
-    wx.navigateTo({
-      url: './oldindex'
-    })
+      base.link('oldIndex');
   },
   createTopic(event: any) {
-    wx.navigateTo({
-      url: './post/create'
-    })
+      base.link('cTopic');
   }
 })
