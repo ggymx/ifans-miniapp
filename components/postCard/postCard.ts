@@ -71,7 +71,7 @@ Component({
       }
     },
     async getFormId(e: any) {
-      const res = await api.setUserFormId({ formId: e.detail.formId })
+      const res = await api.reportUserFormId({ formId: e.detail.formId })
     },
     //跳转到空间
     findUser(event: any) {

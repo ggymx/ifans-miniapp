@@ -11,7 +11,7 @@ Page({
     gallery:null
   },
   async getFormId(e: any) {
-    const res = await api.setUserFormId({ formId: e.detail.formId })
+    const res = await api.reportUserFormId({ formId: e.detail.formId })
   },
   backToCreate(event: any) {
     wx.navigateBack({

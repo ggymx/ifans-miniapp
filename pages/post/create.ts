@@ -13,7 +13,7 @@ Page({
     image2Commit: [],
   },
   async getFormId(e: any) {
-    const res = await api.setUserFormId({ formId: e.detail.formId })
+    const res = await api.reportUserFormId({ formId: e.detail.formId })
   },
   async didPressChooesImage() {
     const allowMax = 9 - this.data.image2Commit.length
