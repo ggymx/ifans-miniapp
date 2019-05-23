@@ -106,6 +106,7 @@
 .com-item .time {
     font-size: 24rpx;
     color: #666;
+    line-height:3.0;
 }
 /* 
 .com-item .reply {
@@ -117,10 +118,15 @@
 .com-item .date {
     width: 100%;
     position: relative;
+    display:flex;
+    justify-content:space-between;
 }
 
-.com-item .date .icon {
-    position: absolute;
-    right: 20rpx;
-    top: 24rpx;
+/*举报按钮热区*/
+view.hot{
+    width:60rpx;
+    height:60rpx;
+    display: inline-flex;
+    justify-content:center;
+    align-items:center;
 }
