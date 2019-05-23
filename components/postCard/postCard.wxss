@@ -6,7 +6,7 @@ text {
   font-family: "Roboto", "Noto Sans", "San Francisco", "PingFang", "Microsof";
 }
 
-.publisher-item {
+.publisher-item,form {
   margin: auto;
   width: 702rpx;
   height: auto;
