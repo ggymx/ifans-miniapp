@@ -155,31 +155,18 @@ class Base {
     }
   }
   /**
-   * 跳转到空间页
-   * @param uId 传入的userId
-   */
-  public findUser(uId: number): void {
-    //获取当前页面
-    const pages = getCurrentPages();
-    //数组中第一个元素为首页，最后一个元素为当前页面。
-    const curPage = pages[pages.length - 1];
-    // 判断跳转页面和当前页面一致
-    if (curPage.route === 'pages/user/detail') {
-      return;
-    }
-    smartGotoPage({
-      url: `/pages/user/detail?userId=${uId}`
-    })
-  }
-  /**
    * 跳转到目标页面
-   * @param target 要跳转的目标页面
+   * @param target 要跳转的目标页面chguang
    *  @type 取值topic（话题详情）post（文章详情）
    *        user(用户空间) login(登录)
+   *        cTopic(创建话题)  cPost(创建投稿)
    *        footPrint(足迹)  news(消息通知)
+   *        index(首页)    oldIndex(话题社区)
+   *        notFound（404未发现页面）
    * @param id 传入相应接口的主键id（可选参数）
+   * @param topic 发布投稿时需要携带的topic（json串）
    */
-  public link(target: string, id?: number): void {
+  public link(target: string, id?: number,topic?: string): void {
     console.log('新的跳转页面的方式link');
     //目标页是空间页
     if (target === 'user') {
@@ -226,6 +213,33 @@ class Base {
       smartGotoPage({
         url: '/pages/user/news'
       });
+    }
+    //创建话题
+    if(target==='cTopic'){
+      console.log('base创建话题');
+      smartGotoPage({
+        url:'/pages/post/create'
+      })
+      return;
+    }
+    //创建投稿
+    if(target==='cPost'){
+      console.log('base创建投稿');
+      smartGotoPage({
+        url: `/pages/post/create?topic=${topic}`
+     });
+     return;
+    }
+    if(target==='index'){
+      smartGotoPage({
+        url:'/pages/index'
+      });
+      return;
+    }
+    if(target==='oldIndex'){
+      smartGotoPage({
+        url:'/pages/oldindex'
+      })
     }
   }
   /**

@@ -3,6 +3,7 @@
 import { IMyApp } from '../../app'
 import api from '../../common/api';
 import { smartGotoPage } from '../../common/helper';
+import base from '../base';
 
 const app = getApp<IMyApp>()
 
@@ -69,8 +70,6 @@ Page({
   },
   /*跳转到话题社区 */
   findOldIndex() {
-    smartGotoPage({
-      url: '../oldindex'
-    });
+    base.link('oldIndex');
   }
 })

@@ -19,19 +19,13 @@ Page({
   },
   createAnswer(event: any) {
     const topic = this.data.post
-    smartGotoPage({
-      url: '/pages/post/create?topic=' + encodeURIComponent(JSON.stringify(topic))
-    });
+    base.link('cPost',0,encodeURIComponent(JSON.stringify(topic)));
   },
   userInfo(event: any) {
-    smartGotoPage({
-      url: '/pages/user/detail'
-    });
+   base.link('user');
   },
   topicArea(event: any) {
-    smartGotoPage({
-      url: '/pages/oldindex'
-    });
+    base.link('oldIndex');
   },
   //图片预览
   imgPre(event: any) {
