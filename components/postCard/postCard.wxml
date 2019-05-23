@@ -17,7 +17,7 @@
 
   <view class="publisher-topic" wx:if="{{post.type==1 || (showTitle && post.refPost.title)}}">
       <!-- 话题标题 -->
-      <text wx:if="{{post.type==1}}" class="text-weight">#{{con.contextCon(post.title,16)}}#</text>
+      <text wx:if="{{post.type==1}}" class="text-weight">{{con.contextCon(post.title,16)}}</text>
       <text wx:if="{{showTitle && post.refPost.title}}" style="line-height:22rpx;"><!--
         -->#{{con.contextCon(post.refPost.title,16)}}#
       </text>
