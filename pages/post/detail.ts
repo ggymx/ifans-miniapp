@@ -151,10 +151,16 @@ Page({
       });
     }
   },
-  /*举报等操作弹出框 */
   popBox() {
-    base.popBox(this);
-  }
+    const res=(this as any).data.post;
+    if(wx.getStorageSync('token')){
+      if(wx.getStorageSync('userId')===res.userId){
+       base.messageBox(res.id,'/v1/post/remove','delete');
+      }else{
+        base.messageBox(res.id,'/v1/post/abuse-report');
+      }
+    }
+   },
   /*转发分享监听事件 */
   // onShareAppMessage(res: any) {
   //   let text = this.data.data!.post.refPost.text;

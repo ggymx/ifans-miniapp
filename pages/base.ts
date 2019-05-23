@@ -4,30 +4,32 @@ import { isPostPage, smartGotoPage } from '../common/helper';
 
 class Base {
   /**
-   * 屏蔽举报操作
-   * @param instance 当前页面的实例对象
+   * 屏蔽举报的弹出框
+   * @param id 要操作的对象的id
+   * @param url 相关的api
+   * @param todo 操作类型（可选）：删除（delete）默认举报
    */
-  public popBox(instance: Page.PageInstance): void {
+  public messageBox(id: number,url: string,todo?: string,): void {
     const token = wx.getStorageSync('token');
     if (token) {
+      console.log('初始化id-----------')
       const ownId = wx.getStorageSync('userId');
-      const userId = instance.data.post.user.id;
-      const cId = instance.data.post.id;
-      if (ownId === userId) {
+      if (todo==='delete') {
+        console.log('删除操作',url);
         wx.showActionSheet({
           itemList: ['删除'],
           success(res) {
             switch (res.tapIndex) {
               case 0:
                 wx.showModal({
-                  title: '删除投稿',
-                  content: '确定删除这则投稿吗？',
+                  title: '删除',
+                  content: '确定删除？',
                   success(res) {
                     if (res.confirm) {
                       api.request({
-                        url: '/v1/post/remove',
+                        url,
                         data: {
-                          postId: cId
+                          postId: id
                         },
                         method: 'POST',
                         success(res) {
@@ -52,6 +54,7 @@ class Base {
           }
         });
       } else {
+        console.log('举报的url------',url);
         wx.showActionSheet({
           itemList: ['举报'],
           success(res) {
@@ -59,13 +62,13 @@ class Base {
               case 0:
                 wx.showModal({
                   title: '举报',
-                  content: '确定举报这则投稿吗？',
+                  content: '确定举报？',
                   success(res) {
                     if (res.confirm) {
                       api.request({
-                        url: '/v1/post/abuse-report',
+                        url,
                         data: {
-                          postId: cId
+                          postId: id
                         },
                         method: 'POST',
                         success(res) {
