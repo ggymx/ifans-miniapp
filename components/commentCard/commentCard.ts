@@ -64,12 +64,14 @@ Component({
       }
     },
    /*举报等操作弹出框 */
-   popBox() {
+   async popBox() {
     const res=(this as any).data.comment;
     console.log('res的data--------',res);
     if(wx.getStorageSync('token')){
       if(wx.getStorageSync('userId')===res.userId){
-       base.messageBox(res.id,'/v1/comment/remove','comment','delete');
+        const reData=await base.messageBox(res.id,'/v1/comment/remove','comment','delete');
+        console.log('返回的reData-------',reData);
+        (this as any).triggerEvent('removeCmt', (this as any).data.comment, {composed:true});
       }else{
         base.messageBox(res.id,'/v1/post/abuse-report','comment');
       }

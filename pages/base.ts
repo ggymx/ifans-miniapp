@@ -1,103 +1,99 @@
 //公共代码封装
 import api from '../common/api';
-import { isPostPage, smartGotoPage } from '../common/helper';
+import { isPostPage, smartGotoPage, wxPromise } from '../common/helper';
 
 class Base {
+
+  async handlePopDelete(id: number,url: string,target: string) {
+    let modalRes = await wxPromise<wx.ShowModalSuccessCallbackResult>(wx.showModal,{
+      title: '删除',
+      content: '确定删除？'
+    })
+
+    if (modalRes.confirm) {
+      let data: object;
+      if(target==='post'){
+          data={postId:id}
+      }else if(target==='comment'){
+          data={id}
+      }
+      try{
+        let res  = await api.httpPost(url, data);
+        wx.showToast({
+          title: '删除成功',
+          success() {
+            // wx.navigateBack({
+            //   delta: 1
+            // })
+          }
+        });
+        return {id,msg:'del-success'}
+      } catch(e){
+        wx.showToast({ title: '删除失败' });
+        return {id,msg:'del-fail'}
+      }
+    }
+  }
+
+  handlePopReport(id: number,url: string,target: string,todo?: string,) {
+    wx.showModal({
+      title: '举报',
+      content: '确定举报？',
+      success(res) {
+        if (res.confirm) {
+          let data: object;
+          if(target==='post'){
+            data={postId:id}
+         }else if(target==='comment'){
+            data={id}
+         }
+          api.request({
+            url,
+            data,
+            method: 'POST',
+            success(res) {
+              const data = res.data as any;
+              data.msg === 'ok'
+                ? wx.showToast({ title: '举报成功' })
+                : '';
+              // {id,msg:'report-success'}
+            }
+          });
+        }
+      }
+    });
+  }
+
   /**
    * 屏蔽举报的弹出框
    * @param id:(number) 要操作的对象的id
    * @param url(string) 相关的api
    * @param target:(string) 操作对象（post：话题/投稿，comment：投稿）
    * @param todo:(string) 操作类型（可选）：删除（delete）默认举报
+   * 
    */
-  public messageBox(id: number,url: string,target: string,todo?: string,): void {
+  async messageBox(id: number,url: string,target: string,todo?: string,): Promise<any> {
+    let message: any;
+    let that = this;
     const token = wx.getStorageSync('token');
     if (token) {
       if (todo==='delete') {
-        wx.showActionSheet({
-          itemList: ['删除'],
-          success(res) {
-            switch (res.tapIndex) {
-              case 0:
-                wx.showModal({
-                  title: '删除',
-                  content: '确定删除？',
-                  success(res) {
-                    if (res.confirm) {
-                      let data: object;
-                      if(target==='post'){
-                          data={postId:id}
-                      }else if(target==='comment'){
-                          data={id}
-                      }
-                      api.request({
-                        url,
-                        data,
-                        method: 'POST',
-                        success(res) {
-                          wx.showToast({
-                            title: '删除成功',
-                            success() {
-                              // wx.navigateBack({
-                              //   delta: 1
-                              // })
-                            }
-                          });
-                        },
-                        fail(res) {
-                          wx.showToast({ title: '删除成功' });
-                        }
-                      });
-                    }
-                  }
-                });
-                break;
-            }
-          }
-        });
+        let res = await wxPromise<wx.ShowActionSheetSuccessCallbackResult>(wx.showActionSheet, {itemList: ['删除']})
+        if(res.tapIndex == 0) {
+          return await that.handlePopDelete(id, url, target)
+        }
       } else {
-        wx.showActionSheet({
-          itemList: ['举报'],
-          success(res) {
-            switch (res.tapIndex) {
-              case 0:
-                wx.showModal({
-                  title: '举报',
-                  content: '确定举报？',
-                  success(res) {
-                    if (res.confirm) {
-                      let data: object;
-                      if(target==='post'){
-                        data={postId:id}
-                     }else if(target==='comment'){
-                        data={id}
-                     }
-                      api.request({
-                        url,
-                        data,
-                        method: 'POST',
-                        success(res) {
-                          const data = res.data as any;
-                          data.msg === 'ok'
-                            ? wx.showToast({ title: '举报成功' })
-                            : '';
-                        }
-                      });
-                    }
-                  }
-                });
-                break;
-            }
-          }
-        });
+        let res = await wxPromise<wx.ShowActionSheetSuccessCallbackResult>(wx.showActionSheet, {
+          itemList: ['举报']
+        })
+        if(res.tapIndex==0){
+          return await that.handlePopReport(id, url, target, todo)
+        }
       }
     } else {
-      wx.showToast({ title: '请先登录！' });
-      setTimeout(() => {
-        smartGotoPage({
-          url: '/pages/login'
-        });
-      }, 100);
+      smartGotoPage({
+        url: '/pages/login'
+      });
     }
   }
 

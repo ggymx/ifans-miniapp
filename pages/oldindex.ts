@@ -70,5 +70,19 @@ Page({
   // 浏览到底端功能
   onReachBottom() {
     this.loadMore();
+  },
+   //删除post
+   rPostCard(e:any){
+    console.log('测试自定义事件',e);
+    const removePost=e.detail;
+    let res=this.data.topList.filter((item)=>{
+      if(item.id===removePost.id){
+        console.log('找到了删除对象-----',item.id);
+      }
+      return item.id!==removePost.id;
+    });
+    this.setData({
+      topList:res
+    })
   }
 })
