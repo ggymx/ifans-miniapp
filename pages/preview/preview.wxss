@@ -58,6 +58,7 @@
     color: #4ABABC;
     margin: 0 18rpx;
     line-height: 63rpx;
+    letter-spacing: 0;
 }
 
 .user .text {

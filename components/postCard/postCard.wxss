@@ -3,7 +3,7 @@
 /*每一项*/
 view,
 text {
-  font-family: "Roboto", "Noto Sans", "San Francisco", "PingFang", "Microsof";
+  Font-family:  "PingFang","Source Han Sans CN","Roboto", "Noto Sans", "San Francisco", "Microsof", "PingFangSC-Regular", "sans-serif", "PingFangSC-Ultralight", "PingFangSC-Light", "PingFangSC-Thin", "PingFangSC-Medium", "PingFangSC-Semibold", "sans-serif";
 }
 
 .publisher-item,form {
@@ -81,7 +81,7 @@ text {
 .text-weight {
   font-size: 36rpx;
   font-family: PingFang-SC-Bold;
-  /* font-weight: bold; */
+  font-weight: bold;
   color: rgba(51, 51, 51, 1);
 }
 

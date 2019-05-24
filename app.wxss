@@ -1,6 +1,7 @@
 /**app.wxss**/
 
 .underlying {
+  min-height: 100%;
   height: auto;
   width: 100%;
   background-color: rgb(245, 245, 245);
@@ -20,7 +21,7 @@
 
 page {
   font-size: 30rpx;
-  Font-family: "Roboto", "Noto Sans", "San Francisco", "PingFang", "Microsof", "PingFangSC-Regular", "sans-serif", "PingFangSC-Ultralight", "PingFangSC-Light", "PingFangSC-Thin", "PingFangSC-Medium", "PingFangSC-Semibold", "sans-serif";
+  Font-family:  "PingFang","Source Han Sans CN","Roboto", "Noto Sans", "San Francisco", "Microsof", "PingFangSC-Regular", "sans-serif", "PingFangSC-Ultralight", "PingFangSC-Light", "PingFangSC-Thin", "PingFangSC-Medium", "PingFangSC-Semibold", "sans-serif";
 }
 
 .fl {

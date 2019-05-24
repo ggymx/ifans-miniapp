@@ -58,15 +58,13 @@ page {
 }
 
 .info .msg {
-    width: 105rpx;
-    height: 68rpx;
     margin-top: 14rpx;
     box-sizing: border-box;
     position: relative;
 }
 
 .info .msg .img {
-    width:111rpx;
+    width:122rpx;
     height:82rpx;
 }
 
@@ -74,8 +72,8 @@ page {
     width:14rpx;
     height:14rpx;
     position: absolute;
-    right: 18rpx;
-    top: 18rpx;
+    right:28rpx;
+    top:18rpx;    
     border-radius: 50%;
     background-color: #ff0000;
 }

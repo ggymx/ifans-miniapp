@@ -104,10 +104,10 @@
     width: 100%;
     height: auto;
     display: inline-block;
-    font-size: 30rpx;
-    font-family: PingFang;
-    font-weight: 500;
-    color: rgba(51, 51, 51, 1);
+    font-size:30rpx;
+    font-family:PingFang;
+    font-weight:0;
+    color:rgba(51, 51, 51, 1);
     letter-spacing: 3rpx;
 }
 
