@@ -173,6 +173,7 @@ export interface IPostListParams {
 export interface IPostListResponse {
   cursor: number
   posts: IPost[]
+  unreadCount: number
 }
 
 /**
@@ -427,7 +428,6 @@ export interface IGetMyCommentListResponse {
   comments: Comment[]
 }
 
-
 /**
  * 用户删除评论
  */
@@ -485,6 +485,17 @@ export interface INoticeListParams {
 export interface INoticeListResponse {
   notices: INoticeReply[]
 }
+/**
+ * 获取用户未读的消息数量
+ */
+// tslint:disable-next-line: no-empty-interface
+export interface INoticeGetUnreadCountParams {
+
+}
+export interface INoticeGetUnreadCountResponse {
+  unreadCount: number
+}
+
 /**
  * 获取用户的formId，并且插入到现有的template-msg表中
  */
