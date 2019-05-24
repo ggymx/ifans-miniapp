@@ -5,7 +5,7 @@ import { isPostPage, smartGotoPage, wxPromise } from '../common/helper';
 class Base {
 
   async handlePopDelete(id: number,url: string,target: string) {
-    let modalRes = await wxPromise<wx.ShowModalSuccessCallbackResult>(wx.showModal,{
+    const modalRes = await wxPromise<wx.ShowModalSuccessCallbackResult>(wx.showModal,{
       title: '删除',
       content: '确定删除？'
     })
@@ -33,6 +33,7 @@ class Base {
         return {id,msg:'del-fail'}
       }
     }
+    return null;
   }
 
   handlePopReport(id: number,url: string,target: string,todo?: string,) {
