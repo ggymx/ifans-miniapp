@@ -13,7 +13,7 @@
       <!-- 足迹列表 -->
       <view class="item" wx:for="{{footPrintList}}" data-item="{{item}}" bind:tap="onClick">
         <!-- 配图 -->
-        <image class="postImg" src="{{item.gallery||'../../imgs/img/comment.png'}}" mode="aspectFill" />
+        <image class="postImg" src="{{item.gallery||'../../imgs/img/sun.png'}}" mode="aspectFill" />
         <!-- 附加信息 -->
         <view class="itemRight">
           <block wx:if="{{true}}">

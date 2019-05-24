@@ -3,8 +3,8 @@
 <view class="commentBox">
 
     <view class="com-item">
-        <image class="user" src="{{comment.user.avatar}}" catch:tap="finalLink"></image>
-        <view class="name">{{comment.user.nickname}}</view>
+        <image class="user" src="{{comment.user.avatar}}" catch:tap="findUser"></image>
+        <view class="name" catch:tap="findUser">{{comment.user.nickname}}</view>
         <view class="content">{{comment.text}}</view>
         <view class="star" catch:tap="giveCmtLike">
             <image class="stars" src="{{isLike && '../../imgs/img/hong.png' || '../../imgs/img/dianzan.png' }}"></image>
