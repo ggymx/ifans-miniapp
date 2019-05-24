@@ -75,6 +75,9 @@ Component({
       }
     }
    },
+   findUser(){
+     base.link('user',(this as any).data.comment.userId);
+   }
   },
   ready(){
     //保存点赞数量状态

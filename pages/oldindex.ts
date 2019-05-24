@@ -56,6 +56,7 @@ Page({
      this.setData({
        topList:this.data.topList.concat(res.posts)
      })
+     console.log('打印topicList',this.data.topList);
      cursor=res.cursor;
     }
   },

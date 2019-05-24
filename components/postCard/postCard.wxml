@@ -7,7 +7,7 @@
     <image src="{{post.user.avatar}}" class="avatar" catch:tap="findUser" />
     <view class="user-view">
       <!-- 用户名 -->
-        <text class="username">{{con.nickNameCon(post.user.nickname)}}</text>
+        <text class="username" catch:tap="findUser">{{con.nickNameCon(post.user.nickname)}}</text>
         <text wx:if="{{showIssue}}">发布了话题</text>
     </view>
     <view class="arr-view" catch:tap="popBox">
