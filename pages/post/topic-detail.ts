@@ -46,6 +46,20 @@ Page({
       }
     }
    },
+  //删除投稿post
+  rPostCard(e: any){
+    console.log('测试自定义事件',e);
+    const removePost=e.detail;
+    const res=this.data.postArr.filter((item)=>{
+      if(item.id===removePost.id){
+        console.log('找到了删除对象-----',item.id);
+      }
+      return item.id!==removePost.id;
+    });
+    this.setData({
+      postArr:res
+    })
+  },
   async loadData(options: any, title: string, icon: any) {
     const that = this as any;
     this.setData({

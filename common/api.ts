@@ -118,7 +118,7 @@ class Api {
     return wx.request(option)
   }
 
-  async httpRequest(method: 'GET' | 'POST', path: string, data: object) {
+  requestPromise(method: 'GET' | 'POST', path: string, data: object) {
     return new Promise<wx.RequestSuccessCallbackResult>((resolve, reject) => {
       wx.request({
         method,
@@ -136,16 +136,16 @@ class Api {
   }
 
   httpGet(path: string, data: object = {}) {
-    return this.httpRequest('GET', path, data)
+    return this.requestPromise('GET', path, data)
   }
 
   httpPost(path: string, data: object = {}) {
-    return this.httpRequest('POST', path, data)
+    return this.requestPromise('POST', path, data)
   }
 
   private makeApi<Q extends object, R>(method: 'GET' | 'POST', path: string): (params?: Q) => Promise<R> {
     return (params?: Q): Promise<R> => {
-      return this.httpRequest(method, path, params).then(res => res.data as R)
+      return this.requestPromise(method, path, params).then(res => res.data as R)
     }
   }
 
