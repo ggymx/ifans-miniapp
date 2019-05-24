@@ -6,7 +6,9 @@
     top: 20rpx;
     left: 26rpx;
 }
-
+page{
+    Font-family:  "PingFang","Source Han Sans CN","Roboto", "Noto Sans", "San Francisco", "Microsof", "PingFangSC-Regular", "sans-serif", "PingFangSC-Ultralight", "PingFangSC-Light", "PingFangSC-Thin", "PingFangSC-Medium", "PingFangSC-Semibold", "sans-serif";
+}
 .publisher-item {
     margin: auto;
     width: 702rpx;
