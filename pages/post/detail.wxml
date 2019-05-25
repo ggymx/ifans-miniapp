@@ -69,3 +69,4 @@
     发送
   </button>
 </view>
+<post-share-canvas post="{{post}}" bind:picready="onSharePicReady" />

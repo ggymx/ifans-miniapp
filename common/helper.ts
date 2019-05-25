@@ -45,7 +45,7 @@ export function drawImageCenterCrop(ctx: wx.CanvasContext, imgInfo: wx.GetImageI
     (ctx as any).drawImage(imgInfo.path, sx, sy, sw, sh, dx, dy, dw, dh)
 }
 
-export function fillTextVerticalCenter(context, text, x, y, maxWidth, lineHeight) {
+export function fillTextVerticalCenter(context, text, x, y, maxWidth, lineHeight, maxLines=0, dots='…') {
   // text to words
   const words = []
   let lastWord = ''
@@ -74,24 +74,30 @@ export function fillTextVerticalCenter(context, text, x, y, maxWidth, lineHeight
   }
 
   // words to lines
-  const lines = []
-  let line = ''
+  let lines = []
+  let line = []
   for (let n = 0; n < words.length; n++) {
-    const testLine = line + words[n];
+    const testLine = line.join('') + words[n];
     const metrics = context.measureText(testLine);
     const testWidth = metrics.width;
     if (testWidth > maxWidth && n > 0) {
       lines.push(line)
-      line = words[n];
+      line = [words[n]];
     } else {
-      line = testLine;
+      line.push(words[n])
     }
   }
   lines.push(line)
+  // 省略号处理
+  if(maxLines && lines.length>maxLines) {
+    lines = lines.slice(0, maxLines)
+    lines[maxLines-1].pop()
+    lines[maxLines-1].push(dots)
+  }
   // draw lines
   let lineY = y - (lines.length-1)*lineHeight/2
   for (const line of lines) {
-    context.fillText(line, x, lineY, maxWidth);
+    context.fillText(line.join(''), x, lineY, maxWidth);
     lineY+= lineHeight
   }
 }
