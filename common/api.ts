@@ -2,6 +2,7 @@
 import { ICreateCommentParams, IDisLikeParams, IDisLikeResponse, IEmptyParams, IGetAnswerListParams, IGetAnswerListResponse, IGetCommetListParams, IGetCommetListResponse, IGetPostIdByPostIdParams, IGetUserFootPrintParams, IGetUserFootPrintResponse, IHomeTopicListParams, IHomeTopicListResponse, ILikeParams, ILikeResponse, INoticeListParams, INoticeListResponse, IPostDetailParams, IPostsDetailResponse, IRemoveCommentParams, IRemoveCommentResponse, IRemovePostParams, IReportFormIdParams, IReportFormIdResponse, IUploadParams, IUploadResponse, IUserPageParams, IUserPageResponse, IUserResponse } from './types/http_msg'
 import { IRemovePostResponse } from './types/http_msg';
 import { ICreateCommentResponese } from './types/http_msg';
+import { IUser } from './types/user';
 
 class Api {
 
@@ -84,6 +85,8 @@ class Api {
    */
   reportUserFormId = this.makeApi<IReportFormIdParams, IReportFormIdResponse>('POST', '/v1/user/report-form-id')
 
+  user: IUser
+
   private host: string
   private token: string
 
@@ -141,6 +144,14 @@ class Api {
 
   httpPost(path: string, data: object = {}) {
     return this.httpRequest('POST', path, data)
+  }
+
+  async getUserInfo(reload:boolean=false) {
+    if(reload || !this.user) {
+      const {user} = await this.getUserProfile()
+      this.user = user
+    }
+    return this.user
   }
 
   private makeApi<Q extends object, R>(method: 'GET' | 'POST', path: string): (params?: Q) => Promise<R> {

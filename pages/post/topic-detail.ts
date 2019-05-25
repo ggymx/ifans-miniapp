@@ -89,6 +89,7 @@ Page({
   //options:获取url参数
   async onLoad(options: any) {
     this.loadData(options, '已经到底了！', 'none');
+    api.getUserInfo()
   },
   /*跳转到空间页 */
   findUser() {
@@ -116,17 +117,23 @@ Page({
       }
     }
   },
+  onSharePicReady(e: any) {
+    this.sharePic = e.detail.picPath
+    this.setData({
+      sharePic: e.detail.picPath
+    })
+  },
   /*转发分享监听事件 */
   onShareAppMessage(res: any) {
-    const that = this as any;
+    const post = this.data.post
+    let title = `${post.user.nickname} 发布了一个话题，快来一起讨论吧`
+    if(api.user){
+      title = `[${api.user.nickname}@了你] 邀请你一起参与讨论`
+    }
     return {
-      title: `#${this.data.post.title}#`,
-      success(e: any) {
-
-        wx.showShareMenu({
-          withShareTicket: true
-        })
-      }
+      title,
+      imageUrl: this.data.sharePic,
+      path: `/pages/post/topic-detail?id=${this.data.post.id}`,
     }
   },
   //下拉刷新

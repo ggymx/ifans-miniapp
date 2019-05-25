@@ -90,8 +90,7 @@ Page({
               const post = that.data.post
               post.id = data.id
               post.createAt = new Date().toISOString()
-              api.getUserProfile().then(res=>{
-                const {user} = res
+              api.getUserInfo().then(user=>{
                 post.user = user
                 postArr.unshift(post)
                 topicPage.setData({
@@ -121,9 +120,9 @@ Page({
   async onShow(){
     const that=this as any;
     //获取用户信息
-    await api.getUserProfile().then((res: any)=>{
+    await api.getUserInfo().then((user)=>{
       that.setData({
-        user:res.user
+        user
       })
     }).catch();
 
