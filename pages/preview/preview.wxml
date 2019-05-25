@@ -5,7 +5,7 @@
 <view class="underlying">
     <view class="first">
         <view class="title">
-            <text class="title1 fl">#{{post.refPost? post.refPost.title : post.title}}#</text>
+            <text class="title1 fl">{{post.refPost? post.refPost.title : post.title}}</text>
         </view>
         <view class="user">
             <image class="info fl" src="{{user.avatar}}"></image>

@@ -32,17 +32,18 @@ Page({
       },
       method: 'GET',
       success(res) {
+        console.log('测试recommendList----',res.data);
         const data = res.data as any;
         if (data.post === null) {
-          wx.redirectTo({ url: '/pages/notfound/notfound' })
+          wx.redirectTo({ url: '/pages/notfound/notfound' });
         }
         that.setData!({
           user: data.user,
           recommendList: data.posts
         });
+        console.log('测试接收的recommendList----',that.data.recommendList);
       }
     });
-    console.log('打印recommendList',that.data.recommendList);
   },
   onPostRemove(e: any) {
     const { postId } = e.detail
@@ -72,5 +73,19 @@ Page({
   /*跳转到话题社区 */
   findOldIndex() {
     base.link('oldIndex');
+  },
+  //删除post
+  rPostCard(e:any){
+    console.log('测试自定义事件',e);
+    const removePost=e.detail;
+    let res=this.data.recommendList.filter((item)=>{
+      if(item.id===removePost.id){
+        console.log('找到了删除对象-----',item.id);
+      }
+      return item.id!==removePost.id;
+    });
+    this.setData({
+      recommendList:res
+    })
   }
 })

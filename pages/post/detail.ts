@@ -107,6 +107,21 @@ Page({
       url: `/pages/post/topic-detail?id=${tid}`
     })
   },
+  //当评论删除时及时更新
+  rComment(e: any){
+    const rComment=e.detail;
+    console.log('传入的删除评论-----',rComment);
+    console.log('当前的所有评论------',this.data.comments);
+    const res=this.data.comments.filter((item)=>{
+      if(item.id===rComment.id){
+        console.log('找到了item',item.id);
+      }
+        return item.id!==rComment.id;
+    });
+    this.setData({
+       comments:res
+    });
+  },
   /*点赞 */
   async giveLike(event: any) {
     base.giveLike(this);
