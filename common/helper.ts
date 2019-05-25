@@ -99,3 +99,13 @@ export function fillTextVerticalCenter(context, text, x, y, maxWidth, lineHeight
  export function smartDate(option: any){
   return option
  }
+
+export function wxPromise<T>(fn: (opts: any)=>any, option: any): Promise<T> {
+  return new Promise(function(resolve, reject){
+    fn.call(wx, {
+      ...option,
+      success: resolve,
+      fail: reject,
+    })
+  })
+}

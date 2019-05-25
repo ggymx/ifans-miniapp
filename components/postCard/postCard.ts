@@ -98,11 +98,13 @@ Component({
       base.giveLike(this as any,'component');
     },
     /*举报等操作弹出框 */
-    popBox() {
+   async popBox() {
      const res=(this as any).data.post;
      if(wx.getStorageSync('token')){
        if(wx.getStorageSync('userId')===res.userId){
-        base.messageBox(res.id,'/v1/post/remove','post','delete');
+        const redata= await base.messageBox(res.id,'/v1/post/remove','post','delete');
+         console.log('调用回执---------------',redata);
+         (this as any).triggerEvent('removePost', (this as any).data.post, {composed:true});
        }else{
          base.messageBox(res.id,'/v1/post/abuse-report','post');
        }
