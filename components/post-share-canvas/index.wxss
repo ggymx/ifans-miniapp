@@ -1,0 +1,6 @@
+.canvas {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translate3d(-999rpx, 0, 0);
+}
