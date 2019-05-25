@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
     "strictNullChecks": false,
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "module": "CommonJS",
     "target": "ES5",
     "allowJs": true,
     "experimentalDecorators": true,
-    "noImplicitThis": true,
+    "noImplicitThis": false,
     "noImplicitReturns": true,
     "alwaysStrict": true,
     "inlineSourceMap": true,

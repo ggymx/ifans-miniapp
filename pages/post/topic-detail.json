@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "navbar":"../..//components/navbar/navbar",
+    "post-share-canvas": "../../components/post-share-canvas/index",
     "postCard": "../..//components/postCard/postCard"
   },
   "enablePullDownRefresh":true

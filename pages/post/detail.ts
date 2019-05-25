@@ -54,7 +54,7 @@ Page({
   },
   async sendComment(event: any) {
     if (!this.data.commentValue) { return }
-    const { user } = await api.getUserProfile()
+    const user = await api.getUserInfo()
     if (!user) {
       smartGotoPage({
         url: '/pages/login',

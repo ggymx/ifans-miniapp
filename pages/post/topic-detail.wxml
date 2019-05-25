@@ -98,4 +98,5 @@
         <image src="../../imgs/img/pen.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
         </image>
     </view>
+    <post-share-canvas post="{{post}}" bind:picready="onSharePicReady" />
 </view>
