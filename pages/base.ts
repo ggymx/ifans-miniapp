@@ -18,7 +18,7 @@ class Base {
           data={id}
       }
       try{
-        let res  = await api.httpPost(url, data);
+        const res  = await api.httpPost(url, data);
         wx.showToast({
           title: '删除成功',
           success() {
@@ -71,20 +71,20 @@ class Base {
    * @param url(string) 相关的api
    * @param target:(string) 操作对象（post：话题/投稿，comment：投稿）
    * @param todo:(string) 操作类型（可选）：删除（delete）默认举报
-   * 
+   *
    */
   async messageBox(id: number,url: string,target: string,todo?: string,): Promise<any> {
     let message: any;
-    let that = this;
+    const that = this;
     const token = wx.getStorageSync('token');
     if (token) {
       if (todo==='delete') {
-        let res = await wxPromise<wx.ShowActionSheetSuccessCallbackResult>(wx.showActionSheet, {itemList: ['删除']})
+        const res = await wxPromise<wx.ShowActionSheetSuccessCallbackResult>(wx.showActionSheet, {itemList: ['删除']})
         if(res.tapIndex == 0) {
           return await that.handlePopDelete(id, url, target)
         }
       } else {
-        let res = await wxPromise<wx.ShowActionSheetSuccessCallbackResult>(wx.showActionSheet, {
+        const res = await wxPromise<wx.ShowActionSheetSuccessCallbackResult>(wx.showActionSheet, {
           itemList: ['举报']
         })
         if(res.tapIndex==0){
@@ -245,11 +245,11 @@ class Base {
   /**
    * 分页方法
    * @param target 要获取的数据列表的简称
-   * @type post（话题列表-包含投稿）footPrint（足迹列表）
-   *       news（消息列表）
+   * @type post（话题社区列表）footPrint（足迹列表）
+   *       news（消息列表）user(空间页)  rPost(参与列表) rComment(评论列表)
    * @param cursor 传入的分页指针
    */
-  public async pagingLoad(target: string, cursor: number=0): Promise<object> {
+  public async pagingLoad(target: string, cursor: number=0,...other): Promise<object> {
     let list: object = null;
      //cursor不等于0说明是加载更多
     if (cursor !== 0) {
@@ -271,16 +271,34 @@ class Base {
       // console.log('传入消息列表的cursor',cursor);
       // list =await api.getUserNotice({cursor,limit:10});
       // console.log('消息列表的list',list);
+    }else if(target==='user'){
+       list =await api.getUser({id:other[0]});
+       console.log('用户列表----',list);
+    }else if(target==='rPost'){
+       list =await api.getRefPostList({ id:other[0], cursor, limit: 10 });
+       console.log('参与列表-----------',list);
+    }else if(target==='rComment') {
+       list =await api.getCommentList({postId:other[0],cursor,limit:10});
+       console.log('评论列表-------------',list);
     }
+    if(target!=='rComment'){
     if ((list as any).posts.length === 0) {
       wx.showToast({
         icon: 'none',
         title: '已经到底了。。。'
       });
-      setTimeout(() => {
-        wx.hideToast({});
-      }, 400);
     }
+  }else{
+    if ((list as any).comments.length === 0) {
+      wx.showToast({
+        icon: 'none',
+        title: '已经到底了。。。'
+      });
+    }
+  }
+  setTimeout(() => {
+    wx.hideToast({});
+  }, 400);
     return new Promise((resolve) => { resolve(list) });
 }
 }

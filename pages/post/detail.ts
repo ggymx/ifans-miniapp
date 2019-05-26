@@ -5,9 +5,10 @@ import api from '../../common/api';
 import { smartGotoPage } from '../../common/helper';
 import { EUserStatus } from '../../common/types/comment';
 import base from '../../pages/base'
+import { init } from '../../common/qiniuUploader';
 const app = getApp<IMyApp>()
 let id: number;
-const cursor: number = 0;
+let cursor: number;
 let postId: number;
 Page({
   data: {
@@ -15,14 +16,16 @@ Page({
     // data: null,
     post:null,
     isLike: null,
-    likeCount:0,          //保存likeCount状态
+    likeCount:0,//保存likeCount状态
+    commentCount:0,
     postId: 0,
     commentValue: '',
     isCreateAnserPage: false,
     showMask: false,
     isPublished: false,
     focus: false,
-    comments: []
+    comments: [],
+    option:null
   },
   isCreateAnserPage(event: any) {
     this.setData!({
@@ -53,6 +56,7 @@ Page({
     })
   },
   async sendComment(event: any) {
+    console.log('发送评论----------');
     if (!this.data.commentValue) { return }
     const user = await api.getUserInfo()
     if (!user) {
@@ -74,6 +78,7 @@ Page({
       this.setData({
         comments,
         commentValue: '',
+        commentCount:this.data.commentCount+1
       })
       // 移动到评论区
       const query = wx.createSelectorQuery();
@@ -88,11 +93,6 @@ Page({
   //图片预览
   imgPre(event: any) {
     base.imgPre(event,this);
-  },
-  onPullDownRefresh(){
-     setTimeout(() => {
-       wx.stopPullDownRefresh({});
-     }, 500);
   },
   /*跳转到空间页 */
   findUser() {
@@ -110,16 +110,12 @@ Page({
   //当评论删除时及时更新
   rComment(e: any){
     const rComment=e.detail;
-    console.log('传入的删除评论-----',rComment);
-    console.log('当前的所有评论------',this.data.comments);
     const res=this.data.comments.filter((item)=>{
-      if(item.id===rComment.id){
-        console.log('找到了item',item.id);
-      }
         return item.id!==rComment.id;
     });
     this.setData({
-       comments:res
+       comments:res,
+       commentCount:this.data.commentCount-1
     });
   },
   /*点赞 */
@@ -127,38 +123,20 @@ Page({
     base.giveLike(this);
   },
   async onLoad(options: any) {
-    const that = this;
-    const id = options.id || { postId }
-    this.setData({
-      isPublished: options.isPublished === '1'
-    })
-    api.request({
-      url: '/v1/post/detail',
-      method: 'GET',
-      data: {
-        id
-      },
-      success(res) {
-        const data = res.data as any;
-        if (data.post === null) {
-          wx.redirectTo({ url: '/pages/notfound/notfound' });
-          return;
-        }
-        that.setData!({
-          data,
-          post:data.post,
-          isLike: data.post.isLike,
-          likeCount:data.post.likeCount
-        });
-        console.log('接受到的文章详情页,',that.data.post);
-      }
+    id = options.id || { postId }
+    let res=await api.getPost({id}) as any;
+    this.setData!({
+      isPublished: options.isPublished === '1',
+      data:res,
+      post:res.post,
+      isLike: res.post.isLike,
+      likeCount:res.post.likeCount,
+      commentCount:res.post.commentCount
     });
-    postId = id
-    const data = await api.getCommentList({ postId, cursor, limit: 10 })
-    that.setData!({
-      comments: data.comments
-    })
+    console.log('加载开始-----------',res)
+    this.init();
   },
+
   /* 监听后退事件 */
   onUnload() {
     if (this.data.isPublished) {
@@ -177,19 +155,32 @@ Page({
       }
     }
    },
-  /*转发分享监听事件 */
-  // onShareAppMessage(res: any) {
-  //   let text = this.data.data!.post.refPost.text;
-  //   if (this.data.data!.post.refPost.text.length > 10) {
-  //     text = this.data.data!.post.text.substring(0, 10) + '...'
-  //   }
-  //   return {
-  //     title: `#${this.data.topic.post.title}#${text}`,
-  //     success(e: any) {
-  //       wx.showShareMenu({
-  //         withShareTicket: true
-  //       })
-  //     }
-  //   }
-  // }
+  onPullDownRefresh(){
+    this.init();
+    setTimeout(() => {
+      wx.stopPullDownRefresh({});
+    }, 300);
+ },
+  //触底加载
+  onReachBottom(){
+    this.loadMore();
+  },
+  //初始化加载
+  async init(){
+    const res2 = await base.pagingLoad('rComment',0,id) as any;
+    console.log('res------------------------',res2);
+    this.setData({
+      comments:res2.comments
+    });
+    cursor=res2.cursor;
+  },
+  async loadMore(){
+    const res=await base.pagingLoad('rComment',cursor,id) as any;
+    if(this.data.comments.length&&res.comments.length){
+       this.setData({
+        comments:this.data.comments.concat(res.comments)
+       });
+       cursor=res.cursor;
+    }
+  }
 })
