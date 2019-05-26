@@ -30,7 +30,7 @@
                 </view>
                 <view class="msg" bind:tap="createAnswer">
                     <image class="msgs" src="../../imgs/img/pinglun.png"></image>
-                    {{post.attendCount ||0}}
+                    {{attendCount}}
                 </view>
                 <view class="replys">
                 <image class="rep" src="../../imgs/img/fenxiang.png" mode="aspectFit|aspectFill|widthFix"></image>
@@ -41,7 +41,7 @@
     </view>
     <!-- 中间更多 -->
     <view class="moreTop" wx:if="{{isPreview}}">
-        <view class="txt" selectable="false" space="false" decode="false">{{post.attendCount}}个投稿</view>
+        <view class="txt" selectable="false" space="false" decode="false">{{attendCount}}个投稿</view>
         <view class="right-r" bind:tap="topicArea">
             <view class="txt" selectable="false" space="false" decode="false">更多话题</view>
             <image class="row" src="../../imgs/button-gd@2x.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>

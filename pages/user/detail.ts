@@ -15,7 +15,7 @@ Page({
     userId: null,  //传入的userId
     curUserId: null  //当前用户
   },
-  onLoad(options: any) {
+  async onLoad(options: any) {
     const userId = options.userId;
     this.setData({
       userId
@@ -23,27 +23,14 @@ Page({
     //获取当前用户的userId
     this.setData({
       curUserId: wx.getStorageSync('userId')
-    })
-    const that = this;
-    api.request({
-      url: '/v1/user/detail',
-      data: {
-        id: userId
-      },
-      method: 'GET',
-      success(res) {
-        console.log('测试recommendList----',res.data);
-        const data = res.data as any;
-        if (data.post === null) {
-          wx.redirectTo({ url: '/pages/notfound/notfound' });
-        }
-        that.setData!({
-          user: data.user,
-          recommendList: data.posts
-        });
-        console.log('测试接收的recommendList----',that.data.recommendList);
-      }
     });
+    const res=await base.pagingLoad('user',0,userId as number) as any;
+    this.setData!({
+      user: res.user,
+      recommendList: res.posts
+    });
+    console.log('测试接收的recommendList----',this.data.recommendList);
+    console.log('res------------------',res);
   },
   onPostRemove(e: any) {
     const { postId } = e.detail
