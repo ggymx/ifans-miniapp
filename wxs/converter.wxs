@@ -20,34 +20,15 @@ function dateCon(dateStr){
   }
 }
 
-//姓名处理
-function nickNameCon(nickName){
-  if(nickName==null) return ''
-  if(nickName.length>10){
-   return nickName.substring(0,15)+"..."
-  }
-  return nickName;
-}
-
-//话题标题处理
-function topicTitleCon(topicTitle){
-  // console.log("传进来的内容长度："+topicTitle.length)
-  if(topicTitle.length>16){
-   console.log("测试！！！"+topicTitle.substring(0,16));
-   return topicTitle.substring(0,16)+"..."
-  }
-  return topicTitle;
-}
-
 //文本内容处理
 function contextCon(text,setLength){
-  if(text==null) return ''
+  console.log('text+length',text,text.length);
+  if(text===null) { return '' }
   if(text.length>setLength){
     return text.substring(0,setLength)+'...'
   }
   return text;
 }
-
 
 //通过话题内容判断是否显示更多
 function isMore(text,setLength){
@@ -75,8 +56,6 @@ function notNull(text){
 /*导出模块 */
 module.exports = {
   dateCon: dateCon,
-  nickNameCon:nickNameCon,
-  topicTitleCon:topicTitleCon,
   contextCon:contextCon,
   numCon:numCon,
   isMore:isMore,
