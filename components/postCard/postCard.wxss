@@ -93,33 +93,15 @@ text {
   /* margin-top: -60rpx; */
 }
 
-.topic-context {
-  color: rgb(51, 51, 51);
-  font-size: 30rpx;
-  
-}
-
-.textView{
-  margin-bottom:14rpx;
-  font-size: 30rpx;
-}
-
-.topic-context .attendCmt {
+.attendCmt {
   -webkit-line-clamp: 4;
   letter-spacing: 3rpx;
   line-height: 56rpx;
-  display: -webkit-inline-box;
-  word-break: break-all;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  -webkit-box-orient: vertical;
-
   font-size: 30rpx;
   font-family: PingFang;
   font-weight: 0;
   color: rgba(51, 51, 51, 1);
-
-  /* margin-bottom:14rpx; */
+  margin-bottom:14rpx;
 }
 
 .publisher-status {
