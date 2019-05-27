@@ -18,7 +18,6 @@ Page({
     isLike: null,
     likeCount:0,//保存likeCount状态
     commentCount:0,
-    postId: 0,
     commentValue: '',
     isCreateAnserPage: false,
     showMask: false,
@@ -65,10 +64,10 @@ Page({
       });
     } else {
       const comment: any = {
-        postId,
-        text: this.data.commentValue,
-        status: EUserStatus.Normal
+        postId:this.data.post.id,
+        text: this.data.commentValue
       }
+      console.log('文章详情------------+++获取postId',);
       const { id } = await api.createComment(comment)
       comment.user = user
       comment.createAt = comment.creatAt = new Date().toISOString()
@@ -125,6 +124,7 @@ Page({
   async onLoad(options: any) {
     id = options.id || { postId }
     let res=await api.getPost({id}) as any;
+    console.log('接受到的文章详情--------',res);
     this.setData!({
       isPublished: options.isPublished === '1',
       data:res,
@@ -135,6 +135,7 @@ Page({
     });
     console.log('加载开始-----------',res)
     this.init();
+    api.getUserInfo()
   },
 
   /* 监听后退事件 */
@@ -155,6 +156,31 @@ Page({
       }
     }
    },
+  onSharePicReady(e: any) {
+    console.log('onSharePicReady')
+    this.sharePic = e.detail.picPath
+    this.setData({
+      sharePic: e.detail.picPath
+    })
+  },
+  /*转发分享监听事件 */
+  onShareAppMessage(res: any) {
+    const post = this.data.post
+    let title = `${post.user.nickname} 参与了一个话题，来和他一起讨论吧`
+    if(api.user){
+      title = `[${api.user.nickname}@了你] 邀请你一起参与讨论`
+    }
+    return {
+      title,
+      imageUrl: this.data.sharePic,
+      path: `/pages/post/detail?id=${this.data.post.id}`,
+      success(e: any) {
+        wx.showShareMenu({
+          withShareTicket: true
+        })
+      }
+    }
+  },
   onPullDownRefresh(){
     this.init();
     setTimeout(() => {

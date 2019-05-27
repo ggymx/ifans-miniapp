@@ -1,4 +1,4 @@
-import { IPost } from '../../common/types/posts'
+import { IPost, EPostType } from '../../common/types/posts'
 import { getImageInfo, drawImageCenterCrop } from '../../common/helper';
 import { fillTextVerticalCenter } from './../../common/helper';
 
@@ -57,9 +57,13 @@ Component({
       const w = this.autoSize(420)
       const h = this.autoSize(336)
       if(post.thumbnails && post.thumbnails.length > 0) {
-        let imgPath = post.thumbnails[0].image
-        let imgInfo = await getImageInfo(imgPath)
-        drawImageCenterCrop(ctx, imgInfo, 0, 0, w, h)
+        try{
+          let imgPath = post.thumbnails[0].image
+          let imgInfo = await getImageInfo(imgPath)
+          drawImageCenterCrop(ctx, imgInfo, 0, 0, w, h)
+        } catch (e) {
+          console.error('Error to drawImage', e)
+        }
       }
       ctx.fillStyle = 'rgba(0,0,0,0.2)'
       ctx.fillRect(0, 0, w, h)
@@ -67,16 +71,31 @@ Component({
       ctx.setFillStyle('#fff');
       ctx.setFontSize(32);
 
+      // 绘制中央大文字
       ctx.textAlign = 'center'
       ctx.textBaseline = 'middle'
-      fillTextVerticalCenter(ctx, post.title || post.text, w/2, h/2, this.autoSize(300), 32)
-      let imgInfo = await getImageInfo(post.user.avatar)
-      let aw = this.autoSize(51)
-      drawImageCenterCrop(ctx, imgInfo, w-aw,h-aw, aw, aw)
-      ctx.textAlign = 'right'
-      ctx.setFontSize(16)
-      ctx.fillText(post.user.nickname, w-aw, h-aw/2)
-      console.log('draw end')
+      const text = post.title || (post.refPost && post.refPost.title) || post.text
+      fillTextVerticalCenter(ctx, text, w / 2, h / 2, this.autoSize(300), 32, 3)
+      // 绘制头像
+        let aw = this.autoSize(51)
+        let margin = this.autoSize(5)
+      if(post.type === EPostType.TopicReply) {
+        // 投稿类
+        let imgInfo = await getImageInfo(post.user.avatar)
+        drawImageCenterCrop(ctx, imgInfo, 0, h - aw, aw, aw)
+        ctx.textAlign = 'left'
+        ctx.setFontSize(20)
+        ctx.fillText(post.user.nickname + ': ' + post.text, aw+margin, h - aw / 2,this.autoSize(300), 1)
+        console.log('draw end')
+      } else {
+        let imgInfo = await getImageInfo(post.user.avatar)
+        let aw = this.autoSize(51)
+        drawImageCenterCrop(ctx, imgInfo, w - aw, h - aw, aw, aw)
+        ctx.textAlign = 'right'
+        ctx.setFontSize(20)
+        ctx.fillText(post.user.nickname, w - aw-margin, h - aw / 2)
+        console.log('draw end')
+      }
       // draw center red point
       // ctx.fillStyle = '#f00'
       // ctx.fillRect(w/2-1, h/2-1, 2,2)

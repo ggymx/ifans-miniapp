@@ -22,7 +22,7 @@ function dateCon(dateStr){
 
 //文本内容处理
 function contextCon(text,setLength){
-  if(text===null) { return '' }
+  if(text===null||text===undefined) { return '' }
   if(text.length>setLength){
     return text.substring(0,setLength)+'...'
   }

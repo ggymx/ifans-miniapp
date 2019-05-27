@@ -74,22 +74,34 @@ class Base {
    *
    */
   async messageBox(id: number,url: string,target: string,todo?: string,): Promise<any> {
-    let message: any;
     const that = this;
     const token = wx.getStorageSync('token');
     if (token) {
       if (todo==='delete') {
-        const res = await wxPromise<wx.ShowActionSheetSuccessCallbackResult>(wx.showActionSheet, {itemList: ['删除']})
-        if(res.tapIndex == 0) {
-          return await that.handlePopDelete(id, url, target)
+        try {
+          const res = await wxPromise<wx.ShowActionSheetSuccessCallbackResult>(wx.showActionSheet, 
+            {
+              itemList: ['删除']
+            });
+          if(res.tapIndex === 0) {
+            return await that.handlePopDelete(id, url, target)
+          }
+        } catch (error) {
+         console.log('取消删除------------',error);
+         return null;
         }
       } else {
+       try{
         const res = await wxPromise<wx.ShowActionSheetSuccessCallbackResult>(wx.showActionSheet, {
           itemList: ['举报']
-        })
-        if(res.tapIndex==0){
+        });
+        if(res.tapIndex===0){
           return await that.handlePopReport(id, url, target, todo)
         }
+         }catch(error){
+          console.log('取消举报-----------',error);
+          return null;
+       }
       }
     } else {
       smartGotoPage({
