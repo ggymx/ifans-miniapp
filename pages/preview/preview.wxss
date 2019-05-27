@@ -15,6 +15,8 @@
     padding: 10rpx 40rpx;
     box-sizing: border-box;
     background-color: #fff;
+    display:flex;
+    flex-direction:column;
 }
 
 .title {
@@ -45,7 +47,7 @@
     height: 63rpx;
     line-height: 63rpx;
     font-size: 28rpx;
-    margin-top: 30rpx;
+    margin-top:26rpx;
 }
 
 .info {
@@ -69,7 +71,7 @@
 .content {
     width: 100%;
     height: auto;
-    margin-top: 34rpx;
+    margin-top: 20rpx;
     line-height: 50rpx;
     color: #333;
     font-size: 30rpx;

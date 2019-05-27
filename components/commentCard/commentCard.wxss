@@ -132,3 +132,6 @@ view.hot{
     justify-content:center;
     align-items:center;
 }
+.content{
+    padding-right:14rpx;
+}

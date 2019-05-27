@@ -13,7 +13,7 @@
             <image class="info fl" src="{{post.user.avatar}}" bind:tap="findUser"></image>
             <view class="name fl" catch:tap="findUser">{{post.user.nickname}}</view>
         </view>
-        <view class="content" wx:if="{{post.text}}">{{post.text}}</view>
+        <text class="content" wx:if="{{post.text}}">{{post.text}}</text>
       
          <!--缩略图模板-->
        <template is="thumbnail" data="{{post}}"></template>

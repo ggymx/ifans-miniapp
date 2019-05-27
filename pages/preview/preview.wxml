@@ -13,7 +13,7 @@
             <!-- <image class="info fl" src="../../imgs/img/pen.png"></image>
             <view class="name fl">DNF</view> -->
         </view>
-        <view class="content">{{post.text}}</view>
+        <text class="content">{{post.text}}</text>
         <!--缩略图模板-->
         <template is="thumbnail" data="{{post}}"></template>
         <!-- 发布按钮 -->
