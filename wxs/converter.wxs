@@ -8,7 +8,7 @@ function dateCon(dateStr){
   var now = getDate();
   var delta = (now.getTime() - oldDate.getTime())/1000
   if(delta<60) {
-    return Math.floor(delta) + '秒前'
+    return (Math.floor(delta)+2) + '秒前'
   } else if(delta<3600) {
     return Math.floor(delta/60) + '分钟前'
   } else if(delta<24*3600) {

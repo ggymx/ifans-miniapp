@@ -123,7 +123,8 @@ Page({
       }, 100);
     }else{
     wx.navigateTo({
-      url: '/pages/preview/preview?post='+encodeURIComponent(JSON.stringify(postData))
+      url: `/pages/preview/preview?post=${encodeURIComponent(JSON.stringify(postData))}
+           &&isTopic=${this.data.isTopic}`
     })
    }
   },

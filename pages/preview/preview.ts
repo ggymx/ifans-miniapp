@@ -1,5 +1,5 @@
 import api from '../../common/api'
-import { smartGotoPage } from '../../common/helper'
+import { smartGotoPage, isPostPage } from '../../common/helper'
 import { uploadChosenImages } from '../../common/upload'
 import base from '../base';
 Page({
@@ -8,7 +8,8 @@ Page({
     uploadPromise: null,
     user:null,
     //缩略图
-    gallery:null
+    gallery:null,
+    isTopic:null
   },
   async getFormId(e: any) {
     const res = await api.reportUserFormId({ formId: e.detail.formId })
@@ -112,10 +113,13 @@ Page({
   },
   //options:获取url参数
   async onLoad(options: any) {
+    console.log('isTopic：---',options.isTopic)
     const post = JSON.parse(decodeURIComponent(options.post))
     this.setData({
-      post
+      post,
+      isTopic:options.isTopic
     })
+    console.log('isTopic------------------------data',this.data.isTopic);
   },
   async onShow(){
     const that=this as any;
