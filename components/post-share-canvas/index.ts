@@ -57,9 +57,13 @@ Component({
       const w = this.autoSize(420)
       const h = this.autoSize(336)
       if(post.thumbnails && post.thumbnails.length > 0) {
-        let imgPath = post.thumbnails[0].image
-        let imgInfo = await getImageInfo(imgPath)
-        drawImageCenterCrop(ctx, imgInfo, 0, 0, w, h)
+        try{
+          let imgPath = post.thumbnails[0].image
+          let imgInfo = await getImageInfo(imgPath)
+          drawImageCenterCrop(ctx, imgInfo, 0, 0, w, h)
+        } catch (e) {
+          console.error('Error to drawImage', e)
+        }
       }
       ctx.fillStyle = 'rgba(0,0,0,0.2)'
       ctx.fillRect(0, 0, w, h)

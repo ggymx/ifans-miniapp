@@ -12,8 +12,14 @@ export function smartGotoPage(option: wx.NavigateToOption) {
 }
 
 export function getImageInfo(src: string): Promise < wx.GetImageInfoSuccessCallbackResult > {
-  return new Promise<any>((success, fail) =>
-    wx.getImageInfo({ src, success, fail }));
+  if (src.indexOf('http://static.qiniu.ifans.pub') === 0) {
+    src = src.replace('http://', 'https://')
+  }
+  return new Promise<any>((success, reject) =>
+    wx.getImageInfo({ src, success, fail(e){
+      console.error('Error to getImageInfo', src, e)
+      reject(e)
+    }}));
 }
 
 /**
