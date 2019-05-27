@@ -7,7 +7,7 @@
     <image src="{{post.user.avatar}}" class="avatar" catch:tap="findUser" />
     <view class="user-view">
       <!-- 用户名 -->
-        <text class="username" catch:tap="findUser">{{con.nickNameCon(post.user.nickname)}}</text>
+        <text class="username" catch:tap="findUser">{{con.contextCon(post.user.nickname,10)}}</text>
         <text wx:if="{{showIssue}}">发布了话题</text>
     </view>
     <view class="arr-view" catch:tap="popBox">
@@ -25,11 +25,12 @@
 
   <view class="publisher-context">
     <!-- 评论话题的内容 -->
-    <view name="context" class="topic-context">
+    <view name="context">
       <!--话题没有内容时不显示post.text???-->
-      <view class="textView" wx:if="{{post.text}}">
-       <text class="attendCmt">{{con.contextCon(post.text,50)}}</text><a name="more" style="color:#4ABABC;font-size:30rpx;" wx:if="{{showMore}}">更多</a>
-      </view>
+       <view class="attendCmt" wx:if="{{post.text}}">{{con.contextCon(post.text,55)}}
+         <a name="more" style="color:#4ABABC;font-size:30rpx;" wx:if="{{showMore}}">更多</a>
+       </view>
+     
        <!--缩略图模板-->
        <template is="thumbnail" data="{{post}}"></template>
 
