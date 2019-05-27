@@ -18,7 +18,6 @@ Page({
     isLike: null,
     likeCount:0,//保存likeCount状态
     commentCount:0,
-    postId: 0,
     commentValue: '',
     isCreateAnserPage: false,
     showMask: false,
@@ -65,10 +64,10 @@ Page({
       });
     } else {
       const comment: any = {
-        postId,
-        text: this.data.commentValue,
-        status: EUserStatus.Normal
+        postId:this.data.post.id,
+        text: this.data.commentValue
       }
+      console.log('文章详情------------+++获取postId',);
       const { id } = await api.createComment(comment)
       comment.user = user
       comment.createAt = comment.creatAt = new Date().toISOString()
@@ -125,6 +124,7 @@ Page({
   async onLoad(options: any) {
     id = options.id || { postId }
     let res=await api.getPost({id}) as any;
+    console.log('接受到的文章详情--------',res);
     this.setData!({
       isPublished: options.isPublished === '1',
       data:res,
