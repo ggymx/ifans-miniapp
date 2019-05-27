@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/post/report",
     "pages/index",
     "pages/test",
     "templates/util",
@@ -14,6 +15,7 @@
     "pages/preview/preview",
     "pages/post/detail",
     "pages/post/daily-hot"
+   
   ],
   "window": {
     "backgroundTextStyle": "dark",
