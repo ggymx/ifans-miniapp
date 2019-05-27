@@ -508,5 +508,30 @@ export interface IReportFormIdParams {
  */
 // tslint:disable-next-line: no-empty-interface
 export interface IReportFormIdResponse {
+}
 
+/**
+ * 创建小号
+ */
+export interface ICreateMiniUserParams {
+  avatar: string
+  nickname: string
+  regInfo: string
+  rootuid: number
+}
+
+// tslint:disable-next-line: no-empty-interface
+export interface ICreateMiniUserResponse {
+  id: number
+}
+
+/**
+ * 获取用户（小号）的list
+ */
+export interface IGetMiniUserParams {
+  rootuid: number
+}
+
+export interface IGetMiniUserResponse {
+  user: IUser[]
 }
