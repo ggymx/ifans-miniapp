@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/post/report",
     "pages/index",
     "pages/test",
     "templates/util",
@@ -14,6 +13,7 @@
     "pages/post/create",
     "pages/preview/preview",
     "pages/post/detail",
+    "pages/post/report",
     "pages/post/daily-hot"
    
   ],

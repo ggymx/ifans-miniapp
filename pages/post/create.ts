@@ -9,7 +9,7 @@ Page({
     isTopic:true,
     pushText: '',
     titleValue: '',
-    inputText: '213rpx',
+    inputText: '300rpx',
     image2Commit: [],
   },
   async getFormId(e: any) {
@@ -127,14 +127,15 @@ Page({
     })
    }
   },
+  //结束编辑
   onEndEditor(event: any) {
     this.setData!({
-      inputText: '213rpx'
+      inputText: '300rpx'
     });
   },
   editerConfirm(event: any) {
     this.setData!({
-      inputText: '213rpx'
+      inputText: '300rpx'
     });
   },
   onLoad(options: any) {

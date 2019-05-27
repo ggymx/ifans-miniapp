@@ -14,10 +14,12 @@ Page {
 
 .title {
     width: 100%;
-    height: 115rpx;
+    height: auto;
     color: #222;
     box-sizing: border-box;
     border-bottom: 2rpx solid #f4f5f9;
+    padding-bottom:26rpx;
+    padding-top:26rpx;
 }
 
 .title .tit {
@@ -35,15 +37,15 @@ Page {
 
 .title .post {
     display: block;
-    height: 100%;
     width: 100%;
     padding-left: 45rpx;
     box-sizing: border-box;
-    font-size: 34rpx;
+    font-size: 32rpx;
     font-family: PingFang-SC-Medium;
     font-weight: 500;
     color: rgba(9, 166, 220, 1);
-    line-height: 40rpx;
+    line-height:50rpx;
+    padding-right:45rpx;
 }
 
 .content {
@@ -56,7 +58,7 @@ Page {
 
 .content .text {
     width: 100%;
-    padding-top: 58rpx;
+    padding-top: 26rpx;
     font-family: PingFang-SC-Medium;
     height: 212rpx;
     font-size: 32rpx;
@@ -84,7 +86,7 @@ Page {
 .picUploadBtn,
 .pic {
     margin-left: 10rpx;
-    margin-top: 10rpx;
+    margin-top: 26rpx;
     height: 196rpx;
     width: 196rpx;
     background-color: #f4f5f9;
