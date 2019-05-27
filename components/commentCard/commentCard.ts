@@ -69,9 +69,11 @@ Component({
     console.log('res的data--------',res);
     if(wx.getStorageSync('token')){
       if(wx.getStorageSync('userId')===res.userId){
-        const reData=await base.messageBox(res.id,'/v1/comment/remove','comment','delete');
-        console.log('返回的reData-------',reData);
-        (this as any).triggerEvent('removeCmt', (this as any).data.comment, {composed:true});
+        const msg=await base.messageBox(res.id,'/v1/comment/remove','comment','delete');
+        console.log('返回的reData-------',msg);
+        if(msg){
+          (this as any).triggerEvent('removeCmt', (this as any).data.comment, {composed:true});
+        }
       }else{
         base.messageBox(res.id,'/v1/post/abuse-report','comment');
       }

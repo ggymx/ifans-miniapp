@@ -102,9 +102,11 @@ Component({
      const res=(this as any).data.post;
      if(wx.getStorageSync('token')){
        if(wx.getStorageSync('userId')===res.userId){
-        const redata= await base.messageBox(res.id,'/v1/post/remove','post','delete');
-         console.log('调用回执---------------',redata);
-         (this as any).triggerEvent('removePost', (this as any).data.post, {composed:true});
+        const msg= await base.messageBox(res.id,'/v1/post/remove','post','delete');
+         console.log('调用回执---------------',msg);
+         if(msg){
+          (this as any).triggerEvent('removePost', (this as any).data.post, {composed:true});
+         }
        }else{
          base.messageBox(res.id,'/v1/post/abuse-report','post');
        }

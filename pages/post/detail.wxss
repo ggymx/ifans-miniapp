@@ -94,8 +94,9 @@
     font-weight: 400;
     color: rgba(51, 51, 51, 1);
     padding-left: 40rpx;
+    padding-right: 40rpx;
     box-sizing: border-box;
-    word-break: keep-all;
+    word-break: break-all;
     word-wrap: break-word;
     margin-top: 30rpx;
 }
