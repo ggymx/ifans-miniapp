@@ -13,6 +13,7 @@
     "pages/post/create",
     "pages/preview/preview",
     "pages/post/detail",
+    "pages/post/report",
     "pages/post/daily-hot"
   ],
   "window": {

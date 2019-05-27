@@ -9,9 +9,7 @@
         </block>
         <!--发布投稿-->
         <block wx:else>
-          <text class='post'>
-            #{{con.contextCon(topic.title,30)}}#
-          </text>
+          <text class='post'>#{{con.contextCon(topic.title,30)}}#</text>
         </block>
     </view>
     
