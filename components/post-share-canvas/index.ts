@@ -60,6 +60,7 @@ Component({
       if(post.thumbnails && post.thumbnails.length > 0) {
         try{
           imgPath = post.thumbnails[0].image
+          console.log('替换默认分享图-------------',imgPath);
           let imgInfo = await getImageInfo(imgPath)
           drawImageCenterCrop(ctx, imgInfo, 0, 0, w, h)
         } catch (e) {

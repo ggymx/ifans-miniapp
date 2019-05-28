@@ -45,6 +45,16 @@ Page({
       }
     }
   },
+  async onPullDownRefresh(){
+    const res=await base.pagingLoad('user',0,this.data.userId as number) as any;
+    this.setData!({
+      user: res.user,
+      recommendList: res.posts
+    });
+    setTimeout(() => {
+      wx.stopPullDownRefresh({});
+    }, 200);
+  },
   onShareAppMessage() {
     const that = this;
     const userName = that.data.user!.nickname
