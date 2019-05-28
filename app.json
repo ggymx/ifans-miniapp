@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/createAccount",
     "pages/index",
     "pages/post/report",
     "pages/post/create",
@@ -12,10 +13,8 @@
     "pages/user/news",
     "pages/user/foot-print",
     "pages/post/topic-detail",
-    
     "pages/preview/preview",
     "pages/post/detail",
-   
     "pages/post/daily-hot"
   ],
   "window": {

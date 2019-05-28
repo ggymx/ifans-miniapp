@@ -1,7 +1,6 @@
 import { IPost, EPostType } from '../../common/types/posts'
 import { getImageInfo, drawImageCenterCrop } from '../../common/helper';
 import { fillTextVerticalCenter } from './../../common/helper';
-
 Component({
   properties: {
     post: {
@@ -55,10 +54,12 @@ Component({
     async drawImageAndText(ctx: any) {
       const post: IPost = this.data.post
       const w = this.autoSize(420)
-      const h = this.autoSize(336)
+      const h = this.autoSize(336);
+      //分享卡片默认图
+      let imgPath='../../imgs/img/share-bk.png';
       if(post.thumbnails && post.thumbnails.length > 0) {
         try{
-          let imgPath = post.thumbnails[0].image
+          imgPath = post.thumbnails[0].image
           let imgInfo = await getImageInfo(imgPath)
           drawImageCenterCrop(ctx, imgInfo, 0, 0, w, h)
         } catch (e) {

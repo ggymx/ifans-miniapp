@@ -1,0 +1,12 @@
+<!--pages/createAccount.wxml-->
+<navbar back text="创建小号"></navbar>
+<view class="underlying">
+<view class="main">
+    <image src="../imgs/img/account.png" style="width:193rpx;height:193rpx;margin-top:172rpx;"/>
+    <text style="font-size:34rpx;font-family:PingFang-SC-Medium;font-weight:500;color:rgba(51,51,51,1);margin-top:23rpx;">点击上传头像</text>
+    <input class="nickname" placeholder="创建账号ID" style="margin-top:59rpx;" placeholder-class="nickname-pr"></input>
+    <button id="create">确认创建</button>
+</view>
+<image src="../imgs/img/account_bk.png" class="bk"/>
+</view>
+
