@@ -1,253 +1,263 @@
 /* pages/detail/detail.wxss */
 
 @import "/templates/util.wxss";
+
 .body {
-    width: 100%;
-    height: auto;
-    padding-top: 128rpx;
-    padding-bottom: 30rpx;
-    box-sizing: border-box;
-    position: relative;
-    background-color: rgb(255, 255, 255);
+  width: 100%;
+  height: auto;
+  padding-top: 128rpx;
+  padding-bottom: 30rpx;
+  box-sizing: border-box;
+  position: relative;
+  background-color: rgb(255, 255, 255);
 }
 
 .content {
-    width: 100%;
-    height: auto;
-    position: relative;
+  width: 100%;
+  height: auto;
+  position: relative;
 }
 
 
 /*关联的话题标题*/
 
 .content .title {
-    width: 100%;
-    /* height: 87rpx; */
-    line-height: 50rpx;
-    font-weight: bold;
-    padding: 0 31rpx 0 36rpx;
-    box-sizing: border-box;
-    margin-top: 30rpx;
-    font-size: 36rpx;
-    color: #333;
+  width: 100%;
+  /* height: 87rpx; */
+  line-height: 50rpx;
+  font-weight: bold;
+  padding: 0 31rpx 0 36rpx;
+  box-sizing: border-box;
+  margin-top: 30rpx;
+  font-size: 36rpx;
+  color: #333;
 }
 
 .userInfo {
-    width: 100%;
-    height: 64rpx;
-    padding: 0 34rpx;
-    /* margin-top: 58rpx; */
-    position: relative;
-    box-sizing: border-box;
+  width: 100%;
+  height: 64rpx;
+  padding: 0 34rpx;
+  /* margin-top: 58rpx; */
+  position: relative;
+  box-sizing: border-box;
 }
 
 .line {
-    width: 100%;
-    height: 2rpx;
-    position: absolute;
-    top: 80rpx;
-    color: #F4F5F9;
+  width: 100%;
+  height: 2rpx;
+  position: absolute;
+  top: 80rpx;
+  color: #F4F5F9;
 }
 
 .userInfo .user {
-    height: 100%;
-    width: auto;
-    margin-top: 58rpx;
+  height: 100%;
+  width: auto;
+  margin-top: 58rpx;
 }
 
 .userInfo .img {
-    width: 64rpx;
-    height: 64rpx;
-    border-radius: 50%;
-    margin-right: 18rpx;
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 50%;
+  margin-right: 18rpx;
 }
 
 .user .text {
-    height: 100%;
-    text-align: center;
-    font-size: 28rpx;
-    font-weight: bold;
-    color: rgba(74, 186, 188, 1);
-    line-height: 64rpx;
+  height: 100%;
+  text-align: center;
+  font-size: 28rpx;
+  font-weight: bold;
+  color: rgba(74, 186, 188, 1);
+  line-height: 64rpx;
 }
 
 .userInfo .more {
-    /* width: 32rpx;
+  /* width: 32rpx;
     height: 7rpx; */
-    width: 50rpx;
-    height: 50rpx;
-    position: absolute;
-    right: 45rpx;
-    top: 10rpx;
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  right: 24rpx;
+  top: 10rpx;
 }
 
 .userInfo .more image {
-    width: 32rpx;
-    height: 7rpx;
+  width: 32rpx;
+  height: 7rpx;
 }
 
 .article {
-    width: 100%;
-    height: auto;
-    line-height: 60rpx;
-    font-size: 31rpx;
-    font-weight: 400;
-    color: rgba(51, 51, 51, 1);
-    padding-left: 40rpx;
-    padding-right: 40rpx;
-    box-sizing: border-box;
-    word-break: break-all;
-    word-wrap: break-word;
-    margin-top: 30rpx;
+  width: 100%;
+  height: auto;
+  line-height: 60rpx;
+  font-size: 31rpx;
+  font-weight: 400;
+  color: rgba(51, 51, 51, 1);
+  padding-left: 40rpx;
+  padding-right: 30rpx;
+  box-sizing: border-box;
+  margin-top: 30rpx;
+
+  /* 防止撑开*/
+  table-layout: fixed;
+  /* 英文单字因自动换行 */
+  word-wrap: break-word;
+  /* 正常避头尾 */
+  word-break: normal;
+  /* 文字左右对齐 */
+  text-align: justify;
+  text-justify: inter-ideograph;
+
 }
 
 .txt {
-    width: 100%;
-    height: auto;
-    display: inline-block;
-    font-size:30rpx;
-    font-family:PingFang;
-    font-weight:0;
-    color:rgba(51, 51, 51, 1);
-    letter-spacing: 3rpx;
+  width: 100%;
+  height: auto;
+  display: inline-block;
+  font-size: 30rpx;
+  font-family: PingFang;
+  font-weight: 0;
+  color: rgba(51, 51, 51, 1);
+  letter-spacing: 3rpx;
 }
 
 .bottom {
-    width: 100%;
-    height: 44rpx;
-    line-height: 44rpx;
-    margin-top: 30rpx;
-    padding: 0 40rpx;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-between;
+  width: 100%;
+  height: 44rpx;
+  line-height: 44rpx;
+  margin-top: 30rpx;
+  padding: 0 40rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
 }
 
 .bottom .left,
 .bottom .right {
-    height: 100%;
-    width: auto;
-    display: flex;
-    justify-content: space-between;
+  height: 100%;
+  width: auto;
+  display: flex;
+  justify-content: space-between;
 }
 
 .bottom .block {
-    width: 44rpx;
-    height: 44rpx;
-    margin-right: 8rpx;
+  width: 44rpx;
+  height: 44rpx;
+  margin-right: 8rpx;
 }
 
 .bottom .time,
 .right .text {
-    font-size: 26rpx;
-    color: #666;
+  font-size: 26rpx;
+  color: #666;
 }
 
 .right .star,
 .right .msg {
-    margin-right: 38rpx;
+  margin-right: 38rpx;
 }
 
 .right .star,
 .right .msg,
 .right .replys {
-    width: auto;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
+  width: auto;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .right .stars,
 .right .msgs {
-    margin-right: 6rpx;
+  margin-right: 6rpx;
 }
 
 .right .msgs,
 .right .rep,
 .right .stars {
-    width: 44rpx;
-    height: 44rpx;
+  width: 44rpx;
+  height: 44rpx;
 }
 
 .replys {
-    position: relative;
+  position: relative;
 }
 
 .replys .share {
-    width: 50rpx;
-    height: 50rpx;
-    position: absolute;
-    background: transparent;
-    right: 0;
-    top: 0;
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  background: transparent;
+  right: 0;
+  top: 0;
 }
 
 .noMore {
-    width: 100%;
-    height: 90rpx;
-    line-height: 90rpx;
-    text-align: center;
-    color: #BDBDBD;
-    margin-bottom: 90rpx;
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  color: #BDBDBD;
+  margin-bottom: 90rpx;
 }
 
 .reply {
-    width: 100%;
-    height: 90rpx;
-    position: fixed;
-    bottom: 0;
-    background-color: #fff;
-    border-top: 2rpx solid #F4F5F9;
-    padding: 15rpx 114rpx 15rpx 100rpx;
-    box-sizing: border-box;
+  width: 100%;
+  height: 90rpx;
+  position: fixed;
+  bottom: 0;
+  background-color: #fff;
+  border-top: 2rpx solid #F4F5F9;
+  padding: 15rpx 114rpx 15rpx 100rpx;
+  box-sizing: border-box;
 }
 
 .reply .img {
-    width: 100rpx;
-    height: 100%;
-    padding: 18rpx 24rpx;
-    box-sizing: border-box;
-    position: absolute;
-    left: 0;
-    top: 0;
+  width: 100rpx;
+  height: 100%;
+  padding: 18rpx 24rpx;
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
 .reply .img image {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .reply .content {
-    width: 100%;
-    height: 100%;
-    font-size: 26rpx;
-    padding-left: 22rpx;
-    box-sizing: border-box;
-    background-color: #F4F5F9;
+  width: 100%;
+  height: 100%;
+  font-size: 26rpx;
+  padding-left: 22rpx;
+  box-sizing: border-box;
+  background-color: #F4F5F9;
 }
 
 .reply .btn {
-    width: 114rpx;
-    height: 100%;
-    font-size: 28rpx;
-    color: #999999;
-    background-color: #fff;
-    line-height: 90rpx;
-    text-align: center;
-    position: absolute;
-    padding: 0;
-    right: 0;
-    top: 0;
+  width: 114rpx;
+  height: 100%;
+  font-size: 28rpx;
+  color: #999999;
+  background-color: #fff;
+  line-height: 90rpx;
+  text-align: center;
+  position: absolute;
+  padding: 0;
+  right: 0;
+  top: 0;
 }
 
 
 /*分享按钮*/
 
 button.share {
-    padding: 0;
-    width: 50rpx;
-    height: 50rpx;
-    border: none;
-    line-height: 0;
-    background: #FFF;
+  padding: 0;
+  width: 50rpx;
+  height: 50rpx;
+  border: none;
+  line-height: 0;
+  background: #FFF;
 }

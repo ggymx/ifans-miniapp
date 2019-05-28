@@ -69,14 +69,21 @@
     margin-top: 20rpx;
     margin-bottom: 10rpx;
     line-height: 50rpx;
-    /* color: #333;
-    letter-spacing: 3rpx;
-    font-size: 30rpx;
-    font-weight: 500; */
     font-size:30rpx;
     font-family:PingFang;
     font-weight:0;
     color:rgba(51, 51, 51, 1);
+
+    
+ /* 防止撑开*/
+  table-layout: fixed;
+  /* 英文单字因自动换行 */
+  word-wrap: break-word;
+  /* 正常避头尾 */
+  word-break: normal;
+  /* 文字左右对齐 */
+  text-align: justify;
+  text-justify: inter-ideograph;
 }
 
 .imgBox {

@@ -62,8 +62,8 @@ text {
 
 .arr-view {
   position: absolute;
-  top: 26rpx;
-  right: 8rpx;
+  top: 22rpx;
+  right:14rpx;
   width: 60rpx;
   height: 60rpx;
 }
@@ -102,6 +102,17 @@ text {
   font-weight: 0;
   color: rgba(51, 51, 51, 1);
   margin-bottom:14rpx;
+
+   /* 防止撑开*/
+   table-layout: fixed;
+   /* 英文单字因自动换行 */
+   word-wrap: break-word;
+   /* 正常避头尾 */
+   word-break: normal;
+   /* 文字左右对齐 */
+   text-align: justify;
+   text-justify: inter-ideograph;
+   margin-top:10rpx;
 }
 
 .publisher-status {
@@ -122,6 +133,7 @@ text {
  .clock-icon {
   width: 44rpx;
   height: 44rpx;
+  margin-left:5rpx;
 } 
 
 .publisher-date {
@@ -175,6 +187,7 @@ text {
   height: 100%;
   width: auto;
   display: flex;
+  margin-right:15rpx;
 }
 .stars {
   width:67.6rpx;
