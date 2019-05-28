@@ -1,4 +1,7 @@
 /* pages/post/report.wxss */
+.underlying{
+  min-height:600rpx;
+}
 .header {
   height: 60rpx;
   width: 100%;
@@ -65,6 +68,8 @@ textarea.report {
   margin-top: 25rpx;
   background: rgba(244, 245, 249, 1);
   border-radius: 8rpx;
+  padding-top:18rpx;
+  padding-left:18rpx;
 }
 
 .radio-group{
@@ -72,9 +77,15 @@ textarea.report {
 }
 
 #submit{
-    width:702rpx;
+width:702rpx;
 height:80rpx;
-background:rgba(74,186,188,1);
+background:#4ABABC;
 border-radius:40rpx;
-margin-top:323rpx;
+margin-top:334rpx;
+
+font-size:32rpx;
+font-family:PingFang-SC-Medium;
+font-weight:500;
+color:rgba(255,255,255,1);
+line-height:40px;
 }

@@ -48,18 +48,21 @@ class Base {
          }else if(target==='comment'){
             data={id}
          }
-          api.request({
-            url,
-            data,
-            method: 'POST',
-            success(res) {
-              const data = res.data as any;
-              data.msg === 'ok'
-                ? wx.showToast({ title: '举报成功' })
-                : '';
-              // {id,msg:'report-success'}
-            }
-          });
+         smartGotoPage({
+           url:'/pages/post/report'
+         })
+          // api.request({
+          //   url,
+          //   data,
+          //   method: 'POST',
+          //   success(res) {
+          //     const data = res.data as any;
+          //     data.msg === 'ok'
+          //       ? wx.showToast({ title: '举报成功' })
+          //       : '';
+          //     // {id,msg:'report-success'}
+          //   }
+          // });
         }
       }
     });

@@ -53,7 +53,7 @@
         <view class="container">
             <block>
                 <block wx:for="{{comments}}" wx:key="id">
-                    <commentCard id="comment-{{item.id}}" comment="{{item}}" isLike="{{item.isLike}}" bindremoveCmt="rComment"/>
+                    <commentCard id="comment-{{item.id}}" comment="{{item}}" bindremoveCmt="rComment"/>
                 </block>
             </block>
         </view>

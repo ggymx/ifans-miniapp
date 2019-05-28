@@ -199,6 +199,9 @@
   text-align: center;
   color: #BDBDBD;
   margin-bottom: 90rpx;
+  border-top-style:solid;
+  border-width:2rpx;
+  border-color:#eee;
 }
 
 .reply {

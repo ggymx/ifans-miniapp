@@ -68,11 +68,14 @@ Page({
         text: this.data.commentValue
       }
       console.log('文章详情------------+++获取postId',);
-      const { id } = await api.createComment(comment)
+      const { id } = await api.createComment(comment);
       console.log('插入评论-------',comment);
       comment.user = user
       comment.createAt = comment.creatAt = new Date().toISOString()
-      comment.id = id
+      comment.id = id;
+      comment.isLike=false;
+      comment.likeCount=0;
+      comment.userId=wx.getStorageSync('userId');
       const comments = this.data.comments || []
       comments.push(comment)
       this.setData({
@@ -80,7 +83,7 @@ Page({
         commentValue: '',
         commentCount:this.data.commentCount+1
       })
-      console.log('插入评论-------',this.data.comments);
+      console.log('此时的评论列表-------',this.data.comments);
       // 移动到评论区
       const query = wx.createSelectorQuery();
       query.exec((rects: any) => {

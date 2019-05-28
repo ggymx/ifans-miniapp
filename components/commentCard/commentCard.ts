@@ -6,16 +6,13 @@ Component({
   properties: {
     comment: {
       type: Object,
-      value: null
+      value: null,
     },
-    isLike: {
-      type: Boolean,
-      value: false
-    }
   },
 
   data: {
-      likeCount:0
+    isLike: false,
+    likeCount:0
   },
 
   /**
@@ -44,7 +41,7 @@ Component({
           }
         }, 100);
       } else {
-        if (!instance.properties.isLike) {
+        if (!instance.data.isLike) {
           const res = await api.giveCommentLike({
             id: instance.properties.comment.id
           });
@@ -84,10 +81,13 @@ Component({
    }
   },
   ready(){
+    console.log('ready', this.data.comment)
     //保存点赞数量状态
     this.setData({
-     likeCount:this.data.comment.likeCount
+     likeCount:this.data.comment.likeCount,
+     isLike:this.data.comment.isLike,
     })
+    console.log('ready done.')
   },
   options: {
     multipleSlots: true // 在组件定义时的选项中启用多slot支持

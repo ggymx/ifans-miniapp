@@ -14,6 +14,6 @@
             </view>
         </radio-group>
         <textarea class="report" placeholder="或简单描述你遇见的问题"></textarea>
-        <button id="submit">提交</button>
+        <button id="submit" bind:tap="onSubmit">提交</button>
     </view>
 </view>
