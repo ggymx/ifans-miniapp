@@ -21,7 +21,7 @@
 
 .title {
     width: 100%;
-    height: 60rpx;
+    height:auto;
 }
 
 .title1 {
@@ -77,6 +77,17 @@
     font-size: 30rpx;
     font-weight: 500;
     letter-spacing: 2rpx;
+
+   
+ /* 防止撑开*/
+  table-layout: fixed;
+  /* 英文单字因自动换行 */
+  word-wrap: break-word;
+  /* 正常避头尾 */
+  word-break: normal;
+  /* 文字左右对齐 */
+  text-align: justify;
+  text-justify: inter-ideograph;
 }
 
 /* 发布按钮 */

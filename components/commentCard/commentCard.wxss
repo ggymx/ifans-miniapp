@@ -87,7 +87,7 @@ page{
     height: 44rpx;
     position: absolute;
     right: 14rpx;
-    top: 16rpx;
+    top:6rpx;
     font-size: 26rpx;
     display: flex;
     justify-content: space-between;
@@ -134,4 +134,15 @@ view.hot{
 }
 .content{
     padding-right:14rpx;
+    
+ /* 防止撑开*/
+  table-layout: fixed;
+  /* 英文单字因自动换行 */
+  word-wrap: break-word;
+  /* 正常避头尾 */
+  word-break: normal;
+  /* 文字左右对齐 */
+  text-align: justify;
+  text-justify: inter-ideograph;
+  margin-top:10rpx;
 }

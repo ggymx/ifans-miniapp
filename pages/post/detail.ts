@@ -69,6 +69,7 @@ Page({
       }
       console.log('文章详情------------+++获取postId',);
       const { id } = await api.createComment(comment)
+      console.log('插入评论-------',comment);
       comment.user = user
       comment.createAt = comment.creatAt = new Date().toISOString()
       comment.id = id
@@ -79,6 +80,7 @@ Page({
         commentValue: '',
         commentCount:this.data.commentCount+1
       })
+      console.log('插入评论-------',this.data.comments);
       // 移动到评论区
       const query = wx.createSelectorQuery();
       query.exec((rects: any) => {
