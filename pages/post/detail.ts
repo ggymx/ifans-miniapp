@@ -85,12 +85,9 @@ Page({
       })
       console.log('此时的评论列表-------',this.data.comments);
       // 移动到评论区
-      const query = wx.createSelectorQuery();
-      query.exec((rects: any) => {
-        wx.pageScrollTo({
-          // TODO: 找到更好的办法
-          scrollTop: 1000000,
-        })
+      wx.pageScrollTo({
+        // TODO: 找到更好的办法
+        scrollTop: 1000000,
       })
     }
   },
