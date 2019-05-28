@@ -1,9 +1,9 @@
 import { AbuseReport } from './abuseReport';
-import { Comment } from './comment'
+import { Comment } from './comment';
 import { INoticeReply } from './notice_reply';
-import { IPost, IThumbnail } from './posts'
-import { IReply } from './reply'
-import { IUser } from './user'
+import { IPost, IThumbnail } from './posts';
+import { IReply } from './reply';
+import { IUser } from './user';
 
 /**
  * 错误返回
@@ -534,4 +534,17 @@ export interface IGetMiniUserParams {
 
 export interface IGetMiniUserResponse {
   user: IUser[]
+}
+
+/**
+ * 小号切换登录
+ */
+export interface ILoginMiniUserParams {
+  userId: number
+}
+
+export interface ILoginMiniUserParams {
+  time: Date
+  token: string
+  user: IUser
 }

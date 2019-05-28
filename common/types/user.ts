@@ -1,13 +1,14 @@
 export interface IUser {
+  avatar?: string,
+  counter?: {
+    activity?: number,
+    fans?: number,
+  }
+  followStatus?: EFollowStatus,
   id: number,
   nickname: string,
-  avatar?: string,
+  rootuid?: number,
   sign?: string,
-  followStatus?: EFollowStatus,
-  counter?: {
-    fans?: number,
-    activity?: number,
-  }
   status?: EUserStatus,
 }
 
