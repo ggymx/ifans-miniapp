@@ -117,10 +117,7 @@ Page({
     }
     //判断是否登录
     if(!wx.getStorageSync('token')){
-      wx.showToast({ title: '请先登录！' });
-      setTimeout(() => {
        base.link('login');
-      }, 100);
     }else{
     wx.navigateTo({
       url: `/pages/preview/preview?post=${encodeURIComponent(JSON.stringify(postData))}

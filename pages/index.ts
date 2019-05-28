@@ -56,12 +56,6 @@ Page({
     if (wx.getStorageSync('token') && this.data.user) {
       base.link('news');
     } else {
-      setTimeout(() => {
-        wx.showToast({
-          title: '请先登录',
-          icon: 'none'
-        });
-      }, 300);
       base.link('login');
     }
   },

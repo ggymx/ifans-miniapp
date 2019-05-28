@@ -136,12 +136,7 @@ class Base {
     //获取token
     const token = wx.getStorageSync('token');
     if (!token) {
-      const pages = getCurrentPages();
-      const curPage = pages[pages.length - 1];
-      wx.showToast({ title: '请先登录！' });
-      setTimeout(() => {
         this.link('login');
-      }, 100);
     } else {
       let id: number;
       const that = instance as any;

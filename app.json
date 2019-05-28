@@ -1,10 +1,10 @@
 {
   "pages": [
-   
-    "pages/list",
+    
     "pages/index",
-    "pages/createAccount",
     "pages/post/report",
+    "pages/createAccount",
+    "pages/list",
     "pages/post/create",
     "pages/test",
     "templates/util",
