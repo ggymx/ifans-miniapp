@@ -148,11 +148,16 @@ Page({
       });
     }
   },
-  popBox() {
+  async popBox() {
     const res=(this as any).data.post;
     if(wx.getStorageSync('token')){
       if(wx.getStorageSync('userId')===res.userId){
-       base.messageBox(res.id,'/v1/post/remove','post','delete');
+       const data=await base.messageBox(res.id,'/v1/post/remove','post','delete') as any;
+       if(data.msg==='del-success'){
+         //告诉前一页要删除相应的数据。。。
+         wx.navigateBack({delta:1});
+       }
+       console.log('删除后返回的信息-------',data);
       }else{
         base.messageBox(res.id,'/v1/post/abuse-report','post');
       }

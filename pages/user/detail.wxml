@@ -22,8 +22,8 @@
     <view class="container" style="margin-top:20rpx;">
    
        <block wx:for="{{recommendList}}" wx:for-index="index">
-        <postCard wx:if="{{item.type=='1'}}" card showTitle showIssue arrowBtn like post="{{item}}" isLike="{{item.isLike}}" showMore="{{con.isMore(item.text,50)}}" bind:remove="onPostRemove" bindremovePost="rPostCard"/>
-        <postCard wx:elif="{{item.type=='2'}}" card showTitle arrowBtn like post="{{item}}" isLike="{{item.isLike}}" showMore="{{con.isMore(item.text,50)}}" bind:remove="onPostRemove" bindremovePost="rPostCard"/>
+        <postCard wx:if="{{item.type=='1'}}" card showTitle showIssue arrowBtn like post="{{item}}" showMore="{{con.isMore(item.text,50)}}" bind:remove="onPostRemove" bindremovePost="rPostCard"/>
+        <postCard wx:elif="{{item.type=='2'}}" card showTitle arrowBtn like post="{{item}}" showMore="{{con.isMore(item.text,50)}}" bind:remove="onPostRemove" bindremovePost="rPostCard"/>
       </block>
     <!--缺省页面-->
     </view>
