@@ -92,5 +92,8 @@ Page({
   findUser(event: any) {
     const uId = event.target.dataset.uid;
     base.link('user',uId);
+  },
+  findOldIndex(){
+    base.link('oldIndex');
   }
 })

@@ -35,6 +35,9 @@ Page({
        cursor=res.cursor;
       }
     },
+  findOldIndex(){
+    base.link('oldIndex');
+  },
   onPullDownRefresh(){
     this.onLoad();
     setTimeout(() => {

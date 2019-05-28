@@ -110,10 +110,14 @@ Page({
   //下拉刷新
   async onPullDownRefresh() {
     //获取投稿列表
-    setTimeout(() => {
-      this.onLoad();
+     setTimeout(async () => {
+      const res=await base.pagingLoad('rPost',0,this.data.options.id) as any;
+      this.setData({
+        postArr:res.posts
+      })
+      cursor=res.cursor;
       wx.stopPullDownRefresh({});
-    }, 300);
+    }, 100);
   },
   //触底加载
   onReachBottom() {

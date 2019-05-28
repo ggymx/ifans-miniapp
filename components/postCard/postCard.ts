@@ -38,10 +38,10 @@ Component({
       type: Boolean,
       value: false
     },
-    isLike: {
-      type: Boolean,
-      value: true
-    },
+    // isLike: {
+    //   type: Boolean,
+    //   value: true
+    // },
     final: {
       type: Boolean,
       value: false
@@ -57,7 +57,8 @@ Component({
   },
   data: {
     isDelete: true,
-    likeCount:0
+    likeCount:0,
+    isLike: false
   },
   methods: {
     /*跳转话题&文章详情*/
@@ -119,7 +120,8 @@ Component({
   },
   ready(){
      this.setData({
-         likeCount:this.data.post.likeCount
+         likeCount:this.data.post.likeCount,
+         isLike: this.data.post.isLike
      });
   },
   options: {

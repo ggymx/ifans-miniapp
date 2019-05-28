@@ -143,7 +143,7 @@ class Base {
       let isLike: boolean;
       if (user === 'component') {
         id = that.properties.post.id;
-        isLike = that.properties.isLike;
+        isLike = that.data.isLike;
       } else {
         id = that.data.post.id;
         isLike = that.data.isLike
@@ -262,14 +262,14 @@ class Base {
   public async pagingLoad(target: string, cursor: number=0,...other): Promise<object> {
     let list: object = null;
      //cursor不等于0说明是加载更多
-    if (cursor !== 0) {
-      wx.showLoading({
-        title: '加载更多'
-      });
-      setTimeout(() => {
-        wx.hideLoading({});
-      }, 500);
-    }
+    // if (cursor !== 0) {
+    //   wx.showLoading({
+    //     title: '加载更多'
+    //   });
+    //   setTimeout(() => {
+    //     wx.hideLoading({});
+    //   }, 500);
+    // }
     //获取话题列表
     if(target==='post'){
       list = await api.getHomeTopicList({ cursor, limit: 10 });
@@ -291,24 +291,24 @@ class Base {
        list =await api.getCommentList({postId:other[0],cursor,limit:10});
        console.log('评论列表-------------',list);
     }
-    if(target!=='rComment'){
-    if ((list as any).posts.length === 0) {
-      wx.showToast({
-        icon: 'none',
-        title: '已经到底了。。。'
-      });
-    }
-  }else{
-    if ((list as any).comments.length === 0) {
-      wx.showToast({
-        icon: 'none',
-        title: '已经到底了。。。'
-      });
-    }
-  }
-  setTimeout(() => {
-    wx.hideToast({});
-  }, 400);
+  //   if(target!=='rComment'){
+  //   if ((list as any).posts.length === 0) {
+  //     wx.showToast({
+  //       icon: 'none',
+  //       title: '已经到底了。。。'
+  //     });
+  //   }
+  // }else{
+  //   if ((list as any).comments.length === 0) {
+  //     wx.showToast({
+  //       icon: 'none',
+  //       title: '已经到底了。。。'
+  //     });
+  //   }
+  // }
+  // setTimeout(() => {
+  //   wx.hideToast({});
+  // }, 400);
     return new Promise((resolve) => { resolve(list) });
 }
 }
