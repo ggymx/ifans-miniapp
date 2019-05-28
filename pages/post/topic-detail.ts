@@ -71,6 +71,7 @@ Page({
       isPublished: options.isPublished === '1',
       options
     })
+    console.log('重新返回话题--------------',that.data.post);
     if (!that.data.post) {
       id = options.id;
       const data: any = await api.getPost({ id });

@@ -89,15 +89,18 @@ Page({
               const topicPage = pages[pages.length - 3]
               const postArr = (topicPage.data as any).postArr || []
               const post = that.data.post
-              console.log('新插入的数据---------',post);
               post.id = data.id
               post.createAt = new Date().toISOString()
+              post.attendCount=0;
+              post.likeCount=10;
+              console.log('新创建的投稿-----',post);
               api.getUserInfo().then(user=>{
                 post.user = user
                 postArr.unshift(post)
                 topicPage.setData({
                   postArr
                 })
+                console.log('重新渲染的topicPage--------------',topicPage.data);
               })
             }
             wx.redirectTo({
@@ -120,7 +123,7 @@ Page({
       post,
       isTopic:options.isTopic
     })
-    console.log('参与话题post--------',this.data.post);
+    console.log('预览post--------',this.data.post);
   },
   async onShow(){
     const that=this as any;

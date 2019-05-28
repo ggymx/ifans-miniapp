@@ -2,6 +2,7 @@
   "pages": [
     "pages/index",
     "pages/post/report",
+    "pages/post/create",
     "pages/test",
     "templates/util",
     "pages/oldindex",
@@ -11,7 +12,7 @@
     "pages/user/news",
     "pages/user/foot-print",
     "pages/post/topic-detail",
-    "pages/post/create",
+    
     "pages/preview/preview",
     "pages/post/detail",
    
