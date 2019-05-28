@@ -1,7 +1,9 @@
 {
   "pages": [
-    "pages/createAccount",
+   
+    "pages/list",
     "pages/index",
+    "pages/createAccount",
     "pages/post/report",
     "pages/post/create",
     "pages/test",
