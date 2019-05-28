@@ -26,20 +26,9 @@ Component({
       //获取token
       const token = wx.getStorageSync('token');
       if (!token) {
-        const pages = getCurrentPages();
-        const curPage = pages[pages.length - 1];
-        wx.showToast({ title: '请先登录！' });
-        setTimeout(() => {
-          if (curPage.route === 'pages/index') {
-            smartGotoPage({
-              url: './login'
-            });
-          } else {
-            smartGotoPage({
-              url: '../login'
-            });
-          }
-        }, 100);
+         smartGotoPage({
+          url: '/pages/login'
+          });
       } else {
         if (!instance.data.isLike) {
           const res = await api.giveCommentLike({

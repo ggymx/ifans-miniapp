@@ -1,6 +1,6 @@
-import api from "../../common/api";
-import { smartGotoPage } from "../../common/helper";
-import { ETableType } from "../../common/types/notice_reply";
+import api from '../../common/api';
+import { smartGotoPage } from '../../common/helper';
+import { ETableType } from '../../common/types/notice_reply';
 
 // @ts-ignorets
 Component({
@@ -35,22 +35,11 @@ Component({
     /*点赞 */
     async giveLike(event: any) {
       //获取token
-      const token = wx.getStorageSync("token");
+      const token = wx.getStorageSync('token');
       if (!token) {
-        const pages = getCurrentPages();
-        const curPage = pages[pages.length - 1];
-        wx.showToast({ title: "请先登录！" });
-        setTimeout(() => {
-          if (curPage.route === "pages/index") {
-            smartGotoPage({
-              url: "./login"
-            });
-          } else {
-            smartGotoPage({
-              url: "../login"
-            });
-          }
-        }, 100);
+          smartGotoPage({
+            url: '/pages/login'
+          });
       } else {
         const instance = this as any;
         if (!instance.properties.isLike) {
@@ -96,5 +85,5 @@ Component({
     multipleSlots: true // 在组件定义时的选项中启用多slot支持
   },
   /*接受的外部样式类,通过slot1/slot2两个属性获取 */
-  externalClasses: ["slot1", "slot2"]
+  externalClasses: ['slot1', 'slot2']
 });

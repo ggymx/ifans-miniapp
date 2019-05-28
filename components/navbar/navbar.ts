@@ -86,12 +86,9 @@ Component({
                                 }, 100)
 
                             } else {
-                                wx.showToast({ title: '请先登录！' });
-                                setTimeout(() => {
-                                    smartGotoPage({
-                                        url: './login'
-                                    });
-                                }, 100)
+                                smartGotoPage({
+                                    url: '/pages/login'
+                                });
                             }
                             break;
                     }

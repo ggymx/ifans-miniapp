@@ -82,12 +82,9 @@ Page({
       });
       store.setBrowserNew(true);
     } else {
-      wx.showToast({ title: '请先登录！' });
-      setTimeout(() => {
         smartGotoPage({
-          url: './../login'
+          url: '/pages/login'
         });
-      }, 100)
     }
     // const res=await base.pagingLoad('news',0) as any;
 
