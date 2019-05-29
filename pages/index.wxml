@@ -6,7 +6,7 @@
   <view class="content">
   <view class="info">
     <view class="pic fl">
-      <image class="user" bind:tap="Login" src="{{user ? user.avatar: '../imgs/img/user.png' }}"></image>
+      <image class="user" bind:tap="Login" src="{{user ? user.avatar: '../imgs/img/user.png' }}" bindtouchstart="touchStart" bindtouchend="touchEnd" bindlongpress="changeAccount"></image>
     </view>
     <view class="name fl">{{user ? user.nickname : ''}}</view>
     <view class="msg fr"  bind:tap="userNews">

@@ -157,11 +157,14 @@ Page({
          //告诉前一页要删除相应的数据。。。
          let pages = getCurrentPages();   //获取当前页面信息栈
          let prevPage = pages[pages.length-2] as any;
+         console.log('前一个页面栈的数据---------',prevPage.data);
          const updateTopicList=prevPage.data.topList.filter((item)=>{
            return item.id!==this.data.post.id
          })
+         const attendCount=prevPage.data.attendCount;
          prevPage.setData({
-           topList:updateTopicList
+           topList:updateTopicList,
+           attendCount:attendCount-1
          })
          wx.navigateBack({delta:1});
        }

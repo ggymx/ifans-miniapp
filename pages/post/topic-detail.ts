@@ -17,7 +17,7 @@ Page({
     title: '',
     isLike: null,//是否显示红心
     likeCount: 0,  //记录当前点赞数
-    attendCount:5 //记录初始的投稿数
+    attendCount:0 //记录初始的投稿数
   },
   createAnswer(event: any) {
     const topic = this.data.post

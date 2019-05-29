@@ -2,6 +2,7 @@ import api from '../common/api';
 import { smartGotoPage } from '../common/helper';
 import base from './base';
 import store from './store';
+let startTime,endTime;
 Page({
   data: {
     user: null,
@@ -60,6 +61,7 @@ Page({
     }
   },
   Login() {
+    if(this.endTime-this.startTime<3000){
     if (this.data.user) {
       const userId = wx.getStorageSync('userId');
       base.link('user', userId);
@@ -67,11 +69,45 @@ Page({
     else {
       base.link('login');
     }
+  }
   },
   manyTopic(event: any) {
       base.link('oldIndex');
   },
   createTopic(event: any) {
       base.link('cTopic');
+  },
+  touchStart(e:any){
+    console.log('触摸开始--------',e.timeStamp);
+    this.startTime=e.timeStamp;
+  },
+  touchEnd(e:any){
+    console.log('触摸结束--------',e.timeStamp);
+    this.endTime=e.timeStamp;
+  },
+  //切换小号
+  changeAccount(){
+    wx.showActionSheet({
+      itemList: ['账号列表', '清除数据', '退出登录'],
+      success (res) {
+        console.log(res.tapIndex)
+        if(res.tapIndex===0){
+          if(wx.getStorageSync('token')){
+            smartGotoPage({
+              url:'/pages/list'
+            })
+          }else{
+            smartGotoPage({
+              url:'/pages/login'
+            });
+          }
+        }else if(res.tapIndex===1){
+          wx.clearStorageSync();
+        }else{
+          console.log('用户退出登录');
+        }
+      }
+    })
+    console.log('切换小号-----------------');
   }
 })
