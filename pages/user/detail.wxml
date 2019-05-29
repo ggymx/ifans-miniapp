@@ -48,4 +48,4 @@
     </block>
     </block>
 </view>
-<post-share-canvas post="{{user}}" bind:picready="onSharePicReady" />
+<!-- <post-share-canvas post="{{user}}" bind:picready="onSharePicReady" /> -->
