@@ -155,6 +155,14 @@ Page({
        const data=await base.messageBox(res.id,'/v1/post/remove','post','delete') as any;
        if(data.msg==='del-success'){
          //告诉前一页要删除相应的数据。。。
+         let pages = getCurrentPages();   //获取当前页面信息栈
+         let prevPage = pages[pages.length-2] as any;
+         const updateTopicList=prevPage.data.topList.filter((item)=>{
+           return item.id!==this.data.post.id
+         })
+         prevPage.setData({
+           topList:updateTopicList
+         })
          wx.navigateBack({delta:1});
        }
        console.log('删除后返回的信息-------',data);

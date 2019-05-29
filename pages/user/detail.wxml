@@ -3,7 +3,7 @@
 <wxs module="con" src="../../wxs/converter.wxs"></wxs>
 <navbar back text="{{(curUserId==userId)?'我的首页':con.contextCon(user.nickname,10)}}"></navbar>
 <!--当数据为空或者页面崩溃时背景显示白色-->
-<view class="underlying {{recommendList.length==0?'undefault':''}}">
+<view class="underlying {{topList.length==0?'undefault':''}}">
     <!--页面崩溃-->
     <block wx:if="{{!notErr}}">
      <template is="err"></template>
@@ -18,10 +18,10 @@
         <button open-type="share" class="shareBtn"><image src="../../imgs/img/fenxiang.png" class="bkimg"/></button>
     </view>
     <!-- 内容 -->
-    <block wx:if="{{recommendList.length!=0}}">
+    <block wx:if="{{topList.length!=0}}">
     <view class="container" style="margin-top:20rpx;">
    
-       <block wx:for="{{recommendList}}" wx:for-index="index">
+       <block wx:for="{{topList}}" wx:for-index="index">
         <postCard wx:if="{{item.type=='1'}}" card showTitle showIssue arrowBtn like post="{{item}}" showMore="{{con.isMore(item.text,50)}}" bind:remove="onPostRemove" bindremovePost="rPostCard"/>
         <postCard wx:elif="{{item.type=='2'}}" card showTitle arrowBtn like post="{{item}}" showMore="{{con.isMore(item.text,50)}}" bind:remove="onPostRemove" bindremovePost="rPostCard"/>
       </block>

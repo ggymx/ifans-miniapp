@@ -10,7 +10,7 @@ const app = getApp<IMyApp>()
 Page({
   data: {
     user: null,
-    recommendList: [],
+    topList: [],
     notErr: true,  //页面正常时
     userId: null,  //传入的userId
     curUserId: null  //当前用户
@@ -27,17 +27,17 @@ Page({
     const res=await base.pagingLoad('user',0,userId as number) as any;
     this.setData!({
       user: res.user,
-      recommendList: res.posts
+      topList: res.posts
     });
   },
   onPostRemove(e: any) {
     const { postId } = e.detail
-    const recommendList = this.data.recommendList
-    for (let i = 0; i < recommendList.length; i++) {
-      if (recommendList[i].id === postId) {
-        recommendList.splice(i, 1)
+    const topList = this.data.topList
+    for (let i = 0; i < topList.length; i++) {
+      if (topList[i].id === postId) {
+        topList.splice(i, 1)
         this.setData({
-          recommendList,
+          topList,
         })
         break
       }
@@ -47,7 +47,7 @@ Page({
     const res=await base.pagingLoad('user',0,this.data.userId as number) as any;
     this.setData!({
       user: res.user,
-      recommendList: res.posts
+      topList: res.posts
     });
     setTimeout(() => {
       wx.stopPullDownRefresh({});
@@ -73,14 +73,14 @@ Page({
   rPostCard(e:any){
     console.log('测试自定义事件',e);
     const removePost=e.detail;
-    let res=this.data.recommendList.filter((item)=>{
+    let res=this.data.topList.filter((item)=>{
       if(item.id===removePost.id){
         console.log('找到了删除对象-----',item.id);
       }
       return item.id!==removePost.id;
     });
     this.setData({
-      recommendList:res
+      topList:res
     })
   }
 })

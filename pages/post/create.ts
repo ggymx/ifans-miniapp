@@ -119,7 +119,7 @@ Page({
     if(!wx.getStorageSync('token')){
        base.link('login');
     }else{
-    wx.redirectTo({
+    wx.navigateTo({
       url: `/pages/preview/preview?post=${encodeURIComponent(JSON.stringify(postData))}
            &&isTopic=${this.data.isTopic}`
     })

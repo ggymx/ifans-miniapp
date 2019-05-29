@@ -47,10 +47,10 @@
             <image class="row" src="../../imgs/button-gd@2x.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
         </view>
     </view>
-    <view class="opreate-underlying op" wx:if="{{postArr.length>0}}">
+    <view class="opreate-underlying op" wx:if="{{topList.length>0}}">
         <view class="container">
             <!--不为空-->
-            <block wx:for="{{postArr}}">
+            <block wx:for="{{topList}}">
                 <postCard addClass="item-card" arrowBtn clock like post="{{item}}" bind:remove="onPostRemove" bindremovePost="rPostCard"/>
             </block>
         </view>

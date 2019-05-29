@@ -53,6 +53,7 @@ Component({
             const pages = getCurrentPages().map(p => p.route)
             const currentPage = pages[pages.length - 1]
             let delta = 1
+            console.log('当前页面-----------',currentPage);
             if (isPostPage(currentPage)) {
                 for (delta = 1; delta < pages.length; delta++) {
                     const targetPage = pages[pages.length - delta - 1]
