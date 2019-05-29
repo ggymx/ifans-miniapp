@@ -31,11 +31,16 @@ Page({
       },
       method: 'GET',
       success(res:any) {
-         console.log('接收的小号列表-------',res.data.res);
+         res.data.res.forEach(item => {
+          item.isCurAccount=false;
+             if(item.id===userId){
+               item.isCurAccount=true;
+             }
+         });
+
          that.setData({
           resData:res
          });
-         console.log('res---------------',this.data.resData);
       }
     });
 
@@ -55,5 +60,21 @@ Page({
     // this.setData({
     //   res
     // }
+  },
+  switchAct(e:any){
+    const curItem=e.currentTarget.dataset.item;
+    console.log('点击切换账号------------',e.currentTarget.dataset.item);
+    let update=this.data.resData.data.res;
+    update.forEach(item => {
+      if(item.id===curItem.id){
+          item.isCurAccount=true;
+      }else{
+        item.isCurAccount=false;
+      }
+    });
+    console.log('update-----------------',update);
+    // this.setData({
+    //   resData:update
+    // })
   }
 })

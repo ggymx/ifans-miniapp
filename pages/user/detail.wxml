@@ -41,8 +41,8 @@
                <a class="moreTip" bind:tap="findOldIndex">更多话题 ></a>
            </view>
           <!--随机推送话题-->
-          <block wx:for="{{[1,2,3]}}">
-          <view class="push"><text class="push">上一年级需要提前学习什么知识?</text></view>
+          <block wx:for="{{postList}}">
+          <view class="push" bind:tap="findTopic" data-tid='{{item.id}}'><text class="push">{{item.title}}</text></view>
           </block>
         </view>
     </block>
