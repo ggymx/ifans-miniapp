@@ -13,7 +13,8 @@ Page({
     topList: [],
     notErr: true,  //页面正常时
     userId: null,  //传入的userId
-    curUserId: null  //当前用户
+    curUserId: null,  //当前用户
+    postList:null
   },
   async onLoad(options: any) {
     const userId = options.userId;
@@ -25,9 +26,18 @@ Page({
       curUserId: wx.getStorageSync('userId')
     });
     const res=await base.pagingLoad('user',0,userId as number) as any;
+       //加载前三条话题
+       let resPost=await base.pagingLoad('post',0) as any;
+       console.log('接收到的话题列表--------------',resPost);
+       let postList=resPost.posts.filter((item)=>{
+          return item.type===1
+       }).slice(0,3);
+       console.log('筛选后的rePost-------',postList);
+
     this.setData!({
       user: res.user,
-      topList: res.posts
+      topList: res.posts,
+     postList
     });
   },
   onPostRemove(e: any) {
@@ -68,6 +78,10 @@ Page({
   /*跳转到话题社区 */
   findOldIndex() {
     base.link('oldIndex');
+  },
+  findTopic(e:any){
+    console.log('接收到的e----------',e);
+    base.link('topic',e.currentTarget.dataset.tid);
   },
   //删除post
   rPostCard(e:any){

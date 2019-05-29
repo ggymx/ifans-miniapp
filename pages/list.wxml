@@ -2,11 +2,13 @@
 <navbar back text="账号列表"></navbar>
 <view class="underlying">
 <view class="main">
-    <view class="account-item" wx:for="{{resData.data.res}}"> 
+    <block wx:for="{{resData.data.res}}">
+    <view class="account-item" bind:tap="switchAct" data-item="{{item}}"> 
        <image class="avatar" src="{{item.avatar}}"/>
        <text class="nickname">{{item.nickname}}</text>
        <text class="now" wx:if="{{item.isCurAccount}}">当前账号</text>
     </view>
+    </block>
     <button id="create" bind:tap="createAccount">创建小号</button>
 </view>
 <image src="../imgs/img/account_bk.png" class="bk"/>
