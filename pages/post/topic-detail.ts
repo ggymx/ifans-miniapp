@@ -13,7 +13,7 @@ Page({
     isPreview: true, // 预览状态
     isPublished: false, // 发布成功
     post: null,
-    postArr: [],
+    topList: [],
     title: '',
     isLike: null,//是否显示红心
     likeCount: 0,  //记录当前点赞数
@@ -67,14 +67,14 @@ Page({
   rPostCard(e: any){
     console.log('测试自定义事件',e);
     const removePost=e.detail;
-    const res=this.data.postArr.filter((item)=>{
+    const res=this.data.topList.filter((item)=>{
       if(item.id===removePost.id){
         console.log('找到了删除对象-----',item.id);
       }
       return item.id!==removePost.id;
     });
     this.setData({
-      postArr:res,
+      topList:res,
       attendCount:this.data.attendCount-1
     })
   },
@@ -105,7 +105,7 @@ Page({
     //获取投稿列表
     const res=await base.pagingLoad('rPost',0,options.id) as any;
     this.setData({
-      postArr:res.posts
+      topList:res.posts
     })
     cursor=res.cursor;
   },
@@ -128,7 +128,7 @@ Page({
      setTimeout(async () => {
       const res=await base.pagingLoad('rPost',0,this.data.options.id) as any;
       this.setData({
-        postArr:res.posts
+        topList:res.posts
       })
       cursor=res.cursor;
       wx.stopPullDownRefresh({});
@@ -161,9 +161,9 @@ Page({
   //加载更多
   async loadMore(){
       const res=await base.pagingLoad('rPost',cursor,this.data.options.id as number) as any;
-      if(this.data.postArr.length&&res.posts) {
+      if(this.data.topList.length&&res.posts) {
         this.setData({
-          postArr:this.data.postArr.concat(res.posts)
+          topList:this.data.topList.concat(res.posts)
         });
         cursor=res.cursor;
       }
