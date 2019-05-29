@@ -92,7 +92,7 @@ Page({
               post.id = data.id
               post.createAt = new Date().toISOString()
               post.attendCount=0;
-              post.likeCount=10;
+              post.likeCount=0;
               console.log('新创建的投稿-----',post);
               api.getUserInfo().then(user=>{
                 post.user = user
