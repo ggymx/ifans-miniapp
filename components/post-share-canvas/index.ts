@@ -56,17 +56,19 @@ Component({
       const w = this.autoSize(420)
       const h = this.autoSize(336);
       //分享卡片默认图
-      let imgPath='../../imgs/img/share-bk.png';
+      let imgPath='http://static.qiniu.ifans.pub/FvwfAVm5fMd4LPyvwHduFr1f-2B6-large';
+      console.log('默认的分享图-------',imgPath);
       if(post.thumbnails && post.thumbnails.length > 0) {
         try{
           imgPath = post.thumbnails[0].image
           console.log('替换默认分享图-------------',imgPath);
-          let imgInfo = await getImageInfo(imgPath)
-          drawImageCenterCrop(ctx, imgInfo, 0, 0, w, h)
         } catch (e) {
           console.error('Error to drawImage', e)
         }
       }
+      let imgInfo = await getImageInfo(imgPath)
+      drawImageCenterCrop(ctx, imgInfo, 0, 0, w, h)
+
       ctx.fillStyle = 'rgba(0,0,0,0.2)'
       ctx.fillRect(0, 0, w, h)
 
