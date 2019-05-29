@@ -29,8 +29,6 @@ Page({
       user: res.user,
       recommendList: res.posts
     });
-    console.log('测试接收的recommendList----',this.data.recommendList);
-    console.log('res------------------',res);
   },
   onPostRemove(e: any) {
     const { postId } = e.detail
