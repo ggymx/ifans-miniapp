@@ -2,6 +2,7 @@ import { IUser } from './user';
 import { EPostStatus } from './posts';
 
 export interface INoticeReply {
+  userCount: any;
   isRefPost: any;
   createAt: Date,
   fromUsers: IUser[],

@@ -21,9 +21,9 @@ Page({
     // if (notice.fromUsers[0] == null) {
     //   return
     // }
-    if(notice == null){
-      return;
-    }
+    // if(notice == null){
+    //   return;
+    // }
     console.log("getFontNotice 函数接收的 notice",notice)
     const userId = notice.fromUsers[0].id
     const nickname = notice.fromUsers[0].nickname
@@ -32,7 +32,7 @@ Page({
     let noticeMessage = '' //等2人赞了你的作品 || 评论了你的作品
     let title = ''
     let text = ''
-    const userCount = notice.fromUsers.length;
+    const userCount = notice.userCount;
     if (notice.ttype === ETableType.Post) {
       //判断是否为Post点赞
       if (notice.type === ENoticeType.Like) {
