@@ -173,7 +173,6 @@ export interface IPostListParams {
 export interface IPostListResponse {
   cursor: number
   posts: IPost[]
-  unreadCount: number
 }
 
 /**
