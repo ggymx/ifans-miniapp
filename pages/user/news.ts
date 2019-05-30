@@ -9,7 +9,7 @@ import store from '../store';
 const app = getApp<IMyApp>()
 Page({
   data: {
-    pages:'news',
+    pages: 'news',
     notices: [],
     //当页面正常时
     notErr: true,
@@ -18,9 +18,17 @@ Page({
     return iNotice.map(notice => this.getFontNotice(notice))
   },
   getFontNotice(notice: INoticeReply) {
+    // if (notice.fromUsers[0] == null) {
+    //   return
+    // }
+    if(notice == null){
+      return;
+    }
+    console.log("getFontNotice 函数接收的 notice",notice)
     const userId = notice.fromUsers[0].id
     const nickname = notice.fromUsers[0].nickname
     const avatar = notice.fromUsers[0].avatar
+    const isRefPost= notice.isRefPost
     let noticeMessage = '' //等2人赞了你的作品 || 评论了你的作品
     let title = ''
     let text = ''
@@ -64,36 +72,51 @@ Page({
       noticeMessage,
       title,
       text,
+      isRefPost,
       createAt: notice.createAt,
       userCount,
     } as FontNotice
   },
   async onLoad() {
     const token = wx.getStorageSync('token');
+    console.log('获取token----------------', token);
     const that = this;
     if (token) {
       //获取用户Id
       const userId = wx.getStorageSync('userId')
       const data = await api.getUserNotice({})
-      console.log('获取消息列表---------------',data);
-      const notices = this.httpDataProcessing(data.notices)
+      const notices = this.httpDataProcessing(data.notices).filter(item=>{
+        return item;
+      });
+      console.log('打印通知notice--------------',notices);
       this.setData!({
         notices,
       });
       store.setBrowserNew(true);
     } else {
-        smartGotoPage({
-          url: '/pages/login'
-        });
+      smartGotoPage({
+        url: '/pages/login'
+      });
     }
     // const res=await base.pagingLoad('news',0) as any;
 
   },
   findUser(event: any) {
     const uId = event.target.dataset.uid;
-    base.link('user',uId);
+    base.link('user', uId);
   },
-  findOldIndex(){
+  findOldIndex() {
     base.link('oldIndex');
+  },
+  findDetail(event:any){
+    const tId = event.target.dataset.tid;
+    const isrefpost=event.target.dataset.isrefpost;
+    console.log('event----------',event);
+    console.log('传入的isRefPost------------------', );
+    if(isrefpost===0){
+      base.link('topic',tId);
+    }else if(isrefpost===1){
+      base.link('post',tId);
+    }
   }
 })

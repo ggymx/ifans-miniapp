@@ -80,7 +80,7 @@ Page({
   },
   //options:获取url参数
   async onLoad(options: any) {
-    console.log('触发加载--------');
+    console.log('触发加载--------tid',options.id);
     const that = this as any;
     this.setData({
       isPublished: options.isPublished === '1',

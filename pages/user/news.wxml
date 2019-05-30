@@ -20,10 +20,11 @@
             <view style="height:auto;padding:0;margin-top:26rpx;">
               <text class="username">{{con.contextCon(item.nickname,15)}}</text>
               <text>{{item.noticeMessage}}</text>
-            </view>
-            <text class="title" style="margin-bottom:0;" data-tid="{{item.tid}}" wx:if="{{item.title}}">
+            </view><!--
+            --><view class="title" style="margin-bottom:0;" data-tid="{{item.tid}}" data-isRefPost="{{item.isRefPost}}" 
+              wx:if="{{item.title}}" bind:tap="findDetail">
               #{{item.title}}#
-            </text>
+            </view>
             <text class="comment" wx:if="{{item.text}}">{{item.text}}</text>
           </view>
         </view>

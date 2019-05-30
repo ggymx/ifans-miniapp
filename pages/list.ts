@@ -43,23 +43,6 @@ Page({
          });
       }
     });
-
-    // let res = this.data.res.map((item)=>{
-    //    item.isCurAccount=false;
-    //    if(item.id===userId){
-    //      item.isCurAccount=true;
-    //    }
-    // });
-    // let res=this.data.res.data.res;
-    // res.forEach(item => {
-    //    item.isCurAccount=false;
-    //      if(item.id===userId){
-    //        item.isCurAccount=true;
-    //      }
-    // });
-    // this.setData({
-    //   res
-    // }
   },
   switchAct(e:any){
     const curItem=e.currentTarget.dataset.item;

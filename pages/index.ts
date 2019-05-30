@@ -2,17 +2,19 @@ import api from '../common/api';
 import { smartGotoPage } from '../common/helper';
 import base from './base';
 import store from './store';
-let startTime,endTime;
+let startTime, endTime;
 Page({
   data: {
     user: null,
-    isBrowserNew:null
+    isRead: true
   },
   async getFormId(e: any) {
     const res = await api.reportUserFormId({ formId: e.detail.formId })
   },
-  onLoad(){
-    //
+  onLoad() {
+    //监测是否有未读消息
+    const token=wx.getStorageSync('token');
+    this.isRead(token);
   },
   async onShow() {
     const token = wx.getStorageSync('token');
@@ -23,10 +25,12 @@ Page({
           user
         })
       }
-      this.setData({
-        isBrowserNew:store.getBrowserNew()
-      })
-      console.log('全局存储的store的状态',this.data.isBrowserNew);
+      console.log('打印user---------', this.data.user)
+      this.isRead(token);
+      // this.setData({
+      //   isBrowserNew: store.getBrowserNew()
+      // })
+      // console.log('全局存储的store的状态', this.data.isBrowserNew);
     }
   },
   onShareAppMessage(opts: Page.IShareAppMessageOption) {
@@ -61,53 +65,90 @@ Page({
     }
   },
   Login() {
-    if(this.endTime-this.startTime<3000){
-    if (this.data.user) {
-      const userId = wx.getStorageSync('userId');
-      base.link('user', userId);
+    if (this.endTime - this.startTime < 3000) {
+      if (this.data.user) {
+        const userId = wx.getStorageSync('userId');
+        base.link('user', userId);
+      }
+      else {
+        base.link('login');
+      }
     }
-    else {
-      base.link('login');
-    }
-  }
   },
   manyTopic(event: any) {
-      base.link('oldIndex');
+    base.link('oldIndex');
   },
   createTopic(event: any) {
-      base.link('cTopic');
+    base.link('cTopic');
   },
-  touchStart(e:any){
-    console.log('触摸开始--------',e.timeStamp);
-    this.startTime=e.timeStamp;
+  touchStart(e: any) {
+    this.startTime = e.timeStamp;
   },
-  touchEnd(e:any){
-    console.log('触摸结束--------',e.timeStamp);
-    this.endTime=e.timeStamp;
+  touchEnd(e: any) {
+    this.endTime = e.timeStamp;
+  },
+  //用户是否有未读消息
+  isRead(token: string){
+    const that=this as any;
+    console.log('token-------------');
+    if(token){
+      api.request({
+        url:'/v1/notice/unread-count',
+        method:'GET',
+        header:{
+          Authorization: token
+        },
+        success(res:any){
+          console.log('unreadCount--------',res.data.unreadCount)
+          if(res.data.unreadCount){
+            that.setData({
+                 isRead:false
+               })
+          }else{
+            that.setData({
+              isRead:true
+            })
+          }
+        }
+      });
+    }
   },
   //切换小号
-  changeAccount(){
-    wx.showActionSheet({
-      itemList: ['账号列表', '清除数据', '退出登录'],
-      success (res) {
-        console.log(res.tapIndex)
-        if(res.tapIndex===0){
-          if(wx.getStorageSync('token')){
-            smartGotoPage({
-              url:'/pages/list'
-            })
-          }else{
-            smartGotoPage({
-              url:'/pages/login'
-            });
-          }
-        }else if(res.tapIndex===1){
-          wx.clearStorageSync();
-        }else{
-          console.log('用户退出登录');
+  changeAccount() {
+
+    const token=wx.getStorageSync('token');
+    const userId=wx.getStorageSync('userId');
+    api.request({
+      url: '/v1/user/mini-root',
+      header: {
+        Authorization: token // 默认值
+      },
+      data:{
+        userId
+      },
+      method: 'GET',
+      success(res:any) {
+        console.log('返回成功-----------------');
+        if(token&&res.data.isRoot){
+          wx.showActionSheet({
+            itemList: ['账号列表', '清除数据', '退出登录'],
+            success(res) {
+              console.log(res.tapIndex)
+              if (res.tapIndex === 0) {
+                  smartGotoPage({
+                    url: '/pages/list'
+                  })
+              } else if (res.tapIndex === 1) {
+                wx.clearStorageSync();
+              } else {
+                console.log('用户退出登录');
+              }
+            }
+          })
         }
+
       }
-    })
+    });
     console.log('切换小号-----------------');
   }
 })
