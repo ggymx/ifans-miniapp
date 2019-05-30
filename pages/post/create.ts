@@ -18,10 +18,13 @@ Page({
   async didPressChooesImage() {
     const allowMax = 9 - this.data.image2Commit.length
     const images = await chooseImage(allowMax)
-    const image2Commit = this.data.image2Commit.concat(images)
-    this.setData!({
-      image2Commit
-    })
+    console.log('image2Commit的长度-------------',this.data.image2Commit.length);
+    if(this.data.image2Commit.length<9){
+      const image2Commit = this.data.image2Commit.concat(images)
+      this.setData!({
+        image2Commit
+      })
+    }
   },
   delPic(e: any) {
     const that = this;

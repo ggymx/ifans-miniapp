@@ -29,8 +29,8 @@
 .itemRight {
   width: 490rpx;
   height: 100%;
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
 }
 
 .username {
@@ -55,7 +55,7 @@
   color: #09A6DC;
   margin-top: 16rpx;
   margin-bottom: 16rpx;
-  line-height:0.5;
+  line-height:1.5;
 }
 
 .comment {
