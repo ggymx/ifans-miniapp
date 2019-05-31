@@ -5,7 +5,6 @@ import { smartGotoPage } from '../../common/helper';
 import { FontNotice } from '../../common/types/font_notice';
 import { ENoticeType, ETableType, INoticeReply } from '../../common/types/notice_reply';
 import base from '../base'
-import store from '../store';
 const app = getApp<IMyApp>()
 Page({
   data: {
@@ -18,13 +17,6 @@ Page({
     return iNotice.map(notice => this.getFontNotice(notice))
   },
   getFontNotice(notice: INoticeReply) {
-    // if (notice.fromUsers[0] == null) {
-    //   return
-    // }
-    // if(notice == null){
-    //   return;
-    // }
-    console.log("getFontNotice 函数接收的 notice",notice)
     const userId = notice.fromUsers[0].id
     const nickname = notice.fromUsers[0].nickname
     const avatar = notice.fromUsers[0].avatar
@@ -79,7 +71,6 @@ Page({
   },
   async onLoad() {
     const token = wx.getStorageSync('token');
-    console.log('获取token----------------', token);
     const that = this;
     if (token) {
       //获取用户Id
@@ -88,18 +79,14 @@ Page({
       const notices = this.httpDataProcessing(data.notices).filter(item=>{
         return item;
       });
-      console.log('打印通知notice--------------',notices);
       this.setData!({
         notices,
       });
-      store.setBrowserNew(true);
     } else {
       smartGotoPage({
         url: '/pages/login'
       });
     }
-    // const res=await base.pagingLoad('news',0) as any;
-
   },
   findUser(event: any) {
     const uId = event.target.dataset.uid;
@@ -108,11 +95,9 @@ Page({
   findOldIndex() {
     base.link('oldIndex');
   },
-  findDetail(event:any){
+  findDetail(event: any){
     const tId = event.target.dataset.tid;
     const isrefpost=event.target.dataset.isrefpost;
-    console.log('event----------',event);
-    console.log('传入的isRefPost------------------', );
     if(isrefpost===0){
       base.link('topic',tId);
     }else if(isrefpost===1){

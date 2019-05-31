@@ -38,10 +38,6 @@ Component({
       type: Boolean,
       value: false
     },
-    // isLike: {
-    //   type: Boolean,
-    //   value: true
-    // },
     final: {
       type: Boolean,
       value: false
@@ -85,9 +81,6 @@ Component({
       const topic = instance.properties.post;
       //目前仅支持对话题投稿，不支持投稿评论
       if(topic.type===1){
-      // smartGotoPage({
-      //    url: '/pages/post/create?topic=' + encodeURIComponent(JSON.stringify(topic))
-      // });
       base.link('cPost',0,encodeURIComponent(JSON.stringify(topic)));
      }else{
        //对投稿进行评论，暂无
@@ -104,7 +97,6 @@ Component({
      if(wx.getStorageSync('token')){
        if(wx.getStorageSync('userId')===res.userId){
         const msg= await base.messageBox(res.id,'/v1/post/remove','post','delete');
-         console.log('调用回执---------------',msg);
          if(msg){
           (this as any).triggerEvent('removePost', (this as any).data.post, {composed:true});
          }

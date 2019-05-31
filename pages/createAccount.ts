@@ -2,11 +2,9 @@
 //获取应用实例
 import { IMyApp } from '../app'
 import api from '../common/api';
-import { smartGotoPage } from '../common/helper';
 import { chooseImage } from '../common/upload';
 
 const app = getApp<IMyApp>()
-let loginCode: string
 Page({
   data: {
     ID: '',
@@ -18,10 +16,8 @@ Page({
     this.setData({
       upLoadImage
     })
-    console.log('上传图片的路径--------------', upLoadImage);
   },
   inputID(e: any) {
-    console.log('用户的昵称------------------', e.detail.value)
     this.setData({
       ID: e.detail.value
     })
@@ -40,8 +36,7 @@ Page({
           rootuid: userId
         },
         method: 'POST',
-        success(res:any) {
-          console.log('返回的数据', res);
+        success(res: any) {
           if(res&&res.data.id){
             wx.showToast({ title: '创建成功！' });
             setTimeout(() => {

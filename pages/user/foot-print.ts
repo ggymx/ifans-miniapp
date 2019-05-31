@@ -23,7 +23,6 @@ Page({
       footPrintList:res.posts
     })
     cursor=res.cursor;
-    console.log('足迹页面获取列表',res);
   },
     // 加载
     async loadMore() {

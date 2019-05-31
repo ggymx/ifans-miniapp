@@ -10,8 +10,6 @@
         <view class="user">
             <image class="info fl" src="{{user.avatar}}"></image>
             <view class="name fl">{{user.nickname}}</view>
-            <!-- <image class="info fl" src="../../imgs/img/pen.png"></image>
-            <view class="name fl">DNF</view> -->
         </view>
         <text class="content">{{post.text}}</text>
         <!--缩略图模板-->

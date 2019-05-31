@@ -56,7 +56,6 @@ Page({
      this.setData({
        topList:this.data.topList.concat(res.posts)
      })
-     console.log('打印topicList',this.data.topList);
      cursor=res.cursor;
     }
   },
@@ -72,13 +71,9 @@ Page({
     this.loadMore();
   },
    //删除post
-   rPostCard(e:any){
-    console.log('测试自定义事件',e);
+   rPostCard(e: any){
     const removePost=e.detail;
-    let res=this.data.topList.filter((item)=>{
-      if(item.id===removePost.id){
-        console.log('找到了删除对象-----',item.id);
-      }
+    const res=this.data.topList.filter((item)=>{
       return item.id!==removePost.id;
     });
     this.setData({
