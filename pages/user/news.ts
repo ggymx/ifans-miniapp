@@ -17,6 +17,9 @@ Page({
     return iNotice.map(notice => this.getFontNotice(notice))
   },
   getFontNotice(notice: INoticeReply) {
+    if(notice===null){
+      return;
+    }
     const userId = notice.fromUsers[0].id
     const nickname = notice.fromUsers[0].nickname
     const avatar = notice.fromUsers[0].avatar
