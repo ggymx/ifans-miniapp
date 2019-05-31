@@ -10,6 +10,10 @@
   box-sizing: border-box;
   position: relative;
   background-color: rgb(255, 255, 255);
+
+  border-bottom-style:solid;
+  border-width:10rpx;
+  border-color:rgba(244,245,249,1);
 }
 
 .content {

@@ -106,27 +106,6 @@ color:rgb(153, 153, 153);
   text-align:center
 }
 
-/*没有更多信息时*/
-/* .no-more{
-  height:554px;
-font-size:13px;
-color:rgb(153, 153, 153);
-display:flex;
-flex-direction:column;
-align-items:center;
-border-top-style:solid;
-border-top-width:1rpx;
-border-top-color: rgb(153, 153, 153)
-}
-.nomore-img{
-  width:293rpx;
-height:193rpx;
-margin-top:250rpx;
-}
-.nomore-text{
-  margin-top:80rpx;
-  text-align:center;
-} */
 /*页面崩溃时*/
 .underlying.err{
   background: #FFF;

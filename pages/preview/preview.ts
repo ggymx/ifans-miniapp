@@ -1,5 +1,5 @@
 import api from '../../common/api'
-import { smartGotoPage, isPostPage } from '../../common/helper'
+import { smartGotoPage} from '../../common/helper'
 import { uploadChosenImages } from '../../common/upload'
 import base from '../base';
 Page({
@@ -93,14 +93,12 @@ Page({
               post.createAt = new Date().toISOString()
               post.attendCount=0;
               post.likeCount=0;
-              console.log('新创建的投稿-----',post);
               api.getUserInfo().then(user=>{
                 post.user = user
                 postArr.unshift(post)
                 topicPage.setData({
                   postArr
                 })
-                console.log('重新渲染的topicPage--------------',topicPage.data);
               })
             }
             wx.redirectTo({
@@ -117,13 +115,11 @@ Page({
   },
   //options:获取url参数
   async onLoad(options: any) {
-    console.log('isTopic：---',options.isTopic)
     const post = JSON.parse(decodeURIComponent(options.post))
     this.setData({
       post,
       isTopic:options.isTopic
     })
-    console.log('预览post--------',this.data.post);
   },
   async onShow(){
     const that=this as any;

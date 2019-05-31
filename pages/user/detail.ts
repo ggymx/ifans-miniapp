@@ -1,8 +1,6 @@
 //index.js
 //获取应用实例
 import { IMyApp } from '../../app'
-import api from '../../common/api';
-import { smartGotoPage } from '../../common/helper';
 import base from '../base';
 
 const app = getApp<IMyApp>()
@@ -27,12 +25,10 @@ Page({
     });
     const res=await base.pagingLoad('user',0,userId as number) as any;
        //加载前三条话题
-       let resPost=await base.pagingLoad('post',0) as any;
-       console.log('接收到的话题列表--------------',resPost);
-       let postList=resPost.posts.filter((item)=>{
+       const resPost=await base.pagingLoad('post',0) as any;
+       const postList=resPost.posts.filter((item)=>{
           return item.type===1
        }).slice(0,3);
-       console.log('筛选后的rePost-------',postList);
 
     this.setData!({
       user: res.user,
@@ -79,18 +75,13 @@ Page({
   findOldIndex() {
     base.link('oldIndex');
   },
-  findTopic(e:any){
-    console.log('接收到的e----------',e);
+  findTopic(e: any){
     base.link('topic',e.currentTarget.dataset.tid);
   },
   //删除post
-  rPostCard(e:any){
-    console.log('测试自定义事件',e);
+  rPostCard(e: any){
     const removePost=e.detail;
-    let res=this.data.topList.filter((item)=>{
-      if(item.id===removePost.id){
-        console.log('找到了删除对象-----',item.id);
-      }
+    const res =this.data.topList.filter((item)=>{
       return item.id!==removePost.id;
     });
     this.setData({

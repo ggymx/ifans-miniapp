@@ -1,7 +1,6 @@
 import api from '../common/api';
 import { smartGotoPage } from '../common/helper';
 import base from './base';
-import store from './store';
 let startTime, endTime;
 Page({
   data: {
@@ -25,12 +24,7 @@ Page({
           user
         })
       }
-      console.log('打印user---------', this.data.user)
       this.isRead(token);
-      // this.setData({
-      //   isBrowserNew: store.getBrowserNew()
-      // })
-      // console.log('全局存储的store的状态', this.data.isBrowserNew);
     }
   },
   onShareAppMessage(opts: Page.IShareAppMessageOption) {

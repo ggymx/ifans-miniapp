@@ -22,9 +22,7 @@ class Base {
         wx.showToast({
           title: '删除成功',
           success() {
-            // wx.navigateBack({
-            //   delta: 1
-            // })
+           //
           }
         });
         return {id,msg:'del-success'}
@@ -50,19 +48,7 @@ class Base {
          }
          smartGotoPage({
            url:'/pages/post/report'
-         })
-          // api.request({
-          //   url,
-          //   data,
-          //   method: 'POST',
-          //   success(res) {
-          //     const data = res.data as any;
-          //     data.msg === 'ok'
-          //       ? wx.showToast({ title: '举报成功' })
-          //       : '';
-          //     // {id,msg:'report-success'}
-          //   }
-          // });
+         });
         }
       }
     });
@@ -90,7 +76,6 @@ class Base {
             return await that.handlePopDelete(id, url, target)
           }
         } catch (error) {
-         console.log('取消删除------------',error);
          return null;
         }
       } else {
@@ -102,7 +87,6 @@ class Base {
           return await that.handlePopReport(id, url, target, todo)
         }
          }catch(error){
-          console.log('取消举报-----------',error);
           return null;
        }
       }
@@ -261,54 +245,20 @@ class Base {
    */
   public async pagingLoad(target: string, cursor: number=0,...other): Promise<object> {
     let list: object = null;
-     //cursor不等于0说明是加载更多
-    // if (cursor !== 0) {
-    //   wx.showLoading({
-    //     title: '加载更多'
-    //   });
-    //   setTimeout(() => {
-    //     wx.hideLoading({});
-    //   }, 500);
-    // }
     //获取话题列表
     if(target==='post'){
       list = await api.getHomeTopicList({ cursor, limit: 10 });
-      console.log('话题列表的list',list);
     }else if(target==='footPrint'){
       list =await api.getFootPrint({cursor,limit:10});
-      console.log('足迹列表的list',list);
     }else if(target==='news'){
-      // console.log('传入消息列表的cursor',cursor);
-      // list =await api.getUserNotice({cursor,limit:10});
-      // console.log('消息列表的list',list);
+     //
     }else if(target==='user'){
        list =await api.getUser({id:other[0]});
-       console.log('用户列表----',list);
     }else if(target==='rPost'){
        list =await api.getRefPostList({ id:other[0], cursor, limit: 10 });
-       console.log('参与列表-----------',list);
     }else if(target==='rComment') {
        list =await api.getCommentList({postId:other[0],cursor,limit:10});
-       console.log('评论列表-------------',list);
     }
-  //   if(target!=='rComment'){
-  //   if ((list as any).posts.length === 0) {
-  //     wx.showToast({
-  //       icon: 'none',
-  //       title: '已经到底了。。。'
-  //     });
-  //   }
-  // }else{
-  //   if ((list as any).comments.length === 0) {
-  //     wx.showToast({
-  //       icon: 'none',
-  //       title: '已经到底了。。。'
-  //     });
-  //   }
-  // }
-  // setTimeout(() => {
-  //   wx.hideToast({});
-  // }, 400);
     return new Promise((resolve) => { resolve(list) });
 }
 }
