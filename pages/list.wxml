@@ -4,7 +4,7 @@
 <view class="main">
     <block wx:for="{{resData.data.res}}">
     <view class="account-item" bind:tap="switchAct" data-item="{{item}}"> 
-       <image class="avatar" src="{{item.avatar}}"/>
+       <image class="avatar" mode="aspectFill" src="{{item.avatar}}"/>
        <text class="nickname">{{item.nickname}}</text>
        <!-- <text class="id">({{item.id}})</text> -->
        <text class="now" wx:if="{{item.isCurAccount}}">当前账号</text>

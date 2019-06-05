@@ -2,7 +2,7 @@
 <navbar back text="创建小号"></navbar>
 <view class="underlying">
 <view class="main">
-    <image src="{{upLoadImage?upLoadImage:'../imgs/img/account.png'}}" class="avatar" bind:tap="uploadAvatar"/>
+    <image src="{{upLoadImage?upLoadImage:'../imgs/img/account.png'}}" mode="aspectFill" class="avatar" bind:tap="uploadAvatar"/>
     <text class="tip" bind:tap="uploadAvatar">点击上传头像</text>
     <input class="nickname" placeholder="创建账号ID" style="margin-top:59rpx;" 
          placeholder-class="nickname-pr" value="{{ID}}" bindinput='inputID'></input>
