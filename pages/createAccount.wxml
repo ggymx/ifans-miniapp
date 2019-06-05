@@ -6,8 +6,8 @@
     <text class="tip" bind:tap="uploadAvatar">点击上传头像</text>
     <input class="nickname" placeholder="创建账号ID" style="margin-top:59rpx;" 
          placeholder-class="nickname-pr" value="{{ID}}" bindinput='inputID'></input>
-    <button id="create" bind:tap="confirmCreate">确认创建</button>
 </view>
+    <button id="create" bind:tap="confirmCreate">确认创建</button>
 <image src="../imgs/img/account_bk.png" class="bk"/>
 </view>
 
