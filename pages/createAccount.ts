@@ -3,6 +3,8 @@
 import { IMyApp } from '../app'
 import api from '../common/api';
 import { chooseImage } from '../common/upload';
+import { uploadChosenImages } from '../common/upload';
+
 
 const app = getApp<IMyApp>()
 Page({
@@ -13,6 +15,7 @@ Page({
   //上传头像
   async uploadAvatar() {
     const upLoadImage = await chooseImage(1);
+    console.log("upLoadImage",upLoadImage)
     this.setData({
       upLoadImage
     })
@@ -23,24 +26,33 @@ Page({
     })
   },
   //创建用户
-  confirmCreate() {
+  async confirmCreate() {
+
     if (this.data.ID && this.data.upLoadImage) {
+
+      const { uptoken } = await api.getUploadToken({})
+      if (!uptoken) { return null }
+
+      const imgUrlArr = await uploadChosenImages(uptoken,this.data.upLoadImage)
+      const imgUrl = imgUrlArr[0].imageURL
+      console.log("imgUrl",imgUrl)
+
       const that = this as any;
-      const userId = wx.getStorageSync('userId');
+      // const userId = wx.getStorageSync('userId');
       api.request({
         url: '/v1/user/create-mini',
         data: {
           nickname: this.data.ID,
-          avatar: this.data.upLoadImage,
+          avatar: imgUrl,
           regInfo: 'wxapp',
-          rootuid: userId
+          // rootuid: userId
         },
         method: 'POST',
         success(res: any) {
           if(res&&res.data.id){
             wx.showToast({ title: '创建成功！' });
             setTimeout(() => {
-              wx.navigateBack({ delta: 2 });
+              wx.navigateBack({ delta: 1 });
             }, 200);
           }
         }

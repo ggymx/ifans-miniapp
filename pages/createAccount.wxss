@@ -34,7 +34,7 @@
   background: rgba(238, 238, 238, 1);
   border: 2rpx solid rgba(0, 0, 0, 1);
   border-radius: 16rpx;
-  margin-top: 551rpx;
+  /* margin-top: 551rpx; */
   font-size: 34rpx;
   font-family: PingFang-SC-Bold;
   font-weight: bold;
@@ -42,6 +42,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position:fixed;
+  bottom:20rpx;
+  left:45rpx;
+  z-index:10;
 
 }
 

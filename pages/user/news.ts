@@ -18,7 +18,7 @@ Page({
   },
   getFontNotice(notice: INoticeReply) {
     if(notice===null){
-      return;
+      return false;
     }
     const userId = notice.fromUsers[0].id
     const nickname = notice.fromUsers[0].nickname

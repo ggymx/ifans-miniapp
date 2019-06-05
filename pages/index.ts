@@ -84,7 +84,7 @@ Page({
   //用户是否有未读消息
   isRead(token: string){
     const that=this as any;
-    console.log('token-------------');
+    console.log('token-------------',token);
     if(token){
       api.request({
         url:'/v1/notice/unread-count',
@@ -112,37 +112,38 @@ Page({
 
     const token=wx.getStorageSync('token');
     const userId=wx.getStorageSync('userId');
-    api.request({
-      url: '/v1/user/mini-root',
-      header: {
-        Authorization: token // 默认值
-      },
-      data:{
-        userId
-      },
-      method: 'GET',
-      success(res:any) {
-        console.log('返回成功-----------------');
-        if(token&&res.data.isRoot){
-          wx.showActionSheet({
-            itemList: ['账号列表', '清除数据', '退出登录'],
-            success(res) {
-              console.log(res.tapIndex)
-              if (res.tapIndex === 0) {
-                  smartGotoPage({
-                    url: '/pages/list'
-                  })
-              } else if (res.tapIndex === 1) {
-                wx.clearStorageSync();
-              } else {
-                console.log('用户退出登录');
+    if(token){
+      api.request({
+        url: '/v1/user/mini-root',
+        header: {
+          Authorization: token // 默认值
+        },
+        data:{
+          userId
+        },
+        method: 'GET',
+        success(res:any) {
+          console.log('返回成功-----------------');
+          console.log("res", res)
+          if(token&&res.data.isRoot){
+            wx.showActionSheet({
+              itemList: ['账号列表', '清除数据', '退出登录'],
+              success(res) {
+                console.log(res.tapIndex)
+                if (res.tapIndex === 0) {
+                    smartGotoPage({
+                      url: '/pages/list'
+                    })
+                } else if (res.tapIndex === 1) {
+                  wx.clearStorageSync();
+                } else {
+                  console.log('用户退出登录');
+                }
               }
-            }
-          })
+            })
+          }
         }
-
-      }
-    });
-    console.log('切换小号-----------------');
+      });
+    }
   }
 })
