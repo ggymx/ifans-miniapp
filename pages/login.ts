@@ -36,6 +36,7 @@ Page({
         },
         method: 'POST',
         success(res) {
+          console.log(res)
           const data = res.data as any
           that.setData!({
             returnInfo: res.data,
@@ -43,11 +44,19 @@ Page({
           });
           //往缓存中添加token（异步）
           api.setToken(data.token);
+
+
           //往缓存中添加当前用户的id
           wx.setStorage({
             key: 'userId',
-            data: data.user.id
+            data: data.user.id,
           });
+          //添加rootuid
+          wx.setStorage({
+            key: 'rootuid',
+            data: data.user.rootuid,
+          });
+
           wx.showLoading({title: '加载中'});
           setTimeout(() => {
             wx.hideLoading({

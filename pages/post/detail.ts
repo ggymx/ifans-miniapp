@@ -24,7 +24,8 @@ Page({
     isPublished: false,
     focus: false,
     comments: [],
-    option:null
+    option:null,
+    showMiniUserFlag:false
   },
   isCreateAnserPage(event: any) {
     this.setData!({
@@ -78,6 +79,7 @@ Page({
       comment.userId=wx.getStorageSync('userId');
       const comments = this.data.comments || []
       comments.push(comment)
+
       this.setData({
         comments,
         commentValue: '',
@@ -124,6 +126,19 @@ Page({
     base.giveLike(this);
   },
   async onLoad(options: any) {
+    const that = this as any;
+
+    let flag=false;
+    wx.getStorage({
+      key: 'rootuid',
+      success (res) {
+       flag = res.data != null ? true : false;
+       that.setData({
+        showMiniUserFlag:flag
+      })
+      }
+    })
+
     id = options.id || { postId }
     let res=await api.getPost({id}) as any;
     console.log('接受到的文章详情--------',res);

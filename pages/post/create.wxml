@@ -5,7 +5,7 @@
     <view class="title">
         <!--发布话题-->
         <block wx:if="{{isTopic}}">
-        <input placeholder="请输入标题" class="tit" placeholder-class='placeholder-tit' bindinput="titleInput" bindconfirm="editerConfirm" value="{{titleValue}}" adjust-position="{{false}}" style="height:{{titleStyle}}" bindblur="editerConfirm"></input>
+        <input placeholder="请输入标题" class="tit" placeholder-class='placeholder-tit' bindinput="titleInput" bindconfirm="editerConfirm" value="{{titleValue}}" adjust-position="{{false}}" style="height:{{titleStyle}}" bindblur="editerConfirm" maxlength='40'></input>
         </block>
         <!--发布投稿-->
         <block wx:else>

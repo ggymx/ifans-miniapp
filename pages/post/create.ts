@@ -54,9 +54,18 @@ Page({
     }
   },
   titleInput(event: any) {
-    this.setData!({
-      titleValue: event.detail.value
-    })
+    console.log("event.detail.value",event.detail.value.length)
+    if(event.detail.value.length>=40){
+      wx.showToast({
+        icon: 'none',
+        title: '标题最多40个字呦~'
+      });
+    }else{
+      this.setData!({
+        titleValue: event.detail.value
+      })
+    }
+
   },
   textAreaInput(event: any) {
     this.setData!({

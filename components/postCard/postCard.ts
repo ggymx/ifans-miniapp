@@ -10,6 +10,7 @@ Component({
    * arrowBtn：是否显示右侧的三点按钮
    * showTopic：是否显示关联的话题
    * showIssue：显示发布了话题字样
+   * showMiniUserFlag:显示小号标志，rootuid
    * final:确定是否是最终页面
    * noBorder:是否有边框
    * like：是否显示心形按钮
@@ -31,6 +32,10 @@ Component({
       value: false
     },
     showIssue: {
+      type: Boolean,
+      value: false
+    },
+    showMiniUserFlag: {
       type: Boolean,
       value: false
     },

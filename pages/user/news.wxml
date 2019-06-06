@@ -11,14 +11,15 @@
     </block>
     <!-- 正常页面 -->
     <block wx:elif="{{notices.length!=0}}">
-      <view class="item" wx:for="{{notices}}">
+    <block wx:for="{{notices}}">
+      <view class="item"  bind:tap="findDetail" data-tid="{{item.tid}}" data-isRefPost="{{item.isRefPost}}">
         <view style="width:auto;display:flex">
           <view style="height:100%;width:auto;">
             <image class="avatar" src="{{item.avatar}}" catch:tap="findUser" data-uid="{{item.userId}}" />
           </view>
           <view class="itemRight">
             <view style="height:auto;padding:0;margin-top:26rpx;">
-              <text class="username">{{con.contextCon(item.nickname,15)}}</text>
+              <text class="username" catch:tap="findUser" data-uid="{{item.userId}}" >{{con.contextCon(item.nickname,15)}}</text>
               <text>{{item.noticeMessage}}</text>
             </view><!--
             --><view class="title" style="margin-bottom:0;" data-tid="{{item.tid}}" data-isRefPost="{{item.isRefPost}}" 
@@ -32,6 +33,7 @@
           <text class="date">{{con.dateCon(item.createAt)}}</text>
         </view>
       </view>
+    </block>
     </block>
     <!-- 缺省页面 -->
     <block wx:else>

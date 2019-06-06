@@ -17,7 +17,8 @@ Page({
     title: '',
     isLike: null,//是否显示红心
     likeCount: 0,  //记录当前点赞数
-    attendCount:0 //记录初始的投稿数
+    attendCount:0 ,//记录初始的投稿数
+    showMiniUserFlag:false
   },
   createAnswer(event: any) {
     const topic = this.data.post
@@ -82,6 +83,19 @@ Page({
   async onLoad(options: any) {
     console.log('触发加载--------tid',options.id);
     const that = this as any;
+
+
+    let flag=false;
+    wx.getStorage({
+      key: 'rootuid',
+      success (res) {
+       flag = res.data != null ? true : false;
+       that.setData({
+        showMiniUserFlag:flag
+      })
+      }
+    })
+
     this.setData({
       isPublished: options.isPublished === '1',
       options

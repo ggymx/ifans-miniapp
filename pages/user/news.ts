@@ -99,8 +99,9 @@ Page({
     base.link('oldIndex');
   },
   findDetail(event: any){
-    const tId = event.target.dataset.tid;
-    const isrefpost=event.target.dataset.isrefpost;
+    console.log("点了点了你了诶到了",event)
+    const tId = event.currentTarget.dataset.tid;
+    const isrefpost=event.currentTarget.dataset.isrefpost;
     if(isrefpost===0){
       base.link('topic',tId);
     }else if(isrefpost===1){

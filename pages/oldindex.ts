@@ -6,11 +6,17 @@ import base from './base';
 const app = getApp<IMyApp>()
 let cursor: number = 0;
 Page({
+
   data: {
     topList: [],
     isSubscribe: false,
-    notErr: true
+    notErr: true,
+    showMiniUserFlag:false
   },
+
+  //
+
+
   // 订阅功能
   bindSubscribe() {
     const status = this.data.isSubscribe;
@@ -43,6 +49,19 @@ Page({
     }
   },
   async onLoad() {
+    let that = this;
+    
+    let flag=false;
+    wx.getStorage({
+      key: 'rootuid',
+      success (res) {
+       flag = res.data != null ? true : false;
+       that.setData({
+        showMiniUserFlag:flag
+      })
+      }
+    })
+
      const res=await base.pagingLoad('post',0) as any;
      this.setData({
        topList:res.posts

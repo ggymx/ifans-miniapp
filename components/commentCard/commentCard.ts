@@ -70,6 +70,17 @@ Component({
    }
   },
   ready(){
+    let that = this;
+    let flag=false;
+    wx.getStorage({
+      key: 'rootuid',
+      success (res) {
+       flag = res.data != null ? true : false;
+       that.setData({
+        showMiniUserFlag:flag
+      })
+      }
+    })
     console.log('ready', this.data.comment)
     //保存点赞数量状态
     this.setData({

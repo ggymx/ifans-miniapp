@@ -3,8 +3,11 @@
 <view class="commentBox">
 
     <view class="com-item">
-        <image class="user" src="{{comment.user.avatar}}" catch:tap="findUser"></image>
-        <view class="name"><text catch:tap="findUser">{{comment.user.nickname}}</text></view>
+        <image class="user" src="{{comment.user.avatar}}" catch:tap="findUser" mode="aspectFill"></image>
+        <view class="name">
+            <text catch:tap="findUser" wx:if="{{comment.user.rootuid && showMiniUserFlag}}" >ID({{comment.user.rootuid}})</text>
+            <text catch:tap="findUser">{{comment.user.nickname}}</text>
+        </view>
         <text class="content">{{comment.text}}</text>
         <view class="star" catch:tap="giveCmtLike">
             <image class="stars" src="{{isLike && '../../imgs/img/hong.png' || '../../imgs/img/dianzan.png' }}"></image>

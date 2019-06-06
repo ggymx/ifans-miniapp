@@ -3,9 +3,11 @@
 <view class="publisher-item {{card?'item-card':''}} slot1 slot2" catch:tap="findDetail">
   <!--顶部-->
   <view class="publisher-person">
-    <image src="{{post.user.avatar}}" class="avatar" catch:tap="findUser" />
+    <image src="{{post.user.avatar}}" class="avatar" catch:tap="findUser" mode="aspectFill"/>
     <view class="user-view">
       <!-- 用户名 -->
+      
+        <text class="username" wx:if="{{post.user.rootuid && showMiniUserFlag}}" >ID({{post.user.rootuid}})</text>
         <text class="username" catch:tap="findUser">{{con.contextCon(post.user.nickname,10)}}</text>
         <text wx:if="{{showIssue}}">发布了话题</text>
     </view>
@@ -16,7 +18,9 @@
 
   <view class="publisher-topic" wx:if="{{post.type==1 || (showTitle && post.refPost.title)}}">
       <!-- 话题标题 -->
-      <text wx:if="{{post.type==1}}" class="text-weight">{{con.contextCon(post.title,16)}}</text>
+      <!-- <text wx:if="{{post.type==1}}" class="text-weight">{{con.contextCon(post.title,16)}}</text> -->
+      <text wx:if="{{post.type==1}}" class="text-weight">{{post.title}}</text>
+
       <text wx:if="{{showTitle && post.refPost.title}}" style="line-height:22rpx;"><!--
         -->#{{con.contextCon(post.refPost.title,16)}}#
       </text>

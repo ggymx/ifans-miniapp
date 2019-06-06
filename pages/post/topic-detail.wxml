@@ -10,7 +10,9 @@
             </view>
         </view>
         <view class="user">
-            <image class="info fl" src="{{post.user.avatar}}" bind:tap="findUser"></image>
+            <image class="info fl" src="{{post.user.avatar}}" bind:tap="findUser" mode="aspectFill"></image>
+            <view class="name fl" wx:if="{{post.user.rootuid && showMiniUserFlag}}" >ID({{post.user.rootuid}})</view>
+
             <view class="name fl" catch:tap="findUser">{{post.user.nickname}}</view>
         </view>
         <text class="content" wx:if="{{post.text}}">{{post.text}}</text>
@@ -51,7 +53,7 @@
         <view class="container">
             <!--不为空-->
             <block wx:for="{{topList}}">
-                <postCard addClass="item-card" arrowBtn clock like post="{{item}}" bind:remove="onPostRemove" bindremovePost="rPostCard"/>
+                <postCard addClass="item-card" arrowBtn clock showMiniUserFlag="{{showMiniUserFlag}}" like post="{{item}}" bind:remove="onPostRemove" bindremovePost="rPostCard"/>
             </block>
         </view>
     </view>
